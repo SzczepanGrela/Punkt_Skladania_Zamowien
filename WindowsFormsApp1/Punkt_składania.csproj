@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,25 +47,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="login_window.cs">
+    <Compile Include="Login_window.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="login_window.Designer.cs">
-      <DependentUpon>login_window.cs</DependentUpon>
+    <Compile Include="Login_window.Designer.cs">
+      <DependentUpon>Login_window.cs</DependentUpon>
     </Compile>
-    <Compile Include="Okno.cs">
+    <Compile Include="Main_menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Okno.Designer.cs">
-      <DependentUpon>Okno.cs</DependentUpon>
+    <Compile Include="Main_menu.Designer.cs">
+      <DependentUpon>Main_menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="login_window.resx">
-      <DependentUpon>login_window.cs</DependentUpon>
+    <Compile Include="Resolution.cs" />
+    <Compile Include="Shop_window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shop_window.Designer.cs">
+      <DependentUpon>Shop_window.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Login_window.resx">
+      <DependentUpon>Login_window.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Okno.resx">
-      <DependentUpon>Okno.cs</DependentUpon>
+    <EmbeddedResource Include="Main_menu.resx">
+      <DependentUpon>Main_menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -75,6 +83,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Shop_window.resx">
+      <DependentUpon>Shop_window.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,6 +98,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
