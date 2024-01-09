@@ -39,9 +39,7 @@ namespace WindowsFormsApp1
             if (File.Exists(FilePath))
             {
                 string[] lines = File.ReadAllLines(FilePath); // Reading all lines from the file
-                bool LoginFound = false; // Flag for checking if the user is found
-                bool PasswordFound = false; // Flag for checking if the password is incorrect
-
+                
                 foreach (string line in lines)
                 {
                     string[] passcodes = line.Split(':'); // Splitting the line into login and password
@@ -50,33 +48,28 @@ namespace WindowsFormsApp1
 
                     else
                     {
-                        LoginFound = true; // The user is found
+                       
 
                         string password = passcodes[1]; // Password
                         if (password == EnteredPassword) // If the password is correct
                         {
-                            PasswordFound = true; // The password is correct
-                            break; // Stop searching
+                            
+                            MessageBox.Show("Login successful"); // Show the message
+                            //close this window
+                            this.Close();
+
                         }
                         else // If the password is incorrect
                         {
-                            MessageBox.Show("Login failed. The username or password you entered is incorrect. Please try again."); // Show the message
+                           
                             break; // Stop searching
                         }
 
                     }
                     
                 }
-                if (LoginFound == false) // If the user is not found
-                {
-                    MessageBox.Show("Login failed. The username or password you entered is incorrect. Please try again."); // Show the message
-                }
-                else if (PasswordFound == true) // If the password is correct
-                {
-                    MessageBox.Show("Login successful"); // Show the message
-                    this.Hide(); // Hide the login window
-                    
-                }
+                MessageBox.Show("Login failed. The username or password you entered is incorrect. Please try again."); // Show the message
+
             }
             else MessageBox.Show("File not found");
         }

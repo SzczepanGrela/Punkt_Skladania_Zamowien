@@ -47,32 +47,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login_window.cs">
+    <Compile Include="forms\Login_window.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login_window.Designer.cs">
+    <Compile Include="forms\Login_window.Designer.cs">
       <DependentUpon>Login_window.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main_menu.cs">
+    <Compile Include="forms\Main_window.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main_menu.Designer.cs">
-      <DependentUpon>Main_menu.cs</DependentUpon>
+    <Compile Include="forms\Main_window.Designer.cs">
+      <DependentUpon>Main_window.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Menu_window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Menu_window.Designer.cs">
+      <DependentUpon>Menu_window.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolution.cs" />
-    <Compile Include="Shop_window.cs">
+    <Compile Include="forms\Shop_window.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Shop_window.Designer.cs">
+    <Compile Include="forms\Shop_window.Designer.cs">
       <DependentUpon>Shop_window.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Login_window.resx">
+    <EmbeddedResource Include="forms\Login_window.resx">
       <DependentUpon>Login_window.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main_menu.resx">
-      <DependentUpon>Main_menu.cs</DependentUpon>
+    <EmbeddedResource Include="forms\Main_window.resx">
+      <DependentUpon>Main_window.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Menu_window.resx">
+      <DependentUpon>Menu_window.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -83,7 +92,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Shop_window.resx">
+    <EmbeddedResource Include="forms\Shop_window.resx">
       <DependentUpon>Shop_window.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

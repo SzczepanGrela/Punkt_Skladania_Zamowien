@@ -67,7 +67,7 @@
             this.TextBeforeSearch.BackColor = System.Drawing.Color.LightGray;
             this.TextBeforeSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TextBeforeSearch.ForeColor = System.Drawing.Color.DarkGreen;
-            this.TextBeforeSearch.Location = new System.Drawing.Point(3, 42);
+            this.TextBeforeSearch.Location = new System.Drawing.Point(0, 42);
             this.TextBeforeSearch.Name = "TextBeforeSearch";
             this.TextBeforeSearch.Size = new System.Drawing.Size(567, 57);
             this.TextBeforeSearch.TabIndex = 1;
