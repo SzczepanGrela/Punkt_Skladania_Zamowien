@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Classes;
+using WindowsFormsApp1.Forms;
 
 namespace WindowsFormsApp1
 {
@@ -17,17 +19,21 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
+       
+
         private void ShopButton_Click(object sender, EventArgs e)
         {
-            Shop_window sw = new Shop_window();
-            sw.TopLevel = false;
-            sw.FormBorderStyle = FormBorderStyle.None;
-            sw.Dock = DockStyle.Fill;
-            this.MenuPanel.Controls.Clear();
-            this.MenuPanel.Controls.Add(sw);
-            sw.Show();
+            Methods.ChangeWindow(this.MenuPanel, new Shop_window());
         }
 
-        
+        private void PresentationButton_Click(object sender, EventArgs e)
+        {
+            Methods.ChangeWindow(this.MenuPanel, new Presentation_window());
+        }
+
+        private void MatchButton_Click(object sender, EventArgs e)
+        {
+            Methods.ChangeWindow(this.MenuPanel, new Match_window());
+        }
     }
 }

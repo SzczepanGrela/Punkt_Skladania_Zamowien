@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Methods.cs" />
+    <Compile Include="classes\Stack.cs" />
     <Compile Include="forms\Login_window.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,11 +61,29 @@
     <Compile Include="forms\Main_window.Designer.cs">
       <DependentUpon>Main_window.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\Match_window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Match_window.Designer.cs">
+      <DependentUpon>Match_window.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\Menu_window.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\Menu_window.Designer.cs">
       <DependentUpon>Menu_window.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Presentation_window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Presentation_window.Designer.cs">
+      <DependentUpon>Presentation_window.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Test_shopping_window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Test_shopping_window.Designer.cs">
+      <DependentUpon>Test_shopping_window.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,8 +100,17 @@
     <EmbeddedResource Include="forms\Main_window.resx">
       <DependentUpon>Main_window.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\Match_window.resx">
+      <DependentUpon>Match_window.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\Menu_window.resx">
       <DependentUpon>Menu_window.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Presentation_window.resx">
+      <DependentUpon>Presentation_window.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Test_shopping_window.resx">
+      <DependentUpon>Test_shopping_window.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,7 +138,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
+    <Folder Include="data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

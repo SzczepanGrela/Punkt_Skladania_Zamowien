@@ -29,16 +29,19 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_window));
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.LogInButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.HomeButton = new System.Windows.Forms.Button();
             this.TopBarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopBarPanel
             // 
             this.TopBarPanel.BackColor = System.Drawing.Color.Moccasin;
+            this.TopBarPanel.Controls.Add(this.HomeButton);
             this.TopBarPanel.Controls.Add(this.LogInButton);
             this.TopBarPanel.Controls.Add(this.ReturnButton);
             this.TopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -52,7 +55,7 @@ namespace WindowsFormsApp1
             this.LogInButton.BackColor = System.Drawing.Color.BurlyWood;
             this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LogInButton.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LogInButton.Location = new System.Drawing.Point(543, 13);
+            this.LogInButton.Location = new System.Drawing.Point(552, 13);
             this.LogInButton.Name = "LogInButton";
             this.LogInButton.Size = new System.Drawing.Size(127, 58);
             this.LogInButton.TabIndex = 7;
@@ -68,19 +71,34 @@ namespace WindowsFormsApp1
             this.ReturnButton.Location = new System.Drawing.Point(9, 18);
             this.ReturnButton.Margin = new System.Windows.Forms.Padding(0);
             this.ReturnButton.Name = "ReturnButton";
-            this.ReturnButton.Size = new System.Drawing.Size(209, 53);
+            this.ReturnButton.Size = new System.Drawing.Size(51, 53);
             this.ReturnButton.TabIndex = 6;
-            this.ReturnButton.Text = "< Return";
+            this.ReturnButton.Text = "< ";
             this.ReturnButton.UseVisualStyleBackColor = false;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
             // MainPanel
             // 
+            this.MainPanel.BackColor = System.Drawing.SystemColors.Control;
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 87);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(682, 766);
             this.MainPanel.TabIndex = 8;
+            // 
+            // HomeButton
+            // 
+            this.HomeButton.BackColor = System.Drawing.Color.BurlyWood;
+            this.HomeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeButton.BackgroundImage")));
+            this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.HomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HomeButton.Location = new System.Drawing.Point(296, 11);
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(0);
+            this.HomeButton.Name = "HomeButton";
+            this.HomeButton.Size = new System.Drawing.Size(79, 66);
+            this.HomeButton.TabIndex = 8;
+            this.HomeButton.UseVisualStyleBackColor = false;
+            this.HomeButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // Main_window
             // 
@@ -102,5 +120,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.Button LogInButton;
         private System.Windows.Forms.Panel MainPanel;
+        private System.Windows.Forms.Button HomeButton;
     }
 }

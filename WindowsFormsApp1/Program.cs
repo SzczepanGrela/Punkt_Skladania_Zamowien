@@ -10,16 +10,16 @@ namespace WindowsFormsApp1
     {
 
 
-        /// <summary>
-        /// Główny punkt wejścia dla aplikacji.
-        /// </summary>
+        
         [STAThread]
         static void Main()
         {
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main_window());
+            Main_window mw = new Main_window();  // create an instance of the main window
+            Application.Run(mw);
+            
         }
     }
 }

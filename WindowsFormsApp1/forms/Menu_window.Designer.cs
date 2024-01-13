@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,6 +80,7 @@
             this.MatchButton.TabIndex = 2;
             this.MatchButton.Text = "Match a Product";
             this.MatchButton.UseVisualStyleBackColor = true;
+            this.MatchButton.Click += new System.EventHandler(this.MatchButton_Click);
             // 
             // ShopButton
             // 
@@ -102,6 +103,7 @@
             this.PresentationButton.TabIndex = 1;
             this.PresentationButton.Text = "Free Presentation";
             this.PresentationButton.UseVisualStyleBackColor = true;
+            this.PresentationButton.Click += new System.EventHandler(this.PresentationButton_Click);
             // 
             // Menu_window
             // 
