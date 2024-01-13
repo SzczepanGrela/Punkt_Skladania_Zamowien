@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Forms;
 
 namespace WindowsFormsApp1.classes
 {
@@ -21,10 +22,13 @@ namespace WindowsFormsApp1.classes
             elements.Add(item);
         }
 
-        public Form Pop()
+        public  Form Pop()
         {
+
+            
             if (elements.Count > 1)
             {
+                
                 Form item = elements[elements.Count - 1];
                 elements.RemoveAt(elements.Count - 1);
                 return item;
@@ -43,6 +47,11 @@ namespace WindowsFormsApp1.classes
             
             
         }
+
+        
+
+
+
 
         public Form Peek()
         {
@@ -66,14 +75,15 @@ namespace WindowsFormsApp1.classes
             return elements.Count == 0;
         }
 
-        public void Reset()  // in case of pressing home button, the stack will be cleared and then the main window will be pushed, as the 1st element
+      
+
+        public void Clear()  // in case of pressing home button, the stack will be cleared and then the menu window will be pushed, as the 1st element
         {
-            elements.Clear();
-            this.Push(new Main_window());
+            if (elements.Count > 0)
+                elements.Clear();
+           
         }
 
-       
 
-        
     }
 }

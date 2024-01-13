@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.classes;
 using WindowsFormsApp1.Classes;
+using WindowsFormsApp1.Forms;
+
 
 
 namespace WindowsFormsApp1
@@ -21,10 +24,10 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
 
-            Methods.ChangeWindow(this.MainPanel, new Menu_window());
+            Methods.ChangeWindow(MainPanel);
         }
 
-        public static Stack<Form> previousWindows = new Stack<Form>();  // Stack storing previous windows
+        public static FormStack previousWindows = new FormStack();  // Stack storing previous windows
 
         private Login_window lw; // Var storing if login window was already opened
 
@@ -33,13 +36,22 @@ namespace WindowsFormsApp1
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
-            Menu_window mw = new Menu_window();
-            mw.TopLevel = false;
-            mw.FormBorderStyle = FormBorderStyle.None;
-            mw.Dock = DockStyle.Fill;
-            this.MainPanel.Controls.Clear();
-            this.MainPanel.Controls.Add(mw);
-            mw.Show();
+
+            if (previousWindows.Count() > 0)
+            {
+                Form currentForm = this.MainPanel.Controls.OfType<Form>().FirstOrDefault(); // Pobierz obecny formularz
+                if (currentForm != null)
+                {
+                    this.MainPanel.Controls.Remove(currentForm); // Usuń obecny formularz z panelu
+                    currentForm.Hide(); // Ukryj obecny formularz
+                }
+
+                Form prevForm = Main_window.previousWindows.Pop(); // Pobierz poprzedni formularz ze stosu
+                prevForm.Show(); // Pokaż poprzedni formularz
+                this.MainPanel.Controls.Add(prevForm); // Dodaj poprzedni formularz do panelu
+            }
+
+
         }
         
         private void LogInButton_Click(object sender, EventArgs e)
@@ -57,9 +69,9 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void HomeButton_Click(object sender, EventArgs e)
         {
-
+            Methods.ChangeWindow(MainPanel);
         }
     }
 }

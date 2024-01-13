@@ -12,32 +12,62 @@ namespace WindowsFormsApp1.Classes
 {
     public static class Methods
     {
-       
 
-        public static void ChangeWindow(Panel panel, Form newForm)
+
+        /* public static void ChangeWindow(Form form, Panel panel, Form newForm)
+         {
+
+
+            Form currentForm = panel.Controls.OfType<Form>().FirstOrDefault(); // Pobierz obecny formularz
+             if (currentForm != null)
+             {
+                 currentForm.Hide(); // Ukryj obecny formularz
+                 Main_window.previousWindows.Push(currentForm); // Dodaj obecny formularz do stosu
+             }
+
+             newForm.TopLevel = false;
+             newForm.FormBorderStyle = FormBorderStyle.None;
+             newForm.Dock = DockStyle.Fill;
+             panel.Controls.Clear();
+             panel.Controls.Add(newForm); // Dodaj nowy formularz
+             newForm.Show();
+
+
+         }*/
+
+
+        public static void ChangeWindow(Form form, Form newForm) // MAIN WAY OF ADDING NEW FORM TO PANEL
         {
-            Main_window.previousWindows.Push(newForm);
+
+
+            
+           
+            Main_window.previousWindows.Push(form);  // add current form to stack
+            form.Hide();
+            // take current form and add it to stack
+            
+            newForm.TopLevel = false;
+            newForm.Dock = DockStyle.Fill;
+            newForm.FormBorderStyle = FormBorderStyle.None;
+            newForm.Show(); // show new form
+            
+            
+            
+            
+        }
+
+
+        public static void ChangeWindow(Panel panel)   // home button 
+        {
+            Main_window.previousWindows.Clear(); // Wyczyść stos
+            Menu_window newForm = new Menu_window(); 
             newForm.TopLevel = false;
             newForm.FormBorderStyle = FormBorderStyle.None;
             newForm.Dock = DockStyle.Fill;
             panel.Controls.Clear();
-            panel.Controls.Add(newForm);
+            panel.Controls.Add(newForm); // add new form
             newForm.Show();
-            
-
-        }
-
-
-        public static void ChangeWindow(Form form, Form newForm) // Function opening new form instead of the current one
-        {
-            Main_window.previousWindows.Push(newForm);
-            newForm.TopLevel = false;
-            newForm.FormBorderStyle = FormBorderStyle.None;
-            newForm.Dock = DockStyle.Fill;
-            form.Controls.Clear();
-            form.Controls.Add(newForm);
-            newForm.Show();
-        }
+        } 
 
 
 

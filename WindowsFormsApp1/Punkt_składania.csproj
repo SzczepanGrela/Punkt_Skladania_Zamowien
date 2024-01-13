@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\Methods.cs" />
-    <Compile Include="classes\Stack.cs" />
+    <Compile Include="classes\FormStack.cs" />
     <Compile Include="forms\Login_window.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -31,10 +31,10 @@ namespace WindowsFormsApp1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_window));
             this.TopBarPanel = new System.Windows.Forms.Panel();
+            this.HomeButton = new System.Windows.Forms.Button();
             this.LogInButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.HomeButton = new System.Windows.Forms.Button();
             this.TopBarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,20 @@ namespace WindowsFormsApp1
             this.TopBarPanel.Name = "TopBarPanel";
             this.TopBarPanel.Size = new System.Drawing.Size(682, 87);
             this.TopBarPanel.TabIndex = 7;
+            // 
+            // HomeButton
+            // 
+            this.HomeButton.BackColor = System.Drawing.Color.BurlyWood;
+            this.HomeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeButton.BackgroundImage")));
+            this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.HomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HomeButton.Location = new System.Drawing.Point(296, 11);
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(0);
+            this.HomeButton.Name = "HomeButton";
+            this.HomeButton.Size = new System.Drawing.Size(79, 66);
+            this.HomeButton.TabIndex = 8;
+            this.HomeButton.UseVisualStyleBackColor = false;
+            this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
             // LogInButton
             // 
@@ -85,20 +99,6 @@ namespace WindowsFormsApp1
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(682, 766);
             this.MainPanel.TabIndex = 8;
-            // 
-            // HomeButton
-            // 
-            this.HomeButton.BackColor = System.Drawing.Color.BurlyWood;
-            this.HomeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeButton.BackgroundImage")));
-            this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.HomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.HomeButton.Location = new System.Drawing.Point(296, 11);
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(0);
-            this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Size = new System.Drawing.Size(79, 66);
-            this.HomeButton.TabIndex = 8;
-            this.HomeButton.UseVisualStyleBackColor = false;
-            this.HomeButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // Main_window
             // 

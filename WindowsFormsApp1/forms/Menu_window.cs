@@ -23,17 +23,17 @@ namespace WindowsFormsApp1
 
         private void ShopButton_Click(object sender, EventArgs e)
         {
-            Methods.ChangeWindow(this.MenuPanel, new Shop_window());
+            Methods.ChangeWindow(this,  new Shop_window());
         }
 
         private void PresentationButton_Click(object sender, EventArgs e)
         {
-            Methods.ChangeWindow(this.MenuPanel, new Presentation_window());
+            Methods.ChangeWindow(this, new Presentation_window());
         }
 
         private void MatchButton_Click(object sender, EventArgs e)
         {
-            Methods.ChangeWindow(this.MenuPanel, new Match_window());
+            Methods.ChangeWindow(this, new Match_window());
         }
     }
 }
