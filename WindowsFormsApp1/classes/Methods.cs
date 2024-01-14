@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WindowsFormsApp1.Classes
 {
     public static class Methods
@@ -36,41 +37,49 @@ namespace WindowsFormsApp1.Classes
          }*/
 
 
-        public static void ChangeWindow(Form form, Form newForm) // MAIN WAY OF ADDING NEW FORM TO PANEL
+       
+
+       
+
+         public static void ChangeWindow(Form Form, Form NewForm) // MAIN WAY OF ADDING NEW FORM TO PANEL
         {
 
 
             
            
-            Main_window.previousWindows.Push(form);  // add current form to stack
-            form.Hide();
+            Main_window.previousWindows.Push(Form);  // add current form to stack
+            Form.Hide();
             // take current form and add it to stack
+             Main_window.MainPanel.Controls.Clear();
+            NewForm.TopLevel = false;
+            NewForm.Dock = DockStyle.Fill;
+            NewForm.FormBorderStyle = FormBorderStyle.None;
+            Main_window.MainPanel.Controls.Add(NewForm);
             
-            newForm.TopLevel = false;
-            newForm.Dock = DockStyle.Fill;
-            newForm.FormBorderStyle = FormBorderStyle.None;
-            newForm.Show(); // show new form
-            
-            
-            
+            NewForm.Show(); // show new form
             
         }
 
 
-        public static void ChangeWindow(Panel panel)   // home button 
+
+
+        public static void HomeButton()   // home button 
         {
             Main_window.previousWindows.Clear(); // Wyczyść stos
             Menu_window newForm = new Menu_window(); 
+            Panel panel = Main_window.MainPanel;
             newForm.TopLevel = false;
             newForm.FormBorderStyle = FormBorderStyle.None;
             newForm.Dock = DockStyle.Fill;
-            panel.Controls.Clear();
+            
+            ClearPanel(panel);
+
             panel.Controls.Add(newForm); // add new form
             newForm.Show();
         } 
 
 
-
+        
 
 
         public static void LoadImagesAndCreateButtons(Panel panel, string folderPath)   // Function loading images from folder and creating buttons with them
@@ -111,6 +120,23 @@ namespace WindowsFormsApp1.Classes
             }
             return resizedImage;
         }
+
+
+        private static  void ClearPanel(Panel panel)
+        {
+
+            foreach (Control control in panel.Controls)
+            {
+                if (control is Form)
+                {
+                    ((Form)control).Close();
+                }
+                control.Dispose();
+            }
+            
+            panel.Controls.Clear();
+  
+       }
 
 
 

@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
 
-            Methods.ChangeWindow(MainPanel);
+            Methods.HomeButton();
         }
 
         public static FormStack previousWindows = new FormStack();  // Stack storing previous windows
@@ -39,16 +39,16 @@ namespace WindowsFormsApp1
 
             if (previousWindows.Count() > 0)
             {
-                Form currentForm = this.MainPanel.Controls.OfType<Form>().FirstOrDefault(); // Pobierz obecny formularz
+                Form currentForm = MainPanel.Controls.OfType<Form>().FirstOrDefault(); // Pobierz obecny formularz
                 if (currentForm != null)
                 {
-                    this.MainPanel.Controls.Remove(currentForm); // Usuń obecny formularz z panelu
+                    MainPanel.Controls.Remove(currentForm); // Usuń obecny formularz z panelu
                     currentForm.Hide(); // Ukryj obecny formularz
                 }
 
                 Form prevForm = Main_window.previousWindows.Pop(); // Pobierz poprzedni formularz ze stosu
                 prevForm.Show(); // Pokaż poprzedni formularz
-                this.MainPanel.Controls.Add(prevForm); // Dodaj poprzedni formularz do panelu
+                MainPanel.Controls.Add(prevForm); // Dodaj poprzedni formularz do panelu
             }
 
 
@@ -71,7 +71,7 @@ namespace WindowsFormsApp1
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
-            Methods.ChangeWindow(MainPanel);
+            Methods.HomeButton();
         }
     }
 }

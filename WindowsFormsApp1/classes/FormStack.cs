@@ -81,8 +81,8 @@ namespace WindowsFormsApp1.classes
         {
             if (elements.Count > 0)
                 elements.Clear();
-           
-        }
+            GC.Collect();
+         }
 
 
     }

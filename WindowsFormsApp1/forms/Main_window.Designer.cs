@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
             this.HomeButton = new System.Windows.Forms.Button();
             this.LogInButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
-            this.MainPanel = new System.Windows.Forms.Panel();
+            MainPanel = new System.Windows.Forms.Panel();
             this.TopBarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,19 +93,19 @@ namespace WindowsFormsApp1
             // 
             // MainPanel
             // 
-            this.MainPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(0, 87);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(682, 766);
-            this.MainPanel.TabIndex = 8;
+            MainPanel.BackColor = System.Drawing.SystemColors.Control;
+            MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            MainPanel.Location = new System.Drawing.Point(0, 87);
+            MainPanel.Name = "MainPanel";
+            MainPanel.Size = new System.Drawing.Size(682, 766);
+            MainPanel.TabIndex = 8;
             // 
             // Main_window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 853);
-            this.Controls.Add(this.MainPanel);
+            this.Controls.Add(MainPanel);
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Main_window";
@@ -119,7 +119,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Panel TopBarPanel;
         private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.Button LogInButton;
-        private System.Windows.Forms.Panel MainPanel;
+        public static System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Button HomeButton;
     }
 }
