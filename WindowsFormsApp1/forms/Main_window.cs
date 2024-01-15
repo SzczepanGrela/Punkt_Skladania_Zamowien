@@ -73,5 +73,7 @@ namespace WindowsFormsApp1
         {
             Methods.HomeButton();
         }
+
+       
     }
 }

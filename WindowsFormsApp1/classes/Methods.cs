@@ -41,22 +41,22 @@ namespace WindowsFormsApp1.Classes
 
        
 
-         public static void ChangeWindow(Form Form, Form NewForm) // MAIN WAY OF ADDING NEW FORM TO PANEL
+         public static void ChangeWindow(Form oldForm, Form newForm) // MAIN WAY OF ADDING NEW FORM TO PANEL
         {
 
 
             
            
-            Main_window.previousWindows.Push(Form);  // add current form to stack
-            Form.Hide();
+            Main_window.previousWindows.Push(oldForm);  // add current form to stack
+            oldForm.Hide();
             // take current form and add it to stack
-             Main_window.MainPanel.Controls.Clear();
-            NewForm.TopLevel = false;
-            NewForm.Dock = DockStyle.Fill;
-            NewForm.FormBorderStyle = FormBorderStyle.None;
-            Main_window.MainPanel.Controls.Add(NewForm);
+            Main_window.MainPanel.Controls.Clear();
+            newForm.TopLevel = false;
+            newForm.Dock = DockStyle.Fill;
+            newForm.FormBorderStyle = FormBorderStyle.None;
+            Main_window.MainPanel.Controls.Add(newForm);
             
-            NewForm.Show(); // show new form
+            newForm.Show(); // show new form
             
         }
 

@@ -35,5 +35,12 @@ namespace WindowsFormsApp1
         {
             Methods.ChangeWindow(this, new Match_window());
         }
+
+
+        
+
+       
+
+
     }
 }
