@@ -37,16 +37,16 @@ namespace WindowsFormsApp1.Classes
          }*/
 
 
-       
-        // test
-       
 
-         public static void ChangeWindow(Form oldForm, Form newForm) // MAIN WAY OF ADDING NEW FORM TO PANEL
+
+
+
+        public static void ChangeWindow(Form oldForm, Form newForm) // MAIN WAY OF ADDING NEW FORM TO PANEL
         {
 
+            // zmiana changewindowwdfcsf
 
-            
-           
+
             Main_window.previousWindows.Push(oldForm);  // add current form to stack
             oldForm.Hide();
             // take current form and add it to stack
@@ -55,9 +55,9 @@ namespace WindowsFormsApp1.Classes
             newForm.Dock = DockStyle.Fill;
             newForm.FormBorderStyle = FormBorderStyle.None;
             Main_window.MainPanel.Controls.Add(newForm);
-            
+
             newForm.Show(); // show new form
-            
+
         }
 
 
@@ -66,28 +66,28 @@ namespace WindowsFormsApp1.Classes
         public static void HomeButton()   // home button 
         {
             Main_window.previousWindows.Clear(); // Wyczyść stos
-            Menu_window newForm = new Menu_window(); 
+            Menu_window newForm = new Menu_window();
             Panel panel = Main_window.MainPanel;
             newForm.TopLevel = false;
             newForm.FormBorderStyle = FormBorderStyle.None;
             newForm.Dock = DockStyle.Fill;
-            
+
             ClearPanel(panel);
 
             panel.Controls.Add(newForm); // add new form
             newForm.Show();
-        } 
+        }
 
 
-        
+
 
 
         public static void LoadImagesAndCreateButtons(Panel panel, string folderPath)   // Function loading images from folder and creating buttons with them
         {
             string[] files = Directory.GetFiles(folderPath, "*.png");
-            int defaultX = 10; 
+            int defaultX = 10;
             int x = defaultX;
-            int  y = 0;
+            int y = 0;
             int buttonWidth = 150;
             int buttonHeight = 150;
             int margin = 15;
@@ -122,7 +122,7 @@ namespace WindowsFormsApp1.Classes
         }
 
 
-        private static  void ClearPanel(Panel panel)
+        private static void ClearPanel(Panel panel)
         {
 
             foreach (Control control in panel.Controls)
@@ -133,10 +133,10 @@ namespace WindowsFormsApp1.Classes
                 }
                 control.Dispose();
             }
-            
+
             panel.Controls.Clear();
-  
-       }
+
+        }
 
 
 
