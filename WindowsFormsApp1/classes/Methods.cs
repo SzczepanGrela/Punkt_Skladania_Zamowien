@@ -38,7 +38,7 @@ namespace WindowsFormsApp1.Classes
 
 
        
-
+        // test
        
 
          public static void ChangeWindow(Form oldForm, Form newForm) // MAIN WAY OF ADDING NEW FORM TO PANEL
