@@ -15,12 +15,12 @@ namespace WindowsFormsApp1
 {
     public partial class MenuForm : BaseForm
     {
-        private BaseForm parentForm;
+        private Control parentContainer;
 
-        public MenuForm(BaseForm parentForm)
+        public MenuForm(Control parentContainer )
         {
             InitializeComponent();
-            this.parentForm = parentForm;
+            this.parentContainer = parentContainer;
             
         }
 
@@ -28,19 +28,19 @@ namespace WindowsFormsApp1
 
         private void ShopButton_Click(object sender, EventArgs e)
         {
-            openForm(this, new Shop_form(this));
+            openForm(parentContainer, new Shop_form(parentContainer),this);
 
 
         }
 
         private void PresentationButton_Click(object sender, EventArgs e)
         {
-            openForm(this, new Presentation_form(this));
+            openForm(parentContainer, new Presentation_form(parentContainer), this);
         }
 
         private void MatchButton_Click(object sender, EventArgs e)
         {
-            openForm(this, new Matching_form(this));
+            openForm(parentContainer, new Matching_form(parentContainer), this);
         }
 
 

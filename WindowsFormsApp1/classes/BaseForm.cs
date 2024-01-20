@@ -22,10 +22,10 @@ namespace WindowsFormsApp1.classes
 
         }
 
-        protected void ResetMenu(Panel parentPanel)
+        protected void ResetMenu(Control parentContainer)
         {
 
-            openForm(parentPanel, new Panel_form(this));
+            openForm(parentContainer, new Panel_form(parentContainer), null);
             Main_window.previousWindows.Clear(); // remove all elements from stack
 
             
@@ -33,10 +33,10 @@ namespace WindowsFormsApp1.classes
 
         }
 
-        protected void openForm(Control parentContainer, BaseForm newForm)   // open form in panel or other container (like form)
+        protected void openForm(Control parentContainer, BaseForm newForm, BaseForm currentForm)   // open form in panel or other container (like form)
        
         {
-            Main_window.previousWindows.Push(this);
+            if(currentForm != null) Main_window.previousWindows.Push(currentForm);
             newForm.TopLevel = false;
             newForm.FormBorderStyle = FormBorderStyle.None;
             newForm.Dock = DockStyle.Fill;

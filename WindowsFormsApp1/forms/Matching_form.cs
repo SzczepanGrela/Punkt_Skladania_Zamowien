@@ -13,11 +13,11 @@ namespace WindowsFormsApp1.Forms
 {
     public partial class Matching_form : BaseForm
     {
-        private BaseForm parentForm;
-        public Matching_form(BaseForm parentForm)
+        private Control parentContainer;
+        public Matching_form(Control parentContainer)
         {
             InitializeComponent();
-            this.parentForm = parentForm;
+            this.parentContainer = parentContainer;
         }
         
     }

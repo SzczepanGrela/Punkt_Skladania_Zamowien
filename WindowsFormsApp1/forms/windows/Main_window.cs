@@ -39,8 +39,8 @@ namespace WindowsFormsApp1
             if (previousWindows.Count() > 0)
             {
               
-                BaseForm prevForm = previousWindows.Pop(); // Pobierz poprzedni formularz ze stosu
-                openForm(prevForm.ParentForm, prevForm);
+                BaseForm prevForm = previousWindows.Pop(); // get previous form from stack
+                openForm(prevForm.ParentForm, prevForm, null); // open prev form, without adding current one to stack
             }
 
 

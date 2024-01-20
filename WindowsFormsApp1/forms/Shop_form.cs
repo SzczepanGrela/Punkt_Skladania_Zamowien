@@ -15,26 +15,26 @@ namespace WindowsFormsApp1
 {
     public partial class Shop_form : BaseForm
     {
-        BaseForm parentForm;
-        public Shop_form(BaseForm parentForm)
+        Control parentContainer;
+        public Shop_form(Control parentContainer)
         {
             
             InitializeComponent();
 
             Methods.LoadImagesAndCreateButtons(this.ButtonPanel, @"..\..\data\images\icons\categories");
-            this.parentForm = parentForm;
+            this.parentContainer = parentContainer;
         }
 
       
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-
+            openForm(parentContainer, new Test_shopping_window(parentContainer), this);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            openForm(parentContainer, new Test_shopping_window(parentContainer), this);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -44,7 +44,7 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-          openForm(this, new Test_shopping_window(this));
+          
 
         }
 

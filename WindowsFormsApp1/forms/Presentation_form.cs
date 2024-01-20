@@ -13,11 +13,11 @@ namespace WindowsFormsApp1.Forms
 {
     public partial class Presentation_form : BaseForm
     {
-        BaseForm parentForm;
-        public Presentation_form(BaseForm parentForm)
+        Control parentContainer;
+        public Presentation_form(Control parentContainer)
         {
             InitializeComponent();
-            this.parentForm = parentForm;
+            this.parentContainer = parentContainer;
         }
 
       
