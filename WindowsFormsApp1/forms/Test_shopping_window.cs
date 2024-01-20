@@ -15,12 +15,12 @@ namespace WindowsFormsApp1.Forms
 {
     public partial class Test_shopping_window : BaseForm
     {
-        BaseForm parentForm;
-        public Test_shopping_window(BaseForm parentForm)
+        Control parentContainer;
+        public Test_shopping_window(Control parentContainer)
         {
             InitializeComponent();
-            Methods.LoadImagesAndCreateButtons(this.panel , @"..\..\data\images\icons\categories");
-            this.parentForm = parentForm;
+            //Methods.LoadImagesAndCreateButtons(this.panel , @"..\..\data\images\icons\categories");
+            this.parentContainer = parentContainer;
         }
 
 
