@@ -15,6 +15,11 @@ namespace WindowsFormsApp1.Forms
         public Match_window()
         {
             InitializeComponent();
+<<<<<<< Updated upstream:WindowsFormsApp1/forms/Match_window.cs
+=======
+            openForm(this, new MenuForm(this),null);
+            this.parentForm = parentForm;
+>>>>>>> Stashed changes:WindowsFormsApp1/forms/Panel_form.cs
         }
     }
 }

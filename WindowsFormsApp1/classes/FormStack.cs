@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.forms;
 using WindowsFormsApp1.Forms;
+
 
 namespace WindowsFormsApp1.classes
 {
@@ -19,7 +21,8 @@ namespace WindowsFormsApp1.classes
 
         public void Push(Form item)
         {
-            elements.Add(item);
+            if (!(item is Panel_form))    // this method doesn't push the panel form, because it's the main form for opening other forms
+                elements.Add(item);
         }
 
         public  Form Pop()

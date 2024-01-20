@@ -40,7 +40,11 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
+<<<<<<< Updated upstream:WindowsFormsApp1/forms/Shop_window.cs
            Methods.ChangeWindow(this, new Test_shopping_window());
+=======
+          openForm(this, new Test_shopping_window(this), this);
+>>>>>>> Stashed changes:WindowsFormsApp1/forms/Shop_form.cs
 
         }
 

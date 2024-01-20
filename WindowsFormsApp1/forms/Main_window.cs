@@ -39,6 +39,7 @@ namespace WindowsFormsApp1
 
             if (previousWindows.Count() > 0)
             {
+<<<<<<< Updated upstream:WindowsFormsApp1/forms/Main_window.cs
                 Form currentForm = MainPanel.Controls.OfType<Form>().FirstOrDefault(); // Pobierz obecny formularz
                 if (currentForm != null)
                 {
@@ -49,6 +50,11 @@ namespace WindowsFormsApp1
                 Form prevForm = Main_window.previousWindows.Pop(); // Pobierz poprzedni formularz ze stosu
                 prevForm.Show(); // Pokaż poprzedni formularz
                 MainPanel.Controls.Add(prevForm); // Dodaj poprzedni formularz do panelu
+=======
+              
+                BaseForm prevForm = previousWindows.Pop(); // Pobierz poprzedni formularz ze stosu
+                openForm(MainPanel, prevForm, null);
+>>>>>>> Stashed changes:WindowsFormsApp1/forms/windows/Main_window.cs
             }
 
 
