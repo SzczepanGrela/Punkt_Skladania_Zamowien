@@ -15,7 +15,7 @@ using WindowsFormsApp1.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Main_window : Form
+    public partial class Main_window : BaseForm
     {
 
         
@@ -23,8 +23,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
-
-            Methods.HomeButton();
+            ResetMenu(MainPanel);
         }
 
         public static FormStack previousWindows = new FormStack();  // Stack storing previous windows
@@ -39,16 +38,9 @@ namespace WindowsFormsApp1
 
             if (previousWindows.Count() > 0)
             {
-                Form currentForm = MainPanel.Controls.OfType<Form>().FirstOrDefault(); // Pobierz obecny formularz
-                if (currentForm != null)
-                {
-                    MainPanel.Controls.Remove(currentForm); // Usuń obecny formularz z panelu
-                    currentForm.Hide(); // Ukryj obecny formularz
-                }
-
-                Form prevForm = Main_window.previousWindows.Pop(); // Pobierz poprzedni formularz ze stosu
-                prevForm.Show(); // Pokaż poprzedni formularz
-                MainPanel.Controls.Add(prevForm); // Dodaj poprzedni formularz do panelu
+              
+                BaseForm prevForm = previousWindows.Pop(); // Pobierz poprzedni formularz ze stosu
+                openForm(prevForm.ParentForm, prevForm);
             }
 
 
@@ -71,7 +63,7 @@ namespace WindowsFormsApp1
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
-            Methods.HomeButton();
+            ResetMenu(MainPanel);
         }
 
        

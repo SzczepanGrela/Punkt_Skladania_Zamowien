@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.Forms
+namespace WindowsFormsApp1.classes
 {
-    public partial class Match_window : Form
+    public  partial class BaseWindow : Form
     {
-        public Match_window()
+     
+        public BaseWindow()
         {
             InitializeComponent();
+            this.Visible = false;
         }
     }
 }

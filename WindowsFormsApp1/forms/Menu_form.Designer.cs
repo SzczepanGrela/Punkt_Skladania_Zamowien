@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Menu_window
+    partial class MenuForm
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,7 @@
             // 
             // MenuPanel
             // 
-            this.MenuPanel.BackColor = System.Drawing.Color.Gold;
+            this.MenuPanel.BackColor = System.Drawing.Color.Transparent;
             this.MenuPanel.Controls.Add(this.label1);
             this.MenuPanel.Controls.Add(this.label2);
             this.MenuPanel.Controls.Add(this.MatchButton);
@@ -105,14 +105,17 @@
             this.PresentationButton.UseVisualStyleBackColor = true;
             this.PresentationButton.Click += new System.EventHandler(this.PresentationButton_Click);
             // 
-            // Menu_window
+            // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gold;
             this.ClientSize = new System.Drawing.Size(664, 719);
             this.Controls.Add(this.MenuPanel);
-            this.Name = "Menu_window";
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Name = "MenuForm";
             this.Text = "Menu_window";
+            this.TransparencyKey = System.Drawing.Color.Gold;
             this.MenuPanel.ResumeLayout(false);
             this.MenuPanel.PerformLayout();
             this.ResumeLayout(false);

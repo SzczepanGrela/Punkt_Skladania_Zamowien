@@ -10,26 +10,26 @@ namespace WindowsFormsApp1.classes
 {
     public class FormStack
     {
-        private List<Form> elements;
+        private List<BaseForm> elements;
 
         public FormStack()
         { 
-            elements = new List<Form>();
+            elements = new List<BaseForm>();
         }
 
-        public void Push(Form item)
+        public void Push(BaseForm item)
         {
             elements.Add(item);
         }
 
-        public  Form Pop()
+        public  BaseForm Pop()
         {
 
             
             if (elements.Count > 1)
             {
                 
-                Form item = elements[elements.Count - 1];
+                BaseForm item = elements[elements.Count - 1];
                 elements.RemoveAt(elements.Count - 1);
                 return item;
             }

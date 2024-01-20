@@ -47,37 +47,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="classes\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="classes\BaseWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="classes\BaseWindow.Designer.cs">
+      <DependentUpon>BaseWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="classes\Methods.cs" />
     <Compile Include="classes\FormStack.cs" />
-    <Compile Include="forms\Login_window.cs">
+    <Compile Include="forms\Panel_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Login_window.Designer.cs">
+    <Compile Include="forms\Panel_form.Designer.cs">
+      <DependentUpon>Panel_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\windows\Login_window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\windows\Login_window.Designer.cs">
       <DependentUpon>Login_window.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\Main_window.cs">
+    <Compile Include="forms\windows\Main_window.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Main_window.Designer.cs">
+    <Compile Include="forms\windows\Main_window.Designer.cs">
       <DependentUpon>Main_window.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\Match_window.cs">
+    <Compile Include="forms\Matching_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Match_window.Designer.cs">
-      <DependentUpon>Match_window.cs</DependentUpon>
+    <Compile Include="forms\Matching_form.Designer.cs">
+      <DependentUpon>Matching_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\Menu_window.cs">
+    <Compile Include="forms\Menu_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Menu_window.Designer.cs">
-      <DependentUpon>Menu_window.cs</DependentUpon>
+    <Compile Include="forms\Menu_form.Designer.cs">
+      <DependentUpon>Menu_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\Presentation_window.cs">
+    <Compile Include="forms\Presentation_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Presentation_window.Designer.cs">
-      <DependentUpon>Presentation_window.cs</DependentUpon>
+    <Compile Include="forms\Presentation_form.Designer.cs">
+      <DependentUpon>Presentation_form.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\Test_shopping_window.cs">
       <SubType>Form</SubType>
@@ -88,26 +106,35 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolution.cs" />
-    <Compile Include="forms\Shop_window.cs">
+    <Compile Include="forms\Shop_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Shop_window.Designer.cs">
-      <DependentUpon>Shop_window.cs</DependentUpon>
+    <Compile Include="forms\Shop_form.Designer.cs">
+      <DependentUpon>Shop_form.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="forms\Login_window.resx">
+    <EmbeddedResource Include="classes\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="classes\BaseWindow.resx">
+      <DependentUpon>BaseWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Panel_form.resx">
+      <DependentUpon>Panel_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\windows\Login_window.resx">
       <DependentUpon>Login_window.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Main_window.resx">
+    <EmbeddedResource Include="forms\windows\Main_window.resx">
       <DependentUpon>Main_window.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Match_window.resx">
-      <DependentUpon>Match_window.cs</DependentUpon>
+    <EmbeddedResource Include="forms\Matching_form.resx">
+      <DependentUpon>Matching_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Menu_window.resx">
-      <DependentUpon>Menu_window.cs</DependentUpon>
+    <EmbeddedResource Include="forms\Menu_form.resx">
+      <DependentUpon>Menu_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Presentation_window.resx">
-      <DependentUpon>Presentation_window.cs</DependentUpon>
+    <EmbeddedResource Include="forms\Presentation_form.resx">
+      <DependentUpon>Presentation_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Test_shopping_window.resx">
       <DependentUpon>Test_shopping_window.cs</DependentUpon>
@@ -121,8 +148,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="forms\Shop_window.resx">
-      <DependentUpon>Shop_window.cs</DependentUpon>
+    <EmbeddedResource Include="forms\Shop_form.resx">
+      <DependentUpon>Shop_form.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

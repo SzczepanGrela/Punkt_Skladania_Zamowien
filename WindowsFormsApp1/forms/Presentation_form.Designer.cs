@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.Forms
 {
-    partial class Presentation_window
+    partial class Presentation_form
     {
         /// <summary>
         /// Required designer variable.
@@ -41,14 +41,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Presentation Window";
             // 
-            // Presentation
+            // Presentation_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Name = "Presentation";
+            this.Name = "Presentation_form";
             this.Text = "Presentation";
+            this.TransparencyKey = System.Drawing.SystemColors.Control;
             this.ResumeLayout(false);
             this.PerformLayout();
 
