@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
+using WindowsFormsApp1.classes;
 
 namespace WindowsFormsApp1
 {
-    public partial class Login_window : Form
+    public partial class Login_window : BaseForm
     {
         string FilePath = @"../../Data/accounts/users/users.txt"; // Path to the users.txt file
 

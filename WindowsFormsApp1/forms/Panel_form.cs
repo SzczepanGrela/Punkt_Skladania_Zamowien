@@ -3,31 +3,22 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
-using WindowsFormsApp1.Classes;
 
-namespace WindowsFormsApp1.Forms
+namespace WindowsFormsApp1.forms
 {
-    public partial class Test_shopping_window : BaseForm
+    public partial class Panel_form : BaseForm
     {
         BaseForm parentForm;
-        public Test_shopping_window(BaseForm parentForm)
+        public Panel_form(BaseForm parentForm)
         {
             InitializeComponent();
-            Methods.LoadImagesAndCreateButtons(this.panel , @"..\..\data\images\icons\categories");
+            openForm(this, new MenuForm(this));
             this.parentForm = parentForm;
         }
-
-
-        
-    
-
-
-
-}
+    }
 }

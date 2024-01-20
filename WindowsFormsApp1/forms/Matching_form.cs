@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.classes;
 
 namespace WindowsFormsApp1.Forms
 {
-    public partial class Presentation_window : Form
+    public partial class Matching_form : BaseForm
     {
-        public Presentation_window()
+        private BaseForm parentForm;
+        public Matching_form(BaseForm parentForm)
         {
             InitializeComponent();
+            this.parentForm = parentForm;
         }
-
-      
+        
     }
 }
