@@ -7,22 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.classes;
 using WindowsFormsApp1.Classes;
 using WindowsFormsApp1.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Shop_form : BaseForm
+    public partial class Shop_window : Form
     {
-        BaseForm parentForm;
-        public Shop_form(BaseForm parentForm)
+        public Shop_window()
         {
-            
             InitializeComponent();
 
             Methods.LoadImagesAndCreateButtons(this.ButtonPanel, @"..\..\data\images\icons\categories");
-            this.parentForm = parentForm;
         }
 
       
