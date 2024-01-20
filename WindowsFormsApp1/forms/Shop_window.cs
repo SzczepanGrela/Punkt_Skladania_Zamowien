@@ -7,18 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.classes;
 using WindowsFormsApp1.Classes;
 using WindowsFormsApp1.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Shop_window : Form
+    public partial class Shop_form : BaseForm
     {
-        public Shop_window()
+        BaseForm parentForm;
+        public Shop_form(BaseForm parentForm)
         {
+            
             InitializeComponent();
 
             Methods.LoadImagesAndCreateButtons(this.ButtonPanel, @"..\..\data\images\icons\categories");
+            this.parentForm = parentForm;
         }
 
       
@@ -40,11 +44,7 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-<<<<<<< Updated upstream:WindowsFormsApp1/forms/Shop_window.cs
-           Methods.ChangeWindow(this, new Test_shopping_window());
-=======
           openForm(this, new Test_shopping_window(this), this);
->>>>>>> Stashed changes:WindowsFormsApp1/forms/Shop_form.cs
 
         }
 

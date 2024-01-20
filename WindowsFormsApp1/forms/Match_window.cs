@@ -7,19 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.classes;
 
-namespace WindowsFormsApp1.Forms
+namespace WindowsFormsApp1.forms
 {
-    public partial class Match_window : Form
+    public partial class Panel_form : BaseForm
     {
-        public Match_window()
+        BaseForm parentForm;
+        public Panel_form(BaseForm parentForm)
         {
             InitializeComponent();
-<<<<<<< Updated upstream:WindowsFormsApp1/forms/Match_window.cs
-=======
             openForm(this, new MenuForm(this),null);
             this.parentForm = parentForm;
->>>>>>> Stashed changes:WindowsFormsApp1/forms/Panel_form.cs
         }
     }
 }
