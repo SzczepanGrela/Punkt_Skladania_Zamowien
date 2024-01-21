@@ -13,8 +13,6 @@ namespace WindowsFormsApp1
     {
 
 
-
-
         public static int windowWidth = 528; // default values is: 700   // 528
         public static int windowHeight= 732; // default values is: 900  // 732
         public static int formWidth = 513;  // default value is: 682  // 513

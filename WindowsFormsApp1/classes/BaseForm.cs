@@ -61,12 +61,6 @@ namespace WindowsFormsApp1.classes
 
         }
 
-
-        
-
-
     }
-
-
 
 }

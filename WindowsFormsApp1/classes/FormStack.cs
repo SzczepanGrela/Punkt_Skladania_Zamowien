@@ -49,10 +49,6 @@ namespace WindowsFormsApp1.classes
         }
 
 
-
-
-
-
         public Form Peek()
         {
             if (elements.Count > 0)

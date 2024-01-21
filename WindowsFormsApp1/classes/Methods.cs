@@ -14,11 +14,6 @@ namespace WindowsFormsApp1.Classes
     public static class Methods
     {
 
-
-
-
-
-
         public static void LoadImagesAndCreateButtons(Panel panel, string folderPath)   // Function loading images from folder and creating buttons with them
         {
             string[] files = Directory.GetFiles(folderPath, "*.png");
@@ -74,9 +69,6 @@ namespace WindowsFormsApp1.Classes
             panel.Controls.Clear();
 
         }
-
-
-
 
     }
 }

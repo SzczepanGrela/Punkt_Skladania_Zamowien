@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
 {
     public partial class Shop_form : BaseForm
     {
-        
+
         public Shop_form(Control parentContainer)
         {
 
@@ -23,9 +23,7 @@ namespace WindowsFormsApp1
             this.SetForm(false, parentContainer);
             Methods.LoadImagesAndCreateButtons(this.ButtonPanel, @"..\..\data\images\icons\categories");
 
-            
         }
-
 
 
         private void SearchButton_Click(object sender, EventArgs e)

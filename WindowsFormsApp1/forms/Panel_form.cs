@@ -18,10 +18,6 @@ namespace WindowsFormsApp1.forms
         {
             InitializeComponent();
             this.SetForm(false, parentContainer);
-            
-            
-
-            //openForm(this, new MenuForm(this),null); 
 
         }
     }

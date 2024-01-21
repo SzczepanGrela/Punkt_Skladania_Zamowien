@@ -22,8 +22,6 @@ namespace WindowsFormsApp1
             InitializeComponent();
             this.SetForm(false, parentContainer);
             
-            
-
         }
 
 
