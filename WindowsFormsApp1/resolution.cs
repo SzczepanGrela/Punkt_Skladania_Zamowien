@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace WindowsFormsApp1
 {
 
-    
-    public  class Resolution
+
+    public class Resolution
     {
-       public int width = 650;
-       public int height = 850;
+        public int width = 650;
+        public int height = 850;
     }
 }

@@ -20,6 +20,6 @@ namespace WindowsFormsApp1.Forms
             this.parentContainer = parentContainer;
         }
 
-      
+
     }
 }

@@ -17,18 +17,18 @@ namespace WindowsFormsApp1
     {
         private Control parentContainer;
 
-        public MenuForm(Control parentContainer )
+        public MenuForm(Control parentContainer)
         {
             InitializeComponent();
             this.parentContainer = parentContainer;
-            
+
         }
 
-       
+
 
         private void ShopButton_Click(object sender, EventArgs e)
         {
-            openForm(parentContainer, new Shop_form(parentContainer),this);
+            openForm(parentContainer, new Shop_form(parentContainer), this);
 
 
         }
@@ -44,9 +44,9 @@ namespace WindowsFormsApp1
         }
 
 
-        
 
-       
+
+
 
 
     }

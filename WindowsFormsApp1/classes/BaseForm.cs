@@ -22,12 +22,12 @@ namespace WindowsFormsApp1.classes
 
         }
 
-        protected void ResetMenu( BaseForm form)   // |where|what|
+        protected void ResetMenu(BaseForm form)   // |where|what|
         {
             parentContainer = form.parentContainer;
-            openForm(parentContainer,form, null);
+            openForm(parentContainer, form, null);
             openForm(form, new MenuForm(form), null);
-            Main_window.previousWindows.Clear(); // remove all elements from stack
+            Main_window.previousForms.Clear(); // remove all elements from stack
 
         }
 
@@ -35,7 +35,7 @@ namespace WindowsFormsApp1.classes
                                                                                                    // pattern:  open:| WHERE | WHAT | FORM |you add to stack  
 
         {
-            if (currentForm != null) Main_window.previousWindows.Push(currentForm);
+            if (currentForm != null) Main_window.previousForms.Push(currentForm);
             newForm.TopLevel = false;
             newForm.FormBorderStyle = FormBorderStyle.None;
             newForm.Dock = DockStyle.Fill;

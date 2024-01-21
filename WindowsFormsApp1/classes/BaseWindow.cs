@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1.classes
 {
-    public  partial class BaseWindow : Form
+    public partial class BaseWindow : Form
     {
-     
+
         public BaseWindow()
         {
             InitializeComponent();

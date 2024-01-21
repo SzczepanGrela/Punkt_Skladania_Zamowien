@@ -18,14 +18,14 @@ namespace WindowsFormsApp1
         Control parentContainer;
         public Shop_form(Control parentContainer)
         {
-            
+
             InitializeComponent();
 
             Methods.LoadImagesAndCreateButtons(this.ButtonPanel, @"..\..\data\images\icons\categories");
             this.parentContainer = parentContainer;
         }
 
-      
+
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
@@ -44,7 +44,7 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-          
+
 
         }
 

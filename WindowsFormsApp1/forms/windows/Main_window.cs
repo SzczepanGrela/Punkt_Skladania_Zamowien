@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
     public partial class Main_window : BaseForm
     {
 
-        private Panel_form pf;
+        private Panel_form pf; // Var storing panel form, so we can access it and open other forms in it
         public Main_window()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace WindowsFormsApp1
             ResetMenu(pf);
         }
 
-        public static FormStack previousWindows = new FormStack();  // Stack storing previous windows
+        public static FormStack previousForms = new FormStack();  // Stack storing previous windows
 
         private Login_window lw; // Var storing if login window was already opened
 
@@ -37,11 +37,11 @@ namespace WindowsFormsApp1
         private void ReturnButton_Click(object sender, EventArgs e)
         {
 
-            if (previousWindows.Count() > 0)
+            if (previousForms.Count() > 0)
             {
 
-                BaseForm prevForm = previousWindows.Pop(); // get previous form from stack
-                openForm( pf, prevForm, null); // open prev form, without adding current one to stack
+                BaseForm prevForm = previousForms.Pop();
+                openForm(pf, prevForm, null); // open prev form, without adding current one to stack
             }
 
 

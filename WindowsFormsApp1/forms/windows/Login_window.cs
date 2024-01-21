@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-                        
+
         private void login_window_Load(object sender, EventArgs e)
         {
 
@@ -39,7 +39,7 @@ namespace WindowsFormsApp1
             if (File.Exists(FilePath))
             {
                 string[] lines = File.ReadAllLines(FilePath); // Reading all lines from the file
-                
+
                 foreach (string line in lines)
                 {
                     string[] passcodes = line.Split(':'); // Splitting the line into login and password
@@ -48,12 +48,12 @@ namespace WindowsFormsApp1
 
                     else
                     {
-                       
+
 
                         string password = passcodes[1]; // Password
                         if (password == EnteredPassword) // If the password is correct
                         {
-                            
+
                             MessageBox.Show("Login successful"); // Show the message
                             //close this window
                             this.Close();
@@ -61,12 +61,12 @@ namespace WindowsFormsApp1
                         }
                         else // If the password is incorrect
                         {
-                           
+
                             break; // Stop searching
                         }
 
                     }
-                    
+
                 }
                 MessageBox.Show("Login failed. The username or password you entered is incorrect. Please try again."); // Show the message
 
@@ -86,9 +86,9 @@ namespace WindowsFormsApp1
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
-       
+
     }
 }

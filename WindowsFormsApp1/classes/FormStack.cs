@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.classes
         private List<BaseForm> elements;
 
         public FormStack()
-        { 
+        {
             elements = new List<BaseForm>();
         }
 
@@ -22,21 +22,21 @@ namespace WindowsFormsApp1.classes
             elements.Add(item);
         }
 
-        public  BaseForm Pop()
+        public BaseForm Pop()
         {
 
-            
+
             if (elements.Count > 1)
             {
-                
+
                 BaseForm item = elements[elements.Count - 1];
                 elements.RemoveAt(elements.Count - 1);
                 return item;
             }
-              
-             else if (elements.Count == 1)
+
+            else if (elements.Count == 1)
             {
-                
+
                 return elements[0];
             }
 
@@ -44,11 +44,11 @@ namespace WindowsFormsApp1.classes
             {
                 throw new InvalidOperationException("The stack is empty");
             }
-            
-            
+
+
         }
 
-        
+
 
 
 
@@ -75,14 +75,14 @@ namespace WindowsFormsApp1.classes
             return elements.Count == 0;
         }
 
-      
+
 
         public void Clear()  // in case of pressing home button, the stack will be cleared and then the menu window will be pushed, as the 1st element
         {
             if (elements.Count > 0)
                 elements.Clear();
             GC.Collect();
-         }
+        }
 
 
     }
