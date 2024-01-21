@@ -15,13 +15,13 @@ namespace WindowsFormsApp1
 {
     public partial class MenuForm : BaseForm
     {
-        private Control parentContainer;
+        
 
         public MenuForm(Control parentContainer)
         {
             InitializeComponent();
-            this.setResolution(false);
-            this.parentContainer = parentContainer;
+            this.SetForm(false, parentContainer);
+            
             
 
         }

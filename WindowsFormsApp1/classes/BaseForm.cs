@@ -15,7 +15,7 @@ namespace WindowsFormsApp1.classes
 {
     public partial class BaseForm : Form
     {
-        public Control parentContainer;
+        protected Control parentContainer;
         public BaseForm()
         {
             InitializeComponent();
@@ -46,19 +46,23 @@ namespace WindowsFormsApp1.classes
         }
 
 
-        protected void setResolution(bool isWindow)
+        public void SetForm(bool isWindow, Control parentContainer)   // set form size and parent container
         {
-            if(isWindow)
+            if (isWindow)
             {
                 (this.Width, this.Height) = Resolution.GetWindowRes();
             }
             else
             {
                 (this.Width, this.Height) = Resolution.GetFormRes();
-            }   
-            
+            }
+
+            this.parentContainer = parentContainer;
+
         }
 
+
+        
 
 
     }

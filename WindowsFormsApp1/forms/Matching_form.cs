@@ -13,12 +13,12 @@ namespace WindowsFormsApp1.Forms
 {
     public partial class Matching_form : BaseForm
     {
-        private Control parentContainer;
+        
         public Matching_form(Control parentContainer)
         {
             InitializeComponent();
-            this.setResolution(false);
-            this.parentContainer = parentContainer;
+            this.SetForm(false, parentContainer);
+            
         }
 
     }

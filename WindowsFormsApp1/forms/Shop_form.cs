@@ -15,15 +15,15 @@ namespace WindowsFormsApp1
 {
     public partial class Shop_form : BaseForm
     {
-        Control parentContainer;
+        
         public Shop_form(Control parentContainer)
         {
 
             InitializeComponent();
-            this.setResolution(false);
+            this.SetForm(false, parentContainer);
             Methods.LoadImagesAndCreateButtons(this.ButtonPanel, @"..\..\data\images\icons\categories");
 
-            this.parentContainer = parentContainer;
+            
         }
 
 

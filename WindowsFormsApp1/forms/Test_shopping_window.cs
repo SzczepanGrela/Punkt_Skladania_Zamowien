@@ -15,12 +15,12 @@ namespace WindowsFormsApp1.Forms
 {
     public partial class Test_shopping_window : BaseForm
     {
-        Control parentContainer;
+        
         public Test_shopping_window(Control parentContainer)
         {
             InitializeComponent();
-            this.setResolution(false);
-            this.parentContainer = parentContainer;
+            this.SetForm(false, parentContainer);
+           
         }
 
 

@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
         public Main_window()
         {
             InitializeComponent();
-            this.setResolution(true);                // Set window size
+            this.SetForm(true, null);               
             pf = new Panel_form(MainPanel);
             ResetMenu(pf);
         }
