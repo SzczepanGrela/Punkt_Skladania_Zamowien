@@ -17,6 +17,7 @@ namespace WindowsFormsApp1.Forms
         public Presentation_form(Control parentContainer)
         {
             InitializeComponent();
+            this.setResolution(false);
             this.parentContainer = parentContainer;
         }
 

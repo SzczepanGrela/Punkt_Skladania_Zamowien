@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Classes;
 using WindowsFormsApp1.forms;
+using WindowsFormsApp1.Forms;
 
 namespace WindowsFormsApp1.classes
 {
@@ -19,7 +20,7 @@ namespace WindowsFormsApp1.classes
         {
             InitializeComponent();
 
-
+            (this.Width, this.Height) = Resolution.GetWindowRes();
         }
 
         protected void ResetMenu(BaseForm form)   // |where|what|
@@ -44,6 +45,19 @@ namespace WindowsFormsApp1.classes
             newForm.Show();
         }
 
+
+        protected void setResolution(bool isWindow)
+        {
+            if(isWindow)
+            {
+                (this.Width, this.Height) = Resolution.GetWindowRes();
+            }
+            else
+            {
+                (this.Width, this.Height) = Resolution.GetFormRes();
+            }   
+            
+        }
 
 
 

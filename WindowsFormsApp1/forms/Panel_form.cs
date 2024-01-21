@@ -17,7 +17,10 @@ namespace WindowsFormsApp1.forms
         public Panel_form(Control parentContainer)
         {
             InitializeComponent();
+            this.setResolution(false);
             this.parentContainer = parentContainer;
+            
+
             //openForm(this, new MenuForm(this),null); 
 
         }

@@ -20,7 +20,9 @@ namespace WindowsFormsApp1
         public MenuForm(Control parentContainer)
         {
             InitializeComponent();
+            this.setResolution(false);
             this.parentContainer = parentContainer;
+            
 
         }
 

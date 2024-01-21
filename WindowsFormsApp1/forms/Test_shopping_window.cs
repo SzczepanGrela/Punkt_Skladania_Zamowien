@@ -19,7 +19,7 @@ namespace WindowsFormsApp1.Forms
         public Test_shopping_window(Control parentContainer)
         {
             InitializeComponent();
-            //Methods.LoadImagesAndCreateButtons(this.panel , @"..\..\data\images\icons\categories");
+            this.setResolution(false);
             this.parentContainer = parentContainer;
         }
 

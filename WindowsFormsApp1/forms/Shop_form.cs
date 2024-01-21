@@ -20,8 +20,9 @@ namespace WindowsFormsApp1
         {
 
             InitializeComponent();
-
+            this.setResolution(false);
             Methods.LoadImagesAndCreateButtons(this.ButtonPanel, @"..\..\data\images\icons\categories");
+
             this.parentContainer = parentContainer;
         }
 
