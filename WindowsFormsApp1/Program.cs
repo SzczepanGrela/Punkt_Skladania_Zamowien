@@ -10,16 +10,16 @@ namespace WindowsFormsApp1
     {
 
 
-        
+
         [STAThread]
         static void Main()
         {
-            
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Main_window mw = new Main_window();  // create an instance of the main window
             Application.Run(mw);
-            
+
         }
     }
 }

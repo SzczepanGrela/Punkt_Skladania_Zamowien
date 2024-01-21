@@ -13,13 +13,13 @@ namespace WindowsFormsApp1.forms
 {
     public partial class Panel_form : BaseForm
     {
-        
+
         public Panel_form(Control parentContainer)
         {
             InitializeComponent();
             this.parentContainer = parentContainer;
             //openForm(this, new MenuForm(this),null); 
-           
+
         }
     }
 }

@@ -15,9 +15,9 @@ namespace WindowsFormsApp1.Classes
     {
 
 
-    
 
-  
+
+
 
         public static void LoadImagesAndCreateButtons(Panel panel, string folderPath)   // Function loading images from folder and creating buttons with them
         {

@@ -19,6 +19,6 @@ namespace WindowsFormsApp1.Forms
             InitializeComponent();
             this.parentContainer = parentContainer;
         }
-        
+
     }
 }
