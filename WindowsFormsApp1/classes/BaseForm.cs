@@ -14,29 +14,28 @@ namespace WindowsFormsApp1.classes
 {
     public partial class BaseForm : Form
     {
-       
+        public Control parentContainer;
         public BaseForm()
         {
             InitializeComponent();
-            
+
 
         }
 
-        protected void ResetMenu(Control parentContainer)
+        protected void ResetMenu( BaseForm form)   // |where|what|
         {
-
-            openForm(parentContainer, new Panel_form(parentContainer), null);
+            parentContainer = form.parentContainer;
+            openForm(parentContainer,form, null);
+            openForm(form, new MenuForm(form), null);
             Main_window.previousWindows.Clear(); // remove all elements from stack
-
-            
-            
 
         }
 
         protected void openForm(Control parentContainer, BaseForm newForm, BaseForm currentForm)   // open form in panel or other container (like form)
-       
+                                                                                                   // pattern:  open:| WHERE | WHAT | FORM |you add to stack  
+
         {
-            if(currentForm != null) Main_window.previousWindows.Push(currentForm);
+            if (currentForm != null) Main_window.previousWindows.Push(currentForm);
             newForm.TopLevel = false;
             newForm.FormBorderStyle = FormBorderStyle.None;
             newForm.Dock = DockStyle.Fill;
@@ -45,7 +44,7 @@ namespace WindowsFormsApp1.classes
             newForm.Show();
         }
 
-        
+
 
 
     }

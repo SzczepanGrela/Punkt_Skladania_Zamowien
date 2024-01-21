@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.Classes;
+using WindowsFormsApp1.forms;
 using WindowsFormsApp1.Forms;
 
 
@@ -18,19 +19,19 @@ namespace WindowsFormsApp1
     public partial class Main_window : BaseForm
     {
 
-        
+        private Panel_form pf;
         public Main_window()
         {
             InitializeComponent();
-
-            ResetMenu(MainPanel);
+            pf = new Panel_form(MainPanel);
+            ResetMenu(pf);
         }
 
         public static FormStack previousWindows = new FormStack();  // Stack storing previous windows
 
         private Login_window lw; // Var storing if login window was already opened
 
-       
+
 
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -38,14 +39,14 @@ namespace WindowsFormsApp1
 
             if (previousWindows.Count() > 0)
             {
-              
+
                 BaseForm prevForm = previousWindows.Pop(); // get previous form from stack
-                openForm(prevForm.ParentForm, prevForm, null); // open prev form, without adding current one to stack
+                openForm( pf, prevForm, null); // open prev form, without adding current one to stack
             }
 
 
         }
-        
+
         private void LogInButton_Click(object sender, EventArgs e)
         {
 
@@ -63,9 +64,9 @@ namespace WindowsFormsApp1
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
-            ResetMenu(MainPanel);
+            ResetMenu(pf);
         }
 
-       
+
     }
 }
