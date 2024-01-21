@@ -65,7 +65,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(83, 116);
+            this.label2.Location = new System.Drawing.Point(106, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(485, 31);
             this.label2.TabIndex = 4;
