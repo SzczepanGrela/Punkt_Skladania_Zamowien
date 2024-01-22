@@ -12,7 +12,7 @@ namespace WindowsFormsApp1.interfaces
         void OpenDataStore(string pathOrConnectionString);
         void CloseDataStore();
         string ReadData(string query = null);
-        void WriteData(string data);
+        void WriteData(string id, string data);
         void UpdateData(string id, string data);
         void DeleteData(string id);
         string QueryData(string query);

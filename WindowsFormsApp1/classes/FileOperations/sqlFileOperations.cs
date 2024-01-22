@@ -21,7 +21,7 @@ namespace WindowsFormsApp1.classes.FileOperations
         {
             return null;
         }
-        public void WriteData(string data)
+        public void WriteData(string id, string data)
         {
             data = "text";
         }
