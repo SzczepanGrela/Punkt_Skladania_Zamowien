@@ -15,11 +15,12 @@ namespace WindowsFormsApp1
 
         public static int windowWidth = 528; // default values is: 700   // 528
         public static int windowHeight= 732; // default values is: 900  // 732
-        public static int formWidth = 513;  // default value is: 682  // 513
+        public static int formWidth = 682;  // default value is: 682  // 513
         public static int formHeight = 623; // default value is: 766 // 623
 
         public static void setResolution(int winWidth, int winHeight, int frmWidth, int frmHeight)
         {
+
             windowWidth = winWidth;
             windowHeight = winHeight;
             formWidth = frmWidth;

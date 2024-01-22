@@ -48,14 +48,14 @@ namespace WindowsFormsApp1.classes
 
         public void SetForm(bool isWindow, Control parentContainer)   // set form size and parent container
         {
-            if (isWindow)
+           /* if (isWindow)
             {
                 (this.Width, this.Height) = Resolution.GetWindowRes();
             }
             else
             {
                 (this.Width, this.Height) = Resolution.GetFormRes();
-            }
+            }*/
 
             this.parentContainer = parentContainer;
 

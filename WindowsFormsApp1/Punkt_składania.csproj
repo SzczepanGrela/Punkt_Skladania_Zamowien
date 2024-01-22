@@ -53,6 +53,8 @@
     <Compile Include="classes\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="classes\FileOperations\sqlFileOperations.cs" />
+    <Compile Include="classes\FileOperations\txtFileOperations.cs" />
     <Compile Include="classes\Methods.cs" />
     <Compile Include="classes\FormStack.cs" />
     <Compile Include="forms\Panel_form.cs">
@@ -97,6 +99,7 @@
     <Compile Include="forms\Test_shopping_window.Designer.cs">
       <DependentUpon>Test_shopping_window.cs</DependentUpon>
     </Compile>
+    <Compile Include="interfaces\IFileOperations.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolution.cs" />
@@ -142,6 +145,7 @@
     <EmbeddedResource Include="forms\Shop_form.resx">
       <DependentUpon>Shop_form.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

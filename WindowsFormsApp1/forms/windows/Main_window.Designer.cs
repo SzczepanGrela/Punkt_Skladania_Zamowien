@@ -34,8 +34,11 @@ namespace WindowsFormsApp1
             this.HomeButton = new System.Windows.Forms.Button();
             this.LogInButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
-            MainPanel = new System.Windows.Forms.Panel();
+            this.MainPanel = new System.Windows.Forms.Panel();
+            this.BottomBarPanel = new System.Windows.Forms.Panel();
+            this.EmployeeAccessButton = new System.Windows.Forms.Button();
             this.TopBarPanel.SuspendLayout();
+            this.BottomBarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopBarPanel
@@ -46,32 +49,37 @@ namespace WindowsFormsApp1
             this.TopBarPanel.Controls.Add(this.ReturnButton);
             this.TopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopBarPanel.Location = new System.Drawing.Point(0, 0);
+            this.TopBarPanel.Margin = new System.Windows.Forms.Padding(2);
             this.TopBarPanel.Name = "TopBarPanel";
-            this.TopBarPanel.Size = new System.Drawing.Size(682, 87);
+            this.TopBarPanel.Size = new System.Drawing.Size(512, 82);
             this.TopBarPanel.TabIndex = 7;
+            this.TopBarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopBarPanel_Paint);
             // 
             // HomeButton
             // 
+            this.HomeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.HomeButton.BackColor = System.Drawing.Color.BurlyWood;
             this.HomeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeButton.BackgroundImage")));
             this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.HomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.HomeButton.Location = new System.Drawing.Point(296, 11);
+            this.HomeButton.Location = new System.Drawing.Point(222, 15);
             this.HomeButton.Margin = new System.Windows.Forms.Padding(0);
             this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Size = new System.Drawing.Size(79, 66);
+            this.HomeButton.Size = new System.Drawing.Size(59, 54);
             this.HomeButton.TabIndex = 8;
             this.HomeButton.UseVisualStyleBackColor = false;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
             // LogInButton
             // 
+            this.LogInButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LogInButton.BackColor = System.Drawing.Color.BurlyWood;
             this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LogInButton.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LogInButton.Location = new System.Drawing.Point(552, 13);
+            this.LogInButton.Location = new System.Drawing.Point(415, 17);
+            this.LogInButton.Margin = new System.Windows.Forms.Padding(2);
             this.LogInButton.Name = "LogInButton";
-            this.LogInButton.Size = new System.Drawing.Size(127, 58);
+            this.LogInButton.Size = new System.Drawing.Size(95, 47);
             this.LogInButton.TabIndex = 7;
             this.LogInButton.Text = "Log In";
             this.LogInButton.UseVisualStyleBackColor = false;
@@ -79,13 +87,14 @@ namespace WindowsFormsApp1
             // 
             // ReturnButton
             // 
+            this.ReturnButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ReturnButton.BackColor = System.Drawing.Color.BurlyWood;
             this.ReturnButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ReturnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ReturnButton.Location = new System.Drawing.Point(9, 18);
+            this.ReturnButton.Location = new System.Drawing.Point(9, 21);
             this.ReturnButton.Margin = new System.Windows.Forms.Padding(0);
             this.ReturnButton.Name = "ReturnButton";
-            this.ReturnButton.Size = new System.Drawing.Size(51, 53);
+            this.ReturnButton.Size = new System.Drawing.Size(38, 43);
             this.ReturnButton.TabIndex = 6;
             this.ReturnButton.Text = "< ";
             this.ReturnButton.UseVisualStyleBackColor = false;
@@ -93,24 +102,55 @@ namespace WindowsFormsApp1
             // 
             // MainPanel
             // 
-            MainPanel.BackColor = System.Drawing.SystemColors.Control;
-            MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            MainPanel.Location = new System.Drawing.Point(0, 87);
-            MainPanel.Name = "MainPanel";
-            MainPanel.Size = new System.Drawing.Size(682, 766);
-            MainPanel.TabIndex = 8;
+            this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.MainPanel.Location = new System.Drawing.Point(0, 86);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(512, 521);
+            this.MainPanel.TabIndex = 8;
+            this.MainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPanel_Paint);
+            // 
+            // BottomBarPanel
+            // 
+            this.BottomBarPanel.BackColor = System.Drawing.Color.Moccasin;
+            this.BottomBarPanel.Controls.Add(this.EmployeeAccessButton);
+            this.BottomBarPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BottomBarPanel.Location = new System.Drawing.Point(0, 611);
+            this.BottomBarPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.BottomBarPanel.Name = "BottomBarPanel";
+            this.BottomBarPanel.Size = new System.Drawing.Size(512, 82);
+            this.BottomBarPanel.TabIndex = 8;
+            // 
+            // EmployeeAccessButton
+            // 
+            this.EmployeeAccessButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.EmployeeAccessButton.BackColor = System.Drawing.Color.BurlyWood;
+            this.EmployeeAccessButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.EmployeeAccessButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EmployeeAccessButton.Location = new System.Drawing.Point(9, 21);
+            this.EmployeeAccessButton.Margin = new System.Windows.Forms.Padding(0);
+            this.EmployeeAccessButton.Name = "EmployeeAccessButton";
+            this.EmployeeAccessButton.Size = new System.Drawing.Size(38, 43);
+            this.EmployeeAccessButton.TabIndex = 6;
+            this.EmployeeAccessButton.Text = "E";
+            this.EmployeeAccessButton.UseVisualStyleBackColor = false;
             // 
             // Main_window
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 853);
-            this.Controls.Add(MainPanel);
+            this.BackColor = System.Drawing.Color.Sienna;
+            this.ClientSize = new System.Drawing.Size(512, 693);
+            this.Controls.Add(this.BottomBarPanel);
             this.Controls.Add(this.TopBarPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Controls.Add(this.MainPanel);
             this.Name = "Main_window";
             this.Text = "Order Hub";
             this.TopBarPanel.ResumeLayout(false);
+            this.BottomBarPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -119,7 +159,9 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Panel TopBarPanel;
         private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.Button LogInButton;
-        public static System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Button HomeButton;
+        public System.Windows.Forms.Panel MainPanel;
+        private System.Windows.Forms.Panel BottomBarPanel;
+        private System.Windows.Forms.Button EmployeeAccessButton;
     }
 }

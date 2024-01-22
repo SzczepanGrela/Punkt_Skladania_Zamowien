@@ -42,9 +42,10 @@
             this.ButtonPanel.BackColor = System.Drawing.Color.Gold;
             this.ButtonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ButtonPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.ButtonPanel.Location = new System.Drawing.Point(0, 155);
+            this.ButtonPanel.Location = new System.Drawing.Point(0, 126);
+            this.ButtonPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonPanel.Name = "ButtonPanel";
-            this.ButtonPanel.Size = new System.Drawing.Size(681, 648);
+            this.ButtonPanel.Size = new System.Drawing.Size(511, 526);
             this.ButtonPanel.TabIndex = 19;
             this.ButtonPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -55,36 +56,43 @@
             this.SearchPanel.Controls.Add(this.SearchBar);
             this.SearchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SearchPanel.Location = new System.Drawing.Point(0, 0);
+            this.SearchPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SearchPanel.Name = "SearchPanel";
-            this.SearchPanel.Size = new System.Drawing.Size(681, 155);
+            this.SearchPanel.Size = new System.Drawing.Size(511, 126);
             this.SearchPanel.TabIndex = 18;
             // 
             // SearchButton
             // 
+            this.SearchButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.SearchButton.BackColor = System.Drawing.Color.DarkGray;
             this.SearchButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SearchButton.BackgroundImage")));
-            this.SearchButton.Location = new System.Drawing.Point(581, 29);
+            this.SearchButton.Location = new System.Drawing.Point(445, 25);
+            this.SearchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(88, 79);
+            this.SearchButton.Size = new System.Drawing.Size(66, 64);
             this.SearchButton.TabIndex = 2;
             this.SearchButton.UseVisualStyleBackColor = false;
             this.SearchButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // SearchBar
             // 
+            this.SearchBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchBar.AutoCompleteCustomSource.AddRange(new string[] {
+            "testword"});
             this.SearchBar.BackColor = System.Drawing.Color.LightGray;
             this.SearchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.SearchBar.Location = new System.Drawing.Point(41, 45);
+            this.SearchBar.Location = new System.Drawing.Point(2, 38);
+            this.SearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SearchBar.Name = "SearchBar";
-            this.SearchBar.Size = new System.Drawing.Size(534, 53);
+            this.SearchBar.Size = new System.Drawing.Size(511, 44);
             this.SearchBar.TabIndex = 0;
             // 
             // Shop_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(681, 803);
+            this.ClientSize = new System.Drawing.Size(511, 652);
             this.Controls.Add(this.ButtonPanel);
             this.Controls.Add(this.SearchPanel);
             this.Name = "Shop_form";

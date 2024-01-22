@@ -31,6 +31,7 @@ namespace WindowsFormsApp1.classes
 
                 BaseForm item = elements[elements.Count - 1];
                 elements.RemoveAt(elements.Count - 1);
+                GC.Collect();
                 return item;
             }
 
@@ -45,6 +46,8 @@ namespace WindowsFormsApp1.classes
                 throw new InvalidOperationException("The stack is empty");
             }
 
+            
+            
 
         }
 

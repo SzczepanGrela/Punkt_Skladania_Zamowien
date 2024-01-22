@@ -21,7 +21,7 @@ namespace WindowsFormsApp1
 
             InitializeComponent();
             this.SetForm(false, parentContainer);
-            Methods.LoadImagesAndCreateButtons(this.ButtonPanel, @"..\..\data\images\icons\categories");
+            //Methods.LoadImagesAndCreateButtons(this.ButtonPanel, @"..\..\data\images\icons\categories");
 
         }
 

@@ -54,21 +54,7 @@ namespace WindowsFormsApp1.Classes
         }
 
 
-        private static void ClearPanel(Panel panel)
-        {
-
-            foreach (Control control in panel.Controls)
-            {
-                if (control is Form)
-                {
-                    ((Form)control).Close();
-                }
-                control.Dispose();
-            }
-
-            panel.Controls.Clear();
-
-        }
+      
 
     }
 }

@@ -23,6 +23,8 @@ namespace WindowsFormsApp1
         public Main_window()
         {
             InitializeComponent();
+
+
             this.SetForm(true, null);               
             pf = new Panel_form(MainPanel);
             ResetMenu(pf);
@@ -44,7 +46,6 @@ namespace WindowsFormsApp1
                 BaseForm prevForm = previousForms.Pop();
                 openForm(pf, prevForm, null); // open prev form, without adding current one to stack
             }
-
 
         }
 
@@ -68,6 +69,19 @@ namespace WindowsFormsApp1
             ResetMenu(pf);
         }
 
+        private void TopBarPanel_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

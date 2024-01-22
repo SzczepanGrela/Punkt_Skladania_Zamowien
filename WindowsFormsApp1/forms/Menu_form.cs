@@ -20,17 +20,12 @@ namespace WindowsFormsApp1
         public MenuForm(Control parentContainer)
         {
             InitializeComponent();
-            this.SetForm(false, parentContainer);
-            
+            this.SetForm(false, parentContainer); 
         }
-
-
 
         private void ShopButton_Click(object sender, EventArgs e)
         {
             openForm(parentContainer, new Shop_form(parentContainer), this);
-
-
         }
 
         private void PresentationButton_Click(object sender, EventArgs e)
@@ -43,11 +38,9 @@ namespace WindowsFormsApp1
             openForm(parentContainer, new Matching_form(parentContainer), this);
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
 
-
-
-
-
-
+        }
     }
 }
