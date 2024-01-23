@@ -23,12 +23,14 @@ namespace WindowsFormsApp1.classes.FileOperations
         }
         public string ReadData(string query = null)
         {
-            return "text";
+
+
+            return null;
+           
         }
         public void WriteData(string id, string data)   // overwrites existing file
         {
-            if (!File.Exists(id)) File.Create(id);
-
+            
             using (sw = File.CreateText(id))
             {
                 sw.WriteLine(data);
@@ -40,7 +42,6 @@ namespace WindowsFormsApp1.classes.FileOperations
             using (sw = File.AppendText(id))
             {
                 sw.WriteLine(data);
-
             }
 
 

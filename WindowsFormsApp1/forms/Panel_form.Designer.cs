@@ -32,10 +32,11 @@
             // 
             // Panel_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ClientSize = new System.Drawing.Size(498, 584);
+            this.ClientSize = new System.Drawing.Size(665, 594);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Panel_form";
             this.Text = "Panel_form";
             this.ResumeLayout(false);

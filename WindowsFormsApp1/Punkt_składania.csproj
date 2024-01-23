@@ -109,6 +109,12 @@
     <Compile Include="forms\Shop_form.Designer.cs">
       <DependentUpon>Shop_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="testowy\usercontrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="testowy\usercontrol.Designer.cs">
+      <DependentUpon>usercontrol.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="classes\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +150,9 @@
     </Compile>
     <EmbeddedResource Include="forms\Shop_form.resx">
       <DependentUpon>Shop_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testowy\usercontrol.resx">
+      <DependentUpon>usercontrol.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
