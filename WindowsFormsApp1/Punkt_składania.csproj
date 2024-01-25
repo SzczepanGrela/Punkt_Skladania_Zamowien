@@ -61,8 +61,8 @@
     </Compile>
     <Compile Include="classes\ControlStack.cs" />
     <Compile Include="classes\FileOperations\FileOperations.cs" />
-    <Compile Include="classes\FileOperations\sqlFileOperations.cs" />
-    <Compile Include="classes\FileOperations\txtFileOperations.cs" />
+    <Compile Include="classes\FileOperations\SqlFileOperations.cs" />
+    <Compile Include="classes\FileOperations\TxtFileOperations.cs" />
     <Compile Include="classes\Methods.cs" />
     <Compile Include="classes\FormStack.cs" />
     <Compile Include="forms\Panel_form.cs">

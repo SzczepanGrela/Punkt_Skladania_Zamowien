@@ -12,23 +12,23 @@ namespace WindowsFormsApp1.interfaces
     internal interface IFileOperations
     {
 
-        T ReadFile<T>(string filePath);
-
-        void WriteFile<T>(string filePath, T content);
-
-        void UpdateFile<T>(string filePath, T content);
+          void CopyFile();
 
 
-        void DeleteFile(string filePath);
+          void DeleteFile();
 
 
-        void CopyFile(string sourceFilePath, string destinationFilePath);
-
-        // moving the file or changing the name of the file
-        void MoveFile(string sourceFilePath, string destinationFilePath);
+          bool FileExists();
 
 
-        bool FileExists(string filePath);
+          void MoveFile();
+
+
+          string[] ReadFile();
+
+          void UpdateFile();
+
+          void WriteFile();
 
 
 

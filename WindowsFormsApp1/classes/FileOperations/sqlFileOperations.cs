@@ -7,7 +7,7 @@ using WindowsFormsApp1.interfaces;
 
 namespace WindowsFormsApp1.classes.FileOperations
 {
-    internal class sqlFileOperations : FileOperations
+    internal class SqlFileOperations : FileOperations
     {
       
     }

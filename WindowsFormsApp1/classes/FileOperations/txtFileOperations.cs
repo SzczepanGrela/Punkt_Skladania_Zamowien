@@ -11,11 +11,11 @@ using System.Linq.Expressions;
 
 namespace WindowsFormsApp1.classes.FileOperations
 {
-    internal class txtFileOperations : FileOperations
+    internal class TxtFileOperations : FileOperations
     {
-        
 
-        new T[] ReadFile<T>(string filePath) where T : class
+
+        public string[] ReadFile(string filePath) 
         {
 
             try
@@ -27,23 +27,26 @@ namespace WindowsFormsApp1.classes.FileOperations
                 {
                     string[] content = File.ReadAllLines(filePath);
 
-                    return content as T[];
+                    return content;
                 }
                 else
                 {
                     throw new FileNotFoundException("File not found: ", filePath);
-                    
+
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return null;
+                string[] content;
+                content = new string[1];
+                content[0] = ex.Message;
+                return content;
             }
 
         }
 
-        new void WriteFile<T>(string filePath, T content)
+        public void WriteFile(string filePath, string content)
         {
 
             try
@@ -52,15 +55,7 @@ namespace WindowsFormsApp1.classes.FileOperations
                 FixTheFormat(filePath, "txt"); // Making sure the file format is .txt
 
 
-
-                if (content.GetType() == typeof(string))
-                {
-
-                    File.WriteAllText(filePath, content as string);
-
-                }
-                
-                else throw new FormatException("The content is not a string");
+                File.WriteAllText(filePath, content);
 
 
             }
@@ -71,33 +66,9 @@ namespace WindowsFormsApp1.classes.FileOperations
 
         }
 
-        void WriteFile<T>(string filePath, T[] content)
-        {
-            try
-            {
-
-                FixTheFormat(filePath, "txt"); // Making sure the file format is .txt
 
 
-                if (content.GetType() == typeof(string[]))
-                {
-
-                    File.WriteAllLines(filePath, content as string[]);
-
-                }
-
-                else throw new FormatException("The content is not a string array");
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        new void UpdateFile<T>(string filePath, T content)
+        public void UpdateFile(string filePath, string content)
         {
             try
             {
@@ -106,13 +77,9 @@ namespace WindowsFormsApp1.classes.FileOperations
                 FixTheFormat(filePath, "txt"); // Making sure the file format is .txt
 
 
-                if (content.GetType() == typeof(string))
-                {
 
-                    File.AppendAllText(filePath, content as string);
+                File.AppendAllText(filePath, content);
 
-                }
-                else throw new FormatException("The content is not a string");
 
 
             }
@@ -126,89 +93,77 @@ namespace WindowsFormsApp1.classes.FileOperations
         }
 
 
-        void UpdateFile<T>(string filePath, T[] content)
+        public void UpdateFile(string filePath, string[] content)
         {
-            try
-            {
+            
                 FixTheFormat(filePath, "txt"); // Making sure the file format is .txt
 
 
-                if (content.GetType() == typeof(string[]))
-                {
 
-                    File.AppendAllLines(filePath, content as string[]);
-
-                }
-                
-                else throw new FormatException("The content is not a string array");
+                File.AppendAllLines(filePath, content);
 
 
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
 
 
         }
 
 
-
-
-
-        new void DeleteFile(string filePath)
+        public void WriteFile(string filePath, string[] content)
         {
-            try
-            {
-                if (!CheckTheFormat(filePath, "txt")) throw new FormatException("The format is not correct"); // Making sure the file format is .txt
+            
+
+                FixTheFormat(filePath, "txt"); // Making sure the file format is .txt
+
+                File.WriteAllLines(filePath, content);
+
+           
+
+        }
+
+
+        public void DeleteFile(string filePath)
+        {
+              if (!CheckTheFormat(filePath, "txt")) throw new FormatException("The format is not correct"); // Making sure the file format is .txt
 
                 if (File.Exists(filePath))
                 {
                     File.Delete(filePath);
                 }
-                else throw new FileNotFoundException("File not found: "+ filePath);
+                else throw new FileNotFoundException("File not found: " + filePath);
 
 
 
-            } catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
         }
 
 
-        new void CopyFile(string sourceFilePath, string destinationFilePath)
+        public void CopyFile(string sourceFilePath, string destinationFilePath)
         {
 
-            try
-            {
-                string[] content = ReadFile<string>(sourceFilePath);
+            
+                string[] content = ReadFile(sourceFilePath);
 
-                WriteFile<string>(destinationFilePath, content);
+                WriteFile(destinationFilePath, content);
 
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                
+         
+            
 
 
         }
 
         // moving the file or changing the name of the file
-        new void MoveFile(string sourceFilePath, string destinationFilePath)
+        public void MoveFile(string sourceFilePath, string destinationFilePath)
         {
-            try
-            {
+            
 
-                if(!FileExists(sourceFilePath))
+                if (!FileExists(sourceFilePath))
                 {
                     throw new Exception("File not found: " + sourceFilePath);
                 }
 
-                if(FileExists(destinationFilePath))
+                if (FileExists(destinationFilePath))
                 {
                     throw new Exception("File already exists: " + destinationFilePath);
                 }
@@ -217,17 +172,14 @@ namespace WindowsFormsApp1.classes.FileOperations
                 CopyFile(sourceFilePath, destinationFilePath);
                 DeleteFile(sourceFilePath);
 
-            } catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-           
+            
+
 
 
         }
 
 
-        new bool FileExists(string filePath)
+        public bool FileExists(string filePath)
         {
             return File.Exists(filePath);
         }

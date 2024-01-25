@@ -9,46 +9,45 @@ using WindowsFormsApp1.interfaces;
 
 namespace WindowsFormsApp1.classes.FileOperations
 {
-    internal class FileOperations : IFileOperations
+    internal abstract class FileOperations : IFileOperations
     {
         private FileStream fs;
         private StreamReader sr;
         private StreamWriter sw;
 
 
-        public void CopyFile(string sourceFilePath, string destinationFilePath)
+        public virtual void CopyFile()
         {
-            throw new NotImplementedException();
+            throw new Exception("The method or operation is not implemented.");
         }
 
-        public void DeleteFile(string filePath)
+
+        public virtual void DeleteFile()
         {
-            throw new NotImplementedException();
+            throw new Exception("The method or operation is not implemented.");
         }
 
-        public bool FileExists(string filePath)
+        public virtual bool FileExists()
         {
-            throw new NotImplementedException();
+            throw new Exception("The method or operation is not implemented.");
         }
 
-        public void MoveFile(string sourceFilePath, string destinationFilePath)
+        public virtual void MoveFile()
         {
-            throw new NotImplementedException();
+            throw new Exception("The method or operation is not implemented.");
         }
 
-        public T ReadFile<T>(string filePath)
+        public virtual string[] ReadFile()
         {
-            throw new NotImplementedException();
+            throw new Exception("The method or operation is not implemented.");
         }
-
-        public void UpdateFile<T>(string filePath, T content)
+        public virtual void UpdateFile()
         {
-            throw new NotImplementedException();
+            throw new Exception("The method or operation is not implemented.");
         }
-
-        public void WriteFile<T>(string filePath, T content)
+        public virtual void WriteFile()
         {
-            throw new NotImplementedException();
+            throw new Exception("The method or operation is not implemented.");
         }
 
 
