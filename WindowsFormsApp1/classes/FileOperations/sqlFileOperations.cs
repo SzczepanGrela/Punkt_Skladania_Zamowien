@@ -7,35 +7,8 @@ using WindowsFormsApp1.interfaces;
 
 namespace WindowsFormsApp1.classes.FileOperations
 {
-    internal class sqlFileOperations : IFileOperations
+    internal class sqlFileOperations : FileOperations
     {
-        public void OpenDataStore(string pathOrConnectionString)
-        {
-
-        }
-        public void CloseDataStore()
-        {
-
-        }
-        public string ReadData(string query = null)
-        {
-            return null;
-        }
-        public void WriteData(string id, string data)
-        {
-            data = "text";
-        }
-        public void UpdateData(string id, string data)
-        {
-
-        }
-        public void DeleteData(string id)
-        {
-
-        }
-        public string QueryData(string query)
-        {
-            return null;
-        }
+      
     }
 }

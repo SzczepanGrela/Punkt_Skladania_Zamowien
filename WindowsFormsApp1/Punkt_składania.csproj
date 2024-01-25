@@ -53,6 +53,14 @@
     <Compile Include="classes\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="classes\BaseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="classes\BaseUserControl.Designer.cs">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="classes\ControlStack.cs" />
+    <Compile Include="classes\FileOperations\FileOperations.cs" />
     <Compile Include="classes\FileOperations\sqlFileOperations.cs" />
     <Compile Include="classes\FileOperations\txtFileOperations.cs" />
     <Compile Include="classes\Methods.cs" />
@@ -109,11 +117,11 @@
     <Compile Include="forms\Shop_form.Designer.cs">
       <DependentUpon>Shop_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="testowy\usercontrol.cs">
+    <Compile Include="usercontrols\Menu_control.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="testowy\usercontrol.Designer.cs">
-      <DependentUpon>usercontrol.cs</DependentUpon>
+    <Compile Include="usercontrols\Menu_control.Designer.cs">
+      <DependentUpon>Menu_control.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="classes\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
@@ -151,8 +159,8 @@
     <EmbeddedResource Include="forms\Shop_form.resx">
       <DependentUpon>Shop_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="testowy\usercontrol.resx">
-      <DependentUpon>usercontrol.cs</DependentUpon>
+    <EmbeddedResource Include="usercontrols\Menu_control.resx">
+      <DependentUpon>Menu_control.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">

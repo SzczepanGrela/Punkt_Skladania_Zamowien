@@ -76,7 +76,7 @@ namespace WindowsFormsApp1
             this.LogInButton.BackColor = System.Drawing.Color.BurlyWood;
             this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LogInButton.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LogInButton.Location = new System.Drawing.Point(415, 17);
+            this.LogInButton.Location = new System.Drawing.Point(414, 17);
             this.LogInButton.Margin = new System.Windows.Forms.Padding(2);
             this.LogInButton.Name = "LogInButton";
             this.LogInButton.Size = new System.Drawing.Size(95, 47);
@@ -140,13 +140,14 @@ namespace WindowsFormsApp1
             // 
             // Main_window
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Sienna;
             this.ClientSize = new System.Drawing.Size(512, 693);
             this.Controls.Add(this.BottomBarPanel);
             this.Controls.Add(this.TopBarPanel);
             this.Controls.Add(this.MainPanel);
+            this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "Main_window";
             this.Text = "Order Hub";
             this.TopBarPanel.ResumeLayout(false);

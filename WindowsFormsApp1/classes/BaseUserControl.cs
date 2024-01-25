@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.testowy
+namespace WindowsFormsApp1.classes
 {
-    public partial class usercontrol : UserControl
+    public partial class BaseUserControl : UserControl
     {
-        public usercontrol()
+        public BaseUserControl()
         {
             InitializeComponent();
         }

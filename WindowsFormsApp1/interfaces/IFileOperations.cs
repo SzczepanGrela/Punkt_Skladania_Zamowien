@@ -1,20 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+
 
 namespace WindowsFormsApp1.interfaces
 {
     internal interface IFileOperations
     {
 
-        void OpenDataStore(string pathOrConnectionString);
-        void CloseDataStore();
-        string ReadData(string query = null);
-        void WriteData(string id, string data);
-        void UpdateData(string id, string data);
-        void DeleteData(string id);
-        string QueryData(string query);
+        T ReadFile<T>(string filePath);
+
+        void WriteFile<T>(string filePath, T content);
+
+        void UpdateFile<T>(string filePath, T content);
+
+
+        void DeleteFile(string filePath);
+
+
+        void CopyFile(string sourceFilePath, string destinationFilePath);
+
+        // moving the file or changing the name of the file
+        void MoveFile(string sourceFilePath, string destinationFilePath);
+
+
+        bool FileExists(string filePath);
+
+
+
+
+
+
+
+
     }
 }

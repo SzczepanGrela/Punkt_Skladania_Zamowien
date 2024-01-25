@@ -11,7 +11,7 @@ using WindowsFormsApp1.classes;
 using WindowsFormsApp1.Classes;
 using WindowsFormsApp1.forms;
 using WindowsFormsApp1.Forms;
-using WindowsFormsApp1.testowy;
+using WindowsFormsApp1.usercontrols;
 
 
 
@@ -29,21 +29,19 @@ namespace WindowsFormsApp1
             this.SetForm(true, null);
             //pf = new Panel_form(MainPanel);
 
+            UserControl mc = new Menu_control();
+
+            openControl(MainPanel, mc, null);
+
+            
+
             //ResetMenu(pf);
-            var myUserControl = new usercontrol(); // Replace 'MyUserControl' with the actual name of your UserControl
-
-            // Optional: Set properties of the UserControl, if needed
-            myUserControl.Dock = DockStyle.Fill; // This will make the UserControl fill the entire Panel
-
-            // Clear the panel before adding new UserControl, if needed
-            MainPanel.Controls.Clear();
-
-            // Add the UserControl to the Panel
-            MainPanel.Controls.Add(myUserControl);
+            
 
         }
 
         public static FormStack previousForms = new FormStack();  // Stack storing previous windows
+         public static ControlStack previousControls = new ControlStack(); // Stack storing previous controls
 
         private Login_window lw; // Var storing if login window was already opened
 

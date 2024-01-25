@@ -20,7 +20,7 @@ namespace WindowsFormsApp1.classes
         {
             InitializeComponent();
 
-            (this.Width, this.Height) = Resolution.GetWindowRes();
+            //(this.Width, this.Height) = Resolution.GetWindowRes();
         }
 
         protected void ResetMenu(BaseForm form)   // |where|what|
@@ -43,6 +43,19 @@ namespace WindowsFormsApp1.classes
             parentContainer.Controls.Clear();
             parentContainer.Controls.Add(newForm);
             newForm.Show();
+        }
+
+
+        protected void openControl(Control parentContainer, Control newControl , Control currentControl)  // open "new" in "parent", current - > stack
+        {
+            if (currentControl != null) Main_window.previousControls.Push(currentControl);
+            
+            newControl.Dock = DockStyle.Fill;
+            
+            parentContainer.Controls.Clear();
+            parentContainer.Controls.Add(newControl);
+            newControl.Show();
+
         }
 
 
