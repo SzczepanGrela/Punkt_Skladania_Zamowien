@@ -11,7 +11,10 @@ namespace WindowsFormsApp1.interfaces
     {
 
         void WriteFile(params string[] content);   // params keyword allows to pass single string as well as array of strings
-        void UpdateFile(params string[] content);
+        void UpdateFile(int[] lines, params string[] content);
+
+        void AppendToFile(params string[] content);
+        
         string[] ReadFile();
 
 
