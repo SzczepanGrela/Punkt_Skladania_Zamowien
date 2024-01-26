@@ -60,7 +60,7 @@
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="classes\ControlStack.cs" />
-    <Compile Include="classes\FileOperations\FileOperations.cs" />
+    <Compile Include="classes\FileOperations\BasicFileOperations.cs" />
     <Compile Include="classes\FileOperations\SqlFileOperations.cs" />
     <Compile Include="classes\FileOperations\TxtFileOperations.cs" />
     <Compile Include="classes\Methods.cs" />
@@ -107,7 +107,8 @@
     <Compile Include="forms\Test_shopping_window.Designer.cs">
       <DependentUpon>Test_shopping_window.cs</DependentUpon>
     </Compile>
-    <Compile Include="interfaces\IFileOperations.cs" />
+    <Compile Include="interfaces\IBasicFileOperations.cs" />
+    <Compile Include="interfaces\ITextFileOperations.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolution.cs" />
