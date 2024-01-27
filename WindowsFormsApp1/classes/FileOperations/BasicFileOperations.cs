@@ -22,6 +22,23 @@ namespace WindowsFormsApp1.classes.FileOperations
         // set of file types that could be used in this application, and mistakenly typed by user in wrong class
 
 
+
+        public BasicFileOperations(string filePath, string correctExtension)
+        {
+            this.correctExtension = correctExtension;
+            this.filePath = FixExtension(filePath);
+
+            if (!FileExists()) 
+
+            CreateFile(filePath);
+        }
+
+        public BasicFileOperations()
+        {
+
+        }
+
+
         public void CreateFile(string filePath)  // doesn't overwrite the file if it already exists
         {
             
@@ -60,7 +77,7 @@ namespace WindowsFormsApp1.classes.FileOperations
         }
 
 
-        public bool FileExists()
+        public bool FileExists() // checks if the connnected file exists
         {
             if (!IsConnected())
             {
@@ -152,7 +169,7 @@ namespace WindowsFormsApp1.classes.FileOperations
             {
                 return false;
             }
-            else if (!FileExists())   //should never happen
+            else if (!File.Exists(filePath))   //should never happen
             {
                 throw new FileNotFoundException("Connected, without a file. Critical error");
             }

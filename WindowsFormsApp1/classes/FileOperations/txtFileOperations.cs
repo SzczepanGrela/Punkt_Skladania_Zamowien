@@ -14,6 +14,22 @@ namespace WindowsFormsApp1.classes.FileOperations
     internal class TxtFileOperations : BasicFileOperations, ITextFileOperations
     {
         // fields (like filePath, list of known exetensions etc.) inherited from BasicFileOperations:
+
+        public TxtFileOperations()
+        {
+
+        }
+
+        public TxtFileOperations(string filePath) : base(filePath, "txt")
+        // calling constructor of the base class, setting this instance's correctExtension to "txt" and filePath to the value passed as argument
+
+        {
+
+        }
+
+        
+
+
         public void WriteFile(params string[] content)      // params keyword allows to pass single string as well as array of strings
         {
             if (IsConnected())
@@ -35,7 +51,7 @@ namespace WindowsFormsApp1.classes.FileOperations
 
 
 
-        public void UpdateFile(int [] lineIndex, params string[] content)
+        public void UpdateFile(int[] lineIndex, params string[] content)
         {
             if (!IsConnected())
             {
@@ -48,13 +64,13 @@ namespace WindowsFormsApp1.classes.FileOperations
 
             string[] copiedFile = ReadFile();
 
-            for (int i= 0; i<content.Length-1;i++)
+            for (int i = 0; i < content.Length - 1; i++)
             {
-                if (lineIndex[i]< 0)
+                if (lineIndex[i] < 0)
                 {
                     throw new ArgumentOutOfRangeException("Line number cannot be negative");
                 }
-                else if (lineIndex[i]> copiedFile.Length)
+                else if (lineIndex[i] > copiedFile.Length)
                 {
                     throw new ArgumentOutOfRangeException("Line number cannot be greater than number of lines in the file");
                 }
@@ -93,7 +109,7 @@ namespace WindowsFormsApp1.classes.FileOperations
             List<string> lines = new List<string>();
             using (sr = new StreamReader(this.filePath))
             {
-                while(!sr.EndOfStream)
+                while (!sr.EndOfStream)
                 {
                     lines.Add(sr.ReadLine());
                 }

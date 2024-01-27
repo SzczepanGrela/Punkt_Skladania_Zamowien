@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using WindowsFormsApp1.classes;
+using WindowsFormsApp1.classes.FileOperations;
 
 namespace WindowsFormsApp1
 {
@@ -33,47 +34,43 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string EnteredLogin = textBox1.Text; // Entered login
-            string EnteredPassword = textBox2.Text; // Entered password
+            string EnteredUsername = textBox1.Text;
+            string EnteredPassword = textBox2.Text;
 
-            if (File.Exists(FilePath))
+            TxtFileOperations users_txt = new TxtFileOperations(FilePath);   // for simplicity, the name of the object is the name of the file, with '_' instead of '.'
+            string[] lines = users_txt.ReadFile();
+            foreach (string line in lines)
             {
-                string[] lines = File.ReadAllLines(FilePath); // Reading all lines from the file
+                string[] passcodes = line.Split(':'); // Splitting the line into login and password
+                string login = passcodes[0]; // Login
+                if (login != EnteredUsername) continue; // If the login is not correct, continue
 
-                foreach (string line in lines)
+                else
                 {
-                    string[] passcodes = line.Split(':'); // Splitting the line into login and password
-                    string login = passcodes[0]; // Login
-                    if (login != EnteredLogin) continue; // If the login is not correct, continue
 
-                    else
+
+                    string password = passcodes[1]; // Password
+                    if (password == EnteredPassword) // If the password is correct
                     {
 
-
-                        string password = passcodes[1]; // Password
-                        if (password == EnteredPassword) // If the password is correct
-                        {
-
-                            MessageBox.Show("Login successful"); // Show the message
-                            //close this window
-                            this.Close();
-
-                        }
-                        else // If the password is incorrect
-                        {
-
-                            break; // Stop searching
-                        }
+                        MessageBox.Show("Login successful"); // Show the message
+                                                             //close this window
+                        this.Close();
 
                     }
+                    else // If the password is incorrect
+                    {
+
+                        break; // Stop searching
+                    }
+
+
 
                 }
-                MessageBox.Show("Login failed. The username or password you entered is incorrect. Please try again."); // Show the message
-
             }
-            else MessageBox.Show("File not found");
-        }
+            MessageBox.Show("Login failed. The username or password you entered is incorrect. Please try again."); // Show the message
 
+        }
         private void label2_Click(object sender, EventArgs e)
         {
 
