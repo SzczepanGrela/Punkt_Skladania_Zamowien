@@ -48,7 +48,6 @@ namespace WindowsFormsApp1
                 else
                 {
 
-
                     string password = passcodes[1]; // Password
                     if (password == EnteredPassword) // If the password is correct
                     {

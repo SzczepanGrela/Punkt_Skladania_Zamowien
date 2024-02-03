@@ -192,28 +192,26 @@ namespace WindowsFormsApp1.classes.FileOperations
             {
                 if (filePath[i] == '.')
                 {
+                    string extension = filePath.Substring(i + 1);
 
-                    if (filePath.Substring(i + 1) == correctExtension)    //  expected extension, no need to change anything
+                    if (extension == correctExtension)    //  expected extension, no need to change anything
                     {
                         return filePath;
                     }
-                    else if (knownExtensions.Contains(filePath.Substring(i + 1)))     // wrong extension, possible user mistake
+                    else if (knownExtensions.Contains(extension))     // wrong extension, possible user mistake
                     {
-                        throw new FormatException("Wrong file Format " + filePath.Substring(i + 1));
+                        throw new FormatException("Wrong file Format " + extension);
 
                     }
                     else   //  wrong extension, that's not used in this program. Most likely misspelled
                     {
-                        return filePath + "." + correctExtension;
-
+                        return  filePath.Substring(0, i+1) + correctExtension;
 
                     }
                 }
                 else if (filePath[i] == '\\')  //  there is no dot in the path
                 {
                     return filePath + "." + correctExtension;
-
-
 
                 }
 

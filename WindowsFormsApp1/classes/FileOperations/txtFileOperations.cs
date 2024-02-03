@@ -27,7 +27,7 @@ namespace WindowsFormsApp1.classes.FileOperations
 
         }
 
-        
+
 
 
         public void WriteFile(params string[] content)      // params keyword allows to pass single string as well as array of strings
@@ -118,9 +118,33 @@ namespace WindowsFormsApp1.classes.FileOperations
             return lines.ToArray();
         }
 
+        public string[] FindMatchingRecords(string key, int column, bool expectSingle)
+        {
 
+            string[] lines = ReadFile();
 
+            List<string> matchingRows = new List<string>();
 
+            foreach (string line in lines)
+            {
+                string[] columns = line.Split(';');
+                if (columns[column] == key)
+                {
+                    matchingRows.Add(line);
+                    
+                }
+            }
+            if (expectSingle && matchingRows.Count > 1)
+            {
+                throw new InvalidOperationException("Expected single record, found multiple");
+            }
+            else if (matchingRows.Count == 0)
+            {
+                return null;
+            }
+            else return matchingRows.ToArray();
+
+        }
 
     }
 }
