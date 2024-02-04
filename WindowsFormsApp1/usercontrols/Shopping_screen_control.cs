@@ -9,16 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
 
-namespace WindowsFormsApp1.forms
+namespace WindowsFormsApp1.usercontrols
 {
-    public partial class Panel_form : BaseForm
+    public partial class Shopping_screen_control : BaseUserControl
     {
-
-        public Panel_form(Control parentContainer)
+        public Shopping_screen_control(Control parentContainer)
         {
             InitializeComponent();
-            this.SetForm(false, parentContainer);
-
+            this.parentContainer = parentContainer;
         }
     }
 }
