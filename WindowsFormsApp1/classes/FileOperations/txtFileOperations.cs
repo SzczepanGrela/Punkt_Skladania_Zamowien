@@ -11,7 +11,7 @@ using System.Linq.Expressions;
 
 namespace WindowsFormsApp1.classes.FileOperations
 {
-    internal class TxtFileOperations : BasicFileOperations, ITextFileOperations
+     internal class TxtFileOperations : BasicFileOperations, ITextFileOperations
     {
         // fields (like filePath, list of known exetensions etc.) inherited from BasicFileOperations:
 
@@ -118,12 +118,12 @@ namespace WindowsFormsApp1.classes.FileOperations
             return lines.ToArray();
         }
 
-        public string[] FindMatchingRecords(string key, int column, bool expectSingle)
+        protected string[] FindMatchingRecords(string key, int column, bool expectSingle) // column is the index of column in which we are looking for the key
         {
 
-            string[] lines = ReadFile();
+             string[] lines = ReadFile();
 
-            List<string> matchingRows = new List<string>();
+            List<string> matchingRows = new List<string>();  // rows that match the key
 
             foreach (string line in lines)
             {
@@ -145,6 +145,37 @@ namespace WindowsFormsApp1.classes.FileOperations
             else return matchingRows.ToArray();
 
         }
+
+
+
+        public bool Login(string enteredUsername, int column, string enteredPassword) 
+
+        {
+
+            string[] credentials =  FindMatchingRecords(enteredUsername, column, true);
+            if (credentials == null)
+            {
+                return false;
+            }
+            else
+            {
+                string[] columns = credentials[0].Split(';');
+                if (columns[1] == enteredPassword)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }   
+
+             
+        }
+
+
+
+
 
     }
 }

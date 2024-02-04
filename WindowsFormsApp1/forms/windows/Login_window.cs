@@ -38,36 +38,19 @@ namespace WindowsFormsApp1
             string EnteredPassword = textBox2.Text;
 
             TxtFileOperations users_txt = new TxtFileOperations(FilePath);   // for simplicity, the name of the object is the name of the file, with '_' instead of '.'
-            string[] lines = users_txt.ReadFile();
-            foreach (string line in lines)
+            
+            if (users_txt.Login(EnteredUsername, 0, EnteredPassword)) // 0 is the column index of the usernames in the file
             {
-                string[] passcodes = line.Split(':'); // Splitting the line into login and password
-                string login = passcodes[0]; // Login
-                if (login != EnteredUsername) continue; // If the login is not correct, continue
+                MessageBox.Show("Login succesful."); 
 
-                else
-                {
-
-                    string password = passcodes[1]; // Password
-                    if (password == EnteredPassword) // If the password is correct
-                    {
-
-                        MessageBox.Show("Login successful"); // Show the message
-                                                             //close this window
-                        this.Close();
-
-                    }
-                    else // If the password is incorrect
-                    {
-
-                        break; // Stop searching
-                    }
-
-
-
-                }
             }
-            MessageBox.Show("Login failed. The username or password you entered is incorrect. Please try again."); // Show the message
+            else
+            {
+                MessageBox.Show("Login failed. The username or password you entered is incorrect. Please try again.");
+
+            }
+
+
 
         }
         private void label2_Click(object sender, EventArgs e)
