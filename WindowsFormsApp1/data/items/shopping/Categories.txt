@@ -1,0 +1,25 @@
+Smartphones;true
+Headphones;true
+Handheld Vacuum Cleaners;true
+Tablets;true
+E-readers;true
+Portable Speakers;true
+Hair Dryers;true
+Coffee Machines;false
+Microwave Ovens;false
+Televisions;false
+Desktop Computers;false
+Washing Machines;false
+Refrigerators;false
+Dishwashers;false
+Air Conditioners;false
+Ovens;false
+Large Printers;false
+Sound Systems;false
+Electric Ranges;false
+Game Consoles;true
+Smart Watches;true
+Action Cameras;true
+Small Kitchen Appliances (Blenders, Toasters, etc.);true
+Electric Toothbrushes;true
+Smart Home Devices (Smart bulbs, thermostats, etc.);true

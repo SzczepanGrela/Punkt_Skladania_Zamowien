@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.Forms;
-
 namespace WindowsFormsApp1.classes
 {
-    public class ControlStack
+    public class ControlStack   // stack of user controls, forms and other containers
     {
         private List<Control> elements;
 
@@ -24,7 +22,6 @@ namespace WindowsFormsApp1.classes
 
         public Control Pop()
         {
-
 
             if (elements.Count > 1)
             {
@@ -45,9 +42,6 @@ namespace WindowsFormsApp1.classes
             {
                 throw new InvalidOperationException("The stack is empty");
             }
-
-
-
 
         }
 

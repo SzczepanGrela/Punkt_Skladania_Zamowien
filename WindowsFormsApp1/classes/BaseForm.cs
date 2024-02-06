@@ -7,15 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.Classes;
-using WindowsFormsApp1.Forms;
 using WindowsFormsApp1.usercontrols;
 using WindowsFormsApp1.interfaces;
+using WindowsFormsApp1.controls.forms;
 
 
 namespace WindowsFormsApp1.classes
 {
-    public abstract partial class BaseForm : Form, IContainerControlOperations
+    public partial class BaseForm : Form, IContainerControlOperations
     {
         protected Control parentContainer;
         public BaseForm()
@@ -27,14 +26,14 @@ namespace WindowsFormsApp1.classes
 
         public void ResetMenu(Control parentContainer)   
         {
-            
-            
-            openControl(parentContainer, new Menu_control(parentContainer), null);
+
+
+            OpenControl(parentContainer, new usercontrols.Menu_screen(parentContainer, ' '), null);
             Main_window.previousControls.Clear(); // remove all elements from stack
 
         }
 
-        public void openForm(Control parentContainer, BaseForm newForm, BaseForm currentForm)    // pattern:  open:| WHERE | WHAT | FORM |you add to stack 
+        public void OpenForm(Control parentContainer, BaseForm newForm, BaseForm currentForm)    // pattern:  open:| WHERE | WHAT | FORM |you add to stack 
         {
             if (currentForm != null) Main_window.previousControls.Push(currentForm);
             newForm.TopLevel = false;
@@ -46,7 +45,7 @@ namespace WindowsFormsApp1.classes
         }
 
 
-        public void openControl(Control parentContainer, Control newControl , Control currentControl)  // open "new" in "parent"; "current" add to  stack
+        public void OpenControl(Control parentContainer, Control newControl , Control currentControl)  // open "new" in "parent"; "current" add to  stack
         {
             if (currentControl != null) Main_window.previousControls.Push(currentControl);
             
@@ -71,6 +70,20 @@ namespace WindowsFormsApp1.classes
             }*/
 
             this.parentContainer = parentContainer;
+
+        }
+
+
+        public DialogResult OpenPopup(Control parentContainer, BasePopup_window newPopup)
+        {
+
+           
+
+            newPopup.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+
+            newPopup.ShowDialog();
+
+            return newPopup.DialogResult;
 
         }
 
