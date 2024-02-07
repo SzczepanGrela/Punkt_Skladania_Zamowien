@@ -17,6 +17,8 @@ namespace WindowsFormsApp1.interfaces
         //string[] FindMatchingRecords(string key, int column, bool expectSingle);
         string[] ReadFile();
 
+       
+
         bool Login(string enteredUsername, int column, string enteredPassword);
 
 

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.controls.usercontrols
 {
-    partial class Test_screen
+    partial class Payment_method_screen
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.
@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // Test_screen
+            // Payment_method_screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Test_screen";
-            this.Size = new System.Drawing.Size(500, 540);
+            this.Name = "Payment_method_screen";
+            this.Size = new System.Drawing.Size(600, 640);
             this.ResumeLayout(false);
 
         }

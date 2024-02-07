@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.controls.usercontrols
 {
-    partial class Categories_screen
+    partial class Shopping_cart_screen
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.
@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // Categories
+            // Shopping_cart_screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Categories";
-            this.Size = new System.Drawing.Size(500, 540);
+            this.Name = "Shopping_cart_screen";
+            this.Size = new System.Drawing.Size(600, 640);
             this.ResumeLayout(false);
 
         }

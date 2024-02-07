@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.controls.usercontrols
 {
-    partial class Testing_cart_screen
+    partial class Finalised_purchase_screen
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.
@@ -28,8 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Finalised_purchase_screen
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "Finalised_purchase_screen";
+            this.Size = new System.Drawing.Size(600, 640);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

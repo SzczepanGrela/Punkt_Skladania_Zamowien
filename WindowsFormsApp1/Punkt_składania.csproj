@@ -70,88 +70,94 @@
     <Compile Include="classes\FileOperations\SqlFileOperations.cs" />
     <Compile Include="classes\FileOperations\TxtFileOperations.cs" />
     <Compile Include="classes\Methods.cs" />
-    <Compile Include="controls\forms\Popup_window_ok.cs">
+    <Compile Include="containers\windows\Popup_window_ok.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="controls\forms\Popup_window_ok.Designer.cs">
+    <Compile Include="containers\windows\Popup_window_ok.Designer.cs">
       <DependentUpon>Popup_window_ok.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\forms\Popup_window_yn.cs">
+    <Compile Include="containers\windows\Popup_window_yn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="controls\forms\Popup_window_yn.Designer.cs">
+    <Compile Include="containers\windows\Popup_window_yn.Designer.cs">
       <DependentUpon>Popup_window_yn.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\usercontrols\Categories_screen.cs">
+    <Compile Include="containers\usercontrols\Categories_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\usercontrols\Categories_screen.Designer.cs">
+    <Compile Include="containers\usercontrols\Categories_screen.Designer.cs">
       <DependentUpon>Categories_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\usercontrols\Finalised_purchase_screen.cs">
+    <Compile Include="containers\usercontrols\controls\Item_view.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\usercontrols\Finalised_purchase_screen.Designer.cs">
+    <Compile Include="containers\usercontrols\controls\Item_view.Designer.cs">
+      <DependentUpon>Item_view.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\usercontrols\Finalised_purchase_screen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\usercontrols\Finalised_purchase_screen.Designer.cs">
       <DependentUpon>Finalised_purchase_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\usercontrols\Items_list_screen.cs">
+    <Compile Include="containers\usercontrols\Items_list_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\usercontrols\Items_list_screen.Designer.cs">
+    <Compile Include="containers\usercontrols\Items_list_screen.Designer.cs">
       <DependentUpon>Items_list_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\usercontrols\Item_screen.cs">
+    <Compile Include="containers\usercontrols\Item_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\usercontrols\Item_screen.Designer.cs">
+    <Compile Include="containers\usercontrols\Item_screen.Designer.cs">
       <DependentUpon>Item_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\usercontrols\matching_query_screen.cs">
+    <Compile Include="containers\usercontrols\Matching_query_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\usercontrols\matching_query_screen.Designer.cs">
-      <DependentUpon>matching_query_screen.cs</DependentUpon>
+    <Compile Include="containers\usercontrols\Matching_query_screen.Designer.cs">
+      <DependentUpon>Matching_query_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\usercontrols\Payment_method_screen.cs">
+    <Compile Include="containers\usercontrols\Payment_method_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\usercontrols\Payment_method_screen.Designer.cs">
+    <Compile Include="containers\usercontrols\Payment_method_screen.Designer.cs">
       <DependentUpon>Payment_method_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\usercontrols\Shopping_cart_screen.cs">
+    <Compile Include="containers\usercontrols\Shopping_cart_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\usercontrols\Shopping_cart_screen.Designer.cs">
+    <Compile Include="containers\usercontrols\Shopping_cart_screen.Designer.cs">
       <DependentUpon>Shopping_cart_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\usercontrols\Testing_cart_screen.cs">
+    <Compile Include="containers\usercontrols\Testing_cart_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\usercontrols\Testing_cart_screen.Designer.cs">
+    <Compile Include="containers\usercontrols\Testing_cart_screen.Designer.cs">
       <DependentUpon>Testing_cart_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\usercontrols\Test_decision_screen.cs">
+    <Compile Include="containers\usercontrols\Test_decision_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\usercontrols\Test_decision_screen.Designer.cs">
+    <Compile Include="containers\usercontrols\Test_decision_screen.Designer.cs">
       <DependentUpon>Test_decision_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\usercontrols\Test_screen.cs">
+    <Compile Include="containers\usercontrols\Test_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\usercontrols\Test_screen.Designer.cs">
+    <Compile Include="containers\usercontrols\Test_screen.Designer.cs">
       <DependentUpon>Test_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\forms\Login_window.cs">
+    <Compile Include="containers\windows\Login_window.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="controls\forms\Login_window.Designer.cs">
+    <Compile Include="containers\windows\Login_window.Designer.cs">
       <DependentUpon>Login_window.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\forms\Main_window.cs">
+    <Compile Include="containers\windows\Main_window.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="controls\forms\Main_window.Designer.cs">
+    <Compile Include="containers\windows\Main_window.Designer.cs">
       <DependentUpon>Main_window.cs</DependentUpon>
     </Compile>
     <Compile Include="interfaces\IBasicFileOperations.cs" />
@@ -160,52 +166,61 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolution.cs" />
-    <Compile Include="controls\usercontrols\Menu_screen.cs">
+    <Compile Include="containers\usercontrols\Menu_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\usercontrols\Menu_screen.Designer.cs">
+    <Compile Include="containers\usercontrols\Menu_screen.Designer.cs">
       <DependentUpon>Menu_screen.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="classes\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\forms\Popup_window_ok.resx">
+    <EmbeddedResource Include="classes\BasePopup_window.resx">
+      <DependentUpon>BasePopup_window.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Popup_window_ok.resx">
       <DependentUpon>Popup_window_ok.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\forms\Popup_window_yn.resx">
+    <EmbeddedResource Include="containers\windows\Popup_window_yn.resx">
       <DependentUpon>Popup_window_yn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\usercontrols\Categories_screen.resx">
+    <EmbeddedResource Include="containers\usercontrols\Categories_screen.resx">
       <DependentUpon>Categories_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\usercontrols\Finalised_purchase_screen.resx">
+    <EmbeddedResource Include="containers\usercontrols\controls\Item_view.resx">
+      <DependentUpon>Item_view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\usercontrols\Finalised_purchase_screen.resx">
       <DependentUpon>Finalised_purchase_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\usercontrols\Items_list_screen.resx">
+    <EmbeddedResource Include="containers\usercontrols\Items_list_screen.resx">
       <DependentUpon>Items_list_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\usercontrols\Item_screen.resx">
+    <EmbeddedResource Include="containers\usercontrols\Item_screen.resx">
       <DependentUpon>Item_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\usercontrols\matching_query_screen.resx">
-      <DependentUpon>matching_query_screen.cs</DependentUpon>
+    <EmbeddedResource Include="containers\usercontrols\Matching_query_screen.resx">
+      <DependentUpon>Matching_query_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\usercontrols\Payment_method_screen.resx">
+    <EmbeddedResource Include="containers\usercontrols\Payment_method_screen.resx">
       <DependentUpon>Payment_method_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\usercontrols\Shopping_cart_screen.resx">
+    <EmbeddedResource Include="containers\usercontrols\Shopping_cart_screen.resx">
       <DependentUpon>Shopping_cart_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\usercontrols\Test_decision_screen.resx">
+    <EmbeddedResource Include="containers\usercontrols\Testing_cart_screen.resx">
+      <DependentUpon>Testing_cart_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\usercontrols\Test_decision_screen.resx">
       <DependentUpon>Test_decision_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\usercontrols\Test_screen.resx">
+    <EmbeddedResource Include="containers\usercontrols\Test_screen.resx">
       <DependentUpon>Test_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\forms\Login_window.resx">
+    <EmbeddedResource Include="containers\windows\Login_window.resx">
       <DependentUpon>Login_window.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\forms\Main_window.resx">
+    <EmbeddedResource Include="containers\windows\Main_window.resx">
       <DependentUpon>Main_window.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -217,7 +232,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="controls\usercontrols\Menu_screen.resx">
+    <EmbeddedResource Include="containers\usercontrols\Menu_screen.resx">
       <DependentUpon>Menu_screen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -234,6 +249,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="classes\DataObjects\" />
     <Folder Include="data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

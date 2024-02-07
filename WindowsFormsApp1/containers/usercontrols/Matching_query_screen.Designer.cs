@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.controls.usercontrols
 {
-    partial class Items_list_screen
+    partial class Matching_query_screen
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.
@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // Items
+            // Matching_query_screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Items";
-            this.Size = new System.Drawing.Size(500, 540);
+            this.Name = "Matching_query_screen";
+            this.Size = new System.Drawing.Size(600, 640);
             this.ResumeLayout(false);
 
         }

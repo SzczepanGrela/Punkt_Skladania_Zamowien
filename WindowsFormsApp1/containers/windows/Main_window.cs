@@ -61,16 +61,7 @@ namespace WindowsFormsApp1
         private void LogInButton_Click(object sender, EventArgs e)
         {
 
-            if (lw == null || lw.IsDisposed)
-            {
-                lw = new Login_window();
-                lw.Show();
-            }
-            else
-            {
-                // If the window is already opened, bring it to front
-                lw.BringToFront();
-            }
+            DialogResult loginStatus = OpenPopup(this.MainPanel, new Login_window(@"../../Data/accounts/users/users.txt"));
         }
 
         private void HomeButton_Click(object sender, EventArgs e)

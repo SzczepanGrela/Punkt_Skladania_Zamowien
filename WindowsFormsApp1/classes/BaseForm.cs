@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.usercontrols;
 using WindowsFormsApp1.interfaces;
 using WindowsFormsApp1.controls.forms;
+using WindowsFormsApp1.classes;
 
 
 namespace WindowsFormsApp1.classes
@@ -80,6 +81,10 @@ namespace WindowsFormsApp1.classes
            
 
             newPopup.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+
+            newPopup.FormBorderStyle = FormBorderStyle.None;
+            newPopup.ControlBox = false;
+            newPopup.StartPosition = FormStartPosition.CenterParent;
 
             newPopup.ShowDialog();
 

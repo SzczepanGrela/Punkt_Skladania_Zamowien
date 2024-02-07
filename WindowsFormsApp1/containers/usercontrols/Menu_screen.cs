@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.controls.forms;
+using WindowsFormsApp1.controls.usercontrols;
 
 namespace WindowsFormsApp1.usercontrols
 {
@@ -17,12 +18,14 @@ namespace WindowsFormsApp1.usercontrols
         public Menu_screen(Control parentContainer, char mode) : base(parentContainer, mode)
         {
             InitializeComponent();
+
+            this.BackColor = parentContainer.BackColor;
            
         }
 
         private void ShopButton_Click(object sender, EventArgs e)
         {
-            OpenPopup(this.parentContainer, new Popup_window_ok("Przykładowe zdanie posiadające trochę więcej tekstu by sprawdzić jak się zachowa label"));
+            OpenControl(parentContainer, new Categories_screen(parentContainer, 's'), this);
             
         }
 

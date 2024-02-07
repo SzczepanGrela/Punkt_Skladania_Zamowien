@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.controls.usercontrols
 {
-    partial class Finalised_purchase_screen
+    partial class Item_screen
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.
@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // Finalised_purchase
+            // Item_screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Finalised_purchase";
-            this.Size = new System.Drawing.Size(500, 540);
+            this.Name = "Item_screen";
+            this.Size = new System.Drawing.Size(600, 640);
             this.ResumeLayout(false);
 
         }

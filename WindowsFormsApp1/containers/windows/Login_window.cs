@@ -13,13 +13,15 @@ using WindowsFormsApp1.classes.FileOperations;
 
 namespace WindowsFormsApp1
 {
-    public partial class Login_window : BaseForm
+    public partial class Login_window : BasePopup_window
     {
-        const string FilePath = @"../../Data/accounts/users/users.txt"; // Path to the users.txt file
+        string FilePath;
 
-        public Login_window()
+        public Login_window(string FilePath)
         {
             InitializeComponent();
+            this.FilePath = FilePath;
+            this.BackColor = base.BackColor;
         }
 
         private void login_window_Load(object sender, EventArgs e)
@@ -34,19 +36,23 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string EnteredUsername = textBox1.Text;
-            string EnteredPassword = textBox2.Text;
+            string EnteredUsername = usernameTextbox.Text;
+            string EnteredPassword = passwordTextbox.Text;
 
             TxtFileOperations users_txt = new TxtFileOperations(FilePath);   // for simplicity, the name of the object is the name of the file, with '_' instead of '.'
             
             if (users_txt.Login(EnteredUsername, 0, EnteredPassword)) // 0 is the column index of the usernames in the file
             {
-                MessageBox.Show("Login succesful."); 
+                
 
             }
             else
             {
-                MessageBox.Show("Login failed. The username or password you entered is incorrect. Please try again.");
+                this.welcomeLabel.Text = "Wrong username or password\nTry again!";
+                this.welcomeLabel.TextAlign = ContentAlignment.MiddleCenter;
+                this.welcomeLabel.ForeColor = Color.Red;
+                this.passwordTextbox.Text = "";
+                this.usernameTextbox.Text = ""; 
 
             }
 
@@ -68,5 +74,9 @@ namespace WindowsFormsApp1
 
         }
 
+        private void leaveButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

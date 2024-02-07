@@ -118,7 +118,7 @@ namespace WindowsFormsApp1.classes.FileOperations
             return lines.ToArray();
         }
 
-        protected string[] FindMatchingRecords(string key, int column, bool expectSingle) // column is the index of column in which we are looking for the key
+        public string[] FindMatchingRecords(string key, int column, bool expectSingle=false) // column is the index of column in which we are looking for the key
         {
 
              string[] lines = ReadFile();
@@ -174,6 +174,7 @@ namespace WindowsFormsApp1.classes.FileOperations
         }
 
 
+        
 
 
 

@@ -11,17 +11,11 @@ using WindowsFormsApp1.classes;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
-    public partial class Categories_screen : BaseUserControl
+    public partial class Matching_query_screen : BaseUserControl
     {
-
-        public Categories_screen(Control parentContainer, char mode)
+        public Matching_query_screen(Control parentContainer, char mode) : base(parentContainer, mode)
         {
             InitializeComponent();
-
-            this.mode = mode;
-            this.parentContainer = parentContainer;
-
         }
-
     }
 }

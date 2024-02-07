@@ -10,13 +10,32 @@ using System.Windows.Forms;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.FileOperations;
 
-namespace WindowsFormsApp1.Classes
+namespace WindowsFormsApp1.classes
 {
     public static class Methods
     {
 
 
-        
+        public static string[][] splitArray(string[] array, char delimiter)
+        {
+            string[][] splitArray = new string[array.Length][];
+            for (int i = 0; i < array.Length; i++)
+            {
+                splitArray[i] = array[i].Split(delimiter);
+            }
+            return splitArray;
+        }
+
+
+        public static string[] splitArray(string[] array, char delimiter, int column)
+        {
+            string[] splitArray = new string[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                splitArray[i] = array[i].Split(delimiter)[column];
+            }
+            return splitArray;
+        }
 
 
 
