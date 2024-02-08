@@ -105,11 +105,11 @@
     <Compile Include="containers\usercontrols\Categories_screen.Designer.cs">
       <DependentUpon>Categories_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="containers\usercontrols\controls\Item_view.cs">
+    <Compile Include="containers\usercontrols\controls\Product_button.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="containers\usercontrols\controls\Item_view.Designer.cs">
-      <DependentUpon>Item_view.cs</DependentUpon>
+    <Compile Include="containers\usercontrols\controls\Product_button.Designer.cs">
+      <DependentUpon>Product_button.cs</DependentUpon>
     </Compile>
     <Compile Include="containers\usercontrols\Finalised_purchase_screen.cs">
       <SubType>UserControl</SubType>
@@ -117,17 +117,17 @@
     <Compile Include="containers\usercontrols\Finalised_purchase_screen.Designer.cs">
       <DependentUpon>Finalised_purchase_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="containers\usercontrols\Items_list_screen.cs">
+    <Compile Include="containers\usercontrols\Products_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="containers\usercontrols\Items_list_screen.Designer.cs">
-      <DependentUpon>Items_list_screen.cs</DependentUpon>
+    <Compile Include="containers\usercontrols\Products_screen.Designer.cs">
+      <DependentUpon>Products_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="containers\usercontrols\Item_screen.cs">
+    <Compile Include="containers\usercontrols\Product_details_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="containers\usercontrols\Item_screen.Designer.cs">
-      <DependentUpon>Item_screen.cs</DependentUpon>
+    <Compile Include="containers\usercontrols\Product_details_screen.Designer.cs">
+      <DependentUpon>Product_details_screen.cs</DependentUpon>
     </Compile>
     <Compile Include="containers\usercontrols\Matching_query_screen.cs">
       <SubType>UserControl</SubType>
@@ -211,17 +211,17 @@
     <EmbeddedResource Include="containers\usercontrols\Categories_screen.resx">
       <DependentUpon>Categories_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="containers\usercontrols\controls\Item_view.resx">
-      <DependentUpon>Item_view.cs</DependentUpon>
+    <EmbeddedResource Include="containers\usercontrols\controls\Product_button.resx">
+      <DependentUpon>Product_button.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\Finalised_purchase_screen.resx">
       <DependentUpon>Finalised_purchase_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="containers\usercontrols\Items_list_screen.resx">
-      <DependentUpon>Items_list_screen.cs</DependentUpon>
+    <EmbeddedResource Include="containers\usercontrols\Products_screen.resx">
+      <DependentUpon>Products_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="containers\usercontrols\Item_screen.resx">
-      <DependentUpon>Item_screen.cs</DependentUpon>
+    <EmbeddedResource Include="containers\usercontrols\Product_details_screen.resx">
+      <DependentUpon>Product_details_screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\Matching_query_screen.resx">
       <DependentUpon>Matching_query_screen.cs</DependentUpon>

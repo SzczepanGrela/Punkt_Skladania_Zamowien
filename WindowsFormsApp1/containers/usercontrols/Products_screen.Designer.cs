@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.controls.usercontrols
 {
-    partial class Items_list_screen
+    partial class Products_screen
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.
@@ -30,7 +30,7 @@
         {
             this.filtersItemsSplit = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
-            this.itemsPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.ProductsPanel = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.filtersItemsSplit)).BeginInit();
             this.filtersItemsSplit.Panel1.SuspendLayout();
             this.filtersItemsSplit.Panel2.SuspendLayout();
@@ -52,7 +52,7 @@
             // filtersItemsSplit.Panel2
             // 
             this.filtersItemsSplit.Panel2.BackColor = System.Drawing.Color.DarkGray;
-            this.filtersItemsSplit.Panel2.Controls.Add(this.itemsPanel);
+            this.filtersItemsSplit.Panel2.Controls.Add(this.ProductsPanel);
             this.filtersItemsSplit.Size = new System.Drawing.Size(600, 640);
             this.filtersItemsSplit.SplitterDistance = 125;
             this.filtersItemsSplit.TabIndex = 0;
@@ -70,20 +70,21 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // itemsPanel
+            // ProductsPanel
             // 
-            this.itemsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.itemsPanel.Location = new System.Drawing.Point(0, 0);
-            this.itemsPanel.Name = "itemsPanel";
-            this.itemsPanel.Size = new System.Drawing.Size(600, 511);
-            this.itemsPanel.TabIndex = 0;
+            this.ProductsPanel.AutoScroll = true;
+            this.ProductsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProductsPanel.Location = new System.Drawing.Point(0, 0);
+            this.ProductsPanel.Name = "ProductsPanel";
+            this.ProductsPanel.Size = new System.Drawing.Size(600, 511);
+            this.ProductsPanel.TabIndex = 0;
             // 
-            // Items_list_screen
+            // Products_screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.filtersItemsSplit);
-            this.Name = "Items_list_screen";
+            this.Name = "Products_screen";
             this.Size = new System.Drawing.Size(600, 640);
             this.filtersItemsSplit.Panel1.ResumeLayout(false);
             this.filtersItemsSplit.Panel2.ResumeLayout(false);
@@ -97,6 +98,6 @@
 
         private System.Windows.Forms.SplitContainer filtersItemsSplit;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.FlowLayoutPanel itemsPanel;
+        private System.Windows.Forms.FlowLayoutPanel ProductsPanel;
     }
 }

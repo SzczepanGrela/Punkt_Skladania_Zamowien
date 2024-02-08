@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.controls.usercontrols
 {
-    partial class Item_screen
+    partial class Product_details_screen
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.

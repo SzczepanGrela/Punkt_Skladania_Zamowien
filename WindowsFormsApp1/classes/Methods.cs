@@ -51,18 +51,7 @@ namespace WindowsFormsApp1.classes
 
 
 
-        public static List<BaseUserControl> CreateCategoryButtons(List<Category> categories, Control parentContainer, char mode, BaseUserControl CategoryTab)
-        {
-            List<BaseUserControl> categoryButtons = new List<BaseUserControl>();
-            foreach (Category category in categories)
-            {
-                Category_button categoryButton = new Category_button(category.Name, category.Image, category.ID, mode, CategoryTab);
-                categoryButtons.Add(categoryButton);
-
-            }
-
-            return categoryButtons;
-        }
+      
 
        
     }

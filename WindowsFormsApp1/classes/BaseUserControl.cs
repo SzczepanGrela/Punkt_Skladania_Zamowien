@@ -24,7 +24,8 @@ namespace WindowsFormsApp1.classes
         public Control parentContainer = null;
 
         protected char mode = ' ';
-
+        protected string query;
+        BaseUserControl currentScreen = null;
 
         public BaseUserControl()
         {
@@ -34,6 +35,7 @@ namespace WindowsFormsApp1.classes
         {
             InitializeComponent();
             this.parentContainer = parentContainer;
+         
             this.mode = mode;
         }
 
@@ -55,7 +57,12 @@ namespace WindowsFormsApp1.classes
             newControl.Dock = DockStyle.Fill;
 
             parentContainer.Controls.Clear();
+
+            
             parentContainer.Controls.Add(newControl);
+
+            
+            
 
             newControl.BackColor = parentContainer.BackColor;
             newControl.Show();
@@ -148,30 +155,77 @@ namespace WindowsFormsApp1.classes
 
 
 
-        public void AddControlstoFlowPanel(Control[] controls, FlowLayoutPanel panel, int columns)
+        public void AddControlstoFlowPanel(BaseUserControl[] controls, FlowLayoutPanel panel, int columns)
         {
+            // works only for table of same type of controls
+           
+            var examplecontrol = controls[0];
 
-            BaseUserControl parent = (BaseUserControl)panel.Parent;   // TO DO: CHANGE THE WAY OF GETTING THE WIDTH OF THE PANEL
-            int panelWidth = parent.Parent.Size.Width;
+           
+            
+
             int scrollbarWidth = SystemInformation.VerticalScrollBarWidth;
-            int controlWidth = (int)((panelWidth - scrollbarWidth) / (columns * 1.1));
-            int gapWidth = (panelWidth - columns * controlWidth - scrollbarWidth) / (2 * columns);
+            int panelWidth = panel.Size.Width - scrollbarWidth;
+
+            int controlWidth = (int)((panelWidth - scrollbarWidth) / (columns * 1.12));
+            float proportion = ((float)controlWidth / examplecontrol.Width);
+            int controlHeight = (int)( examplecontrol.Height  *  proportion);
+            int spaceleft = panelWidth - columns * controlWidth;
+            int gapWidth = spaceleft/ (2 * columns);
+            int gapHeight = gapWidth;
             for (int i = 0; i < controls.Length; i++)
             {
-                controls[i].Margin = new Padding(gapWidth, gapWidth, gapWidth, gapWidth);
-                controls[i].Size = new Size(controlWidth, controlWidth);
-                controls[i].BringToFront();
-                panel.Controls.Add(controls[i]);
+                controls[i].Margin = new Padding(gapWidth, gapHeight, gapWidth, gapHeight);
+                controls[i].Padding = new Padding(0, 0, 0, 0);
+                controls[i].Size = new Size(controlWidth, controlHeight);
                 
+                
+                panel.Controls.Add(controls[i]);
+               
                 
             }
 
+
+
+
+
+
+
+
+
+
+            /*MessageBox.Show(this.Name+" " + this.Width);
+            MessageBox.Show(this.parentContainer.Name + " " + this.parentContainer.Width );*/
+
+        }
+
+        protected void AssignClickEventToAllControls(Control parent, BaseUserControl nextScreen)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                control.Click += (sender, e) => ClickEventForButtons(sender, e, nextScreen);
+
+
+                // Jeśli kontrolka zawiera inne kontrolki, zastosuj rekurencję
+                if (control.HasChildren)
+                {
+                    AssignClickEventToAllControls(control,nextScreen);
+                }
+            }
         }
 
 
+        private void ClickEventForButtons(object sender, EventArgs e,BaseUserControl nextScreen)
+        {
+            MessageBox.Show("Button clicked");
+
+            //OpenControl(parentContainer, nextScreen, this);
+        }
+        
 
 
-      
+
+
 
 
 

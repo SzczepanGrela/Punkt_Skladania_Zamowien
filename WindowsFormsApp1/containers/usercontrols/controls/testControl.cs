@@ -15,6 +15,18 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         public testControl()
         {
             InitializeComponent();
+
+            this.Click += new EventHandler(testControl_Click);
+        }
+
+        private void testControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void testControl_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test control clicked");
         }
     }
 }

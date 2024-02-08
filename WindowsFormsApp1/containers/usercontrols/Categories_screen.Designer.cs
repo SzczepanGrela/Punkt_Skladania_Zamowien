@@ -50,6 +50,7 @@
             this.categoriesPanel.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.categoriesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.categoriesPanel.Location = new System.Drawing.Point(0, 166);
+            this.categoriesPanel.Margin = new System.Windows.Forms.Padding(0);
             this.categoriesPanel.Name = "categoriesPanel";
             this.categoriesPanel.Size = new System.Drawing.Size(600, 474);
             this.categoriesPanel.TabIndex = 2;
@@ -60,6 +61,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.categoriesPanel);
             this.Controls.Add(this.lookinforLabel);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Categories_screen";
             this.Size = new System.Drawing.Size(600, 640);
             this.ResumeLayout(false);

@@ -14,12 +14,7 @@ namespace WindowsFormsApp1.classes.DataObjects
         public string Name { get; set; }
         public byte[] Image { get; set; }
     
-        public Category(int ID, string Name, byte[] Image)
-        {
-            this.ID = ID;
-            this.Name = Name;
-            this.Image = Image;
-        }
+       
 
         public Category()
         {

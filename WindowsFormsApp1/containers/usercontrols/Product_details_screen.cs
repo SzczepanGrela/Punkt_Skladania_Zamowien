@@ -11,9 +11,9 @@ using WindowsFormsApp1.classes;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
-    public partial class Item_screen : BaseUserControl
+    public partial class Product_details_screen : BaseUserControl
     {
-        public Item_screen(Control parentContainer, char mode) : base(parentContainer, mode) { }
+        public Product_details_screen(Control parentContainer, char mode, ) : base(parentContainer, mode) { }
 
     }
 }

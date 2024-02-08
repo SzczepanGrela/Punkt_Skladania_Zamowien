@@ -31,11 +31,6 @@ namespace WindowsFormsApp1
 
             OpenControl(MainPanel, mc, null);
 
-            
-
-            
-            
-
         }
 
        

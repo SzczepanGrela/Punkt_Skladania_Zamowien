@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.classes.FileOperations;
+using WindowsFormsApp1.containers.usercontrols.controls;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
@@ -24,25 +25,20 @@ namespace WindowsFormsApp1.controls.usercontrols
         {
             InitializeComponent();
 
-            this.Load += new EventHandler(Categories_screen_Load);  //loading buttons from file
+            this.Size = parentContainer.Size;
+            this.Load += new EventHandler(Categories_screen_Load);  // generating buttons 
 
         }
 
         private void Categories_screen_Load(object sender, EventArgs e)
         {
-            string query;
-            query = "SELECT TOP 4 * FROM Categories\r\nORDER BY 1 ASC;";
-            /* if (mode == 't')
-             {
-                 query = "SELECT * FROM Categories where Name like 'a%'";
-             }*/
-
-
-            //Category[] categories = dbm.ExecuteQuery<Category>(query, MapToCategory).ToArray();
+            
+            query = "SELECT TOP 20 * FROM Categories\r\nORDER BY 1 ASC;";
+            
 
             List<Category> categories = dbm.ExecuteQuery<Category>(query, Category.MapToCategory).ToList();
 
-            BaseUserControl[] CategoryButtons = Methods.CreateCategoryButtons(categories, this.parentContainer, mode, this).ToArray() ;
+            BaseUserControl[] CategoryButtons = Category_button.CreateCategoryButtons(categories, mode, this).ToArray() ;
 
             AddControlstoFlowPanel(CategoryButtons, categoriesPanel, 3);
 
