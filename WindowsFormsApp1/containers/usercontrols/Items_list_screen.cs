@@ -16,7 +16,7 @@ namespace WindowsFormsApp1.controls.usercontrols
     {
         TxtFileOperations items_txt = new TxtFileOperations(@"..\..\data\items\shopping\items.txt");
 
-        public Items_list_screen(Control parentContainer, char mode): base(parentContainer, mode) 
+        public Items_list_screen(Control parentContainer, char mode, int categoryID): base(parentContainer, mode) 
         {
             InitializeComponent();
 

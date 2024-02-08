@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.FileOperations;
+using WindowsFormsApp1.classes.DataObjects;
 
 namespace WindowsFormsApp1
 {
@@ -39,11 +40,15 @@ namespace WindowsFormsApp1
             string EnteredUsername = usernameTextbox.Text;
             string EnteredPassword = passwordTextbox.Text;
 
-            TxtFileOperations users_txt = new TxtFileOperations(FilePath);   // for simplicity, the name of the object is the name of the file, with '_' instead of '.'
+            Customer loginPerson = new Customer(EnteredUsername,EnteredPassword);   
             
-            if (users_txt.Login(EnteredUsername, 0, EnteredPassword)) // 0 is the column index of the usernames in the file
+            if (loginPerson.Login()) 
             {
-                
+                this.welcomeLabel.Text = "Login Succesful!";
+                this.welcomeLabel.TextAlign = ContentAlignment.MiddleCenter;
+                this.welcomeLabel.ForeColor = Color.Green;
+                this.passwordTextbox.Text = "";
+                this.usernameTextbox.Text = "";
 
             }
             else

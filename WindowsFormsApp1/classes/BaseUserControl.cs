@@ -11,6 +11,9 @@ using WindowsFormsApp1.controls.forms;
 using WindowsFormsApp1.interfaces;
 using WindowsFormsApp1.usercontrols;
 using WindowsFormsApp1.classes;
+using System.Data.SqlClient;
+using WindowsFormsApp1.classes.DataObjects;
+using WindowsFormsApp1.containers.usercontrols.controls;
 
 
 
@@ -60,15 +63,15 @@ namespace WindowsFormsApp1.classes
         }
 
 
-        public DialogResult OpenPopup(Control parentContainer, BasePopup_window newPopup) 
+        public DialogResult OpenPopup(Control parentContainer, BasePopup_window newPopup)
         {
-          
+
             newPopup.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
             newPopup.FormBorderStyle = FormBorderStyle.None;
             newPopup.ControlBox = false;
             newPopup.StartPosition = FormStartPosition.CenterParent;
 
-            
+
 
             newPopup.ShowDialog();
 
@@ -114,36 +117,36 @@ namespace WindowsFormsApp1.classes
 
 
 
-        public void AddButtonstoFlowPanel(string[] buttonnames, FlowLayoutPanel panel, int columns)
+        public void AddControlstoFlowPanel(List<Control> controls, FlowLayoutPanel panel, int columns)
         {
 
             BaseUserControl parent = (BaseUserControl)panel.Parent;   // TO DO: CHANGE THE WAY OF GETTING THE WIDTH OF THE PANEL
             int panelWidth = parent.Parent.Size.Width;
             int scrollbarWidth = SystemInformation.VerticalScrollBarWidth;
-            int buttonWidth = (int)((panelWidth-scrollbarWidth) / (columns*1.1));  
-            int gapWidth = (panelWidth - columns * buttonWidth - scrollbarWidth) / (2*columns);
-            for (int i=0;i<buttonnames.Length;i++)
+            int buttonWidth = (int)((panelWidth - scrollbarWidth) / (columns * 1.1));
+            int gapWidth = (panelWidth - columns * buttonWidth - scrollbarWidth) / (2 * columns);
+
+
+            foreach (Control control in controls)
             {
+
+                control.Margin = new Padding(gapWidth, gapWidth, gapWidth, gapWidth);
+
+                control.Size = new Size(buttonWidth, buttonWidth);
+
+                panel.Controls.Add(control);
+
                 
-
-                Button categoryButton = new Button();
-                categoryButton.Text = buttonnames[i];
-                categoryButton.BackColor = Color.White;
-                
-                categoryButton.Margin = new Padding(gapWidth, gapWidth, gapWidth, gapWidth);
-                
-
-
-
-                categoryButton.Size = new Size(buttonWidth, buttonWidth);
-               
-
-                categoryButton.Click += new EventHandler(OnCategoryButtonClick);
-                
-                panel.Controls.Add(categoryButton);
             }
 
         }
+
+       
+
+        
+
+
+
 
         public void AddControlstoFlowPanel(Control[] controls, FlowLayoutPanel panel, int columns)
         {
@@ -157,21 +160,18 @@ namespace WindowsFormsApp1.classes
             {
                 controls[i].Margin = new Padding(gapWidth, gapWidth, gapWidth, gapWidth);
                 controls[i].Size = new Size(controlWidth, controlWidth);
+                controls[i].BringToFront();
                 panel.Controls.Add(controls[i]);
+                
+                
             }
 
         }
 
 
-        
 
-        private void OnCategoryButtonClick(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            string category = button.Text;
-            MessageBox.Show(category);
-        }
 
+      
 
 
 

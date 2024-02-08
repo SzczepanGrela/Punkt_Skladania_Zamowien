@@ -19,7 +19,7 @@ namespace WindowsFormsApp1.interfaces
 
        
 
-        bool Login(string enteredUsername, int column, string enteredPassword);
+        bool Login(string enteredUsername, string enteredPassword);
 
 
     }

@@ -23,7 +23,6 @@ namespace WindowsFormsApp1.interfaces
 
         void CopyTo(string destPath);
 
-        void ClearFile();
 
         void ConnectToFile(string filePath);
 

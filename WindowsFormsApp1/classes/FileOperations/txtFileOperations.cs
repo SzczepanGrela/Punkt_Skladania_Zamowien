@@ -148,11 +148,11 @@ namespace WindowsFormsApp1.classes.FileOperations
 
 
 
-        public bool Login(string enteredUsername, int column, string enteredPassword) 
+        public bool Login(string enteredUsername, string enteredPassword) 
 
         {
 
-            string[] credentials =  FindMatchingRecords(enteredUsername, column, true);
+            string[] credentials =  FindMatchingRecords(enteredUsername, 0, true);
             if (credentials == null)
             {
                 return false;

@@ -224,59 +224,8 @@ namespace WindowsFormsApp1.classes.FileOperations
 
 
 
-        public void ClearFile()
-        {
-            throw new NotImplementedException();
-
-
-            /*if(!IsConnected())
-            {
-                throw new IOException("Not connected to a file");
-            }
-
-            if (!FileExists())
-            {
-                throw new FileNotFoundException("File not found");
-            }
-
-            File.WriteAllText(filePath, String.Empty);*/
-            
-        }
-
-
-
-            /*public bool CheckTheFormat(string filePath, string correctFormat)   // TO DO: UPEWNIĆ SIĘ ŻE JEST JESZCZE POTRZEBNE
-            {
-                try
-                {
-                    int i;
-                    for (i = filePath.Length - 1; i > 0; i++)
-                    {
-                        if (filePath[i] == '.')
-                        {
-                            if (filePath.Substring(i + 1) == correctFormat)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                throw new FormatException("File format is not supported: " + filePath.Substring(i + 1));
-
-                            }
-                        }
-                    }
-
-
-                    throw new FormatException("Path is not correct: " + filePath);  // If there is no dot in the path
-
-                }
-                catch (FormatException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    return false;
-                }
-
-            }*/
+       
+          
 
 
         

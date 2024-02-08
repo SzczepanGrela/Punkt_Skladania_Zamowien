@@ -41,8 +41,7 @@ namespace WindowsFormsApp1
        
          public static ControlStack previousControls = new ControlStack(); // Stack storing previous controls
 
-        private Login_window lw; // Var storing if login window was already opened
-
+        
 
 
 

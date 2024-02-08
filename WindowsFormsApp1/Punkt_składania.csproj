@@ -66,10 +66,27 @@
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="classes\ControlStack.cs" />
+    <Compile Include="classes\DataObjects\Category.cs" />
+    <Compile Include="classes\DataObjects\Customer.cs" />
+    <Compile Include="classes\DataObjects\Person.cs" />
+    <Compile Include="classes\DataObjects\Product.cs" />
     <Compile Include="classes\FileOperations\BasicFileOperations.cs" />
+    <Compile Include="classes\FileOperations\DatabaseManager.cs" />
     <Compile Include="classes\FileOperations\SqlFileOperations.cs" />
     <Compile Include="classes\FileOperations\TxtFileOperations.cs" />
     <Compile Include="classes\Methods.cs" />
+    <Compile Include="containers\usercontrols\controls\Category_button.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\usercontrols\controls\Category_button.Designer.cs">
+      <DependentUpon>Category_button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\usercontrols\controls\testControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\usercontrols\controls\testControl.Designer.cs">
+      <DependentUpon>testControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="containers\windows\Popup_window_ok.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +179,7 @@
     </Compile>
     <Compile Include="interfaces\IBasicFileOperations.cs" />
     <Compile Include="interfaces\IContainerControlOperations.cs" />
+    <Compile Include="interfaces\ISqlFileOperations.cs" />
     <Compile Include="interfaces\ITextFileOperations.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +195,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="classes\BasePopup_window.resx">
       <DependentUpon>BasePopup_window.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\usercontrols\controls\Category_button.resx">
+      <DependentUpon>Category_button.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\usercontrols\controls\testControl.resx">
+      <DependentUpon>testControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\windows\Popup_window_ok.resx">
       <DependentUpon>Popup_window_ok.cs</DependentUpon>
@@ -249,8 +273,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="classes\DataObjects\" />
-    <Folder Include="data\" />
+    <Folder Include="data\sqlfiles\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
