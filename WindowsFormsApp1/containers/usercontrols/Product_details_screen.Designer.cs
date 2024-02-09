@@ -33,11 +33,9 @@
             this.ChangeOfHeartLabel = new System.Windows.Forms.Label();
             this.changeButton = new System.Windows.Forms.Button();
             this.ChangeLabelChangeButtonSplit = new System.Windows.Forms.SplitContainer();
-            this.descLabel = new System.Windows.Forms.Label();
-            this.descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.imageAndDataPanel = new System.Windows.Forms.Panel();
             this.imageDataSplit = new System.Windows.Forms.SplitContainer();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ProductImage = new System.Windows.Forms.PictureBox();
             this.PriceBuyingSplit = new System.Windows.Forms.SplitContainer();
             this.priceLabel = new System.Windows.Forms.Label();
             this.buyingQuantitySplit = new System.Windows.Forms.SplitContainer();
@@ -48,6 +46,11 @@
             this.BuyCartSplit = new System.Windows.Forms.SplitContainer();
             this.BuyOrTestButton = new System.Windows.Forms.Button();
             this.CartButton = new System.Windows.Forms.Button();
+            this.itemsleftLabel = new System.Windows.Forms.Label();
+            this.stockLabel = new System.Windows.Forms.Label();
+            this.descLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.decisionChangeSplit)).BeginInit();
             this.decisionChangeSplit.Panel1.SuspendLayout();
             this.decisionChangeSplit.Panel2.SuspendLayout();
@@ -56,12 +59,12 @@
             this.ChangeLabelChangeButtonSplit.Panel1.SuspendLayout();
             this.ChangeLabelChangeButtonSplit.Panel2.SuspendLayout();
             this.ChangeLabelChangeButtonSplit.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.imageAndDataPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageDataSplit)).BeginInit();
             this.imageDataSplit.Panel1.SuspendLayout();
             this.imageDataSplit.Panel2.SuspendLayout();
             this.imageDataSplit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceBuyingSplit)).BeginInit();
             this.PriceBuyingSplit.Panel1.SuspendLayout();
             this.PriceBuyingSplit.Panel2.SuspendLayout();
@@ -89,7 +92,8 @@
             this.decisionChangeSplit.Panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.decisionChangeSplit.Panel1.Controls.Add(this.descriptionTextBox);
             this.decisionChangeSplit.Panel1.Controls.Add(this.descLabel);
-            this.decisionChangeSplit.Panel1.Controls.Add(this.panel1);
+            this.decisionChangeSplit.Panel1.Controls.Add(this.nameLabel);
+            this.decisionChangeSplit.Panel1.Controls.Add(this.imageAndDataPanel);
             // 
             // decisionChangeSplit.Panel2
             // 
@@ -121,6 +125,7 @@
             this.changeButton.TabIndex = 1;
             this.changeButton.Text = "Change";
             this.changeButton.UseVisualStyleBackColor = true;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
             // ChangeLabelChangeButtonSplit
             // 
@@ -140,43 +145,14 @@
             this.ChangeLabelChangeButtonSplit.SplitterDistance = 378;
             this.ChangeLabelChangeButtonSplit.TabIndex = 0;
             // 
-            // descLabel
+            // imageAndDataPanel
             // 
-            this.descLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.descLabel.AutoSize = true;
-            this.descLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.descLabel.Location = new System.Drawing.Point(3, 354);
-            this.descLabel.Name = "descLabel";
-            this.descLabel.Size = new System.Drawing.Size(159, 34);
-            this.descLabel.TabIndex = 0;
-            this.descLabel.Text = "Description";
-            // 
-            // descriptionTextBox
-            // 
-            this.descriptionTextBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.descriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(10, 409);
-            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(10);
-            this.descriptionTextBox.Multiline = true;
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.ReadOnly = true;
-            this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.descriptionTextBox.Size = new System.Drawing.Size(580, 133);
-            this.descriptionTextBox.TabIndex = 1;
-            this.descriptionTextBox.Text = resources.GetString("descriptionTextBox.Text");
-            this.descriptionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.imageDataSplit);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 351);
-            this.panel1.TabIndex = 0;
+            this.imageAndDataPanel.Controls.Add(this.imageDataSplit);
+            this.imageAndDataPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.imageAndDataPanel.Location = new System.Drawing.Point(0, 0);
+            this.imageAndDataPanel.Name = "imageAndDataPanel";
+            this.imageAndDataPanel.Size = new System.Drawing.Size(600, 351);
+            this.imageAndDataPanel.TabIndex = 0;
             // 
             // imageDataSplit
             // 
@@ -186,7 +162,7 @@
             // 
             // imageDataSplit.Panel1
             // 
-            this.imageDataSplit.Panel1.Controls.Add(this.pictureBox1);
+            this.imageDataSplit.Panel1.Controls.Add(this.ProductImage);
             // 
             // imageDataSplit.Panel2
             // 
@@ -195,16 +171,16 @@
             this.imageDataSplit.SplitterDistance = 355;
             this.imageDataSplit.TabIndex = 10;
             // 
-            // pictureBox1
+            // ProductImage
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(355, 351);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.ProductImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProductImage.Image = ((System.Drawing.Image)(resources.GetObject("ProductImage.Image")));
+            this.ProductImage.Location = new System.Drawing.Point(0, 0);
+            this.ProductImage.Name = "ProductImage";
+            this.ProductImage.Size = new System.Drawing.Size(355, 351);
+            this.ProductImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ProductImage.TabIndex = 0;
+            this.ProductImage.TabStop = false;
             // 
             // PriceBuyingSplit
             // 
@@ -232,7 +208,7 @@
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(241, 127);
             this.priceLabel.TabIndex = 1;
-            this.priceLabel.Text = " 420.69zł";
+            this.priceLabel.Text = " 10.29zł";
             this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buyingQuantitySplit
@@ -244,6 +220,8 @@
             // 
             // buyingQuantitySplit.Panel1
             // 
+            this.buyingQuantitySplit.Panel1.Controls.Add(this.stockLabel);
+            this.buyingQuantitySplit.Panel1.Controls.Add(this.itemsleftLabel);
             this.buyingQuantitySplit.Panel1.Controls.Add(this.quantityPanel);
             // 
             // buyingQuantitySplit.Panel2
@@ -265,7 +243,7 @@
             this.quantityPanel.Controls.Add(this.increaseQuantityButton, 2, 0);
             this.quantityPanel.Controls.Add(this.decreaseQuantityButton, 0, 0);
             this.quantityPanel.Controls.Add(this.quantityLabel, 1, 0);
-            this.quantityPanel.Location = new System.Drawing.Point(25, 26);
+            this.quantityPanel.Location = new System.Drawing.Point(21, 26);
             this.quantityPanel.Name = "quantityPanel";
             this.quantityPanel.RowCount = 1;
             this.quantityPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -276,26 +254,30 @@
             // 
             this.increaseQuantityButton.BackColor = System.Drawing.SystemColors.ControlDark;
             this.increaseQuantityButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.increaseQuantityButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.increaseQuantityButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 27F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.increaseQuantityButton.Location = new System.Drawing.Point(156, 3);
             this.increaseQuantityButton.Name = "increaseQuantityButton";
             this.increaseQuantityButton.Size = new System.Drawing.Size(45, 48);
             this.increaseQuantityButton.TabIndex = 3;
+            this.increaseQuantityButton.Text = "+";
             this.increaseQuantityButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.increaseQuantityButton.UseVisualStyleBackColor = false;
+            this.increaseQuantityButton.Click += new System.EventHandler(this.increaseQuantityButton_Click);
             // 
             // decreaseQuantityButton
             // 
             this.decreaseQuantityButton.AutoSize = true;
             this.decreaseQuantityButton.BackColor = System.Drawing.SystemColors.ControlDark;
             this.decreaseQuantityButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.decreaseQuantityButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.decreaseQuantityButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.decreaseQuantityButton.Location = new System.Drawing.Point(3, 3);
             this.decreaseQuantityButton.Name = "decreaseQuantityButton";
             this.decreaseQuantityButton.Size = new System.Drawing.Size(45, 48);
             this.decreaseQuantityButton.TabIndex = 2;
+            this.decreaseQuantityButton.Text = "-";
             this.decreaseQuantityButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.decreaseQuantityButton.UseVisualStyleBackColor = false;
+            this.decreaseQuantityButton.Click += new System.EventHandler(this.decreaseQuantityButton_Click);
             // 
             // quantityLabel
             // 
@@ -307,7 +289,7 @@
             this.quantityLabel.Name = "quantityLabel";
             this.quantityLabel.Size = new System.Drawing.Size(96, 54);
             this.quantityLabel.TabIndex = 4;
-            this.quantityLabel.Text = "69";
+            this.quantityLabel.Text = "1";
             this.quantityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BuyCartSplit
@@ -316,7 +298,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BuyCartSplit.BackColor = System.Drawing.Color.Moccasin;
-            this.BuyCartSplit.Location = new System.Drawing.Point(47, 25);
+            this.BuyCartSplit.Location = new System.Drawing.Point(42, 25);
             this.BuyCartSplit.Name = "BuyCartSplit";
             // 
             // BuyCartSplit.Panel1
@@ -340,6 +322,7 @@
             this.BuyOrTestButton.TabIndex = 0;
             this.BuyOrTestButton.Text = "Buy";
             this.BuyOrTestButton.UseVisualStyleBackColor = true;
+            this.BuyOrTestButton.Click += new System.EventHandler(this.BuyOrTestButton_Click);
             // 
             // CartButton
             // 
@@ -351,6 +334,64 @@
             this.CartButton.TabIndex = 0;
             this.CartButton.Text = "Cart";
             this.CartButton.UseVisualStyleBackColor = true;
+            this.CartButton.Click += new System.EventHandler(this.CartButton_Click);
+            // 
+            // itemsleftLabel
+            // 
+            this.itemsleftLabel.AutoSize = true;
+            this.itemsleftLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.itemsleftLabel.Location = new System.Drawing.Point(59, 83);
+            this.itemsleftLabel.Name = "itemsleftLabel";
+            this.itemsleftLabel.Size = new System.Drawing.Size(150, 20);
+            this.itemsleftLabel.TabIndex = 2;
+            this.itemsleftLabel.Text = "items left in Inventory";
+            // 
+            // stockLabel
+            // 
+            this.stockLabel.AutoSize = true;
+            this.stockLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.stockLabel.Location = new System.Drawing.Point(33, 83);
+            this.stockLabel.Name = "stockLabel";
+            this.stockLabel.Size = new System.Drawing.Size(26, 20);
+            this.stockLabel.TabIndex = 7;
+            this.stockLabel.Text = "No";
+            // 
+            // descLabel
+            // 
+            this.descLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.descLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.descLabel.Location = new System.Drawing.Point(0, 385);
+            this.descLabel.Name = "descLabel";
+            this.descLabel.Size = new System.Drawing.Size(600, 34);
+            this.descLabel.TabIndex = 9;
+            this.descLabel.Text = "Description";
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.nameLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nameLabel.Location = new System.Drawing.Point(0, 351);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(600, 34);
+            this.nameLabel.TabIndex = 8;
+            this.nameLabel.Text = "Product Name";
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.descriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.descriptionTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionTextBox.Location = new System.Drawing.Point(0, 419);
+            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(10);
+            this.descriptionTextBox.Multiline = true;
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.ReadOnly = true;
+            this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.descriptionTextBox.Size = new System.Drawing.Size(600, 123);
+            this.descriptionTextBox.TabIndex = 10;
+            this.descriptionTextBox.Text = resources.GetString("descriptionTextBox.Text");
+            this.descriptionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Product_details_screen
             // 
@@ -370,17 +411,18 @@
             this.ChangeLabelChangeButtonSplit.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ChangeLabelChangeButtonSplit)).EndInit();
             this.ChangeLabelChangeButtonSplit.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.imageAndDataPanel.ResumeLayout(false);
             this.imageDataSplit.Panel1.ResumeLayout(false);
             this.imageDataSplit.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imageDataSplit)).EndInit();
             this.imageDataSplit.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductImage)).EndInit();
             this.PriceBuyingSplit.Panel1.ResumeLayout(false);
             this.PriceBuyingSplit.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PriceBuyingSplit)).EndInit();
             this.PriceBuyingSplit.ResumeLayout(false);
             this.buyingQuantitySplit.Panel1.ResumeLayout(false);
+            this.buyingQuantitySplit.Panel1.PerformLayout();
             this.buyingQuantitySplit.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buyingQuantitySplit)).EndInit();
             this.buyingQuantitySplit.ResumeLayout(false);
@@ -400,11 +442,9 @@
         private System.Windows.Forms.Label ChangeOfHeartLabel;
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.SplitContainer ChangeLabelChangeButtonSplit;
-        private System.Windows.Forms.TextBox descriptionTextBox;
-        private System.Windows.Forms.Label descLabel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel imageAndDataPanel;
         private System.Windows.Forms.SplitContainer imageDataSplit;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ProductImage;
         private System.Windows.Forms.SplitContainer PriceBuyingSplit;
         private System.Windows.Forms.Label priceLabel;
         private System.Windows.Forms.SplitContainer buyingQuantitySplit;
@@ -415,5 +455,10 @@
         private System.Windows.Forms.SplitContainer BuyCartSplit;
         private System.Windows.Forms.Button BuyOrTestButton;
         private System.Windows.Forms.Button CartButton;
+        private System.Windows.Forms.Label itemsleftLabel;
+        private System.Windows.Forms.Label stockLabel;
+        private System.Windows.Forms.TextBox descriptionTextBox;
+        private System.Windows.Forms.Label descLabel;
+        private System.Windows.Forms.Label nameLabel;
     }
 }

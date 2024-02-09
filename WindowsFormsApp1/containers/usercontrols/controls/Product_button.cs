@@ -100,7 +100,7 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
 
             
 
-            OpenNewControl(new Product_details_screen(ProductID), currentScreen);
+            OpenNewControl(new Product_details_screen(ProductID,false), currentScreen);
         }
 
 

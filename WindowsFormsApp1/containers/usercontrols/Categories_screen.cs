@@ -21,8 +21,8 @@ namespace WindowsFormsApp1.controls.usercontrols
         DatabaseManager dbm = new DatabaseManager(ConfigurationManager.ConnectionStrings["myconstring"].ConnectionString);
         
        
-        public Categories_screen(bool testFilter) : base()
-        {
+        public Categories_screen(bool testFilter)
+        { 
             InitializeComponent();
 
             query = "SELECT TOP 20 * FROM Categories\r\nORDER BY 1 ASC;";
@@ -38,7 +38,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             
 
-            List<Category> categories = dbm.ExecuteQuery<Category>(query, Category.MapToCategory).ToList();
+            List<Category> categories = dbm.ExecuteQuery<Category>(query, Category.MapToCategory);
 
             BaseUserControl[] CategoryButtons = Category_button.CreateCategoryButtons(categories, this).ToArray() ;
 

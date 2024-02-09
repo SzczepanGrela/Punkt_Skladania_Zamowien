@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -8,21 +9,124 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
+using WindowsFormsApp1.classes.FileOperations;
+using WindowsFormsApp1.classes.DataObjects;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Product_details_screen : BaseUserControl
     {
-        public Product_details_screen(int ProductID) : base()
+        DatabaseManager dbm = new DatabaseManager(ConfigurationManager.ConnectionStrings["myconstring"].ConnectionString);
+
+        bool testscreen;
+
+
+
+        public Product_details_screen(int ProductID, bool testscreen)
         {
             InitializeComponent();
 
+            query = $"SELECT * FROM Products where ProductID = {ProductID};";
+            this.testscreen = testscreen;
+
+            this.Load += new EventHandler(Product_details_screen_Load);
 
         }
+
+        private void Product_details_screen_Load(object sender, EventArgs e)
+        {
+            this.Size = this.Parent.Size;
+
+            List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoDetail);
+            if (testscreen)
+            {
+                BuyOrTestButton.Text = "Test";
+                changeButton.Text = "Buy";
+            }
+
+            else
+            {
+                BuyOrTestButton.Text = "Buy";
+                changeButton.Text = "Change";
+            }
+
+
+            if (products.Count == 1)
+            {
+                Product product = products[0];
+
+                if (product.Name != null) nameLabel.Text = product.Name;
+                if (product.Description != null) descriptionTextBox.Text = product.Description;
+                if (product.Image != null) ProductImage.Image = System.Drawing.Image.FromStream(new System.IO.MemoryStream(product.Image));
+
+                priceLabel.Text = product.Price.ToString() + "zł";
+                if (priceLabel.Text.Length < 8) priceLabel.Text = " " + priceLabel.Text;
+
+                stockLabel.Text = product.StockQuantity.ToString();
+
+            }
+
+            else if (products.Count == 0)
+            {
+                throw new Exception("No products found, even tho it was on the list");
+            }
+
+            else
+            {
+                throw new Exception("Multiple products with same ID");
+
+            }
+
+        }
+
+
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void increaseQuantityButton_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(this.quantityLabel.Text) < int.Parse(stockLabel.Text))
+                this.quantityLabel.Text = (int.Parse(this.quantityLabel.Text) + 1).ToString();
+
+        }
+
+        private void decreaseQuantityButton_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(this.quantityLabel.Text) > 0)
+                this.quantityLabel.Text = (int.Parse(this.quantityLabel.Text) - 1).ToString();
+        }
+
+        private void CartButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BuyOrTestButton_Click(object sender, EventArgs e)
+        {
+            if (testscreen)
+            {
+                // test
+            }
+            else
+            {
+                // buy
+            }
+        }
+
+        private void changeButton_Click(object sender, EventArgs e)
+        {
+            if(testscreen)
+            {
+                //buy
+            }
+            else
+            {
+                // test
+            }
         }
     }
 }

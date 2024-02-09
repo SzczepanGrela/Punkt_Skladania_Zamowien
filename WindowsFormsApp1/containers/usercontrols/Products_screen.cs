@@ -22,7 +22,7 @@ namespace WindowsFormsApp1.controls.usercontrols
         
         DatabaseManager dbm = new DatabaseManager(ConfigurationManager.ConnectionStrings["myconstring"].ConnectionString);
         private int CategoryID;
-        public Products_screen(int categoryID): base() 
+        public Products_screen(int categoryID) 
         {
             InitializeComponent();
 
@@ -46,7 +46,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             this.Size = this.Parent.Size;
 
-            List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoButton).ToList();
+            List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoButton);
 
             BaseUserControl[] ProductButtons = Product_button.CreateProductButtons(products, this).ToArray();
 

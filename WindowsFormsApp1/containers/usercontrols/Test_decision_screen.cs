@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Test_decision_screen : BaseUserControl
     {
-        public Test_decision_screen() : base()
+        public Test_decision_screen()
         {
             InitializeComponent();
         }

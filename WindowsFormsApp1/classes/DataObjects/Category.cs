@@ -30,7 +30,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             return new Category
             {
                 ID = reader.GetInt32(reader.GetOrdinal("CategoryID")),
-                Name = reader.GetString(reader.GetOrdinal("Name")),
+                Name = reader.IsDBNull(reader.GetOrdinal("Name")) ? null : (string)reader["Name"],
                 Image = reader.IsDBNull(reader.GetOrdinal("Image")) ? null : (byte[])reader["Image"]
 
             };

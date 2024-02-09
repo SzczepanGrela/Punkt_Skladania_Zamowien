@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Finalised_purchase_screen : BaseUserControl
     {
-        public Finalised_purchase_screen() : base()
+        public Finalised_purchase_screen() 
         {
             InitializeComponent();
         }

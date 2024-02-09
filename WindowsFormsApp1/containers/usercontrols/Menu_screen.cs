@@ -15,7 +15,7 @@ namespace WindowsFormsApp1.usercontrols
 {
     public partial class Menu_screen : BaseUserControl
     {
-        public Menu_screen() : base()
+        public Menu_screen()
         {
             InitializeComponent();
 
