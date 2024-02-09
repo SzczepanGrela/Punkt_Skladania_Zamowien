@@ -15,10 +15,14 @@ namespace WindowsFormsApp1.controls.usercontrols
     {
         public Product_details_screen(int ProductID) : base()
         {
-
+            InitializeComponent();
 
 
         }
 
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

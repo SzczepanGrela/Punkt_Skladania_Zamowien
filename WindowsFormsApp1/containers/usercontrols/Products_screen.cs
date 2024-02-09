@@ -50,7 +50,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             BaseUserControl[] ProductButtons = Product_button.CreateProductButtons(products, this).ToArray();
 
-           // ProductsPanel.Controls.AddRange(ProductButtons);
+       
             
             AddControlstoFlowPanel(ProductButtons, ProductsPanel, 3);
 

@@ -82,7 +82,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
             //OpenControl(parentContainer, new Products_screen(parentContainer, mode, categoryID), currentScreen);
 
-            OpenNewControl(new Products_screen( categoryID), currentScreen);
+            OpenNewControl(new Products_screen(categoryID), currentScreen);
         }
 
 
@@ -92,6 +92,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             foreach (Category category in categories)
             {
                 Category_button categoryButton = new Category_button(category.Name, category.Image, category.ID, Categories_screen);
+               
                 categoryButtons.Add(categoryButton);
 
             }

@@ -19,14 +19,22 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
     public partial class Product_button : BaseUserControl
     {
         int ProductID = 0;
-        
+
         BaseUserControl currentScreen = null;
-        
+
         public Product_button()
         {
             InitializeComponent();
 
-            Product_button_load(this,null,"Product Name", "Price");       // default Product in case of mistake of creating empty object   
+
+
+            this.nameLabel.Text = "Product Name";  // default Product in case of mistake of creating empty object  
+            this.priceLabel.Text = "Price";
+
+
+
+            this.Load += new EventHandler(Product_button_load);
+
         }
 
 
@@ -34,46 +42,42 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
         {
             InitializeComponent();
 
-            
+
 
             this.currentScreen = currentScreen;
-           
-            this.ProductID = ID;
-            
+
+
+            if (ID != null) this.ProductID = ID;
+
+            if (image != null) this.pictureBox.Image = System.Drawing.Image.FromStream(new System.IO.MemoryStream(image));
+
+            if (name != null) nameLabel.Text = name;
+
+            if (price != null) priceLabel.Text = price;
+
+
             this.Parent = currentScreen.Parent;
 
-            Product_button_load(this, null, name, price, image);
+            this.Load += new EventHandler(Product_button_load);
+
+
+
 
 
         }
 
-        private void Product_button_load(object sender, EventArgs e, string name, string price, byte[] image = null)
+        private void Product_button_load(object sender, EventArgs e)
         {
 
-            if (image != null)
-            {
-                this.pictureBox.Image = System.Drawing.Image.FromStream(new System.IO.MemoryStream(image));
-            }
 
-            nameLabel.Text = name;
-            priceLabel.Text = price;
 
-            /*Panel panel = new Panel();
-
-            panel.Parent = this;
-            panel.BringToFront();
-            panel.Dock = DockStyle.Fill;
-            panel.BackColor = Color.Red;
-            panel.BringToFront();*/
-
-          //  AssignClickEventToAllControls(this, new Product_details_screen());
-
+            this.pictureBox.Click += new EventHandler(ProductButton_Click);
 
         }
 
         private void Item_view_load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -81,43 +85,49 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
 
         }
 
-       
+
 
         private void priceLabel_Click(object sender, EventArgs e)
         {
 
         }
 
-       
+
 
 
         public void ProductButton_Click(object sender, EventArgs e)
         {
 
-            MessageBox.Show("Product ID: " + ProductID.ToString());
+            
 
-           // OpenControl(parentContainer, new Product_details_screen(parentContainer,mode), currentScreen);
+            OpenNewControl(new Product_details_screen(ProductID), currentScreen);
         }
 
 
 
-        public static List<BaseUserControl> CreateProductButtons(List<Product> products,  BaseUserControl products_screen)
+        public static List<BaseUserControl> CreateProductButtons(List<Product> products, BaseUserControl products_screen)
         {
             List<BaseUserControl> productbuttons = new List<BaseUserControl>();
             foreach (Product product in products)
             {
-                
-                Product_button productbutton = new Product_button(product.Name, product.Image, product.ID, product.Price.ToString() , products_screen);
-                
+
+                Product_button productbutton = new Product_button(product.Name, product.Image, product.ID, product.Price.ToString(), products_screen);
+
+
+                foreach (Control control in productbutton.AllcontrolstoList(productbutton))     // adding event to all controls
+                {
+                    control.Click += new EventHandler(productbutton.ProductButton_Click);
+                }
+
                 productbuttons.Add(productbutton);
             }
-            
+
             return productbuttons;
         }
 
 
 
-       
+
 
     }
 }

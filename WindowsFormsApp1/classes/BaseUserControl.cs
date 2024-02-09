@@ -14,6 +14,8 @@ using WindowsFormsApp1.classes;
 using System.Data.SqlClient;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.containers.usercontrols.controls;
+using WindowsFormsApp1.containers.usercontrols;
+using WindowsFormsApp1.controls.usercontrols;
 
 
 
@@ -160,51 +162,33 @@ namespace WindowsFormsApp1.classes
                 controls[i].Padding = new Padding(0, 0, 0, 0);
                 controls[i].Size = new Size(controlWidth, controlHeight);
 
-
+            
                 panel.Controls.Add(controls[i]);
 
-
             }
-
-
-
-
-
-
-
-
-
 
             /*MessageBox.Show(this.Name+" " + this.Width);
             MessageBox.Show(this.parentContainer.Name + " " + this.parentContainer.Width );*/
 
         }
 
-        protected void AssignClickEventToAllControls(Control parent, BaseUserControl nextScreen)
+
+        public List<Control> AllcontrolstoList(Control control)
         {
-            foreach (Control control in parent.Controls)
+            
+            List<Control> controls = new List<Control>();
+            foreach (Control c in control.Controls)
             {
-                control.Click += (sender, e) => ClickEventForButtons(sender, e, nextScreen);
-
-
-                // Jeśli kontrolka zawiera inne kontrolki, zastosuj rekurencję
-                if (control.HasChildren)
+                controls.Add(c);
+                if (c.HasChildren)
                 {
-                    AssignClickEventToAllControls(control, nextScreen);
+                    controls.AddRange(AllcontrolstoList(c));
                 }
             }
+            return controls;
         }
 
-
-        private void ClickEventForButtons(object sender, EventArgs e, BaseUserControl nextScreen)
-        {
-            MessageBox.Show("Button clicked");
-
-            //OpenControl(parentContainer, nextScreen, this);
-        }
-
-
-
+      
 
 
 
