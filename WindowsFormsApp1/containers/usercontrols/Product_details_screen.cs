@@ -13,7 +13,12 @@ namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Product_details_screen : BaseUserControl
     {
-        public Product_details_screen(Control parentContainer, char mode, ) : base(parentContainer, mode) { }
+        public Product_details_screen(int ProductID) : base()
+        {
+
+
+
+        }
 
     }
 }

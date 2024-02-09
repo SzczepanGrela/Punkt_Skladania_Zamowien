@@ -8,9 +8,11 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.containers.usercontrols.controls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WindowsFormsApp1.controls.usercontrols.controls
 {
@@ -28,7 +30,7 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
         }
 
 
-        public Product_button(string name, byte[] image, int ID, char mode, string price, BaseUserControl currentScreen)
+        public Product_button(string name, byte[] image, int ID, string price, BaseUserControl currentScreen)
         {
             InitializeComponent();
 
@@ -37,8 +39,8 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
             this.currentScreen = currentScreen;
            
             this.ProductID = ID;
-            this.mode = mode;
-            this.parentContainer = currentScreen.parentContainer;
+            
+            this.Parent = currentScreen.Parent;
 
             Product_button_load(this, null, name, price, image);
 
@@ -64,7 +66,7 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
             panel.BackColor = Color.Red;
             panel.BringToFront();*/
 
-            AssignClickEventToAllControls(this, new Product_details_screen());
+          //  AssignClickEventToAllControls(this, new Product_details_screen());
 
 
         }
@@ -99,12 +101,23 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
 
 
 
-        public static List<BaseUserControl> CreateProductButtons(List<Product> products, char mode, BaseUserControl products_screen)
+        public static List<BaseUserControl> CreateProductButtons(List<Product> products,  BaseUserControl products_screen)
         {
             List<BaseUserControl> productbuttons = new List<BaseUserControl>();
+            foreach (Product product in products)
+            {
+                
+                Product_button productbutton = new Product_button(product.Name, product.Image, product.ID, product.Price.ToString() , products_screen);
+                
+                productbuttons.Add(productbutton);
+            }
             
-
             return productbuttons;
         }
+
+
+
+       
+
     }
 }

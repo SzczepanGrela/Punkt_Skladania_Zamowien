@@ -15,24 +15,35 @@ namespace WindowsFormsApp1.usercontrols
 {
     public partial class Menu_screen : BaseUserControl
     {
-        public Menu_screen(Control parentContainer, char mode) : base(parentContainer, mode)
+        public Menu_screen() : base()
         {
             InitializeComponent();
 
-            this.BackColor = parentContainer.BackColor;
-           
+            this.Load += Menu_screen_Load;
+
+            
+
+        }
+
+        private void Menu_screen_Load(object sender, EventArgs e)
+        {
+            
         }
 
         private void ShopButton_Click(object sender, EventArgs e)
         {
-            OpenControl(parentContainer, new Categories_screen(parentContainer, 's'), this);
-            
+           // OpenControl(parentContainer, new Categories_screen(parentContainer, 's'), this);
+
+            OpenNewControl(new Categories_screen(false), this);
+
         }
 
-       
+
         private void PresentationButton_Click(object sender, EventArgs e)
         {
-            
+            OpenNewControl(new Categories_screen(true), this);
         }
+
+
     }
 }

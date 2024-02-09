@@ -15,7 +15,7 @@ namespace WindowsFormsApp1.interfaces
 
         void ResetMenu(Control parentContainer);
 
-        void OpenControl(Control parentContainer, Control newControl, Control currentControl);
+        void OpenNewControl(Control newControl, Control currentControl);
 
 
         DialogResult OpenPopup(Control parentContainer, BasePopup_window newPopup);

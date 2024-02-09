@@ -87,6 +87,12 @@
     <Compile Include="containers\usercontrols\controls\testControl.Designer.cs">
       <DependentUpon>testControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="containers\usercontrols\MainPanel_screen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\usercontrols\MainPanel_screen.Designer.cs">
+      <DependentUpon>MainPanel_screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="containers\windows\Popup_window_ok.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\testControl.resx">
       <DependentUpon>testControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\usercontrols\MainPanel_screen.resx">
+      <DependentUpon>MainPanel_screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\windows\Popup_window_ok.resx">
       <DependentUpon>Popup_window_ok.cs</DependentUpon>

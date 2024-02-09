@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Test_screen : BaseUserControl
     {
-        public Test_screen(Control parentContainer, char mode) : base(parentContainer, mode)
+        public Test_screen() : base()
         {
             InitializeComponent();
         }

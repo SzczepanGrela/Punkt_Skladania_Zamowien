@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Matching_query_screen : BaseUserControl
     {
-        public Matching_query_screen(Control parentContainer, char mode) : base(parentContainer, mode)
+        public Matching_query_screen() : base()
         {
             InitializeComponent();
         }

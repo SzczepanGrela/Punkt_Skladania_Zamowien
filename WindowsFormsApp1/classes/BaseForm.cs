@@ -15,22 +15,28 @@ using WindowsFormsApp1.classes;
 
 namespace WindowsFormsApp1.classes
 {
-    public partial class BaseForm : Form, IContainerControlOperations
+    public partial class BaseForm : Form
     {
         protected Control parentContainer;
         public BaseForm()
         {
             InitializeComponent();
 
+
+
             //(this.Width, this.Height) = Resolution.GetWindowRes();
         }
 
-        public void ResetMenu(Control parentContainer)   
+        public void ResetMenu(BaseUserControl MainPanel)   
         {
 
-
-            OpenControl(parentContainer, new usercontrols.Menu_screen(parentContainer, ' '), null);
+            MainPanel.Controls.Clear();
+     
             Main_window.previousControls.Clear(); // remove all elements from stack
+
+            OpenControl(new Menu_screen(), MainPanel);  // open main menu
+
+
 
         }
 
@@ -46,33 +52,32 @@ namespace WindowsFormsApp1.classes
         }
 
 
-        public void OpenControl(Control parentContainer, Control newControl , Control currentControl)  // open "new" in "parent"; "current" add to  stack
+        public void OpenControl(Control newControl, Control parentControl)  // open "new" in "parent"
         {
-            if (currentControl != null) Main_window.previousControls.Push(currentControl);
+            Main_window.previousControls.Push(newControl);
+            newControl.Dock = DockStyle.Fill;
+            parentControl.Controls.Clear();
+            parentControl.Controls.Add(newControl);
+            newControl.Show();
+        }
+
+/*
+        public void OpenNewControl(Control newControl , Control currentControl)  // open "new" in "parent"; "current" add to  stack
+        {
+            *//*if (currentControl != null) Main_window.previousControls.Push(currentControl);
             
             newControl.Dock = DockStyle.Fill;
             
             parentContainer.Controls.Clear();
             parentContainer.Controls.Add(newControl);
-            newControl.Show();
+            newControl.Show();*//*
 
-        }
+            throw new NotImplementedException();
+
+        }*/
 
 
-        public void SetForm(bool isWindow, Control parentContainer)   // set form size and parent container
-        {
-           /* if (isWindow)
-            {
-                (this.Width, this.Height) = Resolution.GetWindowRes();
-            }
-            else
-            {
-                (this.Width, this.Height) = Resolution.GetFormRes();
-            }*/
-
-            this.parentContainer = parentContainer;
-
-        }
+       
 
 
         public DialogResult OpenPopup(Control parentContainer, BasePopup_window newPopup)

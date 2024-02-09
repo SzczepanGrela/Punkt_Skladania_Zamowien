@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Testing_cart_screen : BaseUserControl
     {
-        public Testing_cart_screen(Control parentContainer, char mode) : base(parentContainer, mode)
+        public Testing_cart_screen() : base()
         {
             InitializeComponent();
         }

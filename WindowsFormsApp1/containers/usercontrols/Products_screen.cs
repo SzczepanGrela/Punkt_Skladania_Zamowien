@@ -22,13 +22,16 @@ namespace WindowsFormsApp1.controls.usercontrols
         
         DatabaseManager dbm = new DatabaseManager(ConfigurationManager.ConnectionStrings["myconstring"].ConnectionString);
         private int CategoryID;
-        public Products_screen(Control parentContainer, char mode, int categoryID): base(parentContainer, mode) 
+        public Products_screen(int categoryID): base() 
         {
             InitializeComponent();
 
-            this.Load += new EventHandler(Products_screen_load);
+
             this.CategoryID = categoryID;
-            this.Size = parentContainer.Size;
+            this.Load += new EventHandler(Products_screen_load);
+            
+            
+            
 
         }
 
@@ -41,10 +44,11 @@ namespace WindowsFormsApp1.controls.usercontrols
         {
             query = $"SELECT TOP 20 * FROM Products where CategoryID = {CategoryID} \r\nORDER BY ProductID ASC; \r\n";
 
+            this.Size = this.Parent.Size;
 
             List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoButton).ToList();
 
-            BaseUserControl[] ProductButtons = Product_button.CreateProductButtons(products, mode, this).ToArray();
+            BaseUserControl[] ProductButtons = Product_button.CreateProductButtons(products, this).ToArray();
 
            // ProductsPanel.Controls.AddRange(ProductButtons);
             

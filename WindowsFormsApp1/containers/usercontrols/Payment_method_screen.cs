@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Payment_method_screen : BaseUserControl
     {
-        public Payment_method_screen(Control parentContainer, char mode) : base(parentContainer, mode)
+        public Payment_method_screen() : base()
         {
             InitializeComponent();
         }
