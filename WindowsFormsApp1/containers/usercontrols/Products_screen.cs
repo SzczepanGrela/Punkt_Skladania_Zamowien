@@ -48,7 +48,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoButton);
 
-            BaseUserControl[] ProductButtons = Product_button.CreateProductButtons(products, this).ToArray();
+            UserControl[] ProductButtons = Product_button.CreateProductButtons(products, this).ToArray();
 
        
             

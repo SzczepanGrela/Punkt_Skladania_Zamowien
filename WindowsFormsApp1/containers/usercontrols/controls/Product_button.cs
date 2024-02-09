@@ -16,7 +16,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace WindowsFormsApp1.controls.usercontrols.controls
 {
-    public partial class Product_button : BaseUserControl
+    public partial class Product_button : UserControl
     {
         int ProductID = 0;
 
@@ -47,7 +47,7 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
             this.currentScreen = currentScreen;
 
 
-            if (ID != null) this.ProductID = ID;
+            
 
             if (image != null) this.pictureBox.Image = System.Drawing.Image.FromStream(new System.IO.MemoryStream(image));
 
@@ -55,6 +55,7 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
 
             if (price != null) priceLabel.Text = price;
 
+            this.ProductID = ID;
 
             this.Parent = currentScreen.Parent;
 
@@ -100,21 +101,21 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
 
             
 
-            OpenNewControl(new Product_details_screen(ProductID,false), currentScreen);
+            currentScreen.OpenNewControl(new Product_details_screen(ProductID,false), currentScreen);
         }
 
 
 
-        public static List<BaseUserControl> CreateProductButtons(List<Product> products, BaseUserControl products_screen)
+        public static List<UserControl> CreateProductButtons(List<Product> products, BaseUserControl products_screen)
         {
-            List<BaseUserControl> productbuttons = new List<BaseUserControl>();
+            List<UserControl> productbuttons = new List<UserControl>();
             foreach (Product product in products)
             {
 
                 Product_button productbutton = new Product_button(product.Name, product.Image, product.ID, product.Price.ToString(), products_screen);
 
 
-                foreach (Control control in productbutton.AllcontrolstoList(productbutton))     // adding event to all controls
+                foreach (Control control in Methods.AllcontrolstoList(productbutton))     // adding event to all controls
                 {
                     control.Click += new EventHandler(productbutton.ProductButton_Click);
                 }

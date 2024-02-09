@@ -50,12 +50,27 @@ namespace WindowsFormsApp1.classes
         }
 
 
+        public static List<Control> AllcontrolstoList(Control control)
+        {
+
+            List<Control> controls = new List<Control>();
+            foreach (Control c in control.Controls)
+            {
+                controls.Add(c);
+                if (c.HasChildren)
+                {
+                    controls.AddRange(AllcontrolstoList(c));
+                }
+            }
+            return controls;
+        }
 
 
-      
 
-      
 
-       
+
+
+
+
     }
 }

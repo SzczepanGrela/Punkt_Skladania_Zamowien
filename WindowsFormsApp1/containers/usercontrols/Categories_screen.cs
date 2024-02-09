@@ -40,7 +40,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             List<Category> categories = dbm.ExecuteQuery<Category>(query, Category.MapToCategory);
 
-            BaseUserControl[] CategoryButtons = Category_button.CreateCategoryButtons(categories, this).ToArray() ;
+            UserControl[] CategoryButtons = Category_button.CreateCategoryButtons(categories, this).ToArray() ;
 
             AddControlstoFlowPanel(CategoryButtons, categoriesPanel, 3);
 

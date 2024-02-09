@@ -15,7 +15,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace WindowsFormsApp1.containers.usercontrols.controls
 {
-    public partial class Category_button : BaseUserControl
+    public partial class Category_button : UserControl
     {
         int categoryID = 0;
         BaseUserControl currentScreen = null;
@@ -82,13 +82,15 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
             //OpenControl(parentContainer, new Products_screen(parentContainer, mode, categoryID), currentScreen);
 
-            OpenNewControl(new Products_screen(categoryID), currentScreen);
+           
+
+            currentScreen.OpenNewControl(new Products_screen(categoryID), currentScreen);
         }
 
 
-        public static List<BaseUserControl> CreateCategoryButtons(List<Category> categories, BaseUserControl Categories_screen)
+        public static List<UserControl> CreateCategoryButtons(List<Category> categories, BaseUserControl Categories_screen)
         {
-            List<BaseUserControl> categoryButtons = new List<BaseUserControl>();
+            List<UserControl> categoryButtons = new List<UserControl>();
             foreach (Category category in categories)
             {
                 Category_button categoryButton = new Category_button(category.Name, category.Image, category.ID, Categories_screen);

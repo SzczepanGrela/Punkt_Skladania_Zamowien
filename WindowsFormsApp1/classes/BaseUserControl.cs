@@ -26,7 +26,7 @@ namespace WindowsFormsApp1.classes
 
 
         protected string query;
-        BaseUserControl currentScreen = null;
+        
 
         public BaseUserControl()
         {
@@ -138,7 +138,7 @@ namespace WindowsFormsApp1.classes
 
 
 
-        public void AddControlstoFlowPanel(BaseUserControl[] controls, FlowLayoutPanel panel, int columns)
+        public void AddControlstoFlowPanel(UserControl[] controls, FlowLayoutPanel panel, int columns)
         {
             // works only for table of same type of controls
 
@@ -173,21 +173,7 @@ namespace WindowsFormsApp1.classes
         }
 
 
-        public List<Control> AllcontrolstoList(Control control)
-        {
-            
-            List<Control> controls = new List<Control>();
-            foreach (Control c in control.Controls)
-            {
-                controls.Add(c);
-                if (c.HasChildren)
-                {
-                    controls.AddRange(AllcontrolstoList(c));
-                }
-            }
-            return controls;
-        }
-
+       
       
 
 
