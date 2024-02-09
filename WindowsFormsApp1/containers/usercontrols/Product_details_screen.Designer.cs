@@ -104,7 +104,7 @@
             this.ChangeOfHeartLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ChangeOfHeartLabel.Location = new System.Drawing.Point(0, 0);
             this.ChangeOfHeartLabel.Name = "ChangeOfHeartLabel";
-            this.ChangeOfHeartLabel.Size = new System.Drawing.Size(352, 94);
+            this.ChangeOfHeartLabel.Size = new System.Drawing.Size(378, 94);
             this.ChangeOfHeartLabel.TabIndex = 0;
             this.ChangeOfHeartLabel.Text = "Changed your mind?";
             this.ChangeOfHeartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -115,9 +115,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.changeButton.Font = new System.Drawing.Font("Franklin Gothic Medium", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.changeButton.Location = new System.Drawing.Point(53, 18);
+            this.changeButton.Location = new System.Drawing.Point(40, 18);
             this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(131, 58);
+            this.changeButton.Size = new System.Drawing.Size(140, 58);
             this.changeButton.TabIndex = 1;
             this.changeButton.Text = "Change";
             this.changeButton.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@
             // 
             this.ChangeLabelChangeButtonSplit.Panel2.Controls.Add(this.changeButton);
             this.ChangeLabelChangeButtonSplit.Size = new System.Drawing.Size(600, 94);
-            this.ChangeLabelChangeButtonSplit.SplitterDistance = 352;
+            this.ChangeLabelChangeButtonSplit.SplitterDistance = 378;
             this.ChangeLabelChangeButtonSplit.TabIndex = 0;
             // 
             // descLabel
