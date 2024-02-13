@@ -18,9 +18,10 @@ namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Categories_screen : BaseUserControl
     {
-        DatabaseManager dbm = new DatabaseManager(ConfigurationManager.ConnectionStrings["myconstring"].ConnectionString);
-        
-       
+
+        DatabaseManager dbm = DatabaseManager.GetInstance("TwojeConnectionString");
+
+
         public Categories_screen(bool testFilter)
         { 
             InitializeComponent();
@@ -40,9 +41,9 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             List<Category> categories = dbm.ExecuteQuery<Category>(query, Category.MapToCategory);
 
-            UserControl[] CategoryButtons = Category_button.CreateCategoryButtons(categories, this).ToArray() ;
+            UserControl[] CategoryButtons = Category_button.CreateCategoryButtons(categories).ToArray() ;
 
-            AddControlstoFlowPanel(CategoryButtons, categoriesPanel, 3);
+            AddButtonstoFlowPanel(CategoryButtons, categoriesPanel, 3);
 
 
 

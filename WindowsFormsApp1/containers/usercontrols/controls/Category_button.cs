@@ -28,7 +28,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
         }
 
-        public Category_button(string name, byte[] image, int ID, BaseUserControl currentScreen)
+        public Category_button(string name, byte[] image, int ID)
         {
 
 
@@ -39,10 +39,12 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             Category_button_Load(this, null, name, image);
 
 
-            this.currentScreen = currentScreen;
-            this.categoryID = ID;
             
-            this.Parent = currentScreen;
+            this.categoryID = ID;
+
+            
+            
+          
 
         }
 
@@ -80,20 +82,17 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         private void CategoryButton_Click(object sender, EventArgs e)
         {
 
-            //OpenControl(parentContainer, new Products_screen(parentContainer, mode, categoryID), currentScreen);
 
-           
-
-            currentScreen.OpenNewControl(new Products_screen(categoryID), currentScreen);
+            MainPanel_screen.Open(new Products_screen(categoryID));
         }
 
 
-        public static List<UserControl> CreateCategoryButtons(List<Category> categories, BaseUserControl Categories_screen)
+        public static List<UserControl> CreateCategoryButtons(List<Category> categories)
         {
             List<UserControl> categoryButtons = new List<UserControl>();
             foreach (Category category in categories)
             {
-                Category_button categoryButton = new Category_button(category.Name, category.Image, category.ID, Categories_screen);
+                Category_button categoryButton = new Category_button(category.Name, category.Image, category.ID);
                
                 categoryButtons.Add(categoryButton);
 

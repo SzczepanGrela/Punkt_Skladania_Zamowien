@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
+using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.controls.forms;
 using WindowsFormsApp1.controls.usercontrols;
 
@@ -34,14 +35,14 @@ namespace WindowsFormsApp1.usercontrols
         {
            // OpenControl(parentContainer, new Categories_screen(parentContainer, 's'), this);
 
-            OpenNewControl(new Categories_screen(false), this);
+            MainPanel_screen.Open(new Categories_screen(false));
 
         }
 
 
         private void PresentationButton_Click(object sender, EventArgs e)
         {
-            OpenNewControl(new Categories_screen(true), this);
+            MainPanel_screen.Open(new Categories_screen(true));
         }
 
 

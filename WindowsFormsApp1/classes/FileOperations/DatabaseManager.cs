@@ -8,20 +8,35 @@ using WindowsFormsApp1.classes.DataObjects;
 
 namespace WindowsFormsApp1.classes.FileOperations
 {
-    internal class DatabaseManager
+    public class DatabaseManager
     {
-
+        private static DatabaseManager instance; // Statyczna instancja klasy
         private readonly string _connectionString;
 
-        public DatabaseManager(string connectionString)
+        // Prywatny konstruktor, aby zapobiec tworzeniu instancji z zewnątrz
+        private DatabaseManager(string connectionString=null)
         {
             _connectionString = connectionString;
+        }
+
+        // Publiczna statyczna metoda zapewniająca dostęp do instancji
+        public static DatabaseManager GetInstance(string connectionString=null)
+        {
+            if (instance == null)
+            {
+                
+                if (connectionString!=null) instance = new DatabaseManager(connectionString);
+                else throw new Exception("No connection string provided");
+            }
+            return instance;
         }
 
         private SqlConnection GetConnection()
         {
             return new SqlConnection(_connectionString);
         }
+
+        // Reszta metod pozostaje bez zmian
 
         public List<T> ExecuteQuery<T>(string query, Func<SqlDataReader, T> mapFunction)
         {
@@ -47,20 +62,14 @@ namespace WindowsFormsApp1.classes.FileOperations
         {
             using (SqlConnection connection = GetConnection())
             {
-
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     object result = command.ExecuteScalar();
                     return result != null ? Convert.ToInt32(result) : 0;
                 }
-
-
             }
         }
-
-
-
 
         public void ExecuteCommand(string commandText)
         {
@@ -74,17 +83,10 @@ namespace WindowsFormsApp1.classes.FileOperations
             }
         }
 
-
-
-
         public List<Product> FilterProducts(string criteria)
         {
-
+            // Implementacja pozostaje do zrobienia
             return new List<Product>();
-
-            // Zaimplementuj logikę filtrowania produktów, np. przez zapytanie SQL z odpowiednimi warunkami
         }
-
-
     }
 }

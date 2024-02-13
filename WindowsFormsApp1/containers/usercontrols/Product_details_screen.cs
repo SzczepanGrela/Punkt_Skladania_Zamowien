@@ -17,10 +17,10 @@ namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Product_details_screen : BaseUserControl
     {
-        DatabaseManager dbm = new DatabaseManager(ConfigurationManager.ConnectionStrings["myconstring"].ConnectionString);
 
+        DatabaseManager dbm = DatabaseManager.GetInstance();
         bool testscreen;
-
+        int ProductID;
 
 
         public Product_details_screen(int ProductID, bool testscreen)
@@ -29,7 +29,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             query = $"SELECT * FROM Products where ProductID = {ProductID};";
             this.testscreen = testscreen;
-
+            this.ProductID = ProductID;
             this.Load += new EventHandler(Product_details_screen_Load);
 
         }
@@ -63,7 +63,9 @@ namespace WindowsFormsApp1.controls.usercontrols
                 priceLabel.Text = product.Price.ToString() + "zł";
                 if (priceLabel.Text.Length < 8) priceLabel.Text = " " + priceLabel.Text;
 
-                stockLabel.Text = product.StockQuantity.ToString();
+                quantity_panel.setPanel(product.StockQuantity);
+
+                
 
             }
 
@@ -87,22 +89,12 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         }
 
-        private void increaseQuantityButton_Click(object sender, EventArgs e)
-        {
-            if (int.Parse(this.quantityLabel.Text) < int.Parse(stockLabel.Text))
-                this.quantityLabel.Text = (int.Parse(this.quantityLabel.Text) + 1).ToString();
+       
 
-        }
-
-        private void decreaseQuantityButton_Click(object sender, EventArgs e)
-        {
-            if (int.Parse(this.quantityLabel.Text) > 0)
-                this.quantityLabel.Text = (int.Parse(this.quantityLabel.Text) - 1).ToString();
-        }
-
+       
         private void CartButton_Click(object sender, EventArgs e)
         {
-
+            localCart.AddItem(ProductID, this.quantity_panel.getQuantity());
         }
 
         private void BuyOrTestButton_Click(object sender, EventArgs e)
@@ -113,7 +105,7 @@ namespace WindowsFormsApp1.controls.usercontrols
             }
             else
             {
-                // buy
+               
             }
         }
 

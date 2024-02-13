@@ -14,7 +14,7 @@ using WindowsFormsApp1.containers.usercontrols.controls;
 
 namespace WindowsFormsApp1.classes
 {
-    public static class Methods
+    public static class StringMethods
     {
 
 

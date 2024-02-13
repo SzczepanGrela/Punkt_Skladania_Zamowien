@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
+using WindowsFormsApp1.containers.usercontrols;
 
 namespace WindowsFormsApp1.controls.forms
 {
@@ -18,6 +19,7 @@ namespace WindowsFormsApp1.controls.forms
         {
             InitializeComponent();
             this.MessageLabel.Text = message;
+            this.Load += Popup_window_yn_Load;
             
         }
 
@@ -31,6 +33,11 @@ namespace WindowsFormsApp1.controls.forms
         {
             this.DialogResult = DialogResult.No;
             this.Close();
+        }
+
+        private void Popup_window_yn_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

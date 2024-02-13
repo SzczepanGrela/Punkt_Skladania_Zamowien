@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,7 +66,10 @@
     <Compile Include="classes\BaseUserControl.Designer.cs">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="classes\ControlStack.cs" />
+    <Compile Include="classes\Methods\Querry.cs" />
+    <Compile Include="classes\previousScreens.cs" />
+    <Compile Include="classes\DataObjects\Cart.cs" />
+    <Compile Include="classes\DataObjects\localCart.cs" />
     <Compile Include="classes\DataObjects\Category.cs" />
     <Compile Include="classes\DataObjects\Customer.cs" />
     <Compile Include="classes\DataObjects\Person.cs" />
@@ -74,12 +78,24 @@
     <Compile Include="classes\FileOperations\DatabaseManager.cs" />
     <Compile Include="classes\FileOperations\SqlFileOperations.cs" />
     <Compile Include="classes\FileOperations\TxtFileOperations.cs" />
-    <Compile Include="classes\Methods.cs" />
+    <Compile Include="classes\Methods\StringMethods.cs" />
+    <Compile Include="containers\usercontrols\controls\Cart_item_slice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\usercontrols\controls\Cart_item_slice.Designer.cs">
+      <DependentUpon>Cart_item_slice.cs</DependentUpon>
+    </Compile>
     <Compile Include="containers\usercontrols\controls\Category_button.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="containers\usercontrols\controls\Category_button.Designer.cs">
       <DependentUpon>Category_button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\usercontrols\controls\Quantity_panel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\usercontrols\controls\Quantity_panel.Designer.cs">
+      <DependentUpon>Quantity_panel.cs</DependentUpon>
     </Compile>
     <Compile Include="containers\usercontrols\controls\testControl.cs">
       <SubType>UserControl</SubType>
@@ -202,8 +218,14 @@
     <EmbeddedResource Include="classes\BasePopup_window.resx">
       <DependentUpon>BasePopup_window.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="containers\usercontrols\controls\Cart_item_slice.resx">
+      <DependentUpon>Cart_item_slice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\Category_button.resx">
       <DependentUpon>Category_button.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\usercontrols\controls\Quantity_panel.resx">
+      <DependentUpon>Quantity_panel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\testControl.resx">
       <DependentUpon>testControl.cs</DependentUpon>

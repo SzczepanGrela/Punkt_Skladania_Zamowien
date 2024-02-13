@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -8,8 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
+using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.containers.usercontrols;
+using WindowsFormsApp1.containers.usercontrols.controls;
 using WindowsFormsApp1.controls.forms;
+using WindowsFormsApp1.controls.usercontrols;
 using WindowsFormsApp1.usercontrols;
 
 
@@ -18,8 +22,9 @@ namespace WindowsFormsApp1
 {
     public partial class Main_window : BaseForm
     {
-
+        DatabaseManager dbManager = DatabaseManager.GetInstance(ConfigurationManager.ConnectionStrings["myconstring"].ConnectionString);
         
+        private static Main_window instance;
         public Main_window()
         {
             InitializeComponent();
@@ -33,7 +38,7 @@ namespace WindowsFormsApp1
         }
 
        
-         public static ControlStack previousControls = new ControlStack(); // Stack storing previous controls
+        
 
         
 
@@ -42,15 +47,15 @@ namespace WindowsFormsApp1
         private void ReturnButton_Click(object sender, EventArgs e)
         {
 
-            if (previousControls.Count() > 1)
+            if (previousScreens.Count() > 1)
             {
 
-                Control currentScreen = previousControls.Pop();
+                Control currentScreen = previousScreens.Pop();
                 currentScreen.Controls.Clear();
                 currentScreen.Dispose();
                
                 
-                Control prevScreen = previousControls.Peek();
+                Control prevScreen = previousScreens.Peek();
                 prevScreen.Show();
             }
             GC.Collect();
@@ -59,14 +64,14 @@ namespace WindowsFormsApp1
         private void LogInButton_Click(object sender, EventArgs e)
         {
 
-            //DialogResult loginStatus = OpenPopup(this.MainPanel, new Login_window(@"../../Data/accounts/users/users.txt"));
+            DialogResult loginStatus = Main_window.OpenPopup(new Login_window(@"../../Data/accounts/users/users.txt"));
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
             
 
-            DialogResult dr = OpenPopup(this.MainPanel, new Popup_window_yn("Are you sure you want to reset all tabs?"));
+            DialogResult dr = Main_window.OpenPopup(new Popup_window_yn("Are you sure you want to reset all tabs?"));
 
             if (dr == DialogResult.Yes)
             {
@@ -98,6 +103,46 @@ namespace WindowsFormsApp1
         {
             
             
+
+        }
+
+        private void cartButton_Click(object sender, EventArgs e)
+        {
+            MainPanel_screen.Open(new Shopping_cart_screen());
+        }
+
+
+
+
+        public static Main_window GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new Main_window();
+            }
+            return instance;
+        }
+
+
+        public static DialogResult OpenPopup(BasePopup_window newPopup)
+        {
+
+            Size Main_windowSize = GetInstance().Size;
+            //newPopup.Size = new Size((int)(Main_windowSize.Width *0.9),(int)(Main_windowSize.Height *0.35));  
+
+            // size of popup doesnt change, fix later 
+
+            
+
+            newPopup.FormBorderStyle = FormBorderStyle.None;
+            newPopup.ControlBox = false;
+            newPopup.StartPosition = FormStartPosition.CenterParent;
+
+            
+
+            newPopup.ShowDialog();
+
+            return newPopup.DialogResult;
 
         }
     }

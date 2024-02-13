@@ -31,6 +31,11 @@
             this.MessageLabel = new System.Windows.Forms.Label();
             this.YesButton = new System.Windows.Forms.Button();
             this.NoButton = new System.Windows.Forms.Button();
+            this.yesnoSplit = new System.Windows.Forms.SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.yesnoSplit)).BeginInit();
+            this.yesnoSplit.Panel1.SuspendLayout();
+            this.yesnoSplit.Panel2.SuspendLayout();
+            this.yesnoSplit.SuspendLayout();
             this.SuspendLayout();
             // 
             // MessageLabel
@@ -46,14 +51,13 @@
             // 
             // YesButton
             // 
-            this.YesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.YesButton.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.YesButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.YesButton.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.YesButton.Location = new System.Drawing.Point(57, 178);
+            this.YesButton.Location = new System.Drawing.Point(25, 25);
+            this.YesButton.Margin = new System.Windows.Forms.Padding(0);
             this.YesButton.Name = "YesButton";
-            this.YesButton.Size = new System.Drawing.Size(158, 68);
+            this.YesButton.Size = new System.Drawing.Size(183, 75);
             this.YesButton.TabIndex = 3;
             this.YesButton.Text = "YES";
             this.YesButton.UseVisualStyleBackColor = false;
@@ -61,18 +65,36 @@
             // 
             // NoButton
             // 
-            this.NoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.NoButton.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.NoButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NoButton.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.NoButton.Location = new System.Drawing.Point(257, 178);
+            this.NoButton.Location = new System.Drawing.Point(25, 25);
+            this.NoButton.Margin = new System.Windows.Forms.Padding(30);
             this.NoButton.Name = "NoButton";
-            this.NoButton.Size = new System.Drawing.Size(158, 68);
+            this.NoButton.Size = new System.Drawing.Size(193, 75);
             this.NoButton.TabIndex = 4;
             this.NoButton.Text = "NO";
             this.NoButton.UseVisualStyleBackColor = false;
             this.NoButton.Click += new System.EventHandler(this.NoButton_Click);
+            // 
+            // yesnoSplit
+            // 
+            this.yesnoSplit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.yesnoSplit.Location = new System.Drawing.Point(0, 175);
+            this.yesnoSplit.Name = "yesnoSplit";
+            // 
+            // yesnoSplit.Panel1
+            // 
+            this.yesnoSplit.Panel1.Controls.Add(this.YesButton);
+            this.yesnoSplit.Panel1.Padding = new System.Windows.Forms.Padding(25);
+            // 
+            // yesnoSplit.Panel2
+            // 
+            this.yesnoSplit.Panel2.Controls.Add(this.NoButton);
+            this.yesnoSplit.Panel2.Padding = new System.Windows.Forms.Padding(25);
+            this.yesnoSplit.Size = new System.Drawing.Size(480, 125);
+            this.yesnoSplit.SplitterDistance = 233;
+            this.yesnoSplit.TabIndex = 5;
             // 
             // Popup_window_yn
             // 
@@ -80,14 +102,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(480, 300);
-            this.Controls.Add(this.NoButton);
-            this.Controls.Add(this.YesButton);
+            this.Controls.Add(this.yesnoSplit);
             this.Controls.Add(this.MessageLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Popup_window_yn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Popup_window_yn";
             this.TopMost = true;
+            this.yesnoSplit.Panel1.ResumeLayout(false);
+            this.yesnoSplit.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.yesnoSplit)).EndInit();
+            this.yesnoSplit.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -97,5 +122,6 @@
         private System.Windows.Forms.Label MessageLabel;
         private System.Windows.Forms.Button YesButton;
         private System.Windows.Forms.Button NoButton;
+        private System.Windows.Forms.SplitContainer yesnoSplit;
     }
 }

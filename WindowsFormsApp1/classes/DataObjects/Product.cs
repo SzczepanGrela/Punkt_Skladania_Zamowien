@@ -47,6 +47,28 @@ namespace WindowsFormsApp1.classes.DataObjects
         }
 
 
+
+        public static Product MaptoSlice(SqlDataReader reader)    // this is a method that maps the data from the database to the object
+        {
+            return new Product
+            {
+                ID = reader.GetInt32(reader.GetOrdinal("ProductID")),
+                Name = reader.IsDBNull(reader.GetOrdinal("Name")) ? null : reader.GetString(reader.GetOrdinal("Name")),
+                Price = reader.IsDBNull(reader.GetOrdinal("Price")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Price")),
+
+                CategoryID = reader.GetInt32(reader.GetOrdinal("CategoryID")),
+                StockQuantity = reader.GetInt32(reader.GetOrdinal("StockQuantity")),
+                Image = reader.IsDBNull(reader.GetOrdinal("Image")) ? null : (byte[])reader["Image"]
+
+            };
+        }
+
+
+
+
+
+
+
         public static Product MaptoDetail(SqlDataReader reader)
         {
             return new Product

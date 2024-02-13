@@ -35,14 +35,14 @@ namespace WindowsFormsApp1.classes
 
 
 
-        public void OpenControl(Control newControl, Control parentControl)  // open "new" in "parent"
+        /*public void OpenControl(Control newControl, Control parentControl)  // open "new" in "parent"
         {
-            Main_window.previousControls.Push(newControl);
+            previousScreens.Push(newControl);
             newControl.Dock = DockStyle.Fill;
             parentControl.Controls.Clear();
             parentControl.Controls.Add(newControl);
             newControl.Show();
-        }
+        }*/
 
 
         /* public void OpenControl(Control newControl, Control parentControl)
@@ -56,9 +56,9 @@ namespace WindowsFormsApp1.classes
 
          }*/
 
-        public void OpenNewControl(Control newControl, Control currentControl)
+/*        public void OpenNewControl(Control newControl, Control currentControl)
         {
-            Main_window.previousControls.Push(newControl);
+            previousScreens.Push(newControl);
             newControl.Dock = DockStyle.Fill;
             
             currentControl.Hide();
@@ -69,7 +69,7 @@ namespace WindowsFormsApp1.classes
             newControl.BackColor = newControl.Parent.BackColor;
             newControl.Show();
 
-        }
+        }*/
 
 
 
@@ -138,7 +138,7 @@ namespace WindowsFormsApp1.classes
 
 
 
-        public void AddControlstoFlowPanel(UserControl[] controls, FlowLayoutPanel panel, int columns)
+        public void AddButtonstoFlowPanel(UserControl[] controls, FlowLayoutPanel panel, int columns)
         {
             // works only for table of same type of controls
 
@@ -167,14 +167,43 @@ namespace WindowsFormsApp1.classes
 
             }
 
-            /*MessageBox.Show(this.Name+" " + this.Width);
-            MessageBox.Show(this.parentContainer.Name + " " + this.parentContainer.Width );*/
+      
 
         }
 
 
-       
-      
+
+        public void AddSlicestoFlowPanel(UserControl[] controls, FlowLayoutPanel panel)
+        {
+           
+
+            var examplecontrol = controls[0];
+
+            int scrollbarWidth = SystemInformation.VerticalScrollBarWidth;
+            int panelWidth = panel.Size.Width - scrollbarWidth;
+
+            int controlWidth = panel.Size.Width;
+            float proportion = ((float)controlWidth / examplecontrol.Width);
+            int controlHeight = (int)(examplecontrol.Height * proportion);
+            
+           
+            int gapHeight = (int)(0.05 * controlHeight);
+            for (int i = 0; i < controls.Length; i++)
+            {
+                controls[i].Margin = new Padding(0, gapHeight, 0, gapHeight);
+                controls[i].Padding = new Padding(0, 0, 0, 0);
+                controls[i].Size = new Size(controlWidth, controlHeight);
+
+                panel.Controls.Add(controls[i]);
+
+            }
+
+          
+        }
+
+
+
+
 
 
 

@@ -19,8 +19,8 @@ namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Products_screen : BaseUserControl
     {
-        
-        DatabaseManager dbm = new DatabaseManager(ConfigurationManager.ConnectionStrings["myconstring"].ConnectionString);
+        DatabaseManager dbm = DatabaseManager.GetInstance("TwojeConnectionString");
+
         private int CategoryID;
         public Products_screen(int categoryID) 
         {
@@ -48,11 +48,11 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoButton);
 
-            UserControl[] ProductButtons = Product_button.CreateProductButtons(products, this).ToArray();
+            UserControl[] ProductButtons = Product_button.CreateProductButtons(products).ToArray();
 
        
             
-            AddControlstoFlowPanel(ProductButtons, ProductsPanel, 3);
+            AddButtonstoFlowPanel(ProductButtons, ProductsPanel, 3);
 
             
 

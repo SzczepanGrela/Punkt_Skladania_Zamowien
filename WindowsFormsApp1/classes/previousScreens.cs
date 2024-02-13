@@ -6,21 +6,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace WindowsFormsApp1.classes
 {
-    public class ControlStack   // stack of user controls, forms and other containers
+    public static class previousScreens   // stack of user controls, forms and other containers
     {
-        private List<Control> elements;
+        private static List<Control> elements = new List<Control>();
 
-        public ControlStack()
-        {
-            elements = new List<Control>();
-        }
-
-        public void Push(Control item)
+        public static void Push(Control item)
         {
             elements.Add(item);
         }
 
-        public Control Pop()
+        public static Control Pop()
         {
 
             if (elements.Count > 1)
@@ -46,7 +41,7 @@ namespace WindowsFormsApp1.classes
         }
 
 
-        public Control Peek()
+        public static Control Peek()
         {
             if (elements.Count > 0)
             {
@@ -58,25 +53,27 @@ namespace WindowsFormsApp1.classes
             }
         }
 
-        public int Count()
+        public static int Count()
         {
             return elements.Count;
         }
 
-        public bool IsEmpty()
+        public static bool IsEmpty()
         {
             return elements.Count == 0;
         }
 
 
 
-        public void Clear()  // in case of pressing home button, the stack will be cleared and then the menu window will be pushed, as the 1st element
+        public static void Clear()  // in case of pressing home button, the stack will be cleared and then the menu window will be pushed, as the 1st element
         {
             if (elements.Count > 0)
                 elements.Clear();
             GC.Collect();
         }
 
+
+        
 
     }
 }

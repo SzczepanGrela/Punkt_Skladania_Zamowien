@@ -35,8 +35,8 @@ namespace WindowsFormsApp1
             this.LogInButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
             this.BottomBarPanel = new System.Windows.Forms.Panel();
+            this.cartButton = new System.Windows.Forms.Button();
             this.EmployeeAccessButton = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.MainPanel = new WindowsFormsApp1.containers.usercontrols.MainPanel_screen();
             this.TopBarPanel.SuspendLayout();
             this.BottomBarPanel.SuspendLayout();
@@ -104,6 +104,7 @@ namespace WindowsFormsApp1
             // BottomBarPanel
             // 
             this.BottomBarPanel.BackColor = System.Drawing.Color.Moccasin;
+            this.BottomBarPanel.Controls.Add(this.cartButton);
             this.BottomBarPanel.Controls.Add(this.EmployeeAccessButton);
             this.BottomBarPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBarPanel.Location = new System.Drawing.Point(0, 742);
@@ -111,6 +112,21 @@ namespace WindowsFormsApp1
             this.BottomBarPanel.Name = "BottomBarPanel";
             this.BottomBarPanel.Size = new System.Drawing.Size(596, 68);
             this.BottomBarPanel.TabIndex = 8;
+            // 
+            // cartButton
+            // 
+            this.cartButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cartButton.BackColor = System.Drawing.Color.BurlyWood;
+            this.cartButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cartButton.Location = new System.Drawing.Point(482, 14);
+            this.cartButton.Margin = new System.Windows.Forms.Padding(0);
+            this.cartButton.Name = "cartButton";
+            this.cartButton.Size = new System.Drawing.Size(94, 43);
+            this.cartButton.TabIndex = 7;
+            this.cartButton.Text = "Cart";
+            this.cartButton.UseVisualStyleBackColor = false;
+            this.cartButton.Click += new System.EventHandler(this.cartButton_Click);
             // 
             // EmployeeAccessButton
             // 
@@ -160,7 +176,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button HomeButton;
         private System.Windows.Forms.Panel BottomBarPanel;
         private System.Windows.Forms.Button EmployeeAccessButton;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private containers.usercontrols.MainPanel_screen MainPanel;
+        private System.Windows.Forms.Button cartButton;
     }
 }

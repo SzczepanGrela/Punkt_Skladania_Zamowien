@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.classes.FileOperations;
+using WindowsFormsApp1.classes.Methods;
 
 
 namespace WindowsFormsApp1.classes.DataObjects
 {
     internal class Customer : Person
     {
+        DatabaseManager dbm = DatabaseManager.GetInstance();
+
 
         public string Username { get; set; }
 
@@ -41,11 +44,12 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         public bool Login()
         {
-            DatabaseManager dbm = new DatabaseManager(ConfigurationManager.ConnectionStrings["myconstring"].ConnectionString);
+            
            
 
-            string query = "SELECT COUNT(*) FROM Customers WHERE Username = " + Methods.addApostrophes(this.Username) + " AND Password = " + Methods.addApostrophes(this.Password);
+            string query = "SELECT COUNT(*) FROM Customers WHERE Username = " + StringMethods.addApostrophes(this.Username) + " AND Password = " + StringMethods.addApostrophes(this.Password);
             int count = dbm.CountMatchingRecords(query);
+
 
             if (count == 0)
             {
