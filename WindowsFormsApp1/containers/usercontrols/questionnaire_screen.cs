@@ -11,9 +11,9 @@ using WindowsFormsApp1.classes;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
-    public partial class Matching_query_screen : BaseUserControl
+    public partial class questionnaire_screen : BaseUserControl
     {
-        public Matching_query_screen()
+        public questionnaire_screen()
         {
             InitializeComponent();
         }

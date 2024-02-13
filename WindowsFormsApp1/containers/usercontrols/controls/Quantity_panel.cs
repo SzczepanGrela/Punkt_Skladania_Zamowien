@@ -19,12 +19,20 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         {
             return this.Quantity;
         }
+        public void setQuantity(int quantity)
+        {
+            this.Quantity = quantity;
+            
+            OnQuantityChanged();
+        }
 
         public Quantity_panel()
         {
             InitializeComponent();
 
             this.Load += new EventHandler(Quantity_panel_Load);
+
+            
         }
 
         public Quantity_panel(int quantity, int inStock)
@@ -51,24 +59,38 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         {
             if (this.Quantity < this.InStock)
             {
-                this.Quantity++;
+                setQuantity(getQuantity()+1);
                 this.quantityLabel.Text = Quantity.ToString();
             }
         }
 
         private void decreaseQuantityButton_Click(object sender, EventArgs e)
         {
-            if (this.Quantity > 1)
+            if (this.Quantity > 0)
             {
-                this.Quantity--;
+                setQuantity(getQuantity() - 1);
                 this.quantityLabel.Text = Quantity.ToString();
             }
 
         }
 
-        private void Quantity_panel_Click(object sender, EventArgs e)
+        
+
+        public event EventHandler QuantityChanged;
+
+
+        protected virtual void OnQuantityChanged()
         {
-            MessageBox.Show("Quantity: " + Quantity);
+            
+
+            if (QuantityChanged != null)
+            {
+                QuantityChanged(this, EventArgs.Empty);
+            }
         }
+
+
+
+
     }
 }

@@ -66,10 +66,11 @@
     <Compile Include="classes\BaseUserControl.Designer.cs">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="classes\DataObjects\Promotion.cs" />
     <Compile Include="classes\Methods\Querry.cs" />
     <Compile Include="classes\previousScreens.cs" />
     <Compile Include="classes\DataObjects\Cart.cs" />
-    <Compile Include="classes\DataObjects\localCart.cs" />
+    <Compile Include="classes\localCart.cs" />
     <Compile Include="classes\DataObjects\Category.cs" />
     <Compile Include="classes\DataObjects\Customer.cs" />
     <Compile Include="classes\DataObjects\Person.cs" />
@@ -151,11 +152,11 @@
     <Compile Include="containers\usercontrols\Product_details_screen.Designer.cs">
       <DependentUpon>Product_details_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="containers\usercontrols\Matching_query_screen.cs">
+    <Compile Include="containers\usercontrols\questionnaire_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="containers\usercontrols\Matching_query_screen.Designer.cs">
-      <DependentUpon>Matching_query_screen.cs</DependentUpon>
+    <Compile Include="containers\usercontrols\questionnaire_screen.Designer.cs">
+      <DependentUpon>questionnaire_screen.cs</DependentUpon>
     </Compile>
     <Compile Include="containers\usercontrols\Payment_method_screen.cs">
       <SubType>UserControl</SubType>
@@ -254,8 +255,8 @@
     <EmbeddedResource Include="containers\usercontrols\Product_details_screen.resx">
       <DependentUpon>Product_details_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="containers\usercontrols\Matching_query_screen.resx">
-      <DependentUpon>Matching_query_screen.cs</DependentUpon>
+    <EmbeddedResource Include="containers\usercontrols\questionnaire_screen.resx">
+      <DependentUpon>questionnaire_screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\Payment_method_screen.resx">
       <DependentUpon>Payment_method_screen.cs</DependentUpon>

@@ -16,12 +16,12 @@ namespace WindowsFormsApp1
 {
     public partial class Login_window : BasePopup_window
     {
-        string FilePath;
+        
 
-        public Login_window(string FilePath)
+        public Login_window()
         {
             InitializeComponent();
-            this.FilePath = FilePath;
+            
             this.BackColor = base.BackColor;
         }
 

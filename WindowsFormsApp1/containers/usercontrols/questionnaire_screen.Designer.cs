@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.controls.usercontrols
 {
-    partial class Matching_query_screen
+    partial class questionnaire_screen
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.

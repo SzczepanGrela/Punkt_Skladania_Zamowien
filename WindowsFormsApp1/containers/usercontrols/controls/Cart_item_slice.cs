@@ -14,6 +14,7 @@ using System.Security.Cryptography.X509Certificates;
 using WindowsFormsApp1.classes.Methods;
 using WindowsFormsApp1.classes.FileOperations;
 using System.Data.Common;
+using System.Runtime.CompilerServices;
 
 namespace WindowsFormsApp1.containers.usercontrols.controls
 {
@@ -22,23 +23,33 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
         private decimal price;
 
+        private int ID;
+        public decimal getPrice()
+        {
+            return this.price;
+        }
+
+        public int getQuanitity()
+        {
+            return this.quantity_panel.getQuantity();
+        }
+
+        
         public Cart_item_slice()
         {
             InitializeComponent();
 
-            // after any interaction the price should be updated
-           // this.quantity_panel.QuantityChanged += new EventHandler(priceLabel_Click);
-           
 
         }
 
 
-        public Cart_item_slice(int inStock, string name, decimal price, byte[] image, int quantity)
+        public Cart_item_slice(int inStock, string name, decimal price, byte[] image, int quantity, int ID)
         {
             InitializeComponent();
-
+            this.ID = ID;
             this.price = price;
             SetCartItem(inStock, name, price, image, quantity);
+            this.quantity_panel.QuantityChanged += this.OnQuantityChanged;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -52,9 +63,8 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
         public void SetCartItem(int inStock, string name, decimal price, byte[] image, int quantity)
         {
-
+            price *= quantity;
             this.priceLabel.Text = price.ToString() + "zł";
-           // this.quantity_panel.setPanel(inStock, quantity);
             if (name != null) this.nameLabel.Text = name;
             if (image != null) this.pictureBox1.Image = System.Drawing.Image.FromStream(new System.IO.MemoryStream(image));
         }
@@ -91,8 +101,9 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             foreach (Product product in products)
             {
                 int quantity = productIDsDictionary[product.ID];
-                Cart_item_slice slice = new Cart_item_slice(product.StockQuantity, product.Name, product.Price*quantity, product.Image, quantity);
-                slice.quantity_panel.setPanel(product.StockQuantity, quantity );
+                Cart_item_slice slice = new Cart_item_slice(product.StockQuantity, product.Name, product.Price, product.Image, quantity,product.ID);
+                slice.quantity_panel.setPanel(product.StockQuantity, quantity);
+               
                 slices.Add(slice);
             
                     
@@ -101,13 +112,35 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             return slices;
         }
 
-        private void priceLabel_Click(object sender, EventArgs e)
+      
+       
+        protected virtual void OnQuantityChanged(object sender, EventArgs e)
         {
+            int quantity = this.quantity_panel.getQuantity();
+            decimal price = this.price * quantity;
+
+            this.priceLabel.Text = price.ToString() + "zł";
+
+            localCart.UpdateShopping(ID, quantity);
             
-            priceLabel.Text = (price*quantity_panel.getQuantity()).ToString() + "zł";
-
-
-                
+            OnPriceChanged(this, EventArgs.Empty);  // poor way of handing over the event to the parent
         }
+
+
+       public event EventHandler PriceChanged;
+
+        protected virtual void OnPriceChanged(object sender, EventArgs e)
+        {
+            if (PriceChanged != null)
+            {
+                PriceChanged(this, EventArgs.Empty);
+            }
+        }
+        
+
     }
-}
+
+
+
+
+    }

@@ -64,14 +64,14 @@ namespace WindowsFormsApp1
         private void LogInButton_Click(object sender, EventArgs e)
         {
 
-            DialogResult loginStatus = Main_window.OpenPopup(new Login_window(@"../../Data/accounts/users/users.txt"));
+            DialogResult loginStatus = Main_window.OpenPopup(new Login_window());
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
             
 
-            DialogResult dr = Main_window.OpenPopup(new Popup_window_yn("Are you sure you want to reset all tabs?"));
+            DialogResult dr = Main_window.OpenPopup(new Popup_window_yn("Are you sure you want to reset all tabs?\n (Your cart will be saved)"));
 
             if (dr == DialogResult.Yes)
             {
@@ -108,6 +108,8 @@ namespace WindowsFormsApp1
 
         private void cartButton_Click(object sender, EventArgs e)
         {
+            if (previousScreens.Peek() is Shopping_cart_screen) return;
+            
             MainPanel_screen.Open(new Shopping_cart_screen());
         }
 

@@ -18,7 +18,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
     public partial class Category_button : UserControl
     {
         int categoryID = 0;
-        BaseUserControl currentScreen = null;
+       
         public Category_button()
         {
             InitializeComponent();

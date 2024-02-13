@@ -173,7 +173,7 @@ namespace WindowsFormsApp1.classes
 
 
 
-        public void AddSlicestoFlowPanel(UserControl[] controls, FlowLayoutPanel panel)
+        public void AddSlicestoPanel(UserControl[] controls, Panel panel)
         {
            
 
@@ -193,6 +193,7 @@ namespace WindowsFormsApp1.classes
                 controls[i].Margin = new Padding(0, gapHeight, 0, gapHeight);
                 controls[i].Padding = new Padding(0, 0, 0, 0);
                 controls[i].Size = new Size(controlWidth, controlHeight);
+                controls[i].Dock = DockStyle.Top;
 
                 panel.Controls.Add(controls[i]);
 

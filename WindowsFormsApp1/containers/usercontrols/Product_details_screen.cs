@@ -12,6 +12,7 @@ using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.classes.DataObjects;
 using static System.Net.Mime.MediaTypeNames;
+using WindowsFormsApp1.containers.usercontrols;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
@@ -51,7 +52,6 @@ namespace WindowsFormsApp1.controls.usercontrols
                 changeButton.Text = "Change";
             }
 
-
             if (products.Count == 1)
             {
                 Product product = products[0];
@@ -64,8 +64,6 @@ namespace WindowsFormsApp1.controls.usercontrols
                 if (priceLabel.Text.Length < 8) priceLabel.Text = " " + priceLabel.Text;
 
                 quantity_panel.setPanel(product.StockQuantity);
-
-                
 
             }
 
@@ -80,45 +78,46 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             }
 
-        }
-
-
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-       
-
-       
-        private void CartButton_Click(object sender, EventArgs e)
-        {
-            localCart.AddItem(ProductID, this.quantity_panel.getQuantity());
-        }
-
-        private void BuyOrTestButton_Click(object sender, EventArgs e)
-        {
-            if (testscreen)
-            {
-                // test
-            }
-            else
-            {
-               
-            }
-        }
-
-        private void changeButton_Click(object sender, EventArgs e)
-        {
             if(testscreen)
             {
-                //buy
+                this.changeButton.Click += new EventHandler(buying);
+                this.ChangeOfHeartLabel.Text = "Not sure yet?";
+                this.changeButton.Text = "BUY";
+                this.BuyOrTestButton.Click += new EventHandler(testing);
+
             }
             else
             {
-                // test
+               this.changeButton.Click += new EventHandler(testing);
+                this.ChangeOfHeartLabel.Text = "Not sure yet?";
+                this.changeButton.Text = "TEST";
+                this.BuyOrTestButton.Click += new EventHandler(buying);
             }
+            
+
         }
+
+        private void buying(object sender, EventArgs e)
+        {
+            localCart.AddToShopping(ProductID, this.quantity_panel.getQuantity());
+            if (previousScreens.Peek() is Shopping_cart_screen) return;
+
+            MainPanel_screen.Open(new Shopping_cart_screen());
+        }
+
+        private void testing(object sender, EventArgs e)
+        {
+            localCart.AddToTesting(ProductID);
+            if (previousScreens.Peek() is Testing_cart_screen) return;
+
+            MainPanel_screen.Open(new Testing_cart_screen());
+        }
+
+        private void CartButton_Click(object sender, EventArgs e)
+        {
+            localCart.AddToShopping(ProductID, this.quantity_panel.getQuantity());
+        }
+
+       
     }
 }
