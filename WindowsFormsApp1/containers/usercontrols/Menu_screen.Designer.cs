@@ -40,10 +40,10 @@
             this.UpperTextLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UpperTextLabel.AutoSize = true;
             this.UpperTextLabel.Font = new System.Drawing.Font("Times New Roman", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UpperTextLabel.Location = new System.Drawing.Point(129, 47);
+            this.UpperTextLabel.Location = new System.Drawing.Point(172, 58);
             this.UpperTextLabel.Margin = new System.Windows.Forms.Padding(0);
             this.UpperTextLabel.Name = "UpperTextLabel";
-            this.UpperTextLabel.Size = new System.Drawing.Size(362, 40);
+            this.UpperTextLabel.Size = new System.Drawing.Size(442, 49);
             this.UpperTextLabel.TabIndex = 8;
             this.UpperTextLabel.Text = "Welcome to Order Hub! ";
             // 
@@ -52,9 +52,10 @@
             this.BottomTextLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BottomTextLabel.AutoSize = true;
             this.BottomTextLabel.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BottomTextLabel.Location = new System.Drawing.Point(119, 109);
+            this.BottomTextLabel.Location = new System.Drawing.Point(159, 134);
+            this.BottomTextLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BottomTextLabel.Name = "BottomTextLabel";
-            this.BottomTextLabel.Size = new System.Drawing.Size(372, 26);
+            this.BottomTextLabel.Size = new System.Drawing.Size(485, 31);
             this.BottomTextLabel.TabIndex = 9;
             this.BottomTextLabel.Text = "Innovating your shopping experience!";
             // 
@@ -62,10 +63,10 @@
             // 
             this.MatchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MatchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.MatchButton.Location = new System.Drawing.Point(132, 475);
-            this.MatchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MatchButton.Location = new System.Drawing.Point(176, 585);
+            this.MatchButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.MatchButton.Name = "MatchButton";
-            this.MatchButton.Size = new System.Drawing.Size(345, 86);
+            this.MatchButton.Size = new System.Drawing.Size(460, 106);
             this.MatchButton.TabIndex = 7;
             this.MatchButton.Text = "Match a Product";
             this.MatchButton.UseVisualStyleBackColor = true;
@@ -74,10 +75,10 @@
             // 
             this.ShopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ShopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ShopButton.Location = new System.Drawing.Point(132, 203);
-            this.ShopButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ShopButton.Location = new System.Drawing.Point(176, 250);
+            this.ShopButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.ShopButton.Name = "ShopButton";
-            this.ShopButton.Size = new System.Drawing.Size(345, 86);
+            this.ShopButton.Size = new System.Drawing.Size(460, 106);
             this.ShopButton.TabIndex = 5;
             this.ShopButton.Text = "I\'m Buying";
             this.ShopButton.UseVisualStyleBackColor = true;
@@ -88,10 +89,10 @@
             this.PresentationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.PresentationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.PresentationButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PresentationButton.Location = new System.Drawing.Point(132, 341);
-            this.PresentationButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PresentationButton.Location = new System.Drawing.Point(176, 420);
+            this.PresentationButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.PresentationButton.Name = "PresentationButton";
-            this.PresentationButton.Size = new System.Drawing.Size(345, 86);
+            this.PresentationButton.Size = new System.Drawing.Size(460, 106);
             this.PresentationButton.TabIndex = 6;
             this.PresentationButton.Text = "Free Presentation";
             this.PresentationButton.UseVisualStyleBackColor = true;
@@ -99,7 +100,7 @@
             // 
             // Menu_screen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.ForestGreen;
@@ -108,8 +109,9 @@
             this.Controls.Add(this.MatchButton);
             this.Controls.Add(this.ShopButton);
             this.Controls.Add(this.PresentationButton);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Menu_screen";
-            this.Size = new System.Drawing.Size(600, 640);
+            this.Size = new System.Drawing.Size(800, 788);
             this.ResumeLayout(false);
             this.PerformLayout();
 

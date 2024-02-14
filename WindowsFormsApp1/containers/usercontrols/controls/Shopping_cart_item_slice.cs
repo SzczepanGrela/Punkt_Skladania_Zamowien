@@ -23,7 +23,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
         private decimal price;
 
-        private int ID;
+        public int ID { get; private set; }
         public decimal getPrice()
         {
             return this.price;

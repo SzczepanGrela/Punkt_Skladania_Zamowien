@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Login_window
+    partial class Popup_window_CustomerLogin
     {
         /// <summary>
         /// Required designer variable.

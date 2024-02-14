@@ -183,7 +183,7 @@ namespace WindowsFormsApp1.classes
             int panelWidth = panel.Size.Width - scrollbarWidth;
 
             int controlWidth = panel.Size.Width;
-            float proportion = ((float)controlWidth / examplecontrol.Width);
+            float proportion = ((float)controlWidth /600); // all controls are 600px wide by default
             int controlHeight = (int)(examplecontrol.Height * proportion);
             
            

@@ -14,11 +14,11 @@ using WindowsFormsApp1.classes.DataObjects;
 
 namespace WindowsFormsApp1
 {
-    public partial class Login_window : BasePopup_window
+    public partial class Popup_window_CustomerLogin : BasePopup_window
     {
         
 
-        public Login_window()
+        public Popup_window_CustomerLogin()
         {
             InitializeComponent();
             

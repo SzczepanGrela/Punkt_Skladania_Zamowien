@@ -91,7 +91,13 @@ namespace WindowsFormsApp1.controls.usercontrols
                         
                         dbm.ExecuteCommand(query);
 
-                        OpenPopup(new Popup_window_ok("Your card has been charged"));
+                        Popup_window_ok popup = new Popup_window_ok("Your card has been charged");
+                        OpenPopup(popup);
+                        if(popup.DialogResult == DialogResult.OK)
+                        {
+                            localCart.ClearCart(2);  // Clear both carts
+                            Main_window.ResetMenu();
+                        }
                     }
                 }
 

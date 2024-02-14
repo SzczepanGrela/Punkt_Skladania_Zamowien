@@ -30,12 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Matching_query_screen
+            // questionnaire_screen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Matching_query_screen";
-            this.Size = new System.Drawing.Size(600, 640);
+            this.Margin = new System.Windows.Forms.Padding(0);
+            this.Name = "questionnaire_screen";
+            this.Size = new System.Drawing.Size(800, 788);
             this.ResumeLayout(false);
 
         }

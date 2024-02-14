@@ -15,7 +15,7 @@ namespace WindowsFormsApp1.classes.DataObjects
 {
     internal class Customer : Person
     {
-        DatabaseManager dbm = DatabaseManager.GetInstance();
+        
 
 
         public string Username { get; set; }
@@ -44,8 +44,8 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         public bool Login()
         {
-            
-           
+            DatabaseManager dbm = DatabaseManager.GetInstance();
+
 
             string query = "SELECT COUNT(*) FROM Customers WHERE Username = " + StringMethods.addApostrophes(this.Username) + " AND Password = " + StringMethods.addApostrophes(this.Password);
             int count = dbm.CountMatchingRecords(query);

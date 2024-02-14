@@ -37,8 +37,9 @@
             this.lookinforLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.lookinforLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lookinforLabel.Location = new System.Drawing.Point(0, 0);
+            this.lookinforLabel.Margin = new System.Windows.Forms.Padding(0);
             this.lookinforLabel.Name = "lookinforLabel";
-            this.lookinforLabel.Size = new System.Drawing.Size(600, 166);
+            this.lookinforLabel.Size = new System.Drawing.Size(800, 204);
             this.lookinforLabel.TabIndex = 1;
             this.lookinforLabel.Text = "What are you looking for?";
             this.lookinforLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -49,21 +50,21 @@
             this.categoriesPanel.AutoScroll = true;
             this.categoriesPanel.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.categoriesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.categoriesPanel.Location = new System.Drawing.Point(0, 166);
+            this.categoriesPanel.Location = new System.Drawing.Point(0, 204);
             this.categoriesPanel.Margin = new System.Windows.Forms.Padding(0);
             this.categoriesPanel.Name = "categoriesPanel";
-            this.categoriesPanel.Size = new System.Drawing.Size(600, 474);
+            this.categoriesPanel.Size = new System.Drawing.Size(800, 584);
             this.categoriesPanel.TabIndex = 2;
             // 
             // Categories_screen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.categoriesPanel);
             this.Controls.Add(this.lookinforLabel);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Categories_screen";
-            this.Size = new System.Drawing.Size(600, 640);
+            this.Size = new System.Drawing.Size(800, 788);
             this.ResumeLayout(false);
 
         }

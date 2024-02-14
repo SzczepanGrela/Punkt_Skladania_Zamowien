@@ -21,5 +21,22 @@ namespace WindowsFormsApp1.classes
             InitializeComponent();
             
         }
+
+
+        public DialogResult OpenPopup()
+        {
+
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.ControlBox = false;
+            this.StartPosition = FormStartPosition.CenterParent;
+
+            this.ShowDialog();
+
+            return this.DialogResult;
+
+        }
+
+
     }
 }

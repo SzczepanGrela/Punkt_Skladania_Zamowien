@@ -19,15 +19,12 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         private string name { get; set; }
         private decimal price { get; set; }
         private byte[] image { get; set; }
-        private int iD { get; set; }
+        public int ID { get; private set; }
 
-        public bool Checked
+        public bool checkedState
         {
-            get { return SelectcheckBox.Checked; }
-            private set
-            {
-                SelectcheckBox.Checked = value;
-            }
+            get { return this.checkBox.Checked; }
+            private set { this.checkBox.Checked = value; }
         }
 
         public Testing_cart_item_slice()
@@ -35,16 +32,25 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             InitializeComponent();
         }
 
-        public Testing_cart_item_slice(string name, decimal price, byte[] image, int iD)
+        public Testing_cart_item_slice(string name, decimal price, byte[] image, int ID)
         {
             InitializeComponent();
             this.price = price;
             this.image = image;
-            this.iD = iD;
+            this.ID = ID;
             this.name = name;
+            this.Load += Testing_cart_item_slice_Load;
         }
 
-        internal static List<Testing_cart_item_slice> createCart_item_slices(List<int> productIDs)
+        private void Testing_cart_item_slice_Load(object sender, EventArgs e)
+        {
+            if(image!=null) this.pictureBox1.Image = System.Drawing.Image.FromStream(new System.IO.MemoryStream(image));
+            if(name!=null) this.nameLabel.Text = name;
+            this.priceLabel.Text = price.ToString() + "zł";
+            
+        }
+
+        internal static List<Testing_cart_item_slice> createTesting_cart_item_slices(List<int> productIDs)
         {
             DatabaseManager dbm = DatabaseManager.GetInstance();
 
@@ -65,8 +71,14 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             return slices;
         }
 
-        
-
-        
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            localCart.RemoveFromTesting(ID);
+            this.Dispose();
+            if (localCart.GetShoppingItems().Count == 0)
+            {
+               
+            }
+        }
     }
 }

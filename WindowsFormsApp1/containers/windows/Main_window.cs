@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
         private void LogInButton_Click(object sender, EventArgs e)
         {
 
-            DialogResult loginStatus = Main_window.OpenPopup(new Login_window());
+            DialogResult loginStatus = Main_window.OpenPopup(new Popup_window_CustomerLogin());
         }
 
         private static void HomeButton_Click(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace WindowsFormsApp1
 
             if (dr == DialogResult.Yes)
             {
-               ResetMenu(MainPanel_screen.getInstance());
+               ResetMenu();
             }
             else
             {

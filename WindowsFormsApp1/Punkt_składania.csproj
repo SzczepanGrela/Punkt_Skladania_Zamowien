@@ -66,6 +66,7 @@
     <Compile Include="classes\BaseUserControl.Designer.cs">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="classes\DataObjects\Employee.cs" />
     <Compile Include="classes\DataObjects\GiftCard.cs" />
     <Compile Include="classes\DataObjects\Promotion.cs" />
     <Compile Include="classes\Methods\Querry.cs" />
@@ -116,6 +117,12 @@
     </Compile>
     <Compile Include="containers\usercontrols\MainPanel_screen.Designer.cs">
       <DependentUpon>MainPanel_screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\windows\Popup_window_EmployeeLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="containers\windows\Popup_window_EmployeeLogin.Designer.cs">
+      <DependentUpon>Popup_window_EmployeeLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="containers\windows\Popup_window_ok.cs">
       <SubType>Form</SubType>
@@ -189,17 +196,11 @@
     <Compile Include="containers\usercontrols\Test_decision_screen.Designer.cs">
       <DependentUpon>Test_decision_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="containers\usercontrols\Test_screen.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="containers\usercontrols\Test_screen.Designer.cs">
-      <DependentUpon>Test_screen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="containers\windows\Login_window.cs">
+    <Compile Include="containers\windows\Popup_window_CustomerLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="containers\windows\Login_window.Designer.cs">
-      <DependentUpon>Login_window.cs</DependentUpon>
+    <Compile Include="containers\windows\Popup_window_CustomerLogin.Designer.cs">
+      <DependentUpon>Popup_window_CustomerLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="containers\windows\Main_window.cs">
       <SubType>Form</SubType>
@@ -244,6 +245,9 @@
     <EmbeddedResource Include="containers\usercontrols\MainPanel_screen.resx">
       <DependentUpon>MainPanel_screen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Popup_window_EmployeeLogin.resx">
+      <DependentUpon>Popup_window_EmployeeLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="containers\windows\Popup_window_ok.resx">
       <DependentUpon>Popup_window_ok.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,11 +284,8 @@
     <EmbeddedResource Include="containers\usercontrols\Test_decision_screen.resx">
       <DependentUpon>Test_decision_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="containers\usercontrols\Test_screen.resx">
-      <DependentUpon>Test_screen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="containers\windows\Login_window.resx">
-      <DependentUpon>Login_window.cs</DependentUpon>
+    <EmbeddedResource Include="containers\windows\Popup_window_CustomerLogin.resx">
+      <DependentUpon>Popup_window_CustomerLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\windows\Main_window.resx">
       <DependentUpon>Main_window.cs</DependentUpon>

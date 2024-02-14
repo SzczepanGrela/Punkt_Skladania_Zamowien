@@ -95,6 +95,11 @@ namespace WindowsFormsApp1.classes.DataObjects
         }
 
 
+        public static void ReplaceTestingCart(List<int> newCart)
+        {
+            TestItemIDs = newCart;
+        }
+
 
 
     }

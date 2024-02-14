@@ -57,6 +57,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -66,36 +67,39 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer1.Size = new System.Drawing.Size(600, 101);
+            this.splitContainer1.Size = new System.Drawing.Size(600, 124);
             this.splitContainer1.SplitterDistance = 277;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.pictureBox1);
-            this.splitContainer2.Panel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.splitContainer2.Panel1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.nameLabel);
-            this.splitContainer2.Size = new System.Drawing.Size(277, 101);
+            this.splitContainer2.Size = new System.Drawing.Size(277, 124);
             this.splitContainer2.SplitterDistance = 104;
+            this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(10, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(94, 101);
+            this.pictureBox1.Size = new System.Drawing.Size(99, 124);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -106,8 +110,9 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             this.nameLabel.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nameLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.nameLabel.Location = new System.Drawing.Point(0, 0);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(169, 101);
+            this.nameLabel.Size = new System.Drawing.Size(168, 124);
             this.nameLabel.TabIndex = 5;
             this.nameLabel.Text = "Product  Name";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -116,6 +121,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer3.Name = "splitContainer3";
             // 
             // splitContainer3.Panel1
@@ -125,17 +131,19 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.priceLabel);
-            this.splitContainer3.Panel2.Padding = new System.Windows.Forms.Padding(0, 0, 17, 0);
-            this.splitContainer3.Size = new System.Drawing.Size(319, 101);
-            this.splitContainer3.SplitterDistance = 182;
+            this.splitContainer3.Panel2.Padding = new System.Windows.Forms.Padding(0, 0, 23, 0);
+            this.splitContainer3.Size = new System.Drawing.Size(318, 124);
+            this.splitContainer3.SplitterDistance = 181;
+            this.splitContainer3.SplitterWidth = 5;
             this.splitContainer3.TabIndex = 0;
             // 
             // quantity_panel
             // 
             this.quantity_panel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.quantity_panel.Location = new System.Drawing.Point(0, 18);
+            this.quantity_panel.Location = new System.Drawing.Point(5, 34);
+            this.quantity_panel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.quantity_panel.Name = "quantity_panel";
-            this.quantity_panel.Size = new System.Drawing.Size(184, 70);
+            this.quantity_panel.Size = new System.Drawing.Size(172, 60);
             this.quantity_panel.TabIndex = 0;
             this.quantity_panel.Click += new System.EventHandler(this.Quantity_panel_Click);
             // 
@@ -144,21 +152,22 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             this.priceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.priceLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.priceLabel.Location = new System.Drawing.Point(0, 0);
+            this.priceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(116, 101);
+            this.priceLabel.Size = new System.Drawing.Size(109, 124);
             this.priceLabel.TabIndex = 4;
             this.priceLabel.Text = "Cena zł";
             this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Shopping_cart_item_slice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Shopping_cart_item_slice";
-            this.Size = new System.Drawing.Size(600, 101);
+            this.Size = new System.Drawing.Size(600, 124);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
