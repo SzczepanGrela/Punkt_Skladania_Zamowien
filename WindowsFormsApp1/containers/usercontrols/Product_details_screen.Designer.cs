@@ -305,6 +305,7 @@
             this.changeButton.TabIndex = 1;
             this.changeButton.Text = "Change";
             this.changeButton.UseVisualStyleBackColor = false;
+          
             // 
             // Product_details_screen
             // 

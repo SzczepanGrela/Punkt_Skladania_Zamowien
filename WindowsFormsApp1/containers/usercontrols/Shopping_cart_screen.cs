@@ -23,19 +23,14 @@ namespace WindowsFormsApp1.controls.usercontrols
         {
             InitializeComponent();
 
-           
             this.Load += Shopping_cart_screen_Load;
 
-            
 
         }
 
         private void Shopping_cart_screen_Load(object sender, EventArgs e)
         {
             
-
-            
-
             if (products.Count == 0)
             {
                EmptyCartMessage();
@@ -44,10 +39,10 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             else
             {
-                List<Cart_item_slice> itemsList = Cart_item_slice.createCart_item_slices(products);
+                List<Shopping_cart_item_slice> itemsList = Shopping_cart_item_slice.createCart_item_slices(products);
                 AddSlicestoPanel(itemsList.ToArray(),cartPanel);
 
-                foreach (Cart_item_slice slice in itemsList)
+                foreach (Shopping_cart_item_slice slice in itemsList)
                 {
                     total += slice.getPrice() * slice.getQuanitity();
                     
@@ -75,7 +70,7 @@ namespace WindowsFormsApp1.controls.usercontrols
                 this.priceValueLabel.Text = "0zł";
                 return;
             }
-            foreach (Cart_item_slice slice in cartPanel.Controls)
+            foreach (Shopping_cart_item_slice slice in cartPanel.Controls)
             {   
                
                 total += slice.getPrice() * slice.getQuanitity();

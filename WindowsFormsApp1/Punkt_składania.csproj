@@ -81,11 +81,11 @@
     <Compile Include="classes\FileOperations\SqlFileOperations.cs" />
     <Compile Include="classes\FileOperations\TxtFileOperations.cs" />
     <Compile Include="classes\Methods\StringMethods.cs" />
-    <Compile Include="containers\usercontrols\controls\Cart_item_slice.cs">
+    <Compile Include="containers\usercontrols\controls\Shopping_cart_item_slice.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="containers\usercontrols\controls\Cart_item_slice.Designer.cs">
-      <DependentUpon>Cart_item_slice.cs</DependentUpon>
+    <Compile Include="containers\usercontrols\controls\Shopping_cart_item_slice.Designer.cs">
+      <DependentUpon>Shopping_cart_item_slice.cs</DependentUpon>
     </Compile>
     <Compile Include="containers\usercontrols\controls\Category_button.cs">
       <SubType>UserControl</SubType>
@@ -104,6 +104,12 @@
     </Compile>
     <Compile Include="containers\usercontrols\controls\testControl.Designer.cs">
       <DependentUpon>testControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\usercontrols\controls\Testing_cart_item_slice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\usercontrols\controls\Testing_cart_item_slice.Designer.cs">
+      <DependentUpon>Testing_cart_item_slice.cs</DependentUpon>
     </Compile>
     <Compile Include="containers\usercontrols\MainPanel_screen.cs">
       <SubType>UserControl</SubType>
@@ -220,8 +226,8 @@
     <EmbeddedResource Include="classes\BasePopup_window.resx">
       <DependentUpon>BasePopup_window.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="containers\usercontrols\controls\Cart_item_slice.resx">
-      <DependentUpon>Cart_item_slice.cs</DependentUpon>
+    <EmbeddedResource Include="containers\usercontrols\controls\Shopping_cart_item_slice.resx">
+      <DependentUpon>Shopping_cart_item_slice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\Category_button.resx">
       <DependentUpon>Category_button.cs</DependentUpon>
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\testControl.resx">
       <DependentUpon>testControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\usercontrols\controls\Testing_cart_item_slice.resx">
+      <DependentUpon>Testing_cart_item_slice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\MainPanel_screen.resx">
       <DependentUpon>MainPanel_screen.cs</DependentUpon>

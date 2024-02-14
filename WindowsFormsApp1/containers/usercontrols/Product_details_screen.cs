@@ -40,13 +40,7 @@ namespace WindowsFormsApp1.controls.usercontrols
             this.Size = this.Parent.Size;
 
             List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoDetail);
-            if (testscreen)
-            {
-
-                CartButton.Visible = false;
-                buyButton.Text = "TEST";
-                
-            }
+           
 
             
 
@@ -78,6 +72,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             if(testscreen)
             {
+                this.buyButton.Text = "TEST";
                 this.changeButton.Click += new EventHandler(buying);
                 this.ChangeOfHeartLabel.Text = "Not sure yet?";
                 this.changeButton.Text = "BUY";
@@ -96,7 +91,9 @@ namespace WindowsFormsApp1.controls.usercontrols
         }
 
         private void buying(object sender, EventArgs e)
-        {
+        { 
+            if(quantity_panel.getQuantity() == 0) return;
+            
             localCart.AddToShopping(ProductID, this.quantity_panel.getQuantity());
             if (previousScreens.Peek() is Shopping_cart_screen) return;
 
@@ -113,7 +110,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void CartButton_Click(object sender, EventArgs e)
         {
-            localCart.AddToShopping(ProductID, this.quantity_panel.getQuantity());
+            localCart.AddToTesting(ProductID);
         }
 
        

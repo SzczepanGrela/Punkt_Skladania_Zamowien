@@ -73,11 +73,11 @@ namespace WindowsFormsApp1.classes.DataObjects
 
             if (TestItemIDs.Contains(itemID))
             {
-                TestItemIDs.Add(itemID);
 
+                return;
             }
 
-
+            TestItemIDs.Add(itemID);
         }
 
         public static void RemoveFromTesting(int itemID)

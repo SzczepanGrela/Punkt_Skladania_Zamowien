@@ -18,7 +18,7 @@ using System.Runtime.CompilerServices;
 
 namespace WindowsFormsApp1.containers.usercontrols.controls
 {
-    public partial class Cart_item_slice : UserControl
+    public partial class Shopping_cart_item_slice : UserControl
     {
 
         private decimal price;
@@ -35,7 +35,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         }
 
         
-        public Cart_item_slice()
+        public Shopping_cart_item_slice()
         {
             InitializeComponent();
 
@@ -43,7 +43,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         }
 
 
-        public Cart_item_slice(int inStock, string name, decimal price, byte[] image, int quantity, int ID)
+        public Shopping_cart_item_slice(int inStock, string name, decimal price, byte[] image, int quantity, int ID)
         {
             InitializeComponent();
             this.ID = ID;
@@ -74,7 +74,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
         
 
-        public static List<Cart_item_slice> createCart_item_slices(Dictionary<int, int> productIDsDictionary)
+        public static List<Shopping_cart_item_slice> createCart_item_slices(Dictionary<int, int> productIDsDictionary)
         {
             DatabaseManager dbm = DatabaseManager.GetInstance();
 
@@ -85,28 +85,19 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             string query = Querry.ProductsMatchingID(IDs);
 
 
-
-            
-
-
             List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoSlice);
 
-            
 
-             List < Cart_item_slice> slices =  new List<Cart_item_slice>();
-
-
-
+             List < Shopping_cart_item_slice> slices =  new List<Shopping_cart_item_slice>();
 
             foreach (Product product in products)
             {
                 int quantity = productIDsDictionary[product.ID];
-                Cart_item_slice slice = new Cart_item_slice(product.StockQuantity, product.Name, product.Price, product.Image, quantity,product.ID);
+                Shopping_cart_item_slice slice = new Shopping_cart_item_slice(product.StockQuantity, product.Name, product.Price, product.Image, quantity,product.ID);
                 slice.quantity_panel.setPanel(product.StockQuantity, quantity);
                
                 slices.Add(slice);
-            
-                    
+               
             }
 
             return slices;
