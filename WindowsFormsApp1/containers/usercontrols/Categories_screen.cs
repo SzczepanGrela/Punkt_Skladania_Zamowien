@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.classes.FileOperations;
+using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.containers.usercontrols.controls;
 
 namespace WindowsFormsApp1.controls.usercontrols
@@ -19,29 +20,37 @@ namespace WindowsFormsApp1.controls.usercontrols
     public partial class Categories_screen : BaseUserControl
     {
 
-        DatabaseManager dbm = DatabaseManager.GetInstance("TwojeConnectionString");
+        DatabaseManager dbm = DatabaseManager.GetInstance();
 
+        private bool Testable;
 
-        public Categories_screen(bool testFilter)
+        public Categories_screen(bool Testable)
         { 
             InitializeComponent();
 
-            query = "SELECT TOP 20 * FROM Categories\r\nORDER BY 1 ASC;";
+
+            
 
             this.Load += new EventHandler(Categories_screen_Load);  // generating buttons 
+            this.Testable = Testable;
 
         }
 
         private void Categories_screen_Load(object sender, EventArgs e)
         {
 
-            this.Size = this.Parent.Size;
 
-            
+
+            query = "SELECT TOP 20 * FROM Categories";
+            if (Testable)
+            {
+                query += " where Testable = 1";
+            }
+
 
             List<Category> categories = dbm.ExecuteQuery<Category>(query, Category.MapToCategory);
 
-            UserControl[] CategoryButtons = Category_button.CreateCategoryButtons(categories).ToArray() ;
+            UserControl[] CategoryButtons = Category_button.CreateCategoryButtons(categories, Testable).ToArray() ;
 
             AddButtonstoFlowPanel(CategoryButtons, categoriesPanel, 3);
 

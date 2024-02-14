@@ -38,19 +38,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             if (products.Count == 0)
             {
-                Label label = new Label();
-                label.Text = "Your cart is empty";
-                label.Font = new Font("Arial", 20);
-                label.Dock = DockStyle.Fill;
-                label.TextAlign = ContentAlignment.MiddleCenter;
-                label.AutoSize = false;
-                Panel EmptyCartPanel = new Panel();  // possibly can add a picture here
-               
-                label.Size = cartPanel.Size;
-                EmptyCartPanel.Size = cartPanel.Size;
-
-                EmptyCartPanel.Controls.Add(label);
-                cartPanel.Controls.Add(EmptyCartPanel);
+               EmptyCartMessage();
                 
             }
 
@@ -82,6 +70,11 @@ namespace WindowsFormsApp1.controls.usercontrols
         {
             total = 0;
             
+            if (cartPanel.Controls.Count == 0)
+            {
+                this.priceValueLabel.Text = "0zł";
+                return;
+            }
             foreach (Cart_item_slice slice in cartPanel.Controls)
             {   
                
@@ -97,7 +90,36 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void payButton_Click(object sender, EventArgs e)
         {
+            if (total <= 0) return;
             MainPanel_screen.Open(new Payment_method_screen(total));
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            localCart.ClearCart(0);  // 0 is the shopping cart
+            this.cartPanel.Controls.Clear();
+            OnPriceChanged(this, new EventArgs());
+            EmptyCartMessage();
+            
+
+        }
+
+
+        private void EmptyCartMessage()
+        {
+            Label label = new Label();
+            label.Text = "Your cart is empty";
+            label.Font = new Font("Arial", 20);
+            label.Dock = DockStyle.Fill;
+            label.TextAlign = ContentAlignment.MiddleCenter;
+            label.AutoSize = false;
+            Panel EmptyCartPanel = new Panel();  // possibly can add a picture here
+
+            label.Size = cartPanel.Size;
+            EmptyCartPanel.Size = cartPanel.Size;
+
+            EmptyCartPanel.Controls.Add(label);
+            cartPanel.Controls.Add(EmptyCartPanel);
         }
     }
 }

@@ -34,8 +34,10 @@ namespace WindowsFormsApp1.containers.usercontrols
 
         public static void Open(Control screen)
         {
+            screen.Size = getSize();
             previousScreens.Push(screen);
             screen.Dock = DockStyle.Fill;
+            
             int length = instance.Controls.Count;
             if(length> 0)instance.Controls[length -1].Hide();  // Hide the previous screen
 
@@ -48,7 +50,7 @@ namespace WindowsFormsApp1.containers.usercontrols
         }
 
 
-        public static MainPanel_screen getMainPanel()
+        public static MainPanel_screen getInstance()
         {
             
             if (instance == null)
@@ -58,5 +60,11 @@ namespace WindowsFormsApp1.containers.usercontrols
             return instance;
         }
         
+        public static Size getSize()
+        {
+            return instance.Size;
+        }
+
+
     }
 }

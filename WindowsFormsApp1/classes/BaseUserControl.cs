@@ -75,7 +75,7 @@ namespace WindowsFormsApp1.classes
 
 
 
-        public DialogResult OpenPopup(Control parentContainer, BasePopup_window newPopup)
+        public DialogResult OpenPopup(BasePopup_window newPopup)
         {
 
             newPopup.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;

@@ -50,7 +50,7 @@
             // MessageLabel
             // 
             this.MessageLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MessageLabel.Font = new System.Drawing.Font("Sitka Banner", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.MessageLabel.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.MessageLabel.Location = new System.Drawing.Point(0, 0);
             this.MessageLabel.Name = "MessageLabel";
             this.MessageLabel.Size = new System.Drawing.Size(480, 175);

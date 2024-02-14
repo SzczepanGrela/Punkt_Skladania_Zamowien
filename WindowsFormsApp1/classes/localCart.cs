@@ -49,14 +49,24 @@ namespace WindowsFormsApp1.classes.DataObjects
             return ShopItems;
         }
 
-        public static void ClearCart()
+        public static void ClearCart(int whichCart)
         {
-            ShopItems.Clear();
-            TestItemIDs.Clear();
+            if (whichCart == 0)
+                ShopItems.Clear();
+
+            else if (whichCart == 1)
+                TestItemIDs.Clear();
+
+            else
+
+            {
+                ShopItems.Clear();
+                TestItemIDs.Clear();
+            }
         }
 
 
-        
+
         public static void AddToTesting(int itemID)
         {
 
@@ -64,9 +74,9 @@ namespace WindowsFormsApp1.classes.DataObjects
             if (TestItemIDs.Contains(itemID))
             {
                 TestItemIDs.Add(itemID);
-            
+
             }
-            
+
 
         }
 
@@ -78,7 +88,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             }
         }
 
-       
+
         public static List<int> GetTestingItems()
         {
             return TestItemIDs;

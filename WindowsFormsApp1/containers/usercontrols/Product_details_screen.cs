@@ -42,15 +42,13 @@ namespace WindowsFormsApp1.controls.usercontrols
             List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoDetail);
             if (testscreen)
             {
-                BuyOrTestButton.Text = "Test";
-                changeButton.Text = "Buy";
+
+                CartButton.Visible = false;
+                buyButton.Text = "TEST";
+                
             }
 
-            else
-            {
-                BuyOrTestButton.Text = "Buy";
-                changeButton.Text = "Change";
-            }
+            
 
             if (products.Count == 1)
             {
@@ -83,7 +81,7 @@ namespace WindowsFormsApp1.controls.usercontrols
                 this.changeButton.Click += new EventHandler(buying);
                 this.ChangeOfHeartLabel.Text = "Not sure yet?";
                 this.changeButton.Text = "BUY";
-                this.BuyOrTestButton.Click += new EventHandler(testing);
+                this.buyButton.Click += new EventHandler(testing);
 
             }
             else
@@ -91,7 +89,7 @@ namespace WindowsFormsApp1.controls.usercontrols
                this.changeButton.Click += new EventHandler(testing);
                 this.ChangeOfHeartLabel.Text = "Not sure yet?";
                 this.changeButton.Text = "TEST";
-                this.BuyOrTestButton.Click += new EventHandler(buying);
+                this.buyButton.Click += new EventHandler(buying);
             }
             
 

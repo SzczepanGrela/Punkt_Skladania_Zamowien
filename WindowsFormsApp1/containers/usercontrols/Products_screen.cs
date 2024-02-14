@@ -22,15 +22,15 @@ namespace WindowsFormsApp1.controls.usercontrols
         DatabaseManager dbm = DatabaseManager.GetInstance("TwojeConnectionString");
 
         private int CategoryID;
-        public Products_screen(int categoryID) 
+        private bool Testable { get; set; }
+        public Products_screen(int categoryID, bool Testable) 
         {
             InitializeComponent();
 
 
             this.CategoryID = categoryID;
+            this.Testable = Testable;
             this.Load += new EventHandler(Products_screen_load);
-            
-            
             
 
         }
@@ -44,11 +44,10 @@ namespace WindowsFormsApp1.controls.usercontrols
         {
             query = $"SELECT TOP 20 * FROM Products where CategoryID = {CategoryID} \r\nORDER BY ProductID ASC; \r\n";
 
-            this.Size = this.Parent.Size;
 
             List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoButton);
 
-            UserControl[] ProductButtons = Product_button.CreateProductButtons(products).ToArray();
+            UserControl[] ProductButtons = Product_button.CreateProductButtons(products, Testable).ToArray();
 
        
             

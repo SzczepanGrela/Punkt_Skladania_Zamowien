@@ -66,6 +66,7 @@
     <Compile Include="classes\BaseUserControl.Designer.cs">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="classes\DataObjects\GiftCard.cs" />
     <Compile Include="classes\DataObjects\Promotion.cs" />
     <Compile Include="classes\Methods\Querry.cs" />
     <Compile Include="classes\previousScreens.cs" />

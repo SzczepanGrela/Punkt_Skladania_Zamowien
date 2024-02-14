@@ -10,9 +10,11 @@ namespace WindowsFormsApp1.classes.DataObjects
 {
     public class Category
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public byte[] Image { get; set; }
+        public int ID { get; private set; }
+        public string Name { get; private set; }
+        public byte[] Image { get; private  set; }
+
+        public int Testable { get; private set;}
     
        
 
@@ -31,7 +33,9 @@ namespace WindowsFormsApp1.classes.DataObjects
             {
                 ID = reader.GetInt32(reader.GetOrdinal("CategoryID")),
                 Name = reader.IsDBNull(reader.GetOrdinal("Name")) ? null : (string)reader["Name"],
-                Image = reader.IsDBNull(reader.GetOrdinal("Image")) ? null : (byte[])reader["Image"]
+                Image = reader.IsDBNull(reader.GetOrdinal("Image")) ? null : (byte[])reader["Image"],
+                Testable = reader.IsDBNull(reader.GetOrdinal("Testable")) ? 0 : reader.GetInt32(reader.GetOrdinal("Testable"))
+
 
             };
         }

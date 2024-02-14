@@ -37,6 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.payButton = new System.Windows.Forms.Button();
             this.totalpriceLabel = new System.Windows.Forms.Label();
+            this.clearButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,6 +79,7 @@
             // needmorePanel
             // 
             this.needmorePanel.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.needmorePanel.Controls.Add(this.clearButton);
             this.needmorePanel.Controls.Add(this.continueSearchButton);
             this.needmorePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.needmorePanel.Location = new System.Drawing.Point(0, 0);
@@ -90,9 +92,9 @@
             // 
             this.continueSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.continueSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.continueSearchButton.Location = new System.Drawing.Point(172, 12);
+            this.continueSearchButton.Location = new System.Drawing.Point(18, 12);
             this.continueSearchButton.Name = "continueSearchButton";
-            this.continueSearchButton.Size = new System.Drawing.Size(252, 52);
+            this.continueSearchButton.Size = new System.Drawing.Size(254, 52);
             this.continueSearchButton.TabIndex = 0;
             this.continueSearchButton.Text = "Continue Search";
             this.continueSearchButton.UseVisualStyleBackColor = true;
@@ -156,6 +158,17 @@
             this.totalpriceLabel.Text = "Your total price: ";
             this.totalpriceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // clearButton
+            // 
+            this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.clearButton.Location = new System.Drawing.Point(387, 12);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(191, 52);
+            this.clearButton.TabIndex = 1;
+            this.clearButton.Text = "Clear Cart";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
             // Shopping_cart_screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,5 +198,6 @@
         private System.Windows.Forms.FlowLayoutPanel cartPanel;
         private System.Windows.Forms.Panel needmorePanel;
         private System.Windows.Forms.Button continueSearchButton;
+        private System.Windows.Forms.Button clearButton;
     }
 }

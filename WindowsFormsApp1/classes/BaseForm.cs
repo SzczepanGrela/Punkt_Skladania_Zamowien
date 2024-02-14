@@ -28,7 +28,7 @@ namespace WindowsFormsApp1.classes
             //(this.Width, this.Height) = Resolution.GetWindowRes();
         }
 
-        public void ResetMenu(BaseUserControl MainPanel)   
+        public static void ResetMenu(BaseUserControl MainPanel)   
         {
 
             MainPanel.Controls.Clear();

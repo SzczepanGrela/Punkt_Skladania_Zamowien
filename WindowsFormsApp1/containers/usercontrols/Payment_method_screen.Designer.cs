@@ -71,6 +71,7 @@
             this.checkCodeButton.TabIndex = 2;
             this.checkCodeButton.Text = "Enter";
             this.checkCodeButton.UseVisualStyleBackColor = true;
+            this.checkCodeButton.Click += new System.EventHandler(this.checkCodeButton_Click);
             // 
             // totalPricePanel
             // 

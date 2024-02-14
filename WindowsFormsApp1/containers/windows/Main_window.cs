@@ -44,7 +44,7 @@ namespace WindowsFormsApp1
 
 
 
-        private void ReturnButton_Click(object sender, EventArgs e)
+        private static void ReturnButton_Click(object sender, EventArgs e)
         {
 
             if (previousScreens.Count() > 1)
@@ -67,7 +67,7 @@ namespace WindowsFormsApp1
             DialogResult loginStatus = Main_window.OpenPopup(new Login_window());
         }
 
-        private void HomeButton_Click(object sender, EventArgs e)
+        private static void HomeButton_Click(object sender, EventArgs e)
         {
             
 
@@ -75,7 +75,7 @@ namespace WindowsFormsApp1
 
             if (dr == DialogResult.Yes)
             {
-               ResetMenu(this.MainPanel);
+               ResetMenu(MainPanel_screen.getInstance());
             }
             else
             {

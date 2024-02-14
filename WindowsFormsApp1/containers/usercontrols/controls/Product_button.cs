@@ -20,7 +20,7 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
     public partial class Product_button : UserControl
     {
         int ProductID = 0;
-
+        private bool Testable { get; set; }
        
 
         public Product_button()
@@ -39,7 +39,7 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
         }
 
 
-        public Product_button(string name, byte[] image, int ID, string price)
+        public Product_button(string name, byte[] image, int ID, string price, bool Testable)
         {
             InitializeComponent();
 
@@ -55,6 +55,8 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
             if (name != null) nameLabel.Text = name;
 
             if (price != null) priceLabel.Text = price;
+
+            this.Testable = Testable;
 
             this.ProductID = ID;
 
@@ -96,20 +98,19 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
         public void ProductButton_Click(object sender, EventArgs e)
         {
 
-            
 
-          MainPanel_screen.Open(new Product_details_screen(ProductID, false));
+          MainPanel_screen.Open(new Product_details_screen(ProductID, Testable));
         }
 
 
 
-        public static List<UserControl> CreateProductButtons(List<Product> products)
+        public static List<UserControl> CreateProductButtons(List<Product> products, bool Testable)
         {
             List<UserControl> productbuttons = new List<UserControl>();
             foreach (Product product in products)
             {
 
-                Product_button productbutton = new Product_button(product.Name, product.Image, product.ID, product.Price.ToString());
+                Product_button productbutton = new Product_button(product.Name, product.Image, product.ID, product.Price.ToString(), Testable);
 
 
                 foreach (Control control in StringMethods.AllcontrolstoList(productbutton))     // adding event to all controls

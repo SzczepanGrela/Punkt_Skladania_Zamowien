@@ -34,11 +34,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackColor = System.Drawing.Color.ForestGreen;
             this.Location = new System.Drawing.Point(0, 80);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "MainPanel_screen";
-            this.Size = new System.Drawing.Size(400,400);
+            this.Size = new System.Drawing.Size(400, 400);
             this.ResumeLayout(false);
 
         }

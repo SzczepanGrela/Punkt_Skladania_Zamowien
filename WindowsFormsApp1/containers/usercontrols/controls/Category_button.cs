@@ -18,6 +18,8 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
     public partial class Category_button : UserControl
     {
         int categoryID = 0;
+
+        private bool Testable { get; set;}
        
         public Category_button()
         {
@@ -28,7 +30,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
         }
 
-        public Category_button(string name, byte[] image, int ID)
+        public Category_button(string name, byte[] image, int ID, bool Testable)
         {
 
 
@@ -38,7 +40,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
             Category_button_Load(this, null, name, image);
 
-
+            this.Testable = Testable;
             
             this.categoryID = ID;
 
@@ -71,28 +73,22 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             CategoryName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             CategoryName.Click += new EventHandler(CategoryButton_Click);
 
-
-
-
-
-
-
         }
 
         private void CategoryButton_Click(object sender, EventArgs e)
         {
 
 
-            MainPanel_screen.Open(new Products_screen(categoryID));
+            MainPanel_screen.Open(new Products_screen(categoryID, Testable));
         }
 
 
-        public static List<UserControl> CreateCategoryButtons(List<Category> categories)
+        public static List<UserControl> CreateCategoryButtons(List<Category> categories, bool Testable)
         {
             List<UserControl> categoryButtons = new List<UserControl>();
             foreach (Category category in categories)
             {
-                Category_button categoryButton = new Category_button(category.Name, category.Image, category.ID);
+                Category_button categoryButton = new Category_button(category.Name, category.Image, category.ID, Testable);
                
                 categoryButtons.Add(categoryButton);
 
