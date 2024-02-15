@@ -47,9 +47,9 @@ namespace WindowsFormsApp1
 
             string query = $"SELECT Count(*) FROM Employees WHERE CardID = '{CardID}'";
 
-            List<int> count = dbm.ExecuteQuery(query, (SqlDataReader reader) => reader.GetInt32(0));  // function mapping to int
-           
-            if (count[0] == 1)
+             int count = dbm.CountRecords(query);
+
+            if (count == 1)
             {
                
                 this.Hide();
@@ -58,7 +58,7 @@ namespace WindowsFormsApp1
                 
                
             }
-            else if (count[0] > 1)
+            else if (count > 1)
             {
                 throw new Exception("More than one employee with the same card ID");
             }

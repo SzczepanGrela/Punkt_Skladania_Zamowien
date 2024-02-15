@@ -10,17 +10,24 @@ namespace WindowsFormsApp1.classes.DataObjects
 {
     public class Category : Object
     {
-        
-        
-        public byte[] Image { get; private  set; }
 
-        public int Testable { get; private set;}
-    
-       
+
+        public byte[] Image { get; private set; }
+
+        public bool Testable { get; private set; }
+
+
 
         public Category()
         {
 
+        }
+
+        public Category(string name, bool testable)
+        {
+            Name = name;
+
+            Testable = testable;
         }
 
 
@@ -31,14 +38,34 @@ namespace WindowsFormsApp1.classes.DataObjects
         {
             return new Category
             {
-                ID = reader.GetInt32(reader.GetOrdinal("CategoryID")),
+                ID = reader.GetInt32(reader.GetOrdinal("ID")),
                 Name = reader.IsDBNull(reader.GetOrdinal("Name")) ? null : (string)reader["Name"],
                 Image = reader.IsDBNull(reader.GetOrdinal("Image")) ? null : (byte[])reader["Image"],
-                Testable = reader.IsDBNull(reader.GetOrdinal("Testable")) ? 0 : reader.GetInt32(reader.GetOrdinal("Testable"))
+                Testable = reader.IsDBNull(reader.GetOrdinal("Testable")) ? false : true
 
 
             };
         }
+
+
+
+        public static SqlParameter[] MapCategoryToSqlParameters(Category category)
+        {
+            return new SqlParameter[]
+            {
+                      new SqlParameter("@Name", category.Name),
+
+                      new SqlParameter("@Testable", category.Testable)
+
+
+
+             };
+            
+
+
+
+        }
+
 
     }
 }

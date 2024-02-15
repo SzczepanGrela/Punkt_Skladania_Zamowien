@@ -70,7 +70,6 @@
     <Compile Include="classes\DataObjects\GiftCard.cs" />
     <Compile Include="classes\DataObjects\Object.cs" />
     <Compile Include="classes\DataObjects\Promotion.cs" />
-    <Compile Include="classes\Methods\Querry.cs" />
     <Compile Include="classes\previousScreens.cs" />
     <Compile Include="classes\DataObjects\Cart.cs" />
     <Compile Include="classes\DataObjects\localCart.cs" />
@@ -123,6 +122,54 @@
     </Compile>
     <Compile Include="containers\usercontrols\MainPanel_screen.Designer.cs">
       <DependentUpon>MainPanel_screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\windows\Admin_screens\AddCategory_screen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\windows\Admin_screens\AddCategory_screen.Designer.cs">
+      <DependentUpon>AddCategory_screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\windows\Admin_screens\AddEmployee_screen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\windows\Admin_screens\AddEmployee_screen.Designer.cs">
+      <DependentUpon>AddEmployee_screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\windows\Admin_screens\AddProducts_screen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\windows\Admin_screens\AddProducts_screen.Designer.cs">
+      <DependentUpon>AddProducts_screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\windows\Admin_screens\RemoveCategory_screen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\windows\Admin_screens\RemoveCategory_screen.Designer.cs">
+      <DependentUpon>RemoveCategory_screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\windows\Admin_screens\RemoveEmployee_screen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\windows\Admin_screens\RemoveEmployee_screen.Designer.cs">
+      <DependentUpon>RemoveEmployee_screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\windows\Admin_screens\RemoveProducts_screen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\windows\Admin_screens\RemoveProducts_screen.Designer.cs">
+      <DependentUpon>RemoveProducts_screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\windows\Admin_window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="containers\windows\Admin_window.Designer.cs">
+      <DependentUpon>Admin_window.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\windows\Popup_window_AdminLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="containers\windows\Popup_window_AdminLogin.Designer.cs">
+      <DependentUpon>Popup_window_AdminLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="containers\windows\Popup_window_EmployeeLogin.cs">
       <SubType>Form</SubType>
@@ -253,6 +300,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\MainPanel_screen.resx">
       <DependentUpon>MainPanel_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Admin_screens\AddCategory_screen.resx">
+      <DependentUpon>AddCategory_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Admin_screens\AddEmployee_screen.resx">
+      <DependentUpon>AddEmployee_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Admin_screens\AddProducts_screen.resx">
+      <DependentUpon>AddProducts_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Admin_screens\RemoveCategory_screen.resx">
+      <DependentUpon>RemoveCategory_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Admin_screens\RemoveEmployee_screen.resx">
+      <DependentUpon>RemoveEmployee_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Admin_screens\RemoveProducts_screen.resx">
+      <DependentUpon>RemoveProducts_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Admin_window.resx">
+      <DependentUpon>Admin_window.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Popup_window_AdminLogin.resx">
+      <DependentUpon>Popup_window_AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\windows\Popup_window_EmployeeLogin.resx">
       <DependentUpon>Popup_window_EmployeeLogin.cs</DependentUpon>

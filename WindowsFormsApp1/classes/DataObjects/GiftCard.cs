@@ -22,7 +22,7 @@ namespace WindowsFormsApp1.classes.DataObjects
         {
             return new GiftCard
             {
-                ID = reader.IsDBNull(reader.GetOrdinal("GiftCardID")) ? 0 : reader.GetInt32(reader.GetOrdinal("GiftCardID")),
+                ID = reader.IsDBNull(reader.GetOrdinal("ID")) ? 0 : reader.GetInt32(reader.GetOrdinal("ID")),
                 Debit =  reader.IsDBNull(reader.GetOrdinal("Value")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Value")),
                 
 

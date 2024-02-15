@@ -58,7 +58,7 @@ namespace WindowsFormsApp1.classes.FileOperations
             }
         }
 
-        public int CountMatchingRecords(string query)
+        public int CountRecords(string query)
         {
             using (SqlConnection connection = GetConnection())
             {
@@ -71,7 +71,7 @@ namespace WindowsFormsApp1.classes.FileOperations
             }
         }
 
-        public void ExecuteCommand(bool isUpdate, string TableName, string[] columnNames, string[][] values,string condition)
+        public void ExecuteCommand(bool isUpdate, string TableName, string[] columnNames, string[] values,string condition)
         {
             string commandText;
 
@@ -95,7 +95,7 @@ namespace WindowsFormsApp1.classes.FileOperations
         }
 
 
-        public List<int> ExecuteCommandGetID(string TableName, string wantedColumn, string[] columnNames, string[][] values)
+        public List<int> ExecuteCommandGetID(string TableName, string wantedColumn, string[] columnNames, string[] values)
         {
 
 
@@ -124,59 +124,130 @@ namespace WindowsFormsApp1.classes.FileOperations
 
 
 
-        private string CreateInsertCommand(string TableName, string[] columnNames, string[][] values)
+        private string CreateInsertCommand(string TableName, string[] columnNames, string[] values)
         {
-            string tablePart = $" INSERT INTO {TableName} ";
-            string columnsPart = "(" + string.Join(",", columnNames) + ")";
-            string valuesPart = " VALUES ";
-            for (int i = 0; i < values.Length; i++)
-            {
-                valuesPart += "(" + string.Join(",", values[i]) + ")";
-                if (i != values.Length - 1) valuesPart += ",";
-            }
-            return tablePart + columnsPart + valuesPart;
+            
+            string columnsPart = string.Join(",", columnNames);
+
+            string valuesPart = string.Join(",", values);
+           
+            return $"INSRT INTO {TableName} ({columnsPart}) VALUES ({valuesPart})";
         }
 
 
 
-        private string CreateUpdateCommand(string TableName, string[] columnNames, string[][] values, string condition)
+        private string CreateUpdateCommand(string TableName, string[] columnNames, string[] values, string condition)
         {
-            string tablePart = $" UPDATE {TableName} SET ";
+           
             string valuesPart = "";
             for (int i = 0; i < values.Length; i++)
             {
-                valuesPart += columnNames[i] + "=" + values[i][0];
+                valuesPart += columnNames[i] + "=" + values[i];
                 if (i != values.Length - 1) valuesPart += ",";
             }
-            string Con = $" WHERE {condition} ";
-            return tablePart + valuesPart + Con;
+           
+            return $" UPDATE {TableName} SET  {valuesPart} WHERE {condition}";
         }
 
 
 
 
-        private string CreateInsertOutputCommand(string TableName, string wantedColumn, string[] columnNames, string[][] values)
+        private string CreateInsertOutputCommand(string TableName, string wantedColumn, string[] columnNames, string[] values)
         {
-            string tablePart = $" INSERT INTO {TableName} ";
-            string columnsPart = "(" + string.Join(",", columnNames) + ")";
-            string outputPart = $" OUTPUT INSERTED.{wantedColumn} ";
-            string valuesPart = " VALUES ";
-            for (int i = 0; i < values.Length; i++)
+         
+            string columnsPart = string.Join(",", columnNames);
+
+            string valuesPart = string.Join(",", values);
+
+            return $"INSRT INTO {TableName} ({columnsPart}) OUTPUT INSERTED.{wantedColumn} VALUES ({valuesPart})";
+
+
+
+        }
+
+
+
+        public void InsertObject<T>(T obj, string tableName, Func<T, SqlParameter[]> mapFunction)
+        {
+            using (SqlConnection connection = GetConnection())
             {
-                valuesPart += "(" + string.Join(",", values[i]) + ")";
-                if (i != values.Length - 1) valuesPart += ",";
+                connection.Open();
+                SqlParameter[] parameters = mapFunction(obj);
+                string [] columnNames = parameters.Select(p => p.ParameterName.Substring(1)).ToArray(); // getting column name by removing @ from parameter name
+                string [] valuesPlaceholders = parameters.Select(p => p.ParameterName).ToArray(); 
+
+                var commandText = $"INSERT INTO {tableName} ({string.Join(", ", columnNames)}) VALUES ({string.Join(", ", valuesPlaceholders)})";
+
+                using (SqlCommand command = new SqlCommand(commandText, connection))
+                {
+                    command.Parameters.AddRange(parameters);
+                    command.ExecuteNonQuery();
+                }
             }
-            return tablePart + columnsPart + outputPart + valuesPart;
         }
 
-
-
-
-
-        public List<Product> FilterProducts(string criteria)
+        public int InsertObjectGetID<T>(T obj, string tableName, Func<T, SqlParameter[]> mapFunction)
         {
-            // Implementacja pozostaje do zrobienia
-            return new List<Product>();
+            using (SqlConnection connection = GetConnection())
+            {
+                connection.Open();
+                SqlParameter[] parameters = mapFunction(obj);
+                string[] columnNames = parameters.Select(p => p.ParameterName.Substring(1)).ToArray(); // getting column name by removing @ from parameter name
+                string[] valuesPlaceholders = parameters.Select(p => p.ParameterName).ToArray();
+
+                
+                var commandText = $"INSERT INTO {tableName} ({string.Join(", ", columnNames)}) OUTPUT INSERTED.ID VALUES ({string.Join(", ", valuesPlaceholders)})";
+
+                using (SqlCommand command = new SqlCommand(commandText, connection))
+                {
+                    command.Parameters.AddRange(parameters);
+                    
+                    var insertedID = command.ExecuteScalar();
+                    return Convert.ToInt32(insertedID); 
+                }
+            }
         }
+
+
+
+
+
+
+
+        public void DeleteObject(string tableName, string columnName, object ConditionValue)
+        {
+            string strConditionValue;
+            if (ConditionValue.GetType() == typeof(string))    
+            {
+                strConditionValue = $"'{ConditionValue}'";
+            }
+            else strConditionValue = ConditionValue.ToString();
+
+            strConditionValue = strConditionValue.Replace(",", ".");  // gettting rid off polish coma
+
+
+            using (SqlConnection connection = GetConnection())
+            {
+                connection.Open();
+                
+                string commandText = $"DELETE FROM {tableName} WHERE {columnName} = @ConditionValue";
+
+                using (SqlCommand command = new SqlCommand(commandText, connection))
+                {
+                   
+                    command.Parameters.AddWithValue("@ConditionValue", ConditionValue);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+
+
+
+
+
+
     }
 }

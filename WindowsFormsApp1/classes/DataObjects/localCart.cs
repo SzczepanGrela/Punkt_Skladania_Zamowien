@@ -9,7 +9,9 @@ namespace WindowsFormsApp1.classes.DataObjects
 {
     public class localCart : Cart
     {
-        
+        private localCart()   // cant be createed from outside
+        {
+        }
 
         // double singleton 
 

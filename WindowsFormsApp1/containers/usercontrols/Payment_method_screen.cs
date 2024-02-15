@@ -117,20 +117,20 @@ namespace WindowsFormsApp1.controls.usercontrols
 
 
             string[] columns = new string[] { "Value" };
-            string[][] values = new string[1][] { new string[1] { $"{columns[0]} - {discountPrice}".Replace(',', '.') } };
+            string[] values = new string[]  { $"{columns[0]} - {discountPrice}".Replace(',', '.') } ;
 
             dbm.ExecuteCommand(true, "GiftCards", columns, values, $"GiftCardCode = '{giftcardTextbox.Text}'");
 
 
 
-            columns = new string[3] {"CustomerID", "CreatedDate","Status"};
-            values = new string[1][] { new string[3]{$"199", $"GETDATE()", $"'Completed'" } };  //199 is the ID of OrderHub, when user is not logged in
+            columns = new string[] {"CustomerID", "CreatedDate","Status"};
+            values = new string[] {$"199", $"GETDATE()", $"'Completed'" } ;  //199 is the ID of OrderHub, when user is not logged in
 
 
             int CartID = dbm.ExecuteCommandGetID("Carts","CartID",columns,values)[0];
 
-            columns = new string[3] { "CartID", "PriceAtPurchase", "TransactionDate" };
-            values = new string[1][] { new string[3] { $"{CartID}", $"{discountPrice}".Replace(',', '.'), $"GETDATE()" } };   
+            columns = new string[] { "CartID", "PriceAtPurchase", "TransactionDate" };
+            values = new string[]  { $"{CartID}", $"{discountPrice}".Replace(',', '.'), $"GETDATE()" } ;   
 
             
             dbm.ExecuteCommand(false,"Transactions",columns,values,"");   //false means it's not an update.

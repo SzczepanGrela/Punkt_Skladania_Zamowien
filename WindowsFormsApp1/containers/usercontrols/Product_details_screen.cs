@@ -29,7 +29,7 @@ namespace WindowsFormsApp1.controls.usercontrols
         {
             InitializeComponent();
 
-            query = $"SELECT * FROM Products where ProductID = {ProductID};";
+            query = $"SELECT * FROM Products where ID = {ProductID};";
             this.testscreen = testscreen;
             this.ProductID = ProductID;
             this.Load += new EventHandler(Product_details_screen_Load);

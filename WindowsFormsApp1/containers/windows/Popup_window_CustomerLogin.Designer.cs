@@ -35,6 +35,7 @@
             this.passwordTextbox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
             this.leaveButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginLabel
@@ -77,7 +78,7 @@
             // 
             this.usernameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.usernameTextbox.Location = new System.Drawing.Point(173, 95);
-            this.usernameTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.usernameTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.usernameTextbox.Name = "usernameTextbox";
             this.usernameTextbox.Size = new System.Drawing.Size(309, 31);
             this.usernameTextbox.TabIndex = 3;
@@ -86,7 +87,7 @@
             // 
             this.passwordTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.passwordTextbox.Location = new System.Drawing.Point(173, 191);
-            this.passwordTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.passwordTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.Size = new System.Drawing.Size(309, 31);
             this.passwordTextbox.TabIndex = 4;
@@ -97,7 +98,7 @@
             // 
             this.loginButton.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.loginButton.Location = new System.Drawing.Point(202, 303);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(2);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(136, 67);
             this.loginButton.TabIndex = 5;
@@ -108,8 +109,8 @@
             // leaveButton
             // 
             this.leaveButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.leaveButton.Location = new System.Drawing.Point(221, 393);
-            this.leaveButton.Margin = new System.Windows.Forms.Padding(2);
+            this.leaveButton.Location = new System.Drawing.Point(219, 392);
+            this.leaveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.leaveButton.Name = "leaveButton";
             this.leaveButton.Size = new System.Drawing.Size(101, 45);
             this.leaveButton.TabIndex = 7;
@@ -117,11 +118,23 @@
             this.leaveButton.UseVisualStyleBackColor = true;
             this.leaveButton.Click += new System.EventHandler(this.leaveButton_Click);
             // 
-            // Login_window
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.Location = new System.Drawing.Point(11, 455);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 44);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "admin access";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // Popup_window_CustomerLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 511);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.leaveButton);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordTextbox);
@@ -129,8 +142,8 @@
             this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.loginLabel);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Login_window";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "Popup_window_CustomerLogin";
             this.Text = "Log in";
             this.Load += new System.EventHandler(this.login_window_Load);
             this.ResumeLayout(false);
@@ -147,5 +160,6 @@
         private System.Windows.Forms.TextBox passwordTextbox;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button leaveButton;
+        private System.Windows.Forms.Button button1;
     }
 }

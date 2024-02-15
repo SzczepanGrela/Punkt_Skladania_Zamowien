@@ -4,19 +4,39 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 
 namespace WindowsFormsApp1.classes.DataObjects
 {
     internal class Employee : Person
     {
-        
-       
-        private string Position { get; set; } 
+        private string password;
 
-        private string contactInfo { get; set; }
+        private string Position { get; set; }
 
+        private int EmployeeID { get; set; }
         private string CardID { get; set; }
 
+        public Employee(string FirstName, string LastName, string ContactInfo) : base(FirstName, LastName, ContactInfo)
+        {
+           
+      
+        }
+
+
+        public Employee( string FirstName, string LastName, string ContactInfo, string cardID, string password, string position, int PersonID) : base(FirstName, LastName, ContactInfo, PersonID)
+        {
+
+            CardID = cardID;
+            this.password = password;
+            Position = position;
+        }
+
+
+
+        public Employee()
+        {
+        }
 
 
 
@@ -25,7 +45,7 @@ namespace WindowsFormsApp1.classes.DataObjects
         {
             return new Employee
             {
-                ID = reader.IsDBNull(reader.GetOrdinal("EmployeeID")) ? 0 : reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                ID = reader.IsDBNull(reader.GetOrdinal("ID")) ? 0 : reader.GetInt32(reader.GetOrdinal("ID")),
                 CardID = reader.IsDBNull(reader.GetOrdinal("CardID")) ? null : reader.GetString(reader.GetOrdinal("CardID")), 
             };
         }
@@ -34,14 +54,29 @@ namespace WindowsFormsApp1.classes.DataObjects
         {
             return new Employee
             {
-                ID = reader.IsDBNull(reader.GetOrdinal("EmployeeID")) ? 0 : reader.GetInt32(reader.GetOrdinal("EmployeeID")),
-                Name = reader.IsDBNull(reader.GetOrdinal("FirstName")) ? null : reader.GetString(reader.GetOrdinal("FirstName")),
+                EmployeeID = reader.IsDBNull(reader.GetOrdinal("EmployeeID")) ? 0 : reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                Name = reader.IsDBNull(reader.GetOrdinal("Name")) ? null : reader.GetString(reader.GetOrdinal("Name")),
                 LastName = reader.IsDBNull(reader.GetOrdinal("LastName")) ? null : reader.GetString(reader.GetOrdinal("LastName")),
                 Position = reader.IsDBNull(reader.GetOrdinal("Position")) ? null : reader.GetString(reader.GetOrdinal("Position")),
-                contactInfo = reader.IsDBNull(reader.GetOrdinal("ContactInfo")) ? null : reader.GetString(reader.GetOrdinal("ContactInfo")),
+                ContactInfo = reader.IsDBNull(reader.GetOrdinal("ContactInfo")) ? null : reader.GetString(reader.GetOrdinal("ContactInfo")),
                 CardID = reader.IsDBNull(reader.GetOrdinal("CardID")) ? null : reader.GetString(reader.GetOrdinal("CardID")),
             };
         }
+
+
+        public static SqlParameter[] MapEmployeeToSqlParameters(Employee employee)
+        {
+            return new SqlParameter[]
+            {
+                      new SqlParameter("@CardID", employee.ID ),
+                      new SqlParameter("@Position", employee.Position),
+                      new SqlParameter("@Password", employee.password),
+                      new SqlParameter("@PersonID", employee.ID)
+            };
+        }
+
+
+
 
     }
 }

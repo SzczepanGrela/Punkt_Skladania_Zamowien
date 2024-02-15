@@ -24,7 +24,7 @@ namespace WindowsFormsApp1.classes.DataObjects
         {
             return new Cart
             {
-                ID = reader.GetInt32(reader.GetOrdinal("CartID")),
+                ID = reader.GetInt32(reader.GetOrdinal("ID")),
                 CustomerID = reader.GetInt32(reader.GetOrdinal("CustomerID")),
                 createdDate = reader.GetDateTime(reader.GetOrdinal("CreatedDate")),
                 Status = reader.GetString(reader.GetOrdinal("Status"))

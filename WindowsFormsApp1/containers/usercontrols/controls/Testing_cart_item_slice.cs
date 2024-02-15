@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.classes.FileOperations;
-using WindowsFormsApp1.classes.Methods;
+
 
 namespace WindowsFormsApp1.containers.usercontrols.controls
 {
@@ -54,7 +54,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         {
             DatabaseManager dbm = DatabaseManager.GetInstance();
 
-            string query = Querry.ProductsMatchingID(productIDs);  // the result is querry with condition |where ID in *List of IDs*| 
+            string query = $"Select * from Products where ID in ({string.Join(",", productIDs)})";  // the result is querry with condition |where ID in *List of IDs*| 
 
 
             List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoSlice);

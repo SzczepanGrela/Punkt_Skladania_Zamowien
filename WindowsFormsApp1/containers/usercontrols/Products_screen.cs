@@ -42,7 +42,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void Products_screen_load(object sender, EventArgs e)
         {
-            query = $"SELECT TOP 20 * FROM Products where CategoryID = {CategoryID} \r\nORDER BY ProductID ASC; \r\n";
+            query = $"SELECT TOP 20 * FROM Products where CategoryID = {CategoryID} \r\nORDER BY ID ASC; \r\n";
 
 
             List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoButton);

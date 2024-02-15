@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.classes.FileOperations;
-using WindowsFormsApp1.classes.Methods;
+
 
 
 namespace WindowsFormsApp1.classes.DataObjects
@@ -24,7 +24,7 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         private string CardID { get; set; }
 
-        private string PersonID { get; set; }
+        private int CustomerID { get; set; }  
 
 
         public Customer()
@@ -37,12 +37,12 @@ namespace WindowsFormsApp1.classes.DataObjects
             this.Password = password;
         }
 
-        public Customer(string FirstName, string LastName, string username, string password, string cardID, string personID, string contactinfo) : base(FirstName, LastName, contactinfo)
+        public Customer(string FirstName, string LastName, string username, string password, string cardID, int personID, string contactinfo) : base(FirstName, LastName, contactinfo, personID)
         {
             this.Username = username;
             this.Password = password;
             this.CardID = cardID;
-            this.PersonID = personID;
+            this.ID = personID;
         }
 
 
@@ -51,8 +51,8 @@ namespace WindowsFormsApp1.classes.DataObjects
             DatabaseManager dbm = DatabaseManager.GetInstance();
 
 
-            string query = "SELECT COUNT(*) FROM Customers WHERE Username = " + StringMethods.addApostrophes(this.Username) + " AND Password = " + StringMethods.addApostrophes(this.Password);
-            int count = dbm.CountMatchingRecords(query);
+            string query = $"SELECT COUNT(*) FROM Customers WHERE Username = '{Username}' AND Password = '{Password}'";
+            int count = dbm.CountRecords(query);
 
 
             if (count == 0)
@@ -76,7 +76,7 @@ namespace WindowsFormsApp1.classes.DataObjects
         {
             return new Customer
             {
-               ID = reader.GetInt32(reader.GetOrdinal("CustomerID")),
+               CustomerID = reader.GetInt32(reader.GetOrdinal("CustomerID")),
                Name = reader.GetString(reader.GetOrdinal("FirstName")),
                LastName = reader.GetString(reader.GetOrdinal("LastName")),
                

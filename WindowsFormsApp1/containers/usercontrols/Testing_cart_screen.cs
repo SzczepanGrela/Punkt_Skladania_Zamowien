@@ -77,6 +77,9 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void continueSearchButton_Click(object sender, EventArgs e)
         {
+
+            Main_window.ResetMenu();
+
             MainPanel_screen.Open(new Categories_screen(true));
         }
 

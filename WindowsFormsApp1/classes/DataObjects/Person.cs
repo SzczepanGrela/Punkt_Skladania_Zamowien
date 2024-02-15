@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,17 +21,20 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         
 
-        public Person(string FirstName, string LastName, string ContactInfo)
+        public Person(string FirstName, string LastName, string ContactInfo, int PersonID)
         {
             this.Name = FirstName;
+            this.ID = PersonID;
             this.LastName = LastName;
             this.ContactInfo = ContactInfo;
         }
 
-        public Person(string FirstName, string LastName)
+        public Person(string FirstName, string LastName, string ContactInfo)
         {
             this.Name = FirstName;
+           
             this.LastName = LastName;
+            this.ContactInfo = ContactInfo;
         }
 
         public Person()
@@ -38,6 +42,17 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         }
 
-        
+
+        public static SqlParameter[] MapPersonToSqlParameters(Person person)
+        {
+            return new SqlParameter[]
+            {
+                      new SqlParameter("@Name", person.Name),
+                      new SqlParameter("@LastName", person.LastName),
+                      new SqlParameter("@ContactInfo", person.ContactInfo)
+            };
+        }
+
+
     }
 }

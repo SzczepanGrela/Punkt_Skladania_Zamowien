@@ -11,6 +11,7 @@ using System.IO;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.classes.DataObjects;
+using WindowsFormsApp1.containers.windows;
 
 namespace WindowsFormsApp1
 {
@@ -51,6 +52,8 @@ namespace WindowsFormsApp1
                 this.usernameTextbox.Text = "";
 
             }
+           
+
             else
             {
                 this.welcomeLabel.Text = "Wrong username or password\nTry again!";
@@ -84,5 +87,11 @@ namespace WindowsFormsApp1
             this.Close();
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            new Popup_window_AdminLogin().OpenPopup();
+            
+        }
     }
 }

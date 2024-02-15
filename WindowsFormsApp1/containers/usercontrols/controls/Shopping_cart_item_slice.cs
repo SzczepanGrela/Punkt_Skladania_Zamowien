@@ -11,7 +11,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
 using WindowsFormsApp1.classes.DataObjects;
 using System.Security.Cryptography.X509Certificates;
-using WindowsFormsApp1.classes.Methods;
+
 using WindowsFormsApp1.classes.FileOperations;
 using System.Data.Common;
 using System.Runtime.CompilerServices;
@@ -87,7 +87,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             List<int> IDs = productIDsDictionary.Keys.ToList();
 
 
-            string query = Querry.ProductsMatchingID(IDs);
+            string query = $"Select * FROM Products WHERE ID IN ({string.Join(",", IDs)})";  
 
 
             List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoSlice);
