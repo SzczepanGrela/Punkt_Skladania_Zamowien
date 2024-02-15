@@ -77,6 +77,7 @@ namespace WindowsFormsApp1.controls.usercontrols
                 this.ChangeOfHeartLabel.Text = "Not sure yet?";
                 this.changeButton.Text = "BUY";
                 this.buyButton.Click += new EventHandler(testing);
+                
 
             }
             else
@@ -110,7 +111,19 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void CartButton_Click(object sender, EventArgs e)
         {
-            localCart.AddToTesting(ProductID);
+            if (quantity_panel.getQuantity() == 0) return;
+
+            if (testscreen)
+            {
+                localCart.AddToTesting(ProductID);
+               
+            }
+            else
+            {
+                localCart.AddToShopping(ProductID, this.quantity_panel.getQuantity());
+                
+            }
+
         }
 
        

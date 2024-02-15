@@ -82,6 +82,12 @@
     <Compile Include="classes\FileOperations\SqlFileOperations.cs" />
     <Compile Include="classes\FileOperations\TxtFileOperations.cs" />
     <Compile Include="classes\Methods\StringMethods.cs" />
+    <Compile Include="containers\usercontrols\controls\Quantity_scalable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="containers\usercontrols\controls\Quantity_scalable.Designer.cs">
+      <DependentUpon>Quantity_scalable.cs</DependentUpon>
+    </Compile>
     <Compile Include="containers\usercontrols\controls\Shopping_cart_item_slice.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -166,11 +172,11 @@
     <Compile Include="containers\usercontrols\Product_details_screen.Designer.cs">
       <DependentUpon>Product_details_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="containers\usercontrols\questionnaire_screen.cs">
+    <Compile Include="containers\usercontrols\Questionnaire_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="containers\usercontrols\questionnaire_screen.Designer.cs">
-      <DependentUpon>questionnaire_screen.cs</DependentUpon>
+    <Compile Include="containers\usercontrols\Questionnaire_screen.Designer.cs">
+      <DependentUpon>Questionnaire_screen.cs</DependentUpon>
     </Compile>
     <Compile Include="containers\usercontrols\Payment_method_screen.cs">
       <SubType>UserControl</SubType>
@@ -227,6 +233,9 @@
     <EmbeddedResource Include="classes\BasePopup_window.resx">
       <DependentUpon>BasePopup_window.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="containers\usercontrols\controls\Quantity_scalable.resx">
+      <DependentUpon>Quantity_scalable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\Shopping_cart_item_slice.resx">
       <DependentUpon>Shopping_cart_item_slice.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,8 +278,8 @@
     <EmbeddedResource Include="containers\usercontrols\Product_details_screen.resx">
       <DependentUpon>Product_details_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="containers\usercontrols\questionnaire_screen.resx">
-      <DependentUpon>questionnaire_screen.cs</DependentUpon>
+    <EmbeddedResource Include="containers\usercontrols\Questionnaire_screen.resx">
+      <DependentUpon>Questionnaire_screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\Payment_method_screen.resx">
       <DependentUpon>Payment_method_screen.cs</DependentUpon>

@@ -43,32 +43,36 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.pictureBox1.Location = new System.Drawing.Point(41, 41);
+            this.pictureBox1.Location = new System.Drawing.Point(55, 50);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(287, 146);
+            this.pictureBox1.Size = new System.Drawing.Size(383, 180);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(64, 63);
+            this.numericUpDown1.Location = new System.Drawing.Point(85, 78);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(45, 22);
             this.numericUpDown1.TabIndex = 1;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(183, 12);
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(244, 15);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
+            this.listBox1.Size = new System.Drawing.Size(159, 116);
             this.listBox1.TabIndex = 2;
             // 
             // vScrollBar1
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(306, 75);
+            this.vScrollBar1.Location = new System.Drawing.Point(408, 92);
             this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(17, 80);
+            this.vScrollBar1.Size = new System.Drawing.Size(17, 98);
             this.vScrollBar1.TabIndex = 3;
             // 
             // errorProvider1
@@ -77,15 +81,16 @@
             // 
             // testControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "testControl";
-            this.Size = new System.Drawing.Size(355, 255);
+            this.Size = new System.Drawing.Size(473, 314);
             this.Load += new System.EventHandler(this.testControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

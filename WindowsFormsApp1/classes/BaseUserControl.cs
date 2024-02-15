@@ -176,17 +176,23 @@ namespace WindowsFormsApp1.classes
         public void AddSlicestoPanel(UserControl[] controls, Panel panel)
         {
            
-
+            if (controls.Length == 0) return;
             var examplecontrol = controls[0];
+            int panelWidth = panel.Size.Width; 
 
             int scrollbarWidth = SystemInformation.VerticalScrollBarWidth;
-            int panelWidth = panel.Size.Width - scrollbarWidth;
+            
 
-            int controlWidth = panel.Size.Width;
-            float proportion = ((float)controlWidth /600); // all controls are 600px wide by default
+            if (controls.Length * (examplecontrol.Size.Height*1.05) >= panel.Size.Height)
+            {
+                 panelWidth -= scrollbarWidth;
+            }
+            float proportion = ((float)panelWidth / examplecontrol.Width); // all controls are 600px wide by default
+
+            int controlWidth = panelWidth;
+             
             int controlHeight = (int)(examplecontrol.Height * proportion);
             
-           
             int gapHeight = (int)(0.05 * controlHeight);
             for (int i = 0; i < controls.Length; i++)
             {

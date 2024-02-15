@@ -33,6 +33,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             if (ShopItems.ContainsKey(itemID))
             {
                 ShopItems.Remove(itemID);
+                
             }
         }
 
@@ -40,7 +41,19 @@ namespace WindowsFormsApp1.classes.DataObjects
         {
             if (ShopItems.ContainsKey(itemID))
             {
-                ShopItems[itemID] = quantity;
+                if (quantity == 0)
+                {
+                    ShopItems.Remove(itemID);
+                }
+                else
+                {
+                    ShopItems[itemID] = quantity;
+                }
+                
+            }
+            else
+            {
+                ShopItems.Add(itemID, quantity);
             }
         }
 
@@ -85,6 +98,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             if (TestItemIDs.Contains(itemID))
             {
                 TestItemIDs.Remove(itemID);
+
             }
         }
 

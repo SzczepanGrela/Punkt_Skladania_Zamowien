@@ -116,5 +116,16 @@ namespace WindowsFormsApp1.controls.usercontrols
             EmptyCartPanel.Controls.Add(label);
             cartPanel.Controls.Add(EmptyCartPanel);
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void payButton_Click_1(object sender, EventArgs e)
+        {
+            if (total <= 0) return;
+            MainPanel_screen.Open(new Payment_method_screen(total));
+        }
     }
 }

@@ -37,6 +37,7 @@
             this.discountCodeTextbox = new System.Windows.Forms.TextBox();
             this.discountButton = new System.Windows.Forms.Button();
             this.totalpriceLabel = new System.Windows.Forms.Label();
+            this.EnterDiscountLabel = new System.Windows.Forms.Label();
             this.totalPricePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -45,20 +46,18 @@
             // 
             this.giftcardTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.giftcardTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.giftcardTextbox.Location = new System.Drawing.Point(424, 498);
-            this.giftcardTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.giftcardTextbox.Location = new System.Drawing.Point(318, 451);
             this.giftcardTextbox.Name = "giftcardTextbox";
-            this.giftcardTextbox.Size = new System.Drawing.Size(327, 45);
+            this.giftcardTextbox.Size = new System.Drawing.Size(242, 38);
             this.giftcardTextbox.TabIndex = 0;
             // 
             // enterCodeLabel
             // 
-            this.enterCodeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.enterCodeLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.enterCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.enterCodeLabel.Location = new System.Drawing.Point(41, 498);
-            this.enterCodeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.enterCodeLabel.Location = new System.Drawing.Point(31, 451);
             this.enterCodeLabel.Name = "enterCodeLabel";
-            this.enterCodeLabel.Size = new System.Drawing.Size(343, 38);
+            this.enterCodeLabel.Size = new System.Drawing.Size(257, 31);
             this.enterCodeLabel.TabIndex = 1;
             this.enterCodeLabel.Text = "Enter gift card code:";
             this.enterCodeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -67,12 +66,11 @@
             // 
             this.checkCodeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkCodeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkCodeButton.Location = new System.Drawing.Point(303, 619);
-            this.checkCodeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkCodeButton.Location = new System.Drawing.Point(227, 549);
             this.checkCodeButton.Name = "checkCodeButton";
-            this.checkCodeButton.Size = new System.Drawing.Size(197, 65);
+            this.checkCodeButton.Size = new System.Drawing.Size(144, 53);
             this.checkCodeButton.TabIndex = 2;
-            this.checkCodeButton.Text = "Enter";
+            this.checkCodeButton.Text = "PAY";
             this.checkCodeButton.UseVisualStyleBackColor = true;
             this.checkCodeButton.Click += new System.EventHandler(this.checkCodeButton_Click);
             // 
@@ -86,52 +84,49 @@
             this.totalPricePanel.Location = new System.Drawing.Point(0, 0);
             this.totalPricePanel.Margin = new System.Windows.Forms.Padding(0);
             this.totalPricePanel.Name = "totalPricePanel";
-            this.totalPricePanel.Size = new System.Drawing.Size(800, 224);
+            this.totalPricePanel.Size = new System.Drawing.Size(596, 182);
             this.totalPricePanel.TabIndex = 3;
             // 
             // priceValueLabel
             // 
             this.priceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.priceValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.priceValueLabel.Location = new System.Drawing.Point(276, 0);
-            this.priceValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.priceValueLabel.Location = new System.Drawing.Point(207, 0);
             this.priceValueLabel.Name = "priceValueLabel";
-            this.priceValueLabel.Size = new System.Drawing.Size(228, 224);
+            this.priceValueLabel.Size = new System.Drawing.Size(167, 182);
             this.priceValueLabel.TabIndex = 0;
             this.priceValueLabel.Text = "0zł";
             this.priceValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.EnterDiscountLabel);
             this.panel1.Controls.Add(this.discountCodeTextbox);
             this.panel1.Controls.Add(this.discountButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(504, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(374, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(296, 224);
+            this.panel1.Size = new System.Drawing.Size(222, 182);
             this.panel1.TabIndex = 1;
             // 
             // discountCodeTextbox
             // 
             this.discountCodeTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.discountCodeTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.discountCodeTextbox.Location = new System.Drawing.Point(19, 75);
-            this.discountCodeTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.discountCodeTextbox.Location = new System.Drawing.Point(14, 61);
             this.discountCodeTextbox.Name = "discountCodeTextbox";
-            this.discountCodeTextbox.Size = new System.Drawing.Size(261, 45);
+            this.discountCodeTextbox.Size = new System.Drawing.Size(197, 38);
             this.discountCodeTextbox.TabIndex = 1;
             // 
             // discountButton
             // 
             this.discountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.discountButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.discountButton.Location = new System.Drawing.Point(63, 153);
-            this.discountButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.discountButton.Location = new System.Drawing.Point(47, 124);
             this.discountButton.Name = "discountButton";
-            this.discountButton.Size = new System.Drawing.Size(184, 46);
+            this.discountButton.Size = new System.Drawing.Size(138, 37);
             this.discountButton.TabIndex = 0;
-            this.discountButton.Text = "PAY";
+            this.discountButton.Text = "Enter";
             this.discountButton.UseVisualStyleBackColor = true;
             this.discountButton.Click += new System.EventHandler(this.discountButton_Click);
             // 
@@ -140,16 +135,25 @@
             this.totalpriceLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.totalpriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.totalpriceLabel.Location = new System.Drawing.Point(0, 0);
-            this.totalpriceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.totalpriceLabel.Name = "totalpriceLabel";
-            this.totalpriceLabel.Size = new System.Drawing.Size(276, 224);
+            this.totalpriceLabel.Size = new System.Drawing.Size(207, 182);
             this.totalpriceLabel.TabIndex = 1;
             this.totalpriceLabel.Text = "Your total price: ";
             this.totalpriceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // EnterDiscountLabel
+            // 
+            this.EnterDiscountLabel.AutoSize = true;
+            this.EnterDiscountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EnterDiscountLabel.Location = new System.Drawing.Point(19, 20);
+            this.EnterDiscountLabel.Name = "EnterDiscountLabel";
+            this.EnterDiscountLabel.Size = new System.Drawing.Size(184, 25);
+            this.EnterDiscountLabel.TabIndex = 2;
+            this.EnterDiscountLabel.Text = "Enter discount code";
+            // 
             // Payment_method_screen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.Controls.Add(this.totalPricePanel);
@@ -158,7 +162,7 @@
             this.Controls.Add(this.giftcardTextbox);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Payment_method_screen";
-            this.Size = new System.Drawing.Size(800, 788);
+            this.Size = new System.Drawing.Size(596, 733);
             this.totalPricePanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -178,5 +182,6 @@
         private System.Windows.Forms.TextBox discountCodeTextbox;
         private System.Windows.Forms.Button discountButton;
         private System.Windows.Forms.Label totalpriceLabel;
+        private System.Windows.Forms.Label EnterDiscountLabel;
     }
 }

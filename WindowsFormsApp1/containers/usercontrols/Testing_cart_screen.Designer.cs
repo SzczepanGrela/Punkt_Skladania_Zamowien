@@ -50,7 +50,6 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -62,19 +61,19 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.totalPricePanel);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 788);
-            this.splitContainer1.SplitterDistance = 663;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(596, 733);
+            this.splitContainer1.SplitterDistance = 616;
             this.splitContainer1.TabIndex = 1;
             // 
             // cartPanel
             // 
+            this.cartPanel.AutoScroll = true;
             this.cartPanel.BackColor = System.Drawing.Color.LightGray;
             this.cartPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cartPanel.Location = new System.Drawing.Point(0, 96);
+            this.cartPanel.Location = new System.Drawing.Point(0, 78);
             this.cartPanel.Margin = new System.Windows.Forms.Padding(0);
             this.cartPanel.Name = "cartPanel";
-            this.cartPanel.Size = new System.Drawing.Size(800, 567);
+            this.cartPanel.Size = new System.Drawing.Size(596, 538);
             this.cartPanel.TabIndex = 5;
             // 
             // needmorePanel
@@ -86,16 +85,15 @@
             this.needmorePanel.Location = new System.Drawing.Point(0, 0);
             this.needmorePanel.Margin = new System.Windows.Forms.Padding(0);
             this.needmorePanel.Name = "needmorePanel";
-            this.needmorePanel.Size = new System.Drawing.Size(800, 96);
+            this.needmorePanel.Size = new System.Drawing.Size(596, 78);
             this.needmorePanel.TabIndex = 2;
             // 
             // clearButton
             // 
             this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.clearButton.Location = new System.Drawing.Point(516, 15);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(4);
+            this.clearButton.Location = new System.Drawing.Point(387, 12);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(255, 64);
+            this.clearButton.Size = new System.Drawing.Size(191, 52);
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "Clear Cart";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -105,10 +103,9 @@
             // 
             this.continueSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.continueSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.continueSearchButton.Location = new System.Drawing.Point(24, 15);
-            this.continueSearchButton.Margin = new System.Windows.Forms.Padding(4);
+            this.continueSearchButton.Location = new System.Drawing.Point(18, 12);
             this.continueSearchButton.Name = "continueSearchButton";
-            this.continueSearchButton.Size = new System.Drawing.Size(339, 64);
+            this.continueSearchButton.Size = new System.Drawing.Size(250, 52);
             this.continueSearchButton.TabIndex = 0;
             this.continueSearchButton.Text = "Continue Search";
             this.continueSearchButton.UseVisualStyleBackColor = true;
@@ -123,7 +120,7 @@
             this.totalPricePanel.Location = new System.Drawing.Point(0, 0);
             this.totalPricePanel.Margin = new System.Windows.Forms.Padding(0);
             this.totalPricePanel.Name = "totalPricePanel";
-            this.totalPricePanel.Size = new System.Drawing.Size(800, 120);
+            this.totalPricePanel.Size = new System.Drawing.Size(596, 113);
             this.totalPricePanel.TabIndex = 0;
             // 
             // ReadyLabel
@@ -131,9 +128,8 @@
             this.ReadyLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReadyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ReadyLabel.Location = new System.Drawing.Point(0, 0);
-            this.ReadyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ReadyLabel.Name = "ReadyLabel";
-            this.ReadyLabel.Size = new System.Drawing.Size(516, 120);
+            this.ReadyLabel.Size = new System.Drawing.Size(383, 113);
             this.ReadyLabel.TabIndex = 2;
             this.ReadyLabel.Text = "Ready for test?";
             this.ReadyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -142,10 +138,9 @@
             // 
             this.panel1.Controls.Add(this.orderTestButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(516, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(383, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(284, 120);
+            this.panel1.Size = new System.Drawing.Size(213, 113);
             this.panel1.TabIndex = 1;
             // 
             // orderTestButton
@@ -154,10 +149,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.orderTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.orderTestButton.Location = new System.Drawing.Point(48, 37);
-            this.orderTestButton.Margin = new System.Windows.Forms.Padding(4);
+            this.orderTestButton.Location = new System.Drawing.Point(36, 30);
             this.orderTestButton.Name = "orderTestButton";
-            this.orderTestButton.Size = new System.Drawing.Size(207, 50);
+            this.orderTestButton.Size = new System.Drawing.Size(155, 56);
             this.orderTestButton.TabIndex = 0;
             this.orderTestButton.Text = "ORDER";
             this.orderTestButton.UseVisualStyleBackColor = true;
@@ -165,12 +159,12 @@
             // 
             // Testing_cart_screen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Testing_cart_screen";
-            this.Size = new System.Drawing.Size(800, 788);
+            this.Size = new System.Drawing.Size(596, 733);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

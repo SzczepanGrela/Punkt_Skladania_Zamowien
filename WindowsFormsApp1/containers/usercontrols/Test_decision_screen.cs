@@ -9,7 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.DataObjects;
+using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.containers.usercontrols.controls;
+using WindowsFormsApp1.controls.usercontrols;
+using WindowsFormsApp1.usercontrols;
+
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
@@ -39,6 +43,25 @@ namespace WindowsFormsApp1.controls.usercontrols
             }
             
             
+        }
+
+        private void ResetAllButton_Click(object sender, EventArgs e)
+        {
+            previousScreens.Clear();
+            MainPanel_screen.Open(new Menu_screen());
+            localCart.ClearCart(2); //clears both carts
+
+        }
+
+        private void buySelectedButton_Click(object sender, EventArgs e)
+        {
+            foreach (int productID in products)
+            {
+                localCart.RemoveFromTesting(productID);
+                localCart.AddToShopping(productID, 1);
+            }
+
+            MainPanel_screen.Open(new Shopping_cart_screen());
         }
     }
 }

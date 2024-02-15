@@ -45,6 +45,10 @@ namespace WindowsFormsApp1.usercontrols
             MainPanel_screen.Open(new Categories_screen(true));
         }
 
+        private void MatchButton_Click(object sender, EventArgs e)
+        {
 
+            MainPanel_screen.Open(new Questionnaire_screen());
+        }
     }
 }

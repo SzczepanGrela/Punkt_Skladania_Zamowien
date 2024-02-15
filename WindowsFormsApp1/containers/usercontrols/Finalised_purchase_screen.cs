@@ -32,5 +32,10 @@ namespace WindowsFormsApp1.controls.usercontrols
             Main_window.ResetMenu();
 
         }
+
+        private void seeyouLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
