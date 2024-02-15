@@ -77,7 +77,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             return new Customer
             {
                ID = reader.GetInt32(reader.GetOrdinal("CustomerID")),
-               FirstName = reader.GetString(reader.GetOrdinal("FirstName")),
+               Name = reader.GetString(reader.GetOrdinal("FirstName")),
                LastName = reader.GetString(reader.GetOrdinal("LastName")),
                
             };

@@ -73,14 +73,13 @@
     <Compile Include="classes\Methods\Querry.cs" />
     <Compile Include="classes\previousScreens.cs" />
     <Compile Include="classes\DataObjects\Cart.cs" />
-    <Compile Include="classes\localCart.cs" />
+    <Compile Include="classes\DataObjects\localCart.cs" />
     <Compile Include="classes\DataObjects\Category.cs" />
     <Compile Include="classes\DataObjects\Customer.cs" />
     <Compile Include="classes\DataObjects\Person.cs" />
     <Compile Include="classes\DataObjects\Product.cs" />
     <Compile Include="classes\FileOperations\BasicFileOperations.cs" />
     <Compile Include="classes\FileOperations\DatabaseManager.cs" />
-    <Compile Include="classes\FileOperations\SqlFileOperations.cs" />
     <Compile Include="classes\FileOperations\TxtFileOperations.cs" />
     <Compile Include="classes\Methods\StringMethods.cs" />
     <Compile Include="containers\usercontrols\controls\Quantity_scalable.cs">
@@ -312,6 +311,7 @@
     <EmbeddedResource Include="containers\usercontrols\Menu_screen.resx">
       <DependentUpon>Menu_screen.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataObjectsDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

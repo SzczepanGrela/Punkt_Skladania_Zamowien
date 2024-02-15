@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.classes.DataObjects
 {
-    internal class Promotion
+    internal class Promotion : Object
     {
-        private int ID { get; set;}
-        private string Name { get; set;}
+        
+       
         private string Description { get; set;}
         private decimal Value { get; set;}
         private int DiscountType { get; set; }

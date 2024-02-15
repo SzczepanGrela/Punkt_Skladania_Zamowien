@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.classes.DataObjects
     internal abstract class Person:Object
     {
 
-        protected string FirstName { get; set; }
+     
         protected string LastName { get; set; } 
 
         protected string ContactInfo { get; set; } 
@@ -22,14 +22,14 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         public Person(string FirstName, string LastName, string ContactInfo)
         {
-            this.FirstName = FirstName;
+            this.Name = FirstName;
             this.LastName = LastName;
             this.ContactInfo = ContactInfo;
         }
 
         public Person(string FirstName, string LastName)
         {
-            this.FirstName = FirstName;
+            this.Name = FirstName;
             this.LastName = LastName;
         }
 

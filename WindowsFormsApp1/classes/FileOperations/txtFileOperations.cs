@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.classes.FileOperations
 {
      internal class TxtFileOperations : BasicFileOperations, ITextFileOperations
     {
-        // fields (like filePath, list of known exetensions etc.) inherited from BasicFileOperations:
+       
 
         public TxtFileOperations()
         {
@@ -30,7 +30,7 @@ namespace WindowsFormsApp1.classes.FileOperations
 
 
 
-        public void WriteFile(params string[] content)      // params keyword allows to pass single string as well as array of strings
+        public void WriteFile(params string[] content)      // single string or array thankns to params
         {
             if (IsConnected())
             {

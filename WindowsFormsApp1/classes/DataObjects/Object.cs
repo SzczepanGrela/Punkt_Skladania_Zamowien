@@ -11,5 +11,7 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         public int ID { get; protected set; }
 
+        public string Name { get; protected set; }
+
     }
 }

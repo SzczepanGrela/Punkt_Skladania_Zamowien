@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.classes.DataObjects
 {
-    public class Product
+    public class Product : Object
     {
-        public int ID { get; private set; }     // Fields accessiible from outside, modifable only from the insdee
-        public string Name { get; private set; }
+            // Fields accessiible from outside, modifable only from the insdee
+       
 
         public Decimal Price { get; private set; }
 
@@ -23,10 +23,7 @@ namespace WindowsFormsApp1.classes.DataObjects
         public byte[] Image { get;  private set; }
 
 
-        public Product()
-        {
-
-        }
+       
 
        
 

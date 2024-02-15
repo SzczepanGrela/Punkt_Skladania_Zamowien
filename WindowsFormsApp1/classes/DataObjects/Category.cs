@@ -11,7 +11,7 @@ namespace WindowsFormsApp1.classes.DataObjects
     public class Category : Object
     {
         
-        public string Name { get; private set; }
+        
         public byte[] Image { get; private  set; }
 
         public int Testable { get; private set;}

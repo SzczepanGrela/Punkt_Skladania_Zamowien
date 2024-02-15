@@ -20,11 +20,7 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         private int CustomerID { get; set; }
 
-        public Cart()
-        {
-            
-        }
-
+      
         public static Cart MapToCart(SqlDataReader reader)
         {
             return new Cart
