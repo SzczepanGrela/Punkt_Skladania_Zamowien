@@ -45,27 +45,43 @@ namespace WindowsFormsApp1.classes.DataObjects
             this.ID = personID;
         }
 
+        public Customer(int CustomerID)
+        {
 
-        public bool Login()
+        }
+
+
+
+
+        public int Login()
         {
             DatabaseManager dbm = DatabaseManager.GetInstance();
 
 
-            string query = $"SELECT COUNT(*) FROM Customers WHERE Username = '{Username}' AND Password = '{Password}'";
-            int count = dbm.CountRecords(query);
+            string query = $"SELECT CustomerID FROM Customers inner join Persons on Customers.PersonID = Persons.ID WHERE Username = '{Username}' AND Password = '{Password}'";
+            //int count = dbm.CountRecords(query);
 
+            List <Customer> records = dbm.ExecuteQuery(query, MapToCustomer);
 
-            if (count == 0)
+            
+            if(records.Count == 1)
             {
-                return false;
+                return records[0].CustomerID;
             }
-
-            else if (count == 1)
+            else if (records.Count > 1)
             {
-                return true;
+                throw new Exception("More than one customer with the same username and password");
             }
+            else
+            {
+                return -1 ;
+            }
+            
+            
+            
+            
 
-            else throw new Exception("Multiple records found for the same username and password");
+            
             
             
         }

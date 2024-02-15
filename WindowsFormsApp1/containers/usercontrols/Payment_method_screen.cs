@@ -113,11 +113,11 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void registerTransaction()
         {
-            DatabaseManager dbm = DatabaseManager.GetInstance();
+          /*  DatabaseManager dbm = DatabaseManager.GetInstance();
 
+           
+            Cart currentCart = localCart.GetCart();
 
-            string[] columns = new string[] { "Value" };
-            string[] values = new string[]  { $"{columns[0]} - {discountPrice}".Replace(',', '.') } ;
 
             dbm.ExecuteCommand(true, "GiftCards", columns, values, $"GiftCardCode = '{giftcardTextbox.Text}'");
 
@@ -133,7 +133,7 @@ namespace WindowsFormsApp1.controls.usercontrols
             values = new string[]  { $"{CartID}", $"{discountPrice}".Replace(',', '.'), $"GETDATE()" } ;   
 
             
-            dbm.ExecuteCommand(false,"Transactions",columns,values,"");   //false means it's not an update.
+            dbm.ExecuteCommand(false,"Transactions",columns,values,"");   //false means it's not an update.*/
             
         }
 

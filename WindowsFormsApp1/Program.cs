@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.classes.FileOperations;
 
 namespace WindowsFormsApp1
 {
@@ -12,6 +14,8 @@ namespace WindowsFormsApp1
         [STAThread]
         static void Main()
         {
+            DatabaseManager dbManager = DatabaseManager.GetInstance(ConfigurationManager.ConnectionStrings["myconstring"].ConnectionString);
+
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

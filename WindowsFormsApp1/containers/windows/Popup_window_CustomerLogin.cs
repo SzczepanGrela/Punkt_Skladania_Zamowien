@@ -12,17 +12,18 @@ using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.containers.windows;
+using WindowsFormsApp1.controls.forms;
 
 namespace WindowsFormsApp1
 {
     public partial class Popup_window_CustomerLogin : BasePopup_window
     {
-        
+
 
         public Popup_window_CustomerLogin()
         {
             InitializeComponent();
-            
+
             this.BackColor = base.BackColor;
         }
 
@@ -41,18 +42,24 @@ namespace WindowsFormsApp1
             string EnteredUsername = usernameTextbox.Text;
             string EnteredPassword = passwordTextbox.Text;
 
-            Customer loginPerson = new Customer(EnteredUsername,EnteredPassword);   
-            
-            if (loginPerson.Login()) 
-            {
-                this.welcomeLabel.Text = "Login Succesful!";
-                this.welcomeLabel.TextAlign = ContentAlignment.MiddleCenter;
-                this.welcomeLabel.ForeColor = Color.Green;
-                this.passwordTextbox.Text = "";
-                this.usernameTextbox.Text = "";
+            Customer loginPerson = new Customer(EnteredUsername, EnteredPassword);
 
+            int customerID = loginPerson.Login();
+
+            if(customerID != -10)
+            {
+
+                Popup_window_ok popup = new Popup_window_ok("Logged sucessfully");
+                popup.OpenPopup();
+                if(popup.DialogResult == DialogResult.OK)
+                {
+                    this.Close();
+                    Main_window.GetInstance().Log_In(customerID);
+                }
+
+                
             }
-           
+
 
             else
             {
@@ -60,7 +67,7 @@ namespace WindowsFormsApp1
                 this.welcomeLabel.TextAlign = ContentAlignment.MiddleCenter;
                 this.welcomeLabel.ForeColor = Color.Red;
                 this.passwordTextbox.Text = "";
-                this.usernameTextbox.Text = ""; 
+                this.usernameTextbox.Text = "";
 
             }
 
@@ -91,7 +98,7 @@ namespace WindowsFormsApp1
         {
             this.Close();
             new Popup_window_AdminLogin().OpenPopup();
-            
+
         }
     }
 }

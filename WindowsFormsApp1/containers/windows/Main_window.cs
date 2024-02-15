@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
+using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.containers.usercontrols.controls;
@@ -22,9 +24,10 @@ namespace WindowsFormsApp1
 {
     public partial class Main_window : BaseForm
     {
-        DatabaseManager dbManager = DatabaseManager.GetInstance(ConfigurationManager.ConnectionStrings["myconstring"].ConnectionString);
         
         private static Main_window instance;
+
+        private static Customer loggedCustomer;
         public Main_window()
         {
             InitializeComponent();
@@ -95,7 +98,7 @@ namespace WindowsFormsApp1
 
         private void Main_window_Load(object sender, EventArgs e)
         {
-            
+            LogOut();
             
 
         }
@@ -139,6 +142,20 @@ namespace WindowsFormsApp1
             newPopup.ShowDialog();
 
             return newPopup.DialogResult;
+
+        }
+
+        private void LogOut()
+        {
+            loggedCustomer = new Customer(202);
+        }
+
+        internal void Log_In(int customerID)
+        {
+             loggedCustomer = new Customer(customerID);
+
+            DatabaseManager dbm = DatabaseManager.GetInstance();
+
 
         }
     }
