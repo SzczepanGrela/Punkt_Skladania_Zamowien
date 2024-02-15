@@ -70,6 +70,7 @@
     <Compile Include="classes\DataObjects\GiftCard.cs" />
     <Compile Include="classes\DataObjects\Object.cs" />
     <Compile Include="classes\DataObjects\Promotion.cs" />
+    <Compile Include="classes\DataObjects\Transaction.cs" />
     <Compile Include="classes\previousScreens.cs" />
     <Compile Include="classes\DataObjects\Cart.cs" />
     <Compile Include="classes\DataObjects\localCart.cs" />

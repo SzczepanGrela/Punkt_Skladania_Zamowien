@@ -34,6 +34,17 @@ namespace WindowsFormsApp1.classes.DataObjects
 
 
 
+        public static SqlParameter[] MapCartToSqlParameters(Cart cart)
+        {
+            return new SqlParameter[]
+            {
+                      new SqlParameter("@CustomerID", cart.CustomerID),
+                      new SqlParameter("@CreatedDate", cart.createdDate),
+                      new SqlParameter("@Status", cart.Status)
+            };
+        }
+
+
 
 
     }
