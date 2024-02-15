@@ -43,12 +43,12 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         }
 
 
-        public Shopping_cart_item_slice(int inStock, string name, decimal price, byte[] image, int quantity, int ID)
+        public Shopping_cart_item_slice(Product product, int quantity)
         {
             InitializeComponent();
-            this.ID = ID;
-            this.price = price;
-            SetCartItem(inStock, name, price, image, quantity);
+            
+            
+            SetCartItem(product.StockQuantity, product.Name, product.Price, product.Image, quantity);
             this.quantity_panel.QuantityChanged += this.OnQuantityChanged;
         }
 
@@ -93,7 +93,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             foreach (Product product in products)
             {
                 int quantity = productIDsDictionary[product.ID];
-                Shopping_cart_item_slice slice = new Shopping_cart_item_slice(product.StockQuantity, product.Name, product.Price, product.Image, quantity,product.ID);
+                Shopping_cart_item_slice slice = new Shopping_cart_item_slice(product, quantity);
                 slice.quantity_panel.setPanel(product.StockQuantity, quantity);
                
                 slices.Add(slice);

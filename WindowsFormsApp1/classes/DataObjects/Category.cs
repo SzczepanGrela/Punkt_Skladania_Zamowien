@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.classes.DataObjects
 {
-    public class Category
+    public class Category : Object
     {
-        public int ID { get; private set; }
+        
         public string Name { get; private set; }
         public byte[] Image { get; private  set; }
 

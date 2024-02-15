@@ -17,17 +17,21 @@ namespace WindowsFormsApp1.classes.DataObjects
     {
         
 
+        
+        private string Username { get; set; }
 
-        public string Username { get; set; }
+        private string Password { get; set; }
 
-        public string Password { get; set; }
+        private string CardID { get; set; }
 
-        public string CardID { get; set; }
-
-        public string PersonID { get; set; }
+        private string PersonID { get; set; }
 
 
-        public Customer(string username, string password) : base()
+        public Customer()
+        {
+        }
+
+        public Customer(string username, string password)
         {
             this.Username = username;
             this.Password = password;
@@ -63,12 +67,22 @@ namespace WindowsFormsApp1.classes.DataObjects
 
             else throw new Exception("Multiple records found for the same username and password");
             
-
             
         }
 
 
 
+        public static Customer MapToCustomer(SqlDataReader reader)
+        {
+            return new Customer
+            {
+               ID = reader.GetInt32(reader.GetOrdinal("CustomerID")),
+               FirstName = reader.GetString(reader.GetOrdinal("FirstName")),
+               LastName = reader.GetString(reader.GetOrdinal("LastName")),
+               
+            };
+        }
+       
 
 
     }

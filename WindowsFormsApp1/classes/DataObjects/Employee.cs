@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.classes.DataObjects
 {
-    internal class Employee
+    internal class Employee : Person
     {
-        private int ID { get; set; }
-        private string FirstName { get; set; }
-
-        private string LastName { get; set; }
-
+        
+       
         private string Position { get; set; } 
 
         private string contactInfo { get; set; }
@@ -30,6 +27,19 @@ namespace WindowsFormsApp1.classes.DataObjects
             {
                 ID = reader.IsDBNull(reader.GetOrdinal("EmployeeID")) ? 0 : reader.GetInt32(reader.GetOrdinal("EmployeeID")),
                 CardID = reader.IsDBNull(reader.GetOrdinal("CardID")) ? null : reader.GetString(reader.GetOrdinal("CardID")), 
+            };
+        }
+
+        public static Employee MaptoEmployee(SqlDataReader reader)
+        {
+            return new Employee
+            {
+                ID = reader.IsDBNull(reader.GetOrdinal("EmployeeID")) ? 0 : reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                FirstName = reader.IsDBNull(reader.GetOrdinal("FirstName")) ? null : reader.GetString(reader.GetOrdinal("FirstName")),
+                LastName = reader.IsDBNull(reader.GetOrdinal("LastName")) ? null : reader.GetString(reader.GetOrdinal("LastName")),
+                Position = reader.IsDBNull(reader.GetOrdinal("Position")) ? null : reader.GetString(reader.GetOrdinal("Position")),
+                contactInfo = reader.IsDBNull(reader.GetOrdinal("ContactInfo")) ? null : reader.GetString(reader.GetOrdinal("ContactInfo")),
+                CardID = reader.IsDBNull(reader.GetOrdinal("CardID")) ? null : reader.GetString(reader.GetOrdinal("CardID")),
             };
         }
 

@@ -31,10 +31,10 @@ namespace WindowsFormsApp1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_window));
             this.TopBarPanel = new System.Windows.Forms.Panel();
+            this.cartButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
             this.LogInButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
-            this.cartButton = new System.Windows.Forms.Button();
             this.MainPanel = new WindowsFormsApp1.containers.usercontrols.MainPanel_screen();
             this.TopBarPanel.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +54,21 @@ namespace WindowsFormsApp1
             this.TopBarPanel.TabIndex = 7;
             this.TopBarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopBarPanel_Paint);
             // 
+            // cartButton
+            // 
+            this.cartButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cartButton.BackColor = System.Drawing.Color.BurlyWood;
+            this.cartButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cartButton.Image = ((System.Drawing.Image)(resources.GetObject("cartButton.Image")));
+            this.cartButton.Location = new System.Drawing.Point(458, 12);
+            this.cartButton.Margin = new System.Windows.Forms.Padding(0);
+            this.cartButton.Name = "cartButton";
+            this.cartButton.Size = new System.Drawing.Size(59, 54);
+            this.cartButton.TabIndex = 7;
+            this.cartButton.UseVisualStyleBackColor = false;
+            this.cartButton.Click += new System.EventHandler(this.cartButton_Click);
+            // 
             // HomeButton
             // 
             this.HomeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -61,7 +76,7 @@ namespace WindowsFormsApp1
             this.HomeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeButton.BackgroundImage")));
             this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.HomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.HomeButton.Location = new System.Drawing.Point(278, 11);
+            this.HomeButton.Location = new System.Drawing.Point(271, 12);
             this.HomeButton.Margin = new System.Windows.Forms.Padding(0);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(59, 54);
@@ -75,12 +90,12 @@ namespace WindowsFormsApp1
             this.LogInButton.BackColor = System.Drawing.Color.BurlyWood;
             this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LogInButton.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LogInButton.Location = new System.Drawing.Point(537, 11);
+            this.LogInButton.Image = ((System.Drawing.Image)(resources.GetObject("LogInButton.Image")));
+            this.LogInButton.Location = new System.Drawing.Point(533, 11);
             this.LogInButton.Margin = new System.Windows.Forms.Padding(2);
             this.LogInButton.Name = "LogInButton";
-            this.LogInButton.Size = new System.Drawing.Size(48, 47);
+            this.LogInButton.Size = new System.Drawing.Size(52, 54);
             this.LogInButton.TabIndex = 7;
-            this.LogInButton.Text = "Log In";
             this.LogInButton.UseVisualStyleBackColor = false;
             this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
             // 
@@ -93,26 +108,11 @@ namespace WindowsFormsApp1
             this.ReturnButton.Location = new System.Drawing.Point(9, 18);
             this.ReturnButton.Margin = new System.Windows.Forms.Padding(0);
             this.ReturnButton.Name = "ReturnButton";
-            this.ReturnButton.Size = new System.Drawing.Size(38, 43);
+            this.ReturnButton.Size = new System.Drawing.Size(49, 43);
             this.ReturnButton.TabIndex = 6;
             this.ReturnButton.Text = "< ";
             this.ReturnButton.UseVisualStyleBackColor = false;
             this.ReturnButton.Click += new System.EventHandler(ReturnButton_Click);
-            // 
-            // cartButton
-            // 
-            this.cartButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.cartButton.BackColor = System.Drawing.Color.BurlyWood;
-            this.cartButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cartButton.Location = new System.Drawing.Point(469, 11);
-            this.cartButton.Margin = new System.Windows.Forms.Padding(0);
-            this.cartButton.Name = "cartButton";
-            this.cartButton.Size = new System.Drawing.Size(53, 47);
-            this.cartButton.TabIndex = 7;
-            this.cartButton.Text = "Cart";
-            this.cartButton.UseVisualStyleBackColor = false;
-            this.cartButton.Click += new System.EventHandler(this.cartButton_Click);
             // 
             // MainPanel
             // 

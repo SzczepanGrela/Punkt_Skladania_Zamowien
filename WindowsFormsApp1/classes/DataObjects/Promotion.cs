@@ -9,11 +9,11 @@ namespace WindowsFormsApp1.classes.DataObjects
 {
     internal class Promotion
     {
-        private int ID;
-        private string Name;
-        private string Description;
-        private decimal Value;
-        private int DiscountType;
+        private int ID { get; set;}
+        private string Name { get; set;}
+        private string Description { get; set;}
+        private decimal Value { get; set;}
+        private int DiscountType { get; set; }
 
 
 

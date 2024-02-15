@@ -12,6 +12,7 @@ using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.controls.forms;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApp1
 {
@@ -44,21 +45,20 @@ namespace WindowsFormsApp1
 
             string CardID = CardIDTextbox.Text;
 
-            string query = $"SELECT * FROM Employees WHERE CardID = '{CardID}'";
+            string query = $"SELECT Count(*) FROM Employees WHERE CardID = '{CardID}'";
 
-            List<Employee> employees = dbm.ExecuteQuery(query, Employee.MaptoEmployeeLogin);
-
-            if (employees.Count == 1)
+            List<int> count = dbm.ExecuteQuery(query, (SqlDataReader reader) => reader.GetInt32(0));  // function mapping to int
+           
+            if (count[0] == 1)
             {
-                Employee employee = employees[0];
-                
+               
                 this.Hide();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
                 
                
             }
-            else if (employees.Count > 1)
+            else if (count[0] > 1)
             {
                 throw new Exception("More than one employee with the same card ID");
             }

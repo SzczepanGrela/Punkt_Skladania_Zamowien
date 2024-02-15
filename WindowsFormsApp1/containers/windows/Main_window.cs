@@ -38,12 +38,6 @@ namespace WindowsFormsApp1
         }
 
        
-        
-
-        
-
-
-
         private static void ReturnButton_Click(object sender, EventArgs e)
         {
 

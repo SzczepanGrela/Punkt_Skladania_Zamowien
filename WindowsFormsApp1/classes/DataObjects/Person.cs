@@ -10,13 +10,13 @@ using WindowsFormsApp1.classes.FileOperations;
 
 namespace WindowsFormsApp1.classes.DataObjects
 {
-    internal abstract class Person
+    internal abstract class Person:Object
     {
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; } 
+        protected string FirstName { get; set; }
+        protected string LastName { get; set; } 
 
-        public string ContactInfo { get; set; } = string.Empty;
+        protected string ContactInfo { get; set; } 
 
         
 
@@ -25,6 +25,12 @@ namespace WindowsFormsApp1.classes.DataObjects
             this.FirstName = FirstName;
             this.LastName = LastName;
             this.ContactInfo = ContactInfo;
+        }
+
+        public Person(string FirstName, string LastName)
+        {
+            this.FirstName = FirstName;
+            this.LastName = LastName;
         }
 
         public Person()

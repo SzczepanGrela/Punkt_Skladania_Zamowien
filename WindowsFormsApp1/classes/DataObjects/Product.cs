@@ -9,18 +9,18 @@ namespace WindowsFormsApp1.classes.DataObjects
 {
     public class Product
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
+        public int ID { get; private set; }     // Fields accessiible from outside, modifable only from the insdee
+        public string Name { get; private set; }
 
-        public Decimal Price { get; set; }
+        public Decimal Price { get; private set; }
 
-        public string Description { get; set; }
+        public string Description { get; private set; }
 
-        public int CategoryID { get; set; }
+        public int CategoryID { get;  private set; }
 
-        public int StockQuantity { get; set; }
+        public int StockQuantity { get; private set; }
 
-        public byte[] Image { get; set; }
+        public byte[] Image { get;  private set; }
 
 
         public Product()
@@ -31,7 +31,7 @@ namespace WindowsFormsApp1.classes.DataObjects
        
 
 
-        public static Product MaptoButton(SqlDataReader reader)    // this is a method that maps the data from the database to the object
+        public static Product MaptoButton(SqlDataReader reader)    // Map to Boject fitting creteria for button
         {
             return new Product
             {
@@ -48,7 +48,7 @@ namespace WindowsFormsApp1.classes.DataObjects
 
 
 
-        public static Product MaptoSlice(SqlDataReader reader)    // this is a method that maps the data from the database to the object
+        public static Product MaptoSlice(SqlDataReader reader)    // same but woth slices
         {
             return new Product
             {

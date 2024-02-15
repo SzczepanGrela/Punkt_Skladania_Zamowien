@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="classes\DataObjects\Employee.cs" />
     <Compile Include="classes\DataObjects\GiftCard.cs" />
+    <Compile Include="classes\DataObjects\Object.cs" />
     <Compile Include="classes\DataObjects\Promotion.cs" />
     <Compile Include="classes\Methods\Querry.cs" />
     <Compile Include="classes\previousScreens.cs" />
