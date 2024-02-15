@@ -10,16 +10,15 @@ namespace WindowsFormsApp1.classes.DataObjects
     
     public class Cart : Object
     {
-        protected Dictionary<Product, int> items = new Dictionary<Product, int>();
-
         
+        protected static Dictionary<int, int> ProductsList = new Dictionary<int, int>();
 
-        private DateTime createdDate { get; set; }
 
-        private string Status { get; set; }
+        protected DateTime createdDate { get; set; }
 
-        private int CustomerID { get; set; }
+        protected string Status { get; set; }
 
+        protected int CustomerID { get; set; }  
       
         public static Cart MapToCart(SqlDataReader reader)
         {

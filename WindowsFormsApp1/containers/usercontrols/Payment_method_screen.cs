@@ -94,7 +94,7 @@ namespace WindowsFormsApp1.controls.usercontrols
                         OpenPopup(popup);
                         if (popup.DialogResult == DialogResult.OK)
                         {
-                            localCart.ClearCart(2);  // Clear both carts
+                            localCart.ClearCarts();  // Clear both carts
                             
                             MainPanel_screen.Open(new Finalised_purchase_screen());
                         }

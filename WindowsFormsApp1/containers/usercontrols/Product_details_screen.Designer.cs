@@ -39,13 +39,13 @@
             this.PriceBuyingSplit = new System.Windows.Forms.SplitContainer();
             this.priceLabel = new System.Windows.Forms.Label();
             this.buyingQuantitySplit = new System.Windows.Forms.SplitContainer();
+            this.quantity_panel = new WindowsFormsApp1.containers.usercontrols.controls.Quantity_scalable();
             this.buttonPanel = new System.Windows.Forms.Panel();
             this.CartButton = new System.Windows.Forms.Button();
             this.buyButton = new System.Windows.Forms.Button();
             this.ChangeLabelChangeButtonSplit = new System.Windows.Forms.SplitContainer();
             this.ChangeOfHeartLabel = new System.Windows.Forms.Label();
             this.changeButton = new System.Windows.Forms.Button();
-            this.quantity_panel = new WindowsFormsApp1.containers.usercontrols.controls.Quantity_scalable();
             ((System.ComponentModel.ISupportInitialize)(this.decisionChangeSplit)).BeginInit();
             this.decisionChangeSplit.Panel1.SuspendLayout();
             this.decisionChangeSplit.Panel2.SuspendLayout();
@@ -217,6 +217,18 @@
             this.buyingQuantitySplit.SplitterDistance = 110;
             this.buyingQuantitySplit.TabIndex = 0;
             // 
+            // quantity_panel
+            // 
+            this.quantity_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.quantity_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.quantity_panel.Location = new System.Drawing.Point(35, 12);
+            this.quantity_panel.Margin = new System.Windows.Forms.Padding(2);
+            this.quantity_panel.Name = "quantity_panel";
+            this.quantity_panel.Size = new System.Drawing.Size(171, 87);
+            this.quantity_panel.TabIndex = 11;
+            // 
             // buttonPanel
             // 
             this.buttonPanel.Controls.Add(this.CartButton);
@@ -251,7 +263,6 @@
             this.buyButton.TabIndex = 0;
             this.buyButton.Text = "Buy";
             this.buyButton.UseVisualStyleBackColor = false;
-            
             // 
             // ChangeLabelChangeButtonSplit
             // 
@@ -296,18 +307,7 @@
             this.changeButton.TabIndex = 1;
             this.changeButton.Text = "Change";
             this.changeButton.UseVisualStyleBackColor = false;
-            // 
-            // quantity_panel
-            // 
-            this.quantity_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.quantity_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.quantity_panel.Location = new System.Drawing.Point(35, 12);
-            this.quantity_panel.Margin = new System.Windows.Forms.Padding(2);
-            this.quantity_panel.Name = "quantity_panel";
-            this.quantity_panel.Size = new System.Drawing.Size(171, 87);
-            this.quantity_panel.TabIndex = 11;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
             // Product_details_screen
             // 

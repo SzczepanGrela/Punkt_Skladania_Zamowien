@@ -13,6 +13,7 @@ using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.classes.DataObjects;
 using static System.Net.Mime.MediaTypeNames;
 using WindowsFormsApp1.containers.usercontrols;
+using WindowsFormsApp1.controls.forms;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
@@ -73,7 +74,7 @@ namespace WindowsFormsApp1.controls.usercontrols
             if(testscreen)
             {
                 this.buyButton.Text = "TEST";
-                this.changeButton.Click += new EventHandler(buying);
+                
                 this.ChangeOfHeartLabel.Text = "Not sure yet?";
                 this.changeButton.Text = "BUY";
                 this.buyButton.Click += new EventHandler(testing);
@@ -94,16 +95,19 @@ namespace WindowsFormsApp1.controls.usercontrols
         private void buying(object sender, EventArgs e)
         { 
             if(quantity_panel.getQuantity() == 0) return;
+
+            int quantity = quantity_panel.getQuantity();
             
-            localCart.AddToShopping(ProductID, this.quantity_panel.getQuantity());
+            localCart.GetShoppingCart().AddtoCart(ProductID, quantity);
+
             if (previousScreens.Peek() is Shopping_cart_screen) return;
 
-            MainPanel_screen.Open(new Shopping_cart_screen());
+            else MainPanel_screen.Open(new Shopping_cart_screen());
         }
 
         private void testing(object sender, EventArgs e)
         {
-            localCart.AddToTesting(ProductID);
+            localCart.GetShoppingCart().AddtoCart(ProductID, 1);
             if (previousScreens.Peek() is Testing_cart_screen) return;
 
             MainPanel_screen.Open(new Testing_cart_screen());
@@ -111,21 +115,48 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void CartButton_Click(object sender, EventArgs e)
         {
-            if (quantity_panel.getQuantity() == 0) return;
+            if (quantity_panel.getQuantity() == 0) return;  // prevention rfom adding 0 items to the cart
 
             if (testscreen)
             {
-                localCart.AddToTesting(ProductID);
+                localCart.GetTestingCart().AddtoCart(ProductID, quantity_panel.getQuantity());
+                Popup_window_ok popup = new Popup_window_ok("Item added to the test cart");
+                popup.OpenPopup();
                
             }
             else
             {
-                localCart.AddToShopping(ProductID, this.quantity_panel.getQuantity());
+                localCart.GetShoppingCart().AddtoCart(ProductID, quantity_panel.getQuantity());
+                Popup_window_ok popup = new Popup_window_ok("Item added to the shopping cart");
+                popup.OpenPopup();
                 
             }
 
         }
 
-       
+        private void changeButton_Click(object sender, EventArgs e)
+        {
+
+            if (testscreen)
+            {
+                Popup_window_yn popup = new Popup_window_yn($"Are you sure you want to buy it?\nThe price is:{priceLabel.Text}");
+                popup.OpenPopup();
+                if(popup.DialogResult == DialogResult.Yes)
+                {
+                   buying(this, EventArgs.Empty);
+                }
+
+            }
+            else
+            {
+                Popup_window_yn popup = new Popup_window_yn($"You're about to enter Test Cart.\nDo you want to preceed?");
+                popup.OpenPopup();
+                if (popup.DialogResult == DialogResult.Yes)
+                {
+                    testing(this, EventArgs.Empty);
+                }
+            }
+
+        }
     }
 }

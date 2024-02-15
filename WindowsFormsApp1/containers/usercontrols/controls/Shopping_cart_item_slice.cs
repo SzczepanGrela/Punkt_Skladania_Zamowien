@@ -21,12 +21,14 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
     public partial class Shopping_cart_item_slice : UserControl
     {
 
-        private decimal price;
+        private decimal Price;
+        private decimal TotalPrice;
+        private int Quantity;
 
         public int ID { get; private set; }
-        public decimal getPrice()
+        public decimal getTotalPrice()
         {
-            return this.price;
+            return this.TotalPrice;
         }
 
         public int getQuanitity()
@@ -47,8 +49,11 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         {
             InitializeComponent();
             
+            this.Price = product.Price;
+            this.Quantity = quantity;
+            this.TotalPrice = Price * Quantity;
             
-            SetCartItem(product.StockQuantity, product.Name, product.Price, product.Image, quantity);
+            SetCartItem(product.StockQuantity, product.Name, product.Image);
             this.quantity_panel.QuantityChanged += this.OnQuantityChanged;
         }
 
@@ -61,10 +66,10 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         {
         }
 
-        public void SetCartItem(int inStock, string name, decimal price, byte[] image, int quantity)
+        public void SetCartItem(int inStock, string name, byte[] image)
         {
-            price *= quantity;
-            this.priceLabel.Text = price.ToString() + "zł";
+            
+            this.priceLabel.Text = this.TotalPrice.ToString() + "zł";
             if (name != null) this.nameLabel.Text = name;
             if (image != null) this.pictureBox1.Image = System.Drawing.Image.FromStream(new System.IO.MemoryStream(image));
         }
@@ -107,13 +112,13 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
        
         protected virtual void OnQuantityChanged(object sender, EventArgs e)
         {
-            int quantity = this.quantity_panel.getQuantity();
-            decimal price = this.price * quantity;
+            this.Quantity = this.quantity_panel.getQuantity();
+            this.TotalPrice = this.Price * this.Quantity;
 
-            this.priceLabel.Text = price.ToString() + "zł";
+            this.priceLabel.Text = TotalPrice.ToString() + "zł";
 
-            localCart.UpdateShopping(ID, quantity);
-            
+            localCart.GetShoppingCart().UpdateCart(ID, Quantity);
+          
             OnPriceChanged(this, EventArgs.Empty);  // poor way of handing over the event to the parent
         }
 

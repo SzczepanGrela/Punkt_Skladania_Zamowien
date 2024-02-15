@@ -18,8 +18,8 @@ namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Testing_cart_screen : BaseUserControl
     {
-        
-        private List<int> products = localCart.GetTestingItems();
+
+        private List<int> products = localCart.GetTestingCart().GetProducts().Keys.ToList();
         private List<int> checkedProducts = new List<int>();
 
         public Testing_cart_screen()
@@ -49,7 +49,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            localCart.ClearCart(1);  // 1 is the testing cart
+            localCart.GetTestingCart().ClearCart();  // 1 is the testing cart
             this.cartPanel.Controls.Clear();
             EmptyCartMessage();
         }

@@ -3,7 +3,7 @@
   <Class Name="WindowsFormsApp1.classes.DataObjects.Cart">
     <Position X="0.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAAAAAAAAgAAAAAEAQAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAUAQAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>classes\DataObjects\Cart.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -61,6 +61,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAgAAAAAYAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>classes\DataObjects\Promotion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.DataObjects.localCart" Collapsed="true">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIAAAAAAAAAIAAACAAEAAAAABAABAQAAIAAAAAkA=</HashCode>
+      <FileName>classes\DataObjects\localCart.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="10" />

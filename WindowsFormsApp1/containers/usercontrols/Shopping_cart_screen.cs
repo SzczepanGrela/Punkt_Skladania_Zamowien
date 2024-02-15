@@ -11,6 +11,7 @@ using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.containers.usercontrols.controls;
+using WindowsFormsApp1.controls.forms;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
@@ -18,7 +19,7 @@ namespace WindowsFormsApp1.controls.usercontrols
     {
 
         private decimal total = 0;
-        private Dictionary<int, int> products = localCart.GetShoppingItems();
+        private Dictionary<int, int> products = localCart.GetShoppingCart().GetProducts();
         public Shopping_cart_screen()
         {
             InitializeComponent();
@@ -44,9 +45,8 @@ namespace WindowsFormsApp1.controls.usercontrols
 
                 foreach (Shopping_cart_item_slice slice in itemsList)
                 {
-                    total += slice.getPrice() * slice.getQuanitity();
+                    total += slice.getTotalPrice();
                     
-
                     slice.PriceChanged += this.OnPriceChanged;
                 }
                 priceValueLabel.Text = total.ToString()+"zł";
@@ -64,16 +64,20 @@ namespace WindowsFormsApp1.controls.usercontrols
         protected virtual void OnPriceChanged(object sender, EventArgs e)
         {
             total = 0;
-            
+
             if (cartPanel.Controls.Count == 0)
             {
                 this.priceValueLabel.Text = "0zł";
                 return;
             }
-            foreach (Shopping_cart_item_slice slice in cartPanel.Controls)
-            {   
-               
-                total += slice.getPrice() * slice.getQuanitity();
+            else
+            {
+                foreach (Shopping_cart_item_slice slice in cartPanel.Controls)
+                {
+
+                    total += slice.getTotalPrice();
+
+                }
                 this.priceValueLabel.Text = total.ToString() + "zł";
             }
         }
@@ -91,7 +95,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            localCart.ClearCart(0);  // 0 is the shopping cart
+            localCart.GetShoppingCart().ClearCart();  // 0 is the shopping cart
             this.cartPanel.Controls.Clear();
             OnPriceChanged(this, new EventArgs());
             EmptyCartMessage();
@@ -124,7 +128,8 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void payButton_Click_1(object sender, EventArgs e)
         {
-            if (total <= 0) return;
+            if (total <= 0) OpenPopup(new Popup_window_ok("Pick at least one item."));
+           
             MainPanel_screen.Open(new Payment_method_screen(total));
         }
     }

@@ -7,114 +7,95 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.classes.DataObjects
 {
-    public abstract class localCart
+    public class localCart : Cart
     {
-        private static Dictionary<int, int> ShopItems = new Dictionary<int, int>();
+        
 
-        private static List<int> TestItemIDs = new List<int>();
+        // double singleton 
+
+       private static localCart Shopping = null;
+       private static localCart Testing = null;
 
 
-
-        public static void AddToShopping(int itemID, int quantity)
+        public void AddtoCart(int itemID, int quantity)
         {
 
 
-            if (ShopItems.ContainsKey(itemID))
+            if (ProductsList.ContainsKey(itemID))
             {
-                ShopItems[itemID] += quantity;
+                ProductsList[itemID] += quantity;
 
             }
-            else ShopItems.Add(itemID, quantity);
+            else ProductsList.Add(itemID, quantity);
 
         }
 
-        public static void RemoveFromShopping(int itemID)
+        public void RemovefromCart(int itemID)
         {
-            if (ShopItems.ContainsKey(itemID))
+            if (ProductsList.ContainsKey(itemID))
             {
-                ShopItems.Remove(itemID);
+                ProductsList.Remove(itemID);
                 
             }
         }
 
-        public static void UpdateShopping(int itemID, int quantity)
+        public void UpdateCart(int itemID, int quantity)
         {
-            if (ShopItems.ContainsKey(itemID))
+            if (ProductsList.ContainsKey(itemID))
             {
                 if (quantity == 0)
                 {
-                    ShopItems.Remove(itemID);
+                    ProductsList.Remove(itemID);
                 }
                 else
                 {
-                    ShopItems[itemID] = quantity;
+                    ProductsList[itemID] = quantity;
                 }
                 
             }
             else
             {
-                ShopItems.Add(itemID, quantity);
+                ProductsList.Add(itemID, quantity);
             }
         }
 
-        public static Dictionary<int, int> GetShoppingItems()
+        public Dictionary<int, int> GetProducts()
         {
-            return ShopItems;
+            return ProductsList;
         }
 
-        public static void ClearCart(int whichCart)
+        public void ClearCart()
         {
-            if (whichCart == 0)
-                ShopItems.Clear();
+            ProductsList.Clear();
+        }
 
-            else if (whichCart == 1)
-                TestItemIDs.Clear();
+        public void ReplaceProducts(Dictionary<int,int> newCart)
+        {
+            ProductsList = newCart;
+        }
 
-            else
-
+        public static localCart GetTestingCart()
+        {
+            if (Testing == null)
             {
-                ShopItems.Clear();
-                TestItemIDs.Clear();
+                Testing = new localCart();
             }
+            return Testing;
         }
 
-
-
-        public static void AddToTesting(int itemID)
+        public static localCart GetShoppingCart()
         {
-
-
-            if (TestItemIDs.Contains(itemID))
+            if (Shopping == null)
             {
-
-                return;
+                Shopping = new localCart();
             }
-
-            TestItemIDs.Add(itemID);
+            return Shopping;
         }
 
-        public static void RemoveFromTesting(int itemID)
+        internal static void ClearCarts()
         {
-            if (TestItemIDs.Contains(itemID))
-            {
-                TestItemIDs.Remove(itemID);
-
-            }
+            Testing.ClearCart();
+            Shopping.ClearCart();
         }
-
-
-        public static List<int> GetTestingItems()
-        {
-            return TestItemIDs;
-        }
-
-
-        public static void ReplaceTestingCart(List<int> newCart)
-        {
-            TestItemIDs = newCart;
-        }
-
-
-
     }
 }

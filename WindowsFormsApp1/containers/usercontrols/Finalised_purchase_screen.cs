@@ -28,7 +28,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void returnMainButton_Click(object sender, EventArgs e)
         {
-            localCart.ClearCart(2);  // Clear both carts
+            localCart.ClearCarts();  // Clear both carts
             Main_window.ResetMenu();
 
         }

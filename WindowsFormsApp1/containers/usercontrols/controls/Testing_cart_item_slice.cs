@@ -73,12 +73,11 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            localCart.RemoveFromTesting(ID);
+            localCart testCart = localCart.GetTestingCart();
+
+            testCart.RemovefromCart(this.ID);
             this.Dispose();
-            if (localCart.GetShoppingItems().Count == 0)
-            {
-               
-            }
+          
         }
     }
 }

@@ -49,7 +49,7 @@ namespace WindowsFormsApp1.controls.usercontrols
         {
             previousScreens.Clear();
             MainPanel_screen.Open(new Menu_screen());
-            localCart.ClearCart(2); //clears both carts
+            localCart.ClearCarts(); //clears both carts
 
         }
 
@@ -57,8 +57,12 @@ namespace WindowsFormsApp1.controls.usercontrols
         {
             foreach (int productID in products)
             {
-                localCart.RemoveFromTesting(productID);
-                localCart.AddToShopping(productID, 1);
+                localCart cart = localCart.GetTestingCart();
+                cart.RemovefromCart(productID);
+                
+                cart = localCart.GetShoppingCart();
+                cart.AddtoCart(productID, 1);
+                
             }
 
             MainPanel_screen.Open(new Shopping_cart_screen());
