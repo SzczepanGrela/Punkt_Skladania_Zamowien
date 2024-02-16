@@ -16,6 +16,7 @@ namespace WindowsFormsApp1.classes.FileOperations
 
         private DatabaseManager(string connectionString = null)
         {
+            if (connectionString == null) throw new Exception("No connection string provided");
             _connectionString = connectionString;
         }
 

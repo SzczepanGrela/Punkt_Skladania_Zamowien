@@ -144,6 +144,14 @@ namespace WindowsFormsApp1.classes.DataObjects
         {
             GetShoppingCart();   // creates a new cart if it doesnt exist
 
+            if (CustomerID == 199)
+            {
+                DatabaseManager dbm = DatabaseManager.GetInstance();
+
+                dbm.ExecuteCommand(true, "Carts", new string[] { "Status" }, new string[] { "'Completed'" }, $"CustomerID = 199 AND Status = 'Active'");
+
+            }
+
             Shopping.CustomerID = CustomerID;
 
             Cart recentCart = new Cart(CustomerID);

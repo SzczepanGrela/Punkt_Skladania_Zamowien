@@ -89,6 +89,7 @@ namespace WindowsFormsApp1
         {
             loggedCustomer = new Customer(199);
             Log_In(loggedCustomer);
+            
         }
 
         private void cartButton_Click(object sender, EventArgs e)
@@ -151,6 +152,8 @@ namespace WindowsFormsApp1
             loggedCustomer = customer;
 
             localCart.Login(customer.CustomerID);
+
+            
 
 
         }

@@ -12,7 +12,13 @@ namespace WindowsFormsApp1.classes
 
         public static void Push(Control item)
         {
-            elements.Add(item);
+            if (elements.Count < 20)
+            {
+                elements.Add(item);
+            }
+            else elements.RemoveAt(0);
+
+            
         }
 
         public static Control Pop()
