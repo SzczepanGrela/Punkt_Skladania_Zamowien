@@ -10,7 +10,7 @@ namespace WindowsFormsApp1.classes.DataObjects
 {
     internal class Employee : Person
     {
-        private string password;
+        private string password { get; set;}
 
         private string Position { get; set; }
 

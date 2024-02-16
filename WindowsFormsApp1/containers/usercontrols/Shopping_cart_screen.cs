@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.DataObjects;
-using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.containers.usercontrols.controls;
 using WindowsFormsApp1.controls.forms;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
-    public partial class Shopping_cart_screen : BaseUserControl
+    public partial class Shopping_cart_screen : BaseScreen
     {
 
         private decimal total;

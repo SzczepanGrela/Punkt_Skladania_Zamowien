@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.classes;
 using WindowsFormsApp1.containers.windows.Admin_screens;
 
 namespace WindowsFormsApp1.containers.windows
 {
-    public partial class Admin_window : Form
+    public partial class Admin_window : BaseForm
     {
         public Admin_window()
         {

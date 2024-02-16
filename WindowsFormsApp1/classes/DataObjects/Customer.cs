@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.classes.FileOperations;
 
@@ -19,11 +20,13 @@ namespace WindowsFormsApp1.classes.DataObjects
         
 
         DatabaseManager dbm = DatabaseManager.GetInstance();
+       
+
         private string Username { get; set; }
 
         private string Password { get; set; }
 
-        private string CardID { get; set; }
+       private string CardID { get; set; }
 
         public int CustomerID { get; protected set; }  
 
@@ -38,12 +41,14 @@ namespace WindowsFormsApp1.classes.DataObjects
             this.Password = password;
         }
 
-        public Customer(string FirstName, string LastName, string username, string password, string cardID, int personID, string contactinfo) : base(FirstName, LastName, contactinfo, personID)
+        public Customer(string FirstName, string LastName, string username, string password, string contactinfo, int PersonID) : base(FirstName, LastName, contactinfo)
         {
             this.Username = username;
             this.Password = password;
-            this.CardID = cardID;
-            this.ID = personID;
+            
+            this.ID = PersonID;
+            this.CardID = FirstName.Substring(0, 3) + LastName.Substring(0, 3) + PersonID;
+            
         }
 
         public Customer(Customer customeerToCopy)
@@ -52,7 +57,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             this.CustomerID = customeerToCopy.CustomerID;
             this.Username = customeerToCopy.Username;
             this.Password = customeerToCopy.Password;
-            this.CardID = customeerToCopy.CardID;
+          
             this.ID = customeerToCopy.ID;
             this.Name = customeerToCopy.Name;
             this.LastName = customeerToCopy.LastName;
@@ -72,7 +77,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             this.CustomerID = customeerToCopy.CustomerID;
             this.Username = customeerToCopy.Username;
             this.Password = customeerToCopy.Password;
-            this.CardID = customeerToCopy.CardID;
+       
             this.ID = customeerToCopy.ID;
             this.Name = customeerToCopy.Name;
             this.LastName = customeerToCopy.LastName;
@@ -80,8 +85,10 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         }
 
-
-
+        public Customer(string name, string LastName, string contact) : base(name, LastName, contact)
+        {
+        
+        }
 
         public Customer Login()
         {
@@ -118,7 +125,6 @@ namespace WindowsFormsApp1.classes.DataObjects
                
 
                CustomerID = reader.IsDBNull(reader.GetOrdinal("CustomerID")) ? 0 : reader.GetInt32(reader.GetOrdinal("CustomerID")),
-               CardID = reader.IsDBNull(reader.GetOrdinal("CardID")) ? null : reader.GetString(reader.GetOrdinal("CardID")),
                ID = reader.GetInt32(reader.GetOrdinal("PersonID")),
                Name = reader.IsDBNull(reader.GetOrdinal("Name")) ? null : reader.GetString(reader.GetOrdinal("Name")),
                LastName = reader.IsDBNull(reader.GetOrdinal("LastName")) ? null : reader.GetString(reader.GetOrdinal("LastName")),
@@ -131,7 +137,19 @@ namespace WindowsFormsApp1.classes.DataObjects
 
 
 
-       
+        public static SqlParameter[] MapCustomerToSqlParameters(Customer customer)
+        {
+            return new SqlParameter[]
+            {
+                      new SqlParameter("@Username", customer.Username),
+                      new SqlParameter("@Password", customer.Password),
+                      new SqlParameter("@PersonID", customer.ID),
+                      new SqlParameter("@CardID", customer.CardID)
+                      
+                     
+            };
+        }
+
 
 
     }

@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WindowsFormsApp1.classes.DataObjects;
+
 
 namespace WindowsFormsApp1.classes.FileOperations
 {
@@ -186,7 +186,7 @@ namespace WindowsFormsApp1.classes.FileOperations
             }
         }
 
-        public int InsertObjectGetID<T>(T obj, string tableName, Func<T, SqlParameter[]> mapFunction)
+        public int InsertObjectGetID<T>(T obj, string tableName, Func<T, SqlParameter[]> mapFunction, string outputColumnName)
         {
             using (SqlConnection connection = GetConnection())
             {
@@ -196,7 +196,7 @@ namespace WindowsFormsApp1.classes.FileOperations
                 string[] valuesPlaceholders = parameters.Select(p => p.ParameterName).ToArray();
 
                 
-                var commandText = $"INSERT INTO {tableName} ({string.Join(", ", columnNames)}) OUTPUT INSERTED.ID VALUES ({string.Join(", ", valuesPlaceholders)})";
+                var commandText = $"INSERT INTO {tableName} ({string.Join(", ", columnNames)}) OUTPUT INSERTED.{outputColumnName} VALUES ({string.Join(", ", valuesPlaceholders)})";
 
                 using (SqlCommand command = new SqlCommand(commandText, connection))
                 {

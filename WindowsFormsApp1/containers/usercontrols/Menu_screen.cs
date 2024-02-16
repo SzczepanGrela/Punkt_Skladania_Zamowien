@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.containers.usercontrols;
-using WindowsFormsApp1.controls.forms;
 using WindowsFormsApp1.controls.usercontrols;
 
 namespace WindowsFormsApp1.usercontrols
 {
-    public partial class Menu_screen : BaseUserControl
+    public partial class Menu_screen : BaseScreen
     {
         public Menu_screen()
         {

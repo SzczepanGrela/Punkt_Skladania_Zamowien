@@ -11,13 +11,12 @@ using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.containers.usercontrols.controls;
-using WindowsFormsApp1.controls.usercontrols;
 using WindowsFormsApp1.usercontrols;
 
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
-    public partial class Test_decision_screen : BaseUserControl
+    public partial class Test_decision_screen : BaseScreen
     {
         List<Testing_cart_item_slice> products;
         public Test_decision_screen(List <Testing_cart_item_slice> checkedProducts)

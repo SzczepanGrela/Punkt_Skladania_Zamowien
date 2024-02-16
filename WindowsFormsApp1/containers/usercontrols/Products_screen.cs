@@ -11,13 +11,11 @@ using System.Windows.Forms;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.classes.FileOperations;
-using WindowsFormsApp1.containers.usercontrols.controls;
-using WindowsFormsApp1.controls.usercontrols;
 using WindowsFormsApp1.controls.usercontrols.controls;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
-    public partial class Products_screen : BaseUserControl
+    public partial class Products_screen : BaseScreen
     {
         DatabaseManager dbm = DatabaseManager.GetInstance("TwojeConnectionString");
 

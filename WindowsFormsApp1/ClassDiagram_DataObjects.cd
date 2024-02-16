@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WindowsFormsApp1.classes.DataObjects.Cart">
+    <Position X="8.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAgAAUCQAAAAAQgAAAAAAAAA=</HashCode>
+      <FileName>classes\DataObjects\Cart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.DataObjects.Category">
+    <Position X="11.5" Y="6.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAIIAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\DataObjects\Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.DataObjects.Customer">
+    <Position X="21.25" Y="17.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAQAAIAAAEAAAAAACAAAQAAgCAAA=</HashCode>
+      <FileName>classes\DataObjects\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.DataObjects.Employee">
+    <Position X="17.75" Y="17.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAABAAAgAAAAAAAAAIAAAAAIAAAAAggAAAA=</HashCode>
+      <FileName>classes\DataObjects\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.DataObjects.GiftCard">
+    <Position X="10.5" Y="12.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>classes\DataObjects\GiftCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.DataObjects.Object">
+    <Position X="13" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\DataObjects\Object.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.DataObjects.Person">
+    <Position X="20.75" Y="8.75" Width="1.5" />
+    <InheritanceLine Type="WindowsFormsApp1.classes.DataObjects.Object" ManuallyRouted="true">
+      <Path>
+        <Point X="13.75" Y="2.645" />
+        <Point X="13.75" Y="3.11" />
+        <Point X="21.5" Y="3.11" />
+        <Point X="21.5" Y="8.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAgAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>classes\DataObjects\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.DataObjects.Product">
+    <Position X="15.75" Y="11.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAQAgAAAAAAACAIAAAgAAABAIAAAAAQAAAAA=</HashCode>
+      <FileName>classes\DataObjects\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.DataObjects.Promotion">
+    <Position X="13.5" Y="12.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAgAAAAAYAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>classes\DataObjects\Promotion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.DataObjects.localCart">
+    <Position X="8.5" Y="16.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ABBAIAAAAAAQAAIAAACAAEAAAAABAABAAAAYAAAAAkA=</HashCode>
+      <FileName>classes\DataObjects\localCart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.DataObjects.CartItem">
+    <Position X="15.25" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAAEAAAEAAAAAAAAAAABAQAAAAAAAiAAACAA=</HashCode>
+      <FileName>classes\DataObjects\CartItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.DataObjects.Transaction">
+    <Position X="5.5" Y="6.75" Width="1.5" />
+    <InheritanceLine Type="WindowsFormsApp1.classes.DataObjects.Object" ManuallyRouted="true">
+      <Path>
+        <Point X="13.75" Y="2.645" />
+        <Point X="13.75" Y="3.113" />
+        <Point X="6.25" Y="3.113" />
+        <Point X="6.25" Y="6.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAEAAAKAA=</HashCode>
+      <FileName>classes\DataObjects\Transaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="10" />
+</ClassDiagram>

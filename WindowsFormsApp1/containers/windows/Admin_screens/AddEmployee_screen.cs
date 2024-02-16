@@ -51,7 +51,7 @@ namespace WindowsFormsApp1.containers.windows.Admin_screens
 
                 DatabaseManager dbm = DatabaseManager.GetInstance();
 
-                int insertedPersonID=dbm.InsertObjectGetID(employeeToAdd, "Persons", Person.MapPersonToSqlParameters);
+                int insertedPersonID=dbm.InsertObjectGetID(employeeToAdd, "Persons", Person.MapPersonToSqlParameters, "ID");
 
                 employeeToAdd = new Employee(name, lastname, contact, cardID, password, position, insertedPersonID);
 

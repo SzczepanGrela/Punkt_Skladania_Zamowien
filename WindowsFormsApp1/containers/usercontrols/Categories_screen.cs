@@ -12,12 +12,12 @@ using System.Windows.Forms;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.classes.FileOperations;
-using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.containers.usercontrols.controls;
+
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
-    public partial class Categories_screen : BaseUserControl
+    public partial class Categories_screen : BaseScreen
     {
 
         DatabaseManager dbm = DatabaseManager.GetInstance();
@@ -41,7 +41,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
 
 
-            query = "SELECT TOP 20 * FROM Categories";
+            query = "SELECT  * FROM Categories";
             if (Testable)
             {
                 query += " where Testable = 1";

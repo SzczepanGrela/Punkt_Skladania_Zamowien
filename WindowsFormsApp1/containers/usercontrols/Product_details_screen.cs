@@ -11,14 +11,13 @@ using System.Windows.Forms;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.classes.DataObjects;
-using static System.Net.Mime.MediaTypeNames;
 using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.controls.forms;
-using System.Security.Cryptography.X509Certificates;
+
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
-    public partial class Product_details_screen : BaseUserControl
+    public partial class Product_details_screen : BaseScreen
     {
 
         DatabaseManager dbm = DatabaseManager.GetInstance();

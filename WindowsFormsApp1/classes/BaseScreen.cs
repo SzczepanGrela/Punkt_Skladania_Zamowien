@@ -21,57 +21,17 @@ using WindowsFormsApp1.controls.usercontrols;
 
 namespace WindowsFormsApp1.classes
 {
-    public partial class BaseUserControl : UserControl
+    public partial class BaseScreen : UserControl
     {
 
 
         protected string query;
         
 
-        public BaseUserControl()
+        public BaseScreen()
         {
             InitializeComponent();
         }
-
-
-
-        /*public void OpenControl(Control newControl, Control parentControl)  // open "new" in "parent"
-        {
-            previousScreens.Push(newControl);
-            newControl.Dock = DockStyle.Fill;
-            parentControl.Controls.Clear();
-            parentControl.Controls.Add(newControl);
-            newControl.Show();
-        }*/
-
-
-        /* public void OpenControl(Control newControl, Control parentControl)
-         {
-
-
-             newControl.Dock = DockStyle.Fill;
-             parentControl.Controls.Clear();
-             parentControl.Controls.Add(newControl);
-             newControl.Show();
-
-         }*/
-
-/*        public void OpenNewControl(Control newControl, Control currentControl)
-        {
-            previousScreens.Push(newControl);
-            newControl.Dock = DockStyle.Fill;
-            
-            currentControl.Hide();
-
-            currentControl.Parent.Controls.Add(newControl);
-            
-
-            newControl.BackColor = newControl.Parent.BackColor;
-            newControl.Show();
-
-        }*/
-
-
 
 
 
@@ -90,51 +50,6 @@ namespace WindowsFormsApp1.classes
             return newPopup.DialogResult;
 
         }
-
-
-
-
-        /*public void AddButtonstoTable(string[] buttonNames, TableLayoutPanel table)
-        {
-            
-            int columncount = table.ColumnCount;
-            int rowcount = table.RowCount;
-            int cellcount = columncount * rowcount;
-            int numberofbuttons = buttonNames.Length;
-            float cellheight = table.Height / (float)3;
-
-
-            while (cellcount < numberofbuttons)
-            {
-                table.RowCount++;
-                rowcount++;
-                table.RowStyles.Add(new RowStyle(SizeType.Absolute, cellheight));
-                cellcount += columncount;
-            }
-
-            
-
-            
-            for (int i = 0; i < numberofbuttons; i++)
-            {
-                Button categoryButton = new Button();
-                categoryButton.Text = buttonNames[i];
-                categoryButton.BackColor = Color.White;
-                categoryButton.Dock = DockStyle.Fill;
-                 
-                table.Controls.Add(categoryButton) ;
-                
-            }
-        }*/
-
-
-
-
-
-
-
-
-
 
 
 
@@ -207,11 +122,6 @@ namespace WindowsFormsApp1.classes
 
           
         }
-
-
-
-
-
 
 
 

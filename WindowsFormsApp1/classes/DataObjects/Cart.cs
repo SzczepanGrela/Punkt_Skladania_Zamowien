@@ -63,7 +63,7 @@ namespace WindowsFormsApp1.classes.DataObjects
                 CustomerID = customerID;
                 CreatedDate = DateTime.Now;
                 Status = "Active";
-                ID=dbm.InsertObjectGetID(this, "Carts", MapCartToSqlParameters);
+                ID=dbm.InsertObjectGetID(this, "Carts", MapCartToSqlParameters, "ID");
             }
         }
 

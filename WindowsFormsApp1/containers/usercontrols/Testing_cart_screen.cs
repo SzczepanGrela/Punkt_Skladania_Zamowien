@@ -12,11 +12,10 @@ using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.containers.usercontrols.controls;
 using WindowsFormsApp1.controls.forms;
-using WindowsFormsApp1.controls.usercontrols.controls;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
-    public partial class Testing_cart_screen : BaseUserControl
+    public partial class Testing_cart_screen : BaseScreen
     {
 
         private List<CartItem> products = localCart.GetTestingCart().GetProducts().Values.ToList();

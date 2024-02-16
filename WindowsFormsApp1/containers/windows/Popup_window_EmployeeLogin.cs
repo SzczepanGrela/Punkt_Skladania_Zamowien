@@ -10,9 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.classes.FileOperations;
-using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.controls.forms;
-using System.Data.SqlClient;
 
 namespace WindowsFormsApp1
 {

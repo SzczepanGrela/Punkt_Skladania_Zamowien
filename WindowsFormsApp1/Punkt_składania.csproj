@@ -60,11 +60,11 @@
     <Compile Include="classes\BasePopup_window.Designer.cs">
       <DependentUpon>BasePopup_window.cs</DependentUpon>
     </Compile>
-    <Compile Include="classes\BaseUserControl.cs">
+    <Compile Include="classes\BaseScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="classes\BaseUserControl.Designer.cs">
-      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    <Compile Include="classes\BaseScreen.Designer.cs">
+      <DependentUpon>BaseScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="classes\DataObjects\CartItem.cs" />
     <Compile Include="classes\DataObjects\Employee.cs" />
@@ -263,6 +263,12 @@
     <Compile Include="containers\windows\Main_window.Designer.cs">
       <DependentUpon>Main_window.cs</DependentUpon>
     </Compile>
+    <Compile Include="containers\windows\Popup_window_Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="containers\windows\Popup_window_Register.Designer.cs">
+      <DependentUpon>Popup_window_Register.cs</DependentUpon>
+    </Compile>
     <Compile Include="interfaces\IBasicFileOperations.cs" />
     <Compile Include="interfaces\IContainerControlOperations.cs" />
     <Compile Include="interfaces\ISqlFileOperations.cs" />
@@ -377,6 +383,9 @@
     <EmbeddedResource Include="containers\windows\Main_window.resx">
       <DependentUpon>Main_window.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Popup_window_Register.resx">
+      <DependentUpon>Popup_window_Register.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -389,7 +398,9 @@
     <EmbeddedResource Include="containers\usercontrols\Menu_screen.resx">
       <DependentUpon>Menu_screen.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataObjectsDiagram.cd" />
+    <None Include="ClassDiagram_Screens.cd" />
+    <None Include="ClassDiagram_Windows_Popups.cd" />
+    <None Include="ClassDiagram_DataObjects.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -399,12 +410,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ClassDiagram_DataOperations.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data\sqlfiles\" />
+    <Folder Include="Diagrams\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

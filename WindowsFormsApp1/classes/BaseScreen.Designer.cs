@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.classes
 {
-    partial class BaseUserControl
+    partial class BaseScreen
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.

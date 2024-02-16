@@ -13,11 +13,11 @@ using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.controls.forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
-    public partial class Payment_method_screen : BaseUserControl
+    public partial class Payment_method_screen : BaseScreen
     {
         private decimal TotalPrice { get; set; }
 
@@ -115,7 +115,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             Transaction currentTransaction = new Transaction(localCart.GetShoppingCartID(), DiscountPrice, DateTime.Now, "GiftCard");
 
-            dbm.InsertObjectGetID(currentTransaction, "Transactions", Transaction.MapTransactionToSqlParameters);
+            dbm.InsertObjectGetID(currentTransaction, "Transactions", Transaction.MapTransactionToSqlParameters, "ID");
 
 
 

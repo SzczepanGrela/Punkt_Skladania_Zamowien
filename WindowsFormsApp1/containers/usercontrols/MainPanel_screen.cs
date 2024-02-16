@@ -8,13 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.classes;
-using WindowsFormsApp1.containers.usercontrols.controls;
-using WindowsFormsApp1.controls.usercontrols.controls;
 using WindowsFormsApp1.usercontrols;
 
 namespace WindowsFormsApp1.containers.usercontrols
 {
-    public partial class MainPanel_screen : BaseUserControl
+    public partial class MainPanel_screen : BaseScreen
     {
         private static MainPanel_screen instance;
         

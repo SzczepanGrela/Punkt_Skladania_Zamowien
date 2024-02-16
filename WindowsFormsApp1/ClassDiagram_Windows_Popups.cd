@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WindowsFormsApp1.classes.BaseForm">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAABCAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\BaseForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.classes.BasePopup_window">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\BasePopup_window.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.Main_window" Collapsed="true">
+    <Position X="6.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EABAABAAgCAAAAAAAACAAIACBAhEAAAAIAIAIAYAARA=</HashCode>
+      <FileName>containers\windows\Main_window.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.containers.windows.Admin_window" Collapsed="true">
+    <Position X="3.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAkQAADQAAAJAAACIAAESAAAAAAAAAAAAAABACAA=</HashCode>
+      <FileName>containers\windows\Admin_window.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.containers.windows.Popup_window_AdminLogin" Collapsed="true">
+    <Position X="5.5" Y="8.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAASAAAgAAACCAAAACAAAAABAAAAAAAAAQAAA=</HashCode>
+      <FileName>containers\windows\Popup_window_AdminLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.Popup_window_CustomerAccount" Collapsed="true">
+    <Position X="11.25" Y="15.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AwAAAAAAASAgAAAAAACAAAACAAAAABggAEAAAAAAAAA=</HashCode>
+      <FileName>containers\windows\Popup_window_CustomerAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.Popup_window_CustomerLogin" Collapsed="true">
+    <Position X="10.5" Y="8.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>BwAAAAAAASAAAAAAAACAAAAiAAQIATggAEAAAAAAAAA=</HashCode>
+      <FileName>containers\windows\Popup_window_CustomerLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.Popup_window_EmployeeLogin" Collapsed="true">
+    <Position X="14.75" Y="11.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AwAAAAAAASAAAgAAAACAAAACAAAAABAgAAAAAAAQAAA=</HashCode>
+      <FileName>containers\windows\Popup_window_EmployeeLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.controls.forms.Popup_window_ok" Collapsed="true">
+    <Position X="14.25" Y="8.25" Width="2" />
+    <InheritanceLine Type="WindowsFormsApp1.classes.BasePopup_window" ManuallyRouted="true">
+      <Path>
+        <Point X="10" Y="3.956" />
+        <Point X="10" Y="6.119" />
+        <Point X="15.25" Y="6.119" />
+        <Point X="15.25" Y="8.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAQAACAAAASAAAAAAIAAAAAAIAAAAA=</HashCode>
+      <FileName>containers\windows\Popup_window_ok.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.containers.windows.Popup_window_Register" Collapsed="true">
+    <Position X="7" Y="11.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BYAAEAAAACBAABAAAACAAAAiAAAAITAgIAAAAAAAAAA=</HashCode>
+      <FileName>containers\windows\Popup_window_Register.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.controls.forms.Popup_window_yn" Collapsed="true">
+    <Position X="8.25" Y="15.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAGAAAAAQABCAAAACCAAAAAAAIAAAkAAAAAA=</HashCode>
+      <FileName>containers\windows\Popup_window_yn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="10" />
+</ClassDiagram>

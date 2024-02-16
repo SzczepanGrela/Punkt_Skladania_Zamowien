@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.classes.DataObjects
 {
-    public  class Object
+    public  abstract class Object
     {
 
         public int ID { get; protected set; }

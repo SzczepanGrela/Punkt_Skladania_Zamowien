@@ -11,7 +11,7 @@ using WindowsFormsApp1.classes;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
-    public partial class Questionnaire_screen : BaseUserControl
+    public partial class Questionnaire_screen : BaseScreen
     {
         public Questionnaire_screen()
         {

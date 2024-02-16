@@ -32,7 +32,7 @@ namespace WindowsFormsApp1.containers.windows.Admin_screens
 
                 DatabaseManager dbm = DatabaseManager.GetInstance();
 
-                int insertedID = dbm.InsertObjectGetID(categorytoAdd, "Categories", Category.MapCategoryToSqlParameters);
+                int insertedID = dbm.InsertObjectGetID(categorytoAdd, "Categories", Category.MapCategoryToSqlParameters,"ID");
 
 
                 MessageBox.Show($"Category {NameTextBox.Text} added sucessfully");

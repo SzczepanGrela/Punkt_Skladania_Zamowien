@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using WindowsFormsApp1.classes;
-using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.containers.windows;
 using WindowsFormsApp1.controls.forms;
+
 
 namespace WindowsFormsApp1
 {
@@ -80,6 +80,12 @@ namespace WindowsFormsApp1
             this.Close();
             new Popup_window_AdminLogin().OpenPopup();
 
+        }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new Popup_window_Register().OpenPopup();
         }
     }
 }
