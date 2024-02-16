@@ -21,7 +21,7 @@ namespace WindowsFormsApp1.classes.DataObjects
         public decimal TotalPrice { get { return Price * Quantity; }}
 
 
-        public CartItem(Product product, int quantity=1)
+        public CartItem(Product product, int quantity)
         {
             ProductID = product.ID;
             Name = product.Name;
@@ -32,6 +32,21 @@ namespace WindowsFormsApp1.classes.DataObjects
             CartID = localCart.GetShoppingCart().ID;
             CategoryID = product.CategoryID;
         }
+
+        public CartItem(CartItem itemtocopy)
+        {
+            ProductID = itemtocopy.ProductID;
+            Name = itemtocopy.Name;
+            Price = itemtocopy.Price;
+            StockQuantity = itemtocopy.StockQuantity;
+            Image = itemtocopy.Image;
+            Quantity = itemtocopy.Quantity;
+            CartID = itemtocopy.CartID;
+                CategoryID = itemtocopy.CategoryID;
+
+        }
+
+
 
         private CartItem()  // cant be created from outside
         {

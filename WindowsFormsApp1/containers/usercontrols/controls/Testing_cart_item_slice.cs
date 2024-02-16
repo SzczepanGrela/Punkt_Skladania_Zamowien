@@ -32,8 +32,15 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         public Testing_cart_item_slice(Product product)
         {
             InitializeComponent();
-           this.SliceProduct = new CartItem(product);
+           this.SliceProduct = new CartItem(product,1);
 
+            this.Load += Testing_cart_item_slice_Load;
+        }
+
+        public Testing_cart_item_slice(CartItem product)
+        {
+            InitializeComponent();
+            this.SliceProduct = product;
             this.Load += Testing_cart_item_slice_Load;
         }
 
@@ -51,7 +58,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
             List<Testing_cart_item_slice> slices = new List<Testing_cart_item_slice>();
 
-            foreach (Product product in products)
+            foreach (CartItem product in products)
             {
                 Testing_cart_item_slice slice = new Testing_cart_item_slice(product);
                 slices.Add(slice);
@@ -72,7 +79,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
         public CartItem ReturnCartItem()
         {
-            return new CartItem(SliceProduct, 1);
+            return SliceProduct;
         }
     }
 }

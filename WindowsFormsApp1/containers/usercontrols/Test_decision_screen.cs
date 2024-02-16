@@ -52,21 +52,29 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void buySelectedButton_Click(object sender, EventArgs e)
         {
+            localCart testcart = localCart.GetTestingCart();
+            localCart shopcart = localCart.GetShoppingCart();
+
             foreach (Testing_cart_item_slice testSlice in products)
             {
+
+
+
+
                 CartItem sliceToItem = testSlice.ReturnCartItem();
 
-                localCart cart = localCart.GetTestingCart();
+               
 
-                cart.RemovefromCart(sliceToItem);
-                
-                cart = localCart.GetShoppingCart();
 
-                cart.AddtoCart(sliceToItem);
+                testcart.RemovefromCart(sliceToItem);
 
-                
-                
-                
+               
+
+                shopcart.AddtoCart(sliceToItem);
+
+
+
+
             }
 
             MainPanel_screen.Open(new Shopping_cart_screen());
