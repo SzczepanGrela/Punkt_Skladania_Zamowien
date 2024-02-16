@@ -44,17 +44,22 @@ namespace WindowsFormsApp1
 
             Customer loginPerson = new Customer(EnteredUsername, EnteredPassword);
 
-            loginPerson = loginPerson.Login();
+            int customerID = loginPerson.Login();
 
-            if(loginPerson != null)
+            if(customerID != -10)
             {
                 Main_window main_Window = Main_window.GetInstance();
 
-                this.Close();
-                main_Window.Log_In(loginPerson);
-                Popup_window_ok popup = new Popup_window_ok("Logged sucessfully");
-                popup.OpenPopup();
                 
+                Popup_window_ok popup = new Popup_window_ok("Logged sucessfully");
+
+               
+                popup.OpenPopup();
+                if(popup.DialogResult == DialogResult.OK)
+                {
+                    this.Close();
+                    main_Window.Log_In(customerID);
+                }
 
                 
             }

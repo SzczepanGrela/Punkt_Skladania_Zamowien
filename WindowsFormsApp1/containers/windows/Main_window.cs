@@ -24,154 +24,159 @@ namespace WindowsFormsApp1
 {
     public partial class Main_window : BaseForm
     {
-        
+
         private static Main_window instance;
 
-        private bool default_user = true;
-
-        private static Customer loggedCustomer;
-        public Main_window()
-        {
-            InitializeComponent();
-
-
-            this.Load += new EventHandler(Main_window_Load);
-            
-
-        }
-
        
-        private static void ReturnButton_Click(object sender, EventArgs e)
+
+    private static Customer loggedCustomer;
+    public Main_window()
+    {
+        InitializeComponent();
+
+
+        this.Load += new EventHandler(Main_window_Load);
+
+
+    }
+
+
+    private static void ReturnButton_Click(object sender, EventArgs e)
+    {
+
+        if (previousScreens.Count() > 1)
         {
 
-            if (previousScreens.Count() > 1)
-            {
+            Control currentScreen = previousScreens.Pop();
+            currentScreen.Controls.Clear();
+            currentScreen.Dispose();
 
-                Control currentScreen = previousScreens.Pop();
-                currentScreen.Controls.Clear();
-                currentScreen.Dispose();
-               
-                
-                Control prevScreen = previousScreens.Peek();
-                prevScreen.Show();
-            }
-            GC.Collect();
+
+            Control prevScreen = previousScreens.Peek();
+            prevScreen.Show();
         }
+        GC.Collect();
+    }
 
-        private void LogInButton_Click(object sender, EventArgs e)
+    private void LogInButton_Click(object sender, EventArgs e)
+    {
+
+
+        if ( loggedCustomer.CustomerID==199) OpenPopup(new Popup_window_CustomerLogin());
+        else OpenPopup(new Popup_window_CustomerAccount());
+
+
+
+    }
+
+    private static void HomeButton_Click(object sender, EventArgs e)
+    {
+
+
+        DialogResult dr = Main_window.OpenPopup(new Popup_window_yn("Are you sure you want to reset all tabs?\n (Your cart will be saved)"));
+
+        if (dr == DialogResult.Yes)
         {
-
-            DialogResult loginStatus = Main_window.OpenPopup(new Popup_window_CustomerLogin());
-
-            
-           
+            ResetMenu();
         }
-
-        private static void HomeButton_Click(object sender, EventArgs e)
+        else
         {
-            
-
-            DialogResult dr = Main_window.OpenPopup(new Popup_window_yn("Are you sure you want to reset all tabs?\n (Your cart will be saved)"));
-
-            if (dr == DialogResult.Yes)
-            {
-               ResetMenu();
-            }
-            else
-            {
-                // instructions for no
-            }
-        }
-
-        private void TopBarPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void MainPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-        private void Main_window_Load(object sender, EventArgs e)
-        {
-            Log_Out();
-            
-
-        }
-
-        private void cartButton_Click(object sender, EventArgs e)
-        {
-            if (previousScreens.Peek() is Shopping_cart_screen) return;
-            
-            MainPanel_screen.Open(new Shopping_cart_screen());
-        }
-
-
-
-
-        public static Main_window GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new Main_window();
-            }
-            return instance;
-        }
-
-
-        public static DialogResult OpenPopup(BasePopup_window newPopup)
-        {
-
-            Size Main_windowSize = GetInstance().Size;
-            //newPopup.Size = new Size((int)(Main_windowSize.Width *0.9),(int)(Main_windowSize.Height *0.35));  
-
-            // size of popup doesnt change, fix later 
-
-            
-
-            newPopup.FormBorderStyle = FormBorderStyle.None;
-            newPopup.ControlBox = false;
-            newPopup.StartPosition = FormStartPosition.CenterParent;
-
-            
-
-            newPopup.ShowDialog();
-
-            return newPopup.DialogResult;
-
-        }
-
-        private void Log_Out()
-        {
-            Log_In(199);
-
-            default_user = true;
-
-            CartItem.UpdateItemsinDB();
-            localCart.ClearCarts();
-            // logging out makes you log in into default account
-        }
-
-        internal void Log_In(int customerID)
-        {
-             default_user = false;
-             loggedCustomer = new Customer(customerID);
-              
-            localCart.Login(customerID);
-
-            
-        }
-
-        internal static int GetLoggedCustomerID()
-        {
-            return loggedCustomer.ID;
+            // instructions for no
         }
     }
+
+    private void TopBarPanel_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void Panel1_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void MainPanel_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+
+    private void Main_window_Load(object sender, EventArgs e)
+    {
+        Log_Out();
+
+
+    }
+
+    private void cartButton_Click(object sender, EventArgs e)
+    {
+        if (previousScreens.Peek() is Shopping_cart_screen) return;
+
+        MainPanel_screen.Open(new Shopping_cart_screen());
+    }
+
+
+
+
+    public static Main_window GetInstance()
+    {
+        if (instance == null)
+        {
+            instance = new Main_window();
+        }
+        return instance;
+    }
+
+
+    public static DialogResult OpenPopup(BasePopup_window newPopup)
+    {
+
+        Size Main_windowSize = GetInstance().Size;
+        //newPopup.Size = new Size((int)(Main_windowSize.Width *0.9),(int)(Main_windowSize.Height *0.35));  
+
+        // size of popup doesnt change, fix later 
+
+
+
+        newPopup.FormBorderStyle = FormBorderStyle.None;
+        newPopup.ControlBox = false;
+        newPopup.StartPosition = FormStartPosition.CenterParent;
+
+
+
+        newPopup.ShowDialog();
+
+        return newPopup.DialogResult;
+
+    }
+
+    internal void Log_Out()
+    {
+        loggedCustomer = new Customer(199);
+
+
+        CartItem.UpdateItemsinDB();
+        localCart.ClearCarts();
+
+    }
+
+    internal void Log_In(Customer customer)
+    {
+        loggedCustomer = customer;
+
+        localCart.Login(customer.CustomerID);
+
+
+    }
+
+    internal static int GetLoggedCustomerID()
+    {
+        return loggedCustomer.ID;
+    }
+
+    internal static string GetLoggedCustomerName()
+    {
+        return loggedCustomer.Name;
+    }
+}
 }

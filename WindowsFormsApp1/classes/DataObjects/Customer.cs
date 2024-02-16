@@ -25,7 +25,7 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         private string CardID { get; set; }
 
-        private int CustomerID { get; set; }  
+        public int CustomerID { get; protected set; }  
 
 
         public Customer()
@@ -83,12 +83,12 @@ namespace WindowsFormsApp1.classes.DataObjects
 
 
 
-        public int Login()
+        public Customer Login()
         {
             DatabaseManager dbm = DatabaseManager.GetInstance();
 
 
-            string query = $"SELECT CustomerID FROM Customers inner join Persons on Customers.PersonID = Persons.ID WHERE Username = '{Username}' AND Password = '{Password}'";
+            string query = $"SELECT * FROM Customers inner join Persons on Customers.PersonID = Persons.ID WHERE Username = '{Username}' AND Password = '{Password}'";
             //int count = dbm.CountRecords(query);
 
             List <Customer> records = dbm.ExecuteQuery(query, MapToCustomer);
@@ -96,7 +96,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             
             if(records.Count == 1)
             {
-                return records[0].CustomerID;
+                return records[0];
             }
             else if (records.Count > 1)
             {
@@ -104,15 +104,8 @@ namespace WindowsFormsApp1.classes.DataObjects
             }
             else
             {
-                return -1 ;
+                return null;
             }
-            
-            
-            
-            
-
-            
-            
             
         }
 

@@ -16,15 +16,22 @@ using WindowsFormsApp1.controls.forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Popup_window_CustomerLogin : BasePopup_window
+    public partial class Popup_window_CustomerAccount : BasePopup_window
     {
 
 
-        public Popup_window_CustomerLogin()
+        public Popup_window_CustomerAccount()
         {
             InitializeComponent();
 
+            this.Load += Popup_window_CustomerAccount_Load;
+
             this.BackColor = base.BackColor;
+        }
+
+        private void Popup_window_CustomerAccount_Load(object sender, EventArgs e)
+        {
+            welcomeLabel.Text = $"Hi {Main_window.GetLoggedCustomerName()},\nWelcome to the customer account window";
         }
 
         private void login_window_Load(object sender, EventArgs e)
@@ -39,45 +46,25 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string EnteredUsername = usernameTextbox.Text;
-            string EnteredPassword = passwordTextbox.Text;
-
-            Customer loginPerson = new Customer(EnteredUsername, EnteredPassword);
-
-            int customerID = loginPerson.Login();
-
-            if(customerID != -10)
-            {
-                Main_window main_Window = Main_window.GetInstance();
-
-                
-                Popup_window_ok popup = new Popup_window_ok("Logged sucessfully");
-
-               
-                popup.OpenPopup();
-                if(popup.DialogResult == DialogResult.OK)
-                {
-                    this.Close();
-                    main_Window.Log_In(customerID);
-                }
-
-                
-            }
 
 
-            else
-            {
-                this.welcomeLabel.Text = "Wrong username or password\nTry again!";
-                this.welcomeLabel.TextAlign = ContentAlignment.MiddleCenter;
-                this.welcomeLabel.ForeColor = Color.Red;
-                this.passwordTextbox.Text = "";
-                this.usernameTextbox.Text = "";
+            Main_window main_Window = Main_window.GetInstance();
 
-            }
+            main_Window.Log_Out();
+            this.Close();
+            Popup_window_ok popup = new Popup_window_ok("Logged out successfully");
+            popup.OpenPopup();
 
 
 
         }
+
+
+
+
+
+
+
         private void label2_Click(object sender, EventArgs e)
         {
 

@@ -94,6 +94,7 @@ namespace WindowsFormsApp1.controls.usercontrols
         private void payButton_Click(object sender, EventArgs e)
         {
             if (total <= 0) return;
+            CartItem.UpdateItemsinDB();
             MainPanel_screen.Open(new Payment_method_screen(total));
         }
 

@@ -143,6 +143,12 @@
     <Compile Include="containers\windows\Admin_screens\AddProducts_screen.Designer.cs">
       <DependentUpon>AddProducts_screen.cs</DependentUpon>
     </Compile>
+    <Compile Include="containers\windows\Popup_window_CustomerAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="containers\windows\Popup_window_CustomerAccount.Designer.cs">
+      <DependentUpon>Popup_window_CustomerAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="containers\windows\Admin_screens\RemoveCategory_screen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -172,12 +178,6 @@
     </Compile>
     <Compile Include="containers\windows\Popup_window_AdminLogin.Designer.cs">
       <DependentUpon>Popup_window_AdminLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="containers\windows\Popup_window_CustomerAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="containers\windows\Popup_window_CustomerAccount.Designer.cs">
-      <DependentUpon>Popup_window_CustomerAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="containers\windows\Popup_window_EmployeeLogin.cs">
       <SubType>Form</SubType>
@@ -321,6 +321,9 @@
     <EmbeddedResource Include="containers\windows\Admin_screens\AddProducts_screen.resx">
       <DependentUpon>AddProducts_screen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Popup_window_CustomerAccount.resx">
+      <DependentUpon>Popup_window_CustomerAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="containers\windows\Admin_screens\RemoveCategory_screen.resx">
       <DependentUpon>RemoveCategory_screen.cs</DependentUpon>
     </EmbeddedResource>
@@ -335,9 +338,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="containers\windows\Popup_window_AdminLogin.resx">
       <DependentUpon>Popup_window_AdminLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="containers\windows\Popup_window_CustomerAccount.resx">
-      <DependentUpon>Popup_window_CustomerAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\windows\Popup_window_EmployeeLogin.resx">
       <DependentUpon>Popup_window_EmployeeLogin.cs</DependentUpon>

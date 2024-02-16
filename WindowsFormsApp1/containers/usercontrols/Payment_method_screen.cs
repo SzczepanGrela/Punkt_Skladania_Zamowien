@@ -13,6 +13,7 @@ using WindowsFormsApp1.classes.DataObjects;
 using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.controls.forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
@@ -59,52 +60,33 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void checkCodeButton_Click(object sender, EventArgs e)
         {
-          
+            bool PaymentAccepeted=0;
+
             string enteredCode = giftcardTextbox.Text;
             string query = $"SELECT * FROM GiftCards WHERE GiftCardCode = '{enteredCode}' ;";
 
             List<GiftCard> giftCards_matching_code = dbm.ExecuteQuery(query, GiftCard.MapToGiftCard);
 
             if (giftCards_matching_code.Count > 1) throw new Exception("More than one gift card with the same code");
+            else if (giftCards_matching_code.Count == 0) OpenPopup(new Popup_window_ok("GiftCard not found in database"));
+            else PaymentAccepeted = GiftCardPayment(giftCards_matching_code[0]);
 
-            else if (giftCards_matching_code.Count == 1)
+
+            if (PaymentAccepeted)
             {
-                this.GiftCardDebit = giftCards_matching_code[0].Debit;
+                registerTransaction();
+                localCart.ClearCarts();  // Clear both carts
 
-                string message = $"Your card's balance is: {GiftCardDebit}zł\n";
-                if (GiftCardDebit < discountPrice)
+                Popup_window_ok popup = new Popup_window_ok("Your card has been charged");
+                OpenPopup(popup);
+
+                if (popup.DialogResult == DialogResult.OK)
                 {
-                    message += "You don't have enough money on your card to pay for this order";
+                   
 
-                    OpenPopup(new Popup_window_ok(message));
+                    MainPanel_screen.Open(new Finalised_purchase_screen());
                 }
-                else
-                {
-                    string newBalance = (GiftCardDebit - discountPrice).ToString(CultureInfo.InvariantCulture);  // change of polish ','  to universal (and supppported by sql '.') 
-                    message += $"Your new balance will be: {newBalance}zł\nDo you want to proceed?";
-
-                    Popup_window_yn window = new Popup_window_yn(message);
-                    OpenPopup(window);
-                    if (window.DialogResult == DialogResult.Yes)
-                    {
-
-                        registerTransaction();
-
-                        Popup_window_ok popup = new Popup_window_ok("Your card has been charged");
-                        OpenPopup(popup);
-                        if (popup.DialogResult == DialogResult.OK)
-                        {
-                            localCart.ClearCarts();  // Clear both carts
-                            
-                            MainPanel_screen.Open(new Finalised_purchase_screen());
-                        }
-                    }
-                }
-
-
             }
-            else OpenPopup(new Popup_window_ok("GiftCard not found in database"));
-
 
 
 
@@ -113,7 +95,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void registerTransaction()
         {
-           
+
             Cart currentCart = localCart.GetShoppingCart();
 
 
@@ -123,7 +105,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             updateCartStatus();
 
-            
+
         }
 
 
@@ -136,7 +118,43 @@ namespace WindowsFormsApp1.controls.usercontrols
         }
 
 
+        private bool GiftCardPayment(GiftCard giftCard)
+        {
+
+
+
+            string message = $"Your card's balance is: {giftCard.Debit}zł\n";
+            if (giftCard.Debit < discountPrice)
+            {
+                message += "You don't have enough money on your card to pay for this order";
+
+                OpenPopup(new Popup_window_ok(message));
+
+                return false;
+            }
+            else
+            {
+                string newBalance = (giftCard.Debit - discountPrice).ToString(CultureInfo.InvariantCulture);  // change of polish ','  to universal (and supppported by sql '.') 
+                message += $"Your new balance will be: {newBalance}zł\nDo you want to proceed?";
+
+                Popup_window_yn window = new Popup_window_yn(message);
+                OpenPopup(window);
+
+
+                return window.DialogResult == DialogResult.Yes;
+
+
+               
+            }
+
+
+        }
+
 
 
     }
 }
+
+
+
+
