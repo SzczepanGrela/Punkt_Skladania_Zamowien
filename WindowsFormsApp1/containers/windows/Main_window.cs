@@ -85,20 +85,6 @@ namespace WindowsFormsApp1
         }
     }
 
-    private void TopBarPanel_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void Panel1_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void MainPanel_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
 
 
     private void Main_window_Load(object sender, EventArgs e)

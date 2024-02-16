@@ -58,10 +58,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         }
 
-        private void cartPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+   
 
 
         protected virtual void OnPriceChanged(object sender, EventArgs e)
@@ -126,10 +123,7 @@ namespace WindowsFormsApp1.controls.usercontrols
             cartPanel.Controls.Add(EmptyCartPanel);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void payButton_Click_1(object sender, EventArgs e)
         {

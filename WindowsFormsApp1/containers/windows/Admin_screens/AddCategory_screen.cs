@@ -65,10 +65,7 @@ namespace WindowsFormsApp1.containers.windows.Admin_screens
             
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 
 }

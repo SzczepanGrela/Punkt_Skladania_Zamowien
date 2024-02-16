@@ -56,7 +56,6 @@
             // 
             this.split.Panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.split.Panel1.Controls.Add(this.pictureBox);
-            this.split.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // split.Panel2
             // 
@@ -123,7 +122,6 @@
             this.priceLabel.TabIndex = 1;
             this.priceLabel.Text = "$420.69";
             this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.priceLabel.Click += new System.EventHandler(this.priceLabel_Click);
             // 
             // Item_view
             // 

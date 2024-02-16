@@ -52,7 +52,6 @@ namespace WindowsFormsApp1
             this.TopBarPanel.Name = "TopBarPanel";
             this.TopBarPanel.Size = new System.Drawing.Size(596, 77);
             this.TopBarPanel.TabIndex = 7;
-            this.TopBarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopBarPanel_Paint);
             // 
             // cartButton
             // 

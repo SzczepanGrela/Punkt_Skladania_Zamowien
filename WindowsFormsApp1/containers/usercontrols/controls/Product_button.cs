@@ -75,24 +75,6 @@ namespace WindowsFormsApp1.controls.usercontrols.controls
 
         }
 
-        private void Item_view_load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-
-        private void priceLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
 
 
         public void ProductButton_Click(object sender, EventArgs e)

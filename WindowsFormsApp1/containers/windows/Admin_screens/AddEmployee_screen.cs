@@ -118,10 +118,7 @@ namespace WindowsFormsApp1.containers.windows.Admin_screens
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
 
         private void ClearAllBoxes()

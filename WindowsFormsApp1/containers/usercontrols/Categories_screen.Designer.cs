@@ -43,7 +43,6 @@
             this.lookinforLabel.TabIndex = 1;
             this.lookinforLabel.Text = "What are you looking for?";
             this.lookinforLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lookinforLabel.Click += new System.EventHandler(this.lookinforLabel_Click);
             // 
             // categoriesPanel
             // 

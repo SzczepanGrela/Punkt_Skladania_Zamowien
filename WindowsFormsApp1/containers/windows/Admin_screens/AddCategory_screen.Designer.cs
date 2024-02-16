@@ -82,7 +82,6 @@
             this.TestableCheckBox.Size = new System.Drawing.Size(15, 14);
             this.TestableCheckBox.TabIndex = 32;
             this.TestableCheckBox.UseVisualStyleBackColor = true;
-            this.TestableCheckBox.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // AddCategory_screen
             // 

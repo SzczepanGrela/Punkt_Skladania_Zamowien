@@ -58,24 +58,6 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         }
 
-        private void categoriesTable_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tablePanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lookinforLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-       
-
 
     }
 }

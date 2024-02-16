@@ -44,7 +44,6 @@
             this.welcomeLabel.TabIndex = 2;
             this.welcomeLabel.Text = "Hi (name)";
             this.welcomeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.welcomeLabel.Click += new System.EventHandler(this.label3_Click);
             // 
             // loginButton
             // 

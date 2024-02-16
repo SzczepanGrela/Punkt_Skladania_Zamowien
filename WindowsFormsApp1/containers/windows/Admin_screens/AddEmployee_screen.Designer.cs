@@ -151,7 +151,6 @@
             this.ContactTextBox.Name = "ContactTextBox";
             this.ContactTextBox.Size = new System.Drawing.Size(625, 29);
             this.ContactTextBox.TabIndex = 22;
-            this.ContactTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label6
             // 

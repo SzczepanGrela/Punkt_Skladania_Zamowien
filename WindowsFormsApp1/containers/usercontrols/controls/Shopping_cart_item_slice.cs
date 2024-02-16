@@ -56,14 +56,9 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
 
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
+       
 
-        }
-
-        private void quantity_panel1_Load(object sender, EventArgs e)
-        {
-        }
+       
 
         public void SetCartItem()
         {

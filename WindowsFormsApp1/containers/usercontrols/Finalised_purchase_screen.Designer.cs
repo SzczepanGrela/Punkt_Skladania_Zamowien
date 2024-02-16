@@ -73,7 +73,6 @@
             this.seeyouLabel.TabIndex = 8;
             this.seeyouLabel.Text = "Hope we\'ll see you again!";
             this.seeyouLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.seeyouLabel.Click += new System.EventHandler(this.seeyouLabel_Click);
             // 
             // returnMainButton
             // 

@@ -33,9 +33,6 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         }
 
-        private void seeyouLabel_Click(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }
