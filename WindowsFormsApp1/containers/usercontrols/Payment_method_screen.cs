@@ -66,15 +66,24 @@ namespace WindowsFormsApp1.controls.usercontrols
             string query = $"SELECT * FROM GiftCards WHERE GiftCardCode = '{enteredCode}' ;";
 
             List<GiftCard> giftCards_matching_code = dbm.ExecuteQuery(query, GiftCard.MapToGiftCard);
+            GiftCard giftCard = giftCards_matching_code[0];
+            try
+            {
+                if (giftCards_matching_code.Count > 1) throw new Exception("More than one gift card with the same code");
+                else if (giftCards_matching_code.Count == 0) OpenPopup(new Popup_window_ok("GiftCard not found in database"));
+                else PaymentAccepeted = GiftCardPayment(giftCard);
 
-            if (giftCards_matching_code.Count > 1) throw new Exception("More than one gift card with the same code");
-            else if (giftCards_matching_code.Count == 0) OpenPopup(new Popup_window_ok("GiftCard not found in database"));
-            else PaymentAccepeted = GiftCardPayment(giftCards_matching_code[0]);
-
-
+            }catch (Exception ex)
+            {
+                OpenPopup(new Popup_window_ok(ex.Message));
+                PaymentAccepeted = false;   ;
+            }
             if (PaymentAccepeted)
             {
                 RegisterTransaction();
+                UpdateCartStatus();
+                ChargeGiftCard(giftCard);
+                localCart.GetShoppingCart().RemoveItemsFromStock();
                 localCart.ClearCarts();  // Clear both carts
 
                 Popup_window_ok popup = new Popup_window_ok("Your card has been charged");
@@ -82,10 +91,15 @@ namespace WindowsFormsApp1.controls.usercontrols
 
                 if (popup.DialogResult == DialogResult.OK)
                 {
-                   
+
 
                     MainPanel_screen.Open(new Finalised_purchase_screen());
                 }
+            }
+            else
+            {
+                Popup_window_ok popup = new Popup_window_ok("Transaction failed");
+                OpenPopup(popup);
             }
 
 
@@ -103,9 +117,14 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             dbm.InsertObjectGetID(currentTransaction, "Transactions", Transaction.MapTransactionToSqlParameters);
 
-            UpdateCartStatus();
 
 
+        }
+
+        private void ChargeGiftCard(GiftCard giftCard)
+        {
+            DatabaseManager dbm = DatabaseManager.GetInstance();
+            dbm.ExecuteCommand(true, "GiftCards", new string[] { "Value" }, new string[] { (giftCard.Debit - DiscountPrice).ToString(CultureInfo.InvariantCulture) }, $"GiftCardCode = '{giftcardTextbox.Text}'");
         }
 
 

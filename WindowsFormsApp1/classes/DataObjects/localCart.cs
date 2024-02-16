@@ -30,7 +30,7 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         public void AddtoCart(CartItem item)
         {
-           item.addToCart(ID);
+           
 
             if (ProductsList.ContainsKey(item.ProductID))
             {
@@ -116,7 +116,6 @@ namespace WindowsFormsApp1.classes.DataObjects
                 Shopping = new localCart();
 
                 
-                
             }
             return Shopping;
         }
@@ -155,6 +154,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             
 
         }
+
 
        
 

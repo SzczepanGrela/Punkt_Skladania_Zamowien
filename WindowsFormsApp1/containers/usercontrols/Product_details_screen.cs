@@ -97,11 +97,12 @@ namespace WindowsFormsApp1.controls.usercontrols
         }
 
         private void Buying(object sender, EventArgs e)
-        { 
-            if(quantity_panel.GetQuantity() == 0) return;
-
+        {
             int quantity = quantity_panel.GetQuantity();
 
+            if (quantity_panel.GetQuantity() == 0 || product.StockQuantity <1) return;
+
+            
              
             localCart.GetShoppingCart().AddtoCart(this.product, quantity);
 
@@ -161,9 +162,6 @@ namespace WindowsFormsApp1.controls.usercontrols
                     Testing(this, EventArgs.Empty);
                 }
             }
-
-
-            
 
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
@@ -13,12 +14,9 @@ namespace WindowsFormsApp1.classes.DataObjects
     public class Cart : Object
     {
         
-        //protected static Dictionary<int, int> ProductsList = new Dictionary<int, int>();
+       
 
-       /* protected Dictionary <Product,int> ProductsList = new Dictionary<Product, int>();
-        protected List <CartItem> Items = new List <CartItem> ();*/
-
-        private  List<CartItem> Items { get; set; }
+        
 
         protected Dictionary<int, CartItem> ProductsList = new Dictionary<int, CartItem>();
 
@@ -50,7 +48,7 @@ namespace WindowsFormsApp1.classes.DataObjects
 
                 query =$"select * from CartItems inner join products on CartItems.ProductID = Products.ID where CartID = {ID}";
 
-                Items = dbm.ExecuteQuery<CartItem>(query, CartItem.MapToCartItem);
+                List<CartItem>  Items = dbm.ExecuteQuery<CartItem>(query, CartItem.MapToCartItem);
 
                 ProductsList = Items.ToDictionary(item => item.ProductID);
 
@@ -65,7 +63,7 @@ namespace WindowsFormsApp1.classes.DataObjects
                 CustomerID = customerID;
                 CreatedDate = DateTime.Now;
                 Status = "Active";
-                dbm.InsertObject(this, "Carts", MapCartToSqlParameters);
+                ID=dbm.InsertObjectGetID(this, "Carts", MapCartToSqlParameters);
             }
         }
 
@@ -101,6 +99,14 @@ namespace WindowsFormsApp1.classes.DataObjects
             return ProductsList;
         }
 
+        internal void RemoveItemsFromStock()
+        {
+          DatabaseManager dbm = DatabaseManager.GetInstance();
 
+            foreach(KeyValuePair<int,CartItem> item in this.ProductsList)
+            {
+                dbm.ExecuteCommand(true, "Products", new string[] { "StockQuantity" }, new string[] { $"StockQuantity - {item.Value.Quantity}" }, $"ID = {item.Value.ProductID}");
+            }
+        }
     }
 }

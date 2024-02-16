@@ -70,9 +70,11 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
                 Name = "CategoryName",
                 Size = new Size(150, 150),
                 TabIndex = 1,
-                Text = name, // Zakładam, że 'name' to zmienna zawierająca tekst do wyświetlenia
-                TextAlign = ContentAlignment.MiddleCenter
+                Text = name, 
+                TextAlign = ContentAlignment.MiddleCenter,
+                
             };
+            CategoryName.Click += new EventHandler(CategoryButton_Click);
         }
 
         private void CategoryButton_Click(object sender, EventArgs e)

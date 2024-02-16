@@ -39,8 +39,6 @@ namespace WindowsFormsApp1.controls.usercontrols
             else
             {
 
-
-
                 List<Testing_cart_item_slice> itemsList = Testing_cart_item_slice.createTesting_cart_item_slices(products);
                 AddSlicestoPanel(itemsList.ToArray(), cartPanel);
 

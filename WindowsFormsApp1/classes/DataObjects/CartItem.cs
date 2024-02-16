@@ -30,6 +30,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             Image = product.Image;
             Quantity = quantity;
             CartID = localCart.GetShoppingCart().ID;
+            CategoryID = product.CategoryID;
         }
 
         private CartItem()  // cant be created from outside
