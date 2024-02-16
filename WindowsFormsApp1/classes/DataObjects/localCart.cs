@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsFormsApp1.classes.FileOperations;
 
 namespace WindowsFormsApp1.classes.DataObjects
 {
@@ -11,67 +12,90 @@ namespace WindowsFormsApp1.classes.DataObjects
     {
         private localCart()   // cant be createed from outside
         {
+
+
         }
 
         // double singleton 
 
        private static localCart Shopping = null;
+        
        private static localCart Testing = null;
 
+       
 
-        public void AddtoCart(int itemID, int quantity)
+
+        private static DatabaseManager dbm = DatabaseManager.GetInstance();
+
+
+        public void AddtoCart(CartItem item)
         {
+           item.addToCart(ID);
 
-
-            if (ProductsList.ContainsKey(itemID))
+            if (ProductsList.ContainsKey(item.ProductID))
             {
-                ProductsList[itemID] += quantity;
+                ProductsList[item.ProductID].newQuantity(item.Quantity);
 
             }
-            else ProductsList.Add(itemID, quantity);
+            else ProductsList.Add(item.ProductID, item);
 
         }
-
-        public void RemovefromCart(int itemID)
+        public void AddtoCart(Product product, int quantity)
         {
-            if (ProductsList.ContainsKey(itemID))
+            AddtoCart(new CartItem(product, quantity));
+        }
+
+
+
+
+        public void RemovefromCart(CartItem item)
+        {
+            if (ProductsList.ContainsKey(item.ProductID))
             {
-                ProductsList.Remove(itemID);
+                ProductsList.Remove(item.ProductID);
                 
             }
         }
 
-        public void UpdateCart(int itemID, int quantity)
+        public void RemovefromCart(int productID)
         {
-            if (ProductsList.ContainsKey(itemID))
+            if (ProductsList.ContainsKey(productID))
             {
-                if (quantity == 0)
+                ProductsList.Remove(productID);
+            }
+        }
+
+
+
+
+        public void UpdateCart(CartItem item)
+        {
+            if (ProductsList.ContainsKey(item.ProductID))
+            {
+                if (item.Quantity<=0)
                 {
-                    ProductsList.Remove(itemID);
+                    ProductsList.Remove(item.ProductID);
                 }
                 else
                 {
-                    ProductsList[itemID] = quantity;
+                    ProductsList[item.ProductID].newQuantity(item.Quantity);
                 }
                 
             }
             else
             {
-                ProductsList.Add(itemID, quantity);
+                ProductsList.Add(item.ProductID, item);
             }
         }
 
-        public Dictionary<int, int> GetProducts()
-        {
-            return ProductsList;
-        }
+       
 
         public void ClearCart()
         {
             ProductsList.Clear();
         }
 
-        public void ReplaceProducts(Dictionary<int,int> newCart)
+        public void ReplaceProducts(Dictionary<int, CartItem> newCart)
         {
             ProductsList = newCart;
         }
@@ -90,14 +114,49 @@ namespace WindowsFormsApp1.classes.DataObjects
             if (Shopping == null)
             {
                 Shopping = new localCart();
+
+                
+                
             }
             return Shopping;
         }
 
         internal static void ClearCarts()
         {
-            Testing.ClearCart();
-            Shopping.ClearCart();
+            if (Testing != null) Testing.ClearCart();
+            if(Shopping != null) Shopping.ClearCart();
         }
+
+        internal static void MergeShoppingCarts(Cart cart)
+        {
+            foreach(var item in cart.GetProducts())
+            {
+                Shopping.AddtoCart(item.Value);
+            }
+        }
+
+        public static int GetShoppingCartID()
+        {
+            return Shopping.ID;
+        }
+
+       
+        public static void Login(int CustomerID)
+        {
+            GetShoppingCart();   // creates a new cart if it doesnt exist
+
+            Shopping.CustomerID = CustomerID;
+
+            Cart recentCart = new Cart(CustomerID);
+
+            Shopping.ID = recentCart.ID;
+
+            localCart.MergeShoppingCarts(recentCart);
+            
+
+        }
+
+       
+
     }
 }

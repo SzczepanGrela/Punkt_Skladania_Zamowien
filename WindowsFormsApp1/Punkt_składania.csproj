@@ -66,6 +66,7 @@
     <Compile Include="classes\BaseUserControl.Designer.cs">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="classes\DataObjects\CartItem.cs" />
     <Compile Include="classes\DataObjects\Employee.cs" />
     <Compile Include="classes\DataObjects\GiftCard.cs" />
     <Compile Include="classes\DataObjects\Object.cs" />
@@ -171,6 +172,12 @@
     </Compile>
     <Compile Include="containers\windows\Popup_window_AdminLogin.Designer.cs">
       <DependentUpon>Popup_window_AdminLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="containers\windows\Popup_window_CustomerAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="containers\windows\Popup_window_CustomerAccount.Designer.cs">
+      <DependentUpon>Popup_window_CustomerAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="containers\windows\Popup_window_EmployeeLogin.cs">
       <SubType>Form</SubType>
@@ -286,9 +293,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\Shopping_cart_item_slice.resx">
       <DependentUpon>Shopping_cart_item_slice.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\Category_button.resx">
       <DependentUpon>Category_button.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\Quantity_panel.resx">
       <DependentUpon>Quantity_panel.cs</DependentUpon>
@@ -298,6 +307,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\Testing_cart_item_slice.resx">
       <DependentUpon>Testing_cart_item_slice.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\MainPanel_screen.resx">
       <DependentUpon>MainPanel_screen.cs</DependentUpon>
@@ -326,6 +336,9 @@
     <EmbeddedResource Include="containers\windows\Popup_window_AdminLogin.resx">
       <DependentUpon>Popup_window_AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="containers\windows\Popup_window_CustomerAccount.resx">
+      <DependentUpon>Popup_window_CustomerAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="containers\windows\Popup_window_EmployeeLogin.resx">
       <DependentUpon>Popup_window_EmployeeLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -340,6 +353,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\Product_button.resx">
       <DependentUpon>Product_button.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\Finalised_purchase_screen.resx">
       <DependentUpon>Finalised_purchase_screen.cs</DependentUpon>
@@ -349,6 +363,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\Product_details_screen.resx">
       <DependentUpon>Product_details_screen.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\Questionnaire_screen.resx">
       <DependentUpon>Questionnaire_screen.cs</DependentUpon>

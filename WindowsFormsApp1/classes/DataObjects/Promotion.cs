@@ -38,7 +38,7 @@ namespace WindowsFormsApp1.classes.DataObjects
         {
             return new Promotion
             {
-                ID = reader.GetInt32(reader.GetOrdinal("PromotionID")),
+                ID = reader.GetInt32(reader.GetOrdinal("ID")),
                 Name = reader.IsDBNull(reader.GetOrdinal("Name")) ? null : reader.GetString(reader.GetOrdinal("Name")),
                 Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? null : reader.GetString(reader.GetOrdinal("Description")),
                 DiscountType=reader.IsDBNull(reader.GetOrdinal("DiscountTypeId")) ? 0 : reader.GetInt32(reader.GetOrdinal("DiscountTypeId")),

@@ -20,15 +20,13 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 {
     public partial class Shopping_cart_item_slice : UserControl
     {
-
-        private decimal Price;
-        private decimal TotalPrice;
-        private int Quantity;
+        private CartItem sliceProduct;
+        
 
         public int ID { get; private set; }
         public decimal getTotalPrice()
         {
-            return this.TotalPrice;
+            return getQuanitity() * sliceProduct.Price;
         }
 
         public int getQuanitity()
@@ -45,17 +43,18 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         }
 
 
-        public Shopping_cart_item_slice(Product product, int quantity)
+        public Shopping_cart_item_slice(Product product, int quantity) : this(new CartItem(product, quantity)){}
+
+        public Shopping_cart_item_slice(CartItem product)
         {
             InitializeComponent();
             
-            this.Price = product.Price;
-            this.Quantity = quantity;
-            this.TotalPrice = Price * Quantity;
-            
-            SetCartItem(product.StockQuantity, product.Name, product.Image);
+            this.sliceProduct = product;
+            SetCartItem();
             this.quantity_panel.QuantityChanged += this.OnQuantityChanged;
         }
+
+
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -66,12 +65,15 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         {
         }
 
-        public void SetCartItem(int inStock, string name, byte[] image)
+        public void SetCartItem()
         {
             
-            this.priceLabel.Text = this.TotalPrice.ToString() + "zł";
-            if (name != null) this.nameLabel.Text = name;
-            if (image != null) this.pictureBox1.Image = System.Drawing.Image.FromStream(new System.IO.MemoryStream(image));
+            this.priceLabel.Text = (this.sliceProduct.Price * this.sliceProduct.Quantity) + "zł";
+            if (sliceProduct.Name != null) this.nameLabel.Text = sliceProduct.Name;
+ 
+            if (sliceProduct.Image != null) this.pictureBox1.Image = System.Drawing.Image.FromStream(new System.IO.MemoryStream(sliceProduct.Image));
+
+
         }
 
       
@@ -79,27 +81,24 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
         
 
-        public static List<Shopping_cart_item_slice> createCart_item_slices(Dictionary<int, int> productIDsDictionary)
+        public static List<Shopping_cart_item_slice> createCart_item_slices(Dictionary<int, CartItem> CartList)
         {
-            DatabaseManager dbm = DatabaseManager.GetInstance();
+            
+
+            
 
 
-            List<int> IDs = productIDsDictionary.Keys.ToList();
+            List<CartItem> Items =  CartList.Values.ToList();
+            
 
 
-            string query = $"Select * FROM Products WHERE ID IN ({string.Join(",", IDs)})";  
+             List <Shopping_cart_item_slice> slices =  new List<Shopping_cart_item_slice>();
 
-
-            List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoSlice);
-
-
-             List < Shopping_cart_item_slice> slices =  new List<Shopping_cart_item_slice>();
-
-            foreach (Product product in products)
+            foreach (CartItem product in Items)
             {
-                int quantity = productIDsDictionary[product.ID];
-                Shopping_cart_item_slice slice = new Shopping_cart_item_slice(product, quantity);
-                slice.quantity_panel.setPanel(product.StockQuantity, quantity);
+                
+                Shopping_cart_item_slice slice = new Shopping_cart_item_slice(product);
+                slice.quantity_panel.setPanel(product.StockQuantity, product.Quantity);
                
                 slices.Add(slice);
                
@@ -112,12 +111,14 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
        
         protected virtual void OnQuantityChanged(object sender, EventArgs e)
         {
-            this.Quantity = this.quantity_panel.getQuantity();
-            this.TotalPrice = this.Price * this.Quantity;
+            
+            sliceProduct.newQuantity(getQuanitity());
+
+            decimal TotalPrice = sliceProduct.TotalPrice;
 
             this.priceLabel.Text = TotalPrice.ToString() + "zł";
 
-            localCart.GetShoppingCart().UpdateCart(ID, Quantity);
+            localCart.GetShoppingCart().UpdateCart(sliceProduct);
           
             OnPriceChanged(this, EventArgs.Empty);  // poor way of handing over the event to the parent
         }
@@ -131,6 +132,14 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             {
                 PriceChanged(this, EventArgs.Empty);
             }
+        }
+
+
+
+
+        public CartItem returnCartItem()
+        {
+            return sliceProduct;
         }
         
 

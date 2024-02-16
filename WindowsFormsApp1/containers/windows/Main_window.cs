@@ -27,6 +27,8 @@ namespace WindowsFormsApp1
         
         private static Main_window instance;
 
+        private bool default_user = true;
+
         private static Customer loggedCustomer;
         public Main_window()
         {
@@ -34,9 +36,7 @@ namespace WindowsFormsApp1
 
 
             this.Load += new EventHandler(Main_window_Load);
-            //pf = new Panel_form(MainPanel);
-
-          //ResetMenu(this.MainPanel);
+            
 
         }
 
@@ -62,6 +62,9 @@ namespace WindowsFormsApp1
         {
 
             DialogResult loginStatus = Main_window.OpenPopup(new Popup_window_CustomerLogin());
+
+            
+           
         }
 
         private static void HomeButton_Click(object sender, EventArgs e)
@@ -98,7 +101,7 @@ namespace WindowsFormsApp1
 
         private void Main_window_Load(object sender, EventArgs e)
         {
-            LogOut();
+            Log_Out();
             
 
         }
@@ -145,18 +148,30 @@ namespace WindowsFormsApp1
 
         }
 
-        private void LogOut()
+        private void Log_Out()
         {
-            loggedCustomer = new Customer(202);
+            Log_In(199);
+
+            default_user = true;
+
+            CartItem.UpdateItemsinDB();
+            localCart.ClearCarts();
+            // logging out makes you log in into default account
         }
 
         internal void Log_In(int customerID)
         {
+             default_user = false;
              loggedCustomer = new Customer(customerID);
+              
+            localCart.Login(customerID);
 
-            DatabaseManager dbm = DatabaseManager.GetInstance();
+            
+        }
 
-
+        internal static int GetLoggedCustomerID()
+        {
+            return loggedCustomer.ID;
         }
     }
 }

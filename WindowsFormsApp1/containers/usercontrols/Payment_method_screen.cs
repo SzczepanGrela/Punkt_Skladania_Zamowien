@@ -59,7 +59,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void checkCodeButton_Click(object sender, EventArgs e)
         {
-            DatabaseManager dbm = DatabaseManager.GetInstance();
+          
             string enteredCode = giftcardTextbox.Text;
             string query = $"SELECT * FROM GiftCards WHERE GiftCardCode = '{enteredCode}' ;";
 
@@ -113,29 +113,30 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void registerTransaction()
         {
-          /*  DatabaseManager dbm = DatabaseManager.GetInstance();
-
            
-            Cart currentCart = localCart.GetCart();
+            Cart currentCart = localCart.GetShoppingCart();
 
 
-            dbm.ExecuteCommand(true, "GiftCards", columns, values, $"GiftCardCode = '{giftcardTextbox.Text}'");
+            Transaction currentTransaction = new Transaction(localCart.GetShoppingCartID(), discountPrice, DateTime.Now, "GiftCard");
 
+            dbm.InsertObjectGetID(currentTransaction, "Transactions", Transaction.MapTransactionToSqlParameters);
 
+            updateCartStatus();
 
-            columns = new string[] {"CustomerID", "CreatedDate","Status"};
-            values = new string[] {$"199", $"GETDATE()", $"'Completed'" } ;  //199 is the ID of OrderHub, when user is not logged in
-
-
-            int CartID = dbm.ExecuteCommandGetID("Carts","CartID",columns,values)[0];
-
-            columns = new string[] { "CartID", "PriceAtPurchase", "TransactionDate" };
-            values = new string[]  { $"{CartID}", $"{discountPrice}".Replace(',', '.'), $"GETDATE()" } ;   
-
-            
-            dbm.ExecuteCommand(false,"Transactions",columns,values,"");   //false means it's not an update.*/
             
         }
+
+
+        private void updateCartStatus()
+        {
+            int loggedCustomerID = Main_window.GetLoggedCustomerID();
+
+            dbm.ExecuteCommand(true, "Carts", new string[] { "Status" }, new string[] { "'Completed'" }, $"ID = {localCart.GetShoppingCartID()}");
+
+        }
+
+
+
 
     }
 }

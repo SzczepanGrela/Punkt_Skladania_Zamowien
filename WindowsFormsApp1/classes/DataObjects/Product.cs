@@ -12,15 +12,15 @@ namespace WindowsFormsApp1.classes.DataObjects
         // Fields accessiible from outside, modifable only from the insdee
 
 
-        public Decimal Price { get; private set; }
+        public Decimal Price { get; protected set; }
 
-        public string Description { get; private set; }
+        public string Description { get; protected set; }
 
-        public int CategoryID { get; private set; }
+        public int CategoryID { get; protected set; }
 
-        public int StockQuantity { get; private set; }
+        public int StockQuantity { get; protected set; }
 
-        public byte[] Image { get; private set; }
+        public byte[] Image { get; protected set; }
 
 
 
@@ -43,7 +43,16 @@ namespace WindowsFormsApp1.classes.DataObjects
 
 
 
-
+        public Product(int id, string name, Decimal price, string description, int categoryID, int stockQuantity, byte[] image)
+        {
+            ID = id;
+            Name = name;
+            Price = price;
+            Description = description;
+            CategoryID = categoryID;
+            StockQuantity = stockQuantity;
+            Image = image;
+        }
 
 
 
@@ -82,7 +91,7 @@ namespace WindowsFormsApp1.classes.DataObjects
 
 
 
-        public static Product MaptoSlice(SqlDataReader reader)    // same but woth slices
+        public static Product MaptoProductSlice(SqlDataReader reader)    // same but woth slices
         {
             return new Product
             {

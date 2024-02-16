@@ -18,6 +18,8 @@ namespace WindowsFormsApp1.classes.DataObjects
 
 
 
+
+
         public static GiftCard MapToGiftCard(SqlDataReader reader)
         {
             return new GiftCard

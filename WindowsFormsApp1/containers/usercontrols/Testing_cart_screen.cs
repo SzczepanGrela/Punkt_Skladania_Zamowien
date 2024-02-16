@@ -19,8 +19,8 @@ namespace WindowsFormsApp1.controls.usercontrols
     public partial class Testing_cart_screen : BaseUserControl
     {
 
-        private List<int> products = localCart.GetTestingCart().GetProducts().Keys.ToList();
-        private List<int> checkedProducts = new List<int>();
+        private List<CartItem> products = localCart.GetTestingCart().GetProducts().Values.ToList();
+        private List<Testing_cart_item_slice> checkedSlices = new List<Testing_cart_item_slice>();
 
         public Testing_cart_screen()
         {
@@ -38,6 +38,9 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             else
             {
+
+
+
                 List<Testing_cart_item_slice> itemsList = Testing_cart_item_slice.createTesting_cart_item_slices(products);
                 AddSlicestoPanel(itemsList.ToArray(), cartPanel);
 
@@ -119,7 +122,7 @@ namespace WindowsFormsApp1.controls.usercontrols
             popup.OpenPopup();
             if (popup.DialogResult == DialogResult.OK)
             {
-                MainPanel_screen.Open(new Test_decision_screen(checkedProducts));
+                MainPanel_screen.Open(new Test_decision_screen(checkedSlices));
             }
         }
 
@@ -127,13 +130,13 @@ namespace WindowsFormsApp1.controls.usercontrols
         private int CountChecked()
         {
             int itemsSelected = 0;
-            checkedProducts.Clear();
+            checkedSlices.Clear();
             foreach(Testing_cart_item_slice slice in cartPanel.Controls)
             {
                 if (slice.checkedState)
                 {
                     itemsSelected++;
-                    checkedProducts.Add(slice.ID);
+                    checkedSlices.Add(slice);
 
                 }
             }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace WindowsFormsApp1.classes.DataObjects
     {
         
 
-        
+        DatabaseManager dbm = DatabaseManager.GetInstance();
         private string Username { get; set; }
 
         private string Password { get; set; }
@@ -45,8 +46,37 @@ namespace WindowsFormsApp1.classes.DataObjects
             this.ID = personID;
         }
 
+        public Customer(Customer customeerToCopy)
+        {
+
+            this.CustomerID = customeerToCopy.CustomerID;
+            this.Username = customeerToCopy.Username;
+            this.Password = customeerToCopy.Password;
+            this.CardID = customeerToCopy.CardID;
+            this.ID = customeerToCopy.ID;
+            this.Name = customeerToCopy.Name;
+            this.LastName = customeerToCopy.LastName;
+            this.ContactInfo = customeerToCopy.ContactInfo;
+
+        }
+
+
+
+
         public Customer(int CustomerID)
         {
+           
+            string query = " SELECT * FROM Customers inner join Persons on Customers.PersonID = Persons.ID WHERE CustomerID = " + CustomerID;
+
+            Customer customeerToCopy = dbm.ExecuteQuery<Customer>(query, MapToCustomer)[0];
+            this.CustomerID = customeerToCopy.CustomerID;
+            this.Username = customeerToCopy.Username;
+            this.Password = customeerToCopy.Password;
+            this.CardID = customeerToCopy.CardID;
+            this.ID = customeerToCopy.ID;
+            this.Name = customeerToCopy.Name;
+            this.LastName = customeerToCopy.LastName;
+            this.ContactInfo = customeerToCopy.ContactInfo;
 
         }
 
@@ -92,12 +122,22 @@ namespace WindowsFormsApp1.classes.DataObjects
         {
             return new Customer
             {
-               CustomerID = reader.GetInt32(reader.GetOrdinal("CustomerID")),
-               Name = reader.GetString(reader.GetOrdinal("FirstName")),
-               LastName = reader.GetString(reader.GetOrdinal("LastName")),
                
+
+               CustomerID = reader.IsDBNull(reader.GetOrdinal("CustomerID")) ? 0 : reader.GetInt32(reader.GetOrdinal("CustomerID")),
+               CardID = reader.IsDBNull(reader.GetOrdinal("CardID")) ? null : reader.GetString(reader.GetOrdinal("CardID")),
+               ID = reader.GetInt32(reader.GetOrdinal("PersonID")),
+               Name = reader.IsDBNull(reader.GetOrdinal("Name")) ? null : reader.GetString(reader.GetOrdinal("Name")),
+               LastName = reader.IsDBNull(reader.GetOrdinal("LastName")) ? null : reader.GetString(reader.GetOrdinal("LastName")),
+               ContactInfo = reader.IsDBNull(reader.GetOrdinal("ContactInfo")) ? null : reader.GetString(reader.GetOrdinal("ContactInfo"))
+
+
+
             };
         }
+
+
+
        
 
 

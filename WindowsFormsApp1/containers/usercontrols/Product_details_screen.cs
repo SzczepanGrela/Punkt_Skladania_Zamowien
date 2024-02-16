@@ -14,6 +14,7 @@ using WindowsFormsApp1.classes.DataObjects;
 using static System.Net.Mime.MediaTypeNames;
 using WindowsFormsApp1.containers.usercontrols;
 using WindowsFormsApp1.controls.forms;
+using System.Security.Cryptography.X509Certificates;
 
 namespace WindowsFormsApp1.controls.usercontrols
 {
@@ -24,12 +25,13 @@ namespace WindowsFormsApp1.controls.usercontrols
         bool testscreen;
         int ProductID;
 
+        Product product;
 
         public Product_details_screen(int ProductID, bool testscreen)
         {
             InitializeComponent();
 
-            query = $"SELECT * FROM Products where ID = {ProductID};";
+            
             this.testscreen = testscreen;
             this.ProductID = ProductID;
             this.Load += new EventHandler(Product_details_screen_Load);
@@ -40,6 +42,8 @@ namespace WindowsFormsApp1.controls.usercontrols
         {
             this.Size = this.Parent.Size;
 
+            query = $"SELECT * FROM Products where ID = {ProductID};";
+
             List<Product> products = dbm.ExecuteQuery<Product>(query, Product.MaptoDetail);
            
 
@@ -47,7 +51,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             if (products.Count == 1)
             {
-                Product product = products[0];
+                this.product = products[0];
 
                 if (product.Name != null) nameLabel.Text = product.Name;
                 if (product.Description != null) descriptionTextBox.Text = product.Description;
@@ -97,8 +101,9 @@ namespace WindowsFormsApp1.controls.usercontrols
             if(quantity_panel.getQuantity() == 0) return;
 
             int quantity = quantity_panel.getQuantity();
-            
-            localCart.GetShoppingCart().AddtoCart(ProductID, quantity);
+
+             
+            localCart.GetShoppingCart().AddtoCart(this.product, quantity);
 
             if (previousScreens.Peek() is Shopping_cart_screen) return;
 
@@ -107,7 +112,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void testing(object sender, EventArgs e)
         {
-            localCart.GetShoppingCart().AddtoCart(ProductID, 1);
+            localCart.GetTestingCart().AddtoCart(product, 1);
             if (previousScreens.Peek() is Testing_cart_screen) return;
 
             MainPanel_screen.Open(new Testing_cart_screen());
@@ -119,14 +124,14 @@ namespace WindowsFormsApp1.controls.usercontrols
 
             if (testscreen)
             {
-                localCart.GetTestingCart().AddtoCart(ProductID, quantity_panel.getQuantity());
+                localCart.GetTestingCart().AddtoCart(product, quantity_panel.getQuantity());
                 Popup_window_ok popup = new Popup_window_ok("Item added to the test cart");
                 popup.OpenPopup();
                
             }
             else
             {
-                localCart.GetShoppingCart().AddtoCart(ProductID, quantity_panel.getQuantity());
+                localCart.GetShoppingCart().AddtoCart(product, quantity_panel.getQuantity());
                 Popup_window_ok popup = new Popup_window_ok("Item added to the shopping cart");
                 popup.OpenPopup();
                 
@@ -157,6 +162,14 @@ namespace WindowsFormsApp1.controls.usercontrols
                 }
             }
 
+
+            
+
+        }
+
+        public Product returnProduct()
+        {
+            return product;
         }
     }
 }

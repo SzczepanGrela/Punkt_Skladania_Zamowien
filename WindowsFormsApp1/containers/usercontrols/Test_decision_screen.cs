@@ -19,8 +19,8 @@ namespace WindowsFormsApp1.controls.usercontrols
 {
     public partial class Test_decision_screen : BaseUserControl
     {
-        List<int> products;
-        public Test_decision_screen(List <int> checkedProducts)
+        List<Testing_cart_item_slice> products;
+        public Test_decision_screen(List <Testing_cart_item_slice> checkedProducts)
         {
             InitializeComponent();
 
@@ -37,9 +37,7 @@ namespace WindowsFormsApp1.controls.usercontrols
             else
             {
                
-                List<Testing_cart_item_slice> itemsList = Testing_cart_item_slice.createTesting_cart_item_slices(products);
-                
-                AddSlicestoPanel(itemsList.ToArray(), cartPanel);
+                AddSlicestoPanel(products.ToArray(), cartPanel);
             }
             
             
@@ -55,13 +53,20 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void buySelectedButton_Click(object sender, EventArgs e)
         {
-            foreach (int productID in products)
+            foreach (Testing_cart_item_slice testSlice in products)
             {
+                CartItem sliceToItem = testSlice.ReturnCartItem();
+
                 localCart cart = localCart.GetTestingCart();
-                cart.RemovefromCart(productID);
+
+                cart.RemovefromCart(sliceToItem);
                 
                 cart = localCart.GetShoppingCart();
-                cart.AddtoCart(productID, 1);
+
+                cart.AddtoCart(sliceToItem);
+
+                
+                
                 
             }
 

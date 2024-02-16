@@ -15,7 +15,23 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         protected DateTime TransactionDate { get; set; }
 
+        protected string PaymentMethod { get; set; }
 
+
+
+        public Transaction()
+        {
+        }
+
+        public Transaction(int CartID, decimal priceAtpruchase, DateTime PurchaseTime, string PaymentMethod)
+        {
+            this.PriceAtPurchase = priceAtpruchase;
+            this.CartID = CartID;
+            this.TransactionDate = PurchaseTime;
+            this.PaymentMethod = PaymentMethod;
+
+
+        }
 
 
 
@@ -25,7 +41,8 @@ namespace WindowsFormsApp1.classes.DataObjects
             {
                 new SqlParameter("@PriceAtPurchase", transaction.PriceAtPurchase),
                 new SqlParameter("@CartID", transaction.CartID),
-                new SqlParameter("@TransactionDate", transaction.TransactionDate)
+                new SqlParameter("@TransactionDate", transaction.TransactionDate),
+                new SqlParameter("@PaymentMethod", transaction.PaymentMethod)
 
             };
         }
