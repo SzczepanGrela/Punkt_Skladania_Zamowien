@@ -34,7 +34,7 @@ namespace WindowsFormsApp1.containers.usercontrols
 
         public static void Open(Control screen)
         {
-            screen.Size = getSize();
+            screen.Size = GetSize();
             previousScreens.Push(screen);
             screen.Dock = DockStyle.Fill;
             
@@ -50,7 +50,7 @@ namespace WindowsFormsApp1.containers.usercontrols
         }
 
 
-        public static MainPanel_screen getInstance()
+        public static MainPanel_screen GetInstance()
         {
             
             if (instance == null)
@@ -60,7 +60,7 @@ namespace WindowsFormsApp1.containers.usercontrols
             return instance;
         }
         
-        public static Size getSize()
+        public static Size GetSize()
         {
             return instance.Size;
         }

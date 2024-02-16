@@ -16,7 +16,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 {
     public partial class Testing_cart_item_slice : UserControl
     {
-       private CartItem sliceProduct { get; set; }
+       private CartItem SliceProduct { get; set; }
 
         public bool checkedState
         {
@@ -32,16 +32,16 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         public Testing_cart_item_slice(Product product)
         {
             InitializeComponent();
-           this.sliceProduct = new CartItem(product);
+           this.SliceProduct = new CartItem(product);
 
             this.Load += Testing_cart_item_slice_Load;
         }
 
         private void Testing_cart_item_slice_Load(object sender, EventArgs e)
         {
-            if(sliceProduct.Image!=null) this.pictureBox1.Image = System.Drawing.Image.FromStream(new System.IO.MemoryStream(sliceProduct.Image));
-            if(sliceProduct.Name!=null) this.nameLabel.Text = sliceProduct.Name;
-            this.priceLabel.Text = sliceProduct.Price.ToString() + "zł";
+            if(SliceProduct.Image!=null) this.pictureBox1.Image = System.Drawing.Image.FromStream(new System.IO.MemoryStream(SliceProduct.Image));
+            if(SliceProduct.Name!=null) this.nameLabel.Text = SliceProduct.Name;
+            this.priceLabel.Text = SliceProduct.Price.ToString() + "zł";
             
         }
 
@@ -65,14 +65,14 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         {
             localCart testCart = localCart.GetTestingCart();
 
-            testCart.RemovefromCart(this.sliceProduct);
+            testCart.RemovefromCart(this.SliceProduct);
             this.Dispose();
           
         }
 
         public CartItem ReturnCartItem()
         {
-            return new CartItem(sliceProduct, 1);
+            return new CartItem(SliceProduct, 1);
         }
     }
 }

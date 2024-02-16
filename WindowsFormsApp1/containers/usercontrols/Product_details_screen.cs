@@ -60,7 +60,7 @@ namespace WindowsFormsApp1.controls.usercontrols
                 priceLabel.Text = product.Price.ToString() + "zł";
                 if (priceLabel.Text.Length < 8) priceLabel.Text = " " + priceLabel.Text;
 
-                quantity_panel.setPanel(product.StockQuantity);
+                quantity_panel.SetPanel(product.StockQuantity);
 
             }
 
@@ -81,26 +81,26 @@ namespace WindowsFormsApp1.controls.usercontrols
                 
                 this.ChangeOfHeartLabel.Text = "Not sure yet?";
                 this.changeButton.Text = "BUY";
-                this.buyButton.Click += new EventHandler(testing);
+                this.buyButton.Click += new EventHandler(Testing);
                 
 
             }
             else
             {
-               this.changeButton.Click += new EventHandler(testing);
+               this.changeButton.Click += new EventHandler(Testing);
                 this.ChangeOfHeartLabel.Text = "Not sure yet?";
                 this.changeButton.Text = "TEST";
-                this.buyButton.Click += new EventHandler(buying);
+                this.buyButton.Click += new EventHandler(Buying);
             }
             
 
         }
 
-        private void buying(object sender, EventArgs e)
+        private void Buying(object sender, EventArgs e)
         { 
-            if(quantity_panel.getQuantity() == 0) return;
+            if(quantity_panel.GetQuantity() == 0) return;
 
-            int quantity = quantity_panel.getQuantity();
+            int quantity = quantity_panel.GetQuantity();
 
              
             localCart.GetShoppingCart().AddtoCart(this.product, quantity);
@@ -110,7 +110,7 @@ namespace WindowsFormsApp1.controls.usercontrols
             else MainPanel_screen.Open(new Shopping_cart_screen());
         }
 
-        private void testing(object sender, EventArgs e)
+        private void Testing(object sender, EventArgs e)
         {
             localCart.GetTestingCart().AddtoCart(product, 1);
             if (previousScreens.Peek() is Testing_cart_screen) return;
@@ -120,18 +120,18 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void CartButton_Click(object sender, EventArgs e)
         {
-            if (quantity_panel.getQuantity() == 0) return;  // prevention rfom adding 0 items to the cart
+            if (quantity_panel.GetQuantity() == 0) return;  // prevention rfom adding 0 items to the cart
 
             if (testscreen)
             {
-                localCart.GetTestingCart().AddtoCart(product, quantity_panel.getQuantity());
+                localCart.GetTestingCart().AddtoCart(product, quantity_panel.GetQuantity());
                 Popup_window_ok popup = new Popup_window_ok("Item added to the test cart");
                 popup.OpenPopup();
                
             }
             else
             {
-                localCart.GetShoppingCart().AddtoCart(product, quantity_panel.getQuantity());
+                localCart.GetShoppingCart().AddtoCart(product, quantity_panel.GetQuantity());
                 Popup_window_ok popup = new Popup_window_ok("Item added to the shopping cart");
                 popup.OpenPopup();
                 
@@ -148,7 +148,7 @@ namespace WindowsFormsApp1.controls.usercontrols
                 popup.OpenPopup();
                 if(popup.DialogResult == DialogResult.Yes)
                 {
-                   buying(this, EventArgs.Empty);
+                   Buying(this, EventArgs.Empty);
                 }
 
             }
@@ -158,7 +158,7 @@ namespace WindowsFormsApp1.controls.usercontrols
                 popup.OpenPopup();
                 if (popup.DialogResult == DialogResult.Yes)
                 {
-                    testing(this, EventArgs.Empty);
+                    Testing(this, EventArgs.Empty);
                 }
             }
 
@@ -167,7 +167,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         }
 
-        public Product returnProduct()
+        public Product ReturnProduct()
         {
             return product;
         }

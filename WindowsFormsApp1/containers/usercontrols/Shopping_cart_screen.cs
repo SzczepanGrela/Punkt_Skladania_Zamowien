@@ -48,7 +48,7 @@ namespace WindowsFormsApp1.controls.usercontrols
 
                 foreach (Shopping_cart_item_slice slice in itemsList)
                 {
-                    total += slice.getTotalPrice();
+                    total += slice.GetTotalPrice();
                     
                     slice.PriceChanged += this.OnPriceChanged;
                 }
@@ -75,7 +75,7 @@ namespace WindowsFormsApp1.controls.usercontrols
                 foreach (Shopping_cart_item_slice slice in cartPanel.Controls)
                 {
 
-                    total += slice.getTotalPrice();
+                    total += slice.GetTotalPrice();
 
                 }
                 this.priceValueLabel.Text = total.ToString() + "zł";
@@ -108,17 +108,22 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void EmptyCartMessage()
         {
-            Label label = new Label();
-            label.Text = "Your cart is empty";
-            label.Font = new Font("Arial", 20);
-            label.Dock = DockStyle.Fill;
-            label.TextAlign = ContentAlignment.MiddleCenter;
-            label.AutoSize = false;
-            Panel EmptyCartPanel = new Panel();  // possibly can add a picture here
 
-            label.Size = cartPanel.Size;
-            EmptyCartPanel.Size = cartPanel.Size;
+            Label label = new Label
+            {
+                Text = "Your cart is empty",
+                Font = new Font("Arial", 20),
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                AutoSize = false,
+                Size = cartPanel.Size // Zakładam, że 'cartPanel' to istniejąca kontrolka, z której pobierasz rozmiar
+            };
 
+
+
+            Panel EmptyCartPanel = new Panel { Size = cartPanel.Size };  // possibly can add a picture her later
+
+            
             EmptyCartPanel.Controls.Add(label);
             cartPanel.Controls.Add(EmptyCartPanel);
         }

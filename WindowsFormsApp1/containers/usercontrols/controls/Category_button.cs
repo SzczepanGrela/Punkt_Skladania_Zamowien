@@ -59,20 +59,20 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             }
 
 
-            Label CategoryName = new Label();
-            CategoryName.Parent = pictureBox;
-            CategoryName.BackColor = System.Drawing.Color.Transparent;
-            CategoryName.Dock = System.Windows.Forms.DockStyle.Fill;
-            CategoryName.Font = new System.Drawing.Font("Impact", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            CategoryName.ForeColor = Color.White;
-            CategoryName.Location = new System.Drawing.Point(0, 0);
-            CategoryName.Name = "CategoryName";
-            CategoryName.Size = new System.Drawing.Size(150, 150);
-            CategoryName.TabIndex = 1;
-            CategoryName.Text = name;
-            CategoryName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            CategoryName.Click += new EventHandler(CategoryButton_Click);
-
+            Label CategoryName = new Label
+            {
+                Parent = pictureBox,
+                BackColor = Color.Transparent,
+                Dock = DockStyle.Fill,
+                Font = new Font("Impact", 20F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(238))),
+                ForeColor = Color.White,
+                Location = new Point(0, 0),
+                Name = "CategoryName",
+                Size = new Size(150, 150),
+                TabIndex = 1,
+                Text = name, // Zakładam, że 'name' to zmienna zawierająca tekst do wyświetlenia
+                TextAlign = ContentAlignment.MiddleCenter
+            };
         }
 
         private void CategoryButton_Click(object sender, EventArgs e)

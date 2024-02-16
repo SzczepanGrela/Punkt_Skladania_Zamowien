@@ -24,14 +24,14 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         
 
         public int ID { get; private set; }
-        public decimal getTotalPrice()
+        public decimal GetTotalPrice()
         {
-            return getQuanitity() * sliceProduct.Price;
+            return GetQuanitity() * sliceProduct.Price;
         }
 
-        public int getQuanitity()
+        public int GetQuanitity()
         {
-            return this.quantity_panel.getQuantity();
+            return this.quantity_panel.GetQuantity();
         }
 
         
@@ -93,7 +93,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
             {
                 
                 Shopping_cart_item_slice slice = new Shopping_cart_item_slice(product);
-                slice.quantity_panel.setPanel(product.StockQuantity, product.Quantity);
+                slice.quantity_panel.SetPanel(product.StockQuantity, product.Quantity);
                
                 slices.Add(slice);
                
@@ -107,7 +107,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         protected virtual void OnQuantityChanged(object sender, EventArgs e)
         {
             
-            sliceProduct.newQuantity(getQuanitity());
+            sliceProduct.newQuantity(GetQuanitity());
 
             decimal TotalPrice = sliceProduct.TotalPrice;
 
@@ -132,7 +132,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
 
 
 
-        public CartItem returnCartItem()
+        public CartItem ReturnCartItem()
         {
             return sliceProduct;
         }

@@ -15,11 +15,11 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         private int Quantity = 1;
         private int InStock = 10;
 
-        public int getQuantity()
+        public int GetQuantity()
         {
             return this.Quantity;
         }
-        public void setQuantity(int quantity)
+        public void SetQuantity(int quantity)
         {
             this.Quantity = quantity;
             
@@ -38,10 +38,10 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         public Quantity_panel(int quantity, int inStock)
         {
             InitializeComponent();
-            setPanel(quantity, inStock);
+            SetPanel(quantity, inStock);
         }
 
-        public void setPanel( int inStock, int Quantity=1)
+        public void SetPanel( int inStock, int Quantity=1)
         {
             this.Quantity = Quantity;
             this.InStock = inStock;
@@ -59,7 +59,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         {
             if (this.Quantity < this.InStock)
             {
-                setQuantity(getQuantity()+1);
+                SetQuantity(GetQuantity()+1);
                 this.quantityLabel.Text = Quantity.ToString();
             }
         }
@@ -68,7 +68,7 @@ namespace WindowsFormsApp1.containers.usercontrols.controls
         {
             if (this.Quantity > 0)
             {
-                setQuantity(getQuantity() - 1);
+                SetQuantity(GetQuantity() - 1);
                 this.quantityLabel.Text = Quantity.ToString();
             }
 

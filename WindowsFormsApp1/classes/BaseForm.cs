@@ -30,7 +30,7 @@ namespace WindowsFormsApp1.classes
 
         public static void ResetMenu()   
         {
-            MainPanel_screen.getInstance().Controls.Clear();
+            MainPanel_screen.GetInstance().Controls.Clear();
             
             previousScreens.Clear(); // remove all elements from stack
 

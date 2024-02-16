@@ -61,12 +61,17 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void EmptyCartMessage()
         {
-            Label label = new Label();
-            label.Text = "Your cart is empty";
-            label.Font = new Font("Arial", 20);
-            label.Dock = DockStyle.Fill;
-            label.TextAlign = ContentAlignment.MiddleCenter;
-            //label.AutoSize = false;
+            Label label = new Label
+            {
+                Text = "Your cart is empty",
+                Font = new Font("Arial", 20),
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Size = cartPanel.Size
+
+            };
+            
+            
             Panel EmptyCartPanel = new Panel();  // possibly can add a picture here
 
             label.Size = cartPanel.Size;
