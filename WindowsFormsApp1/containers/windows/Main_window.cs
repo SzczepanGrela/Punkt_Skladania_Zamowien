@@ -131,7 +131,7 @@ namespace WindowsFormsApp1
     public static DialogResult OpenPopup(BasePopup_window newPopup)
     {
 
-        Size Main_windowSize = GetInstance().Size;
+        
         //newPopup.Size = new Size((int)(Main_windowSize.Width *0.9),(int)(Main_windowSize.Height *0.35));  
 
         // size of popup doesnt change, fix later 

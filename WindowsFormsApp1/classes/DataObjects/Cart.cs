@@ -22,7 +22,7 @@ namespace WindowsFormsApp1.classes.DataObjects
 
         protected Dictionary<int, CartItem> ProductsList = new Dictionary<int, CartItem>();
 
-        protected DateTime createdDate { get; set; }
+        protected DateTime CreatedDate { get; set; }
 
         protected string Status { get; set; }
 
@@ -45,7 +45,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             {
                 ID = cart[0].ID;
                 CustomerID = cart[0].CustomerID;
-                createdDate = cart[0].createdDate;
+                CreatedDate = cart[0].CreatedDate;
                 Status = cart[0].Status;
 
                 query =$"select * from CartItems inner join products on CartItems.ProductID = Products.ID where CartID = {ID}";
@@ -63,7 +63,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             else
             {
                 CustomerID = customerID;
-                createdDate = DateTime.Now;
+                CreatedDate = DateTime.Now;
                 Status = "Active";
                 dbm.InsertObject(this, "Carts", MapCartToSqlParameters);
             }
@@ -76,7 +76,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             {
                 ID = reader.GetInt32(reader.GetOrdinal("ID")),
                 CustomerID = reader.GetInt32(reader.GetOrdinal("CustomerID")),
-                createdDate = reader.GetDateTime(reader.GetOrdinal("CreatedDate")),
+                CreatedDate = reader.GetDateTime(reader.GetOrdinal("CreatedDate")),
                 Status = reader.GetString(reader.GetOrdinal("Status"))
 
             };
@@ -89,7 +89,7 @@ namespace WindowsFormsApp1.classes.DataObjects
             return new SqlParameter[]
             {
                       new SqlParameter("@CustomerID", cart.CustomerID),
-                      new SqlParameter("@CreatedDate", cart.createdDate),
+                      new SqlParameter("@CreatedDate", cart.CreatedDate),
                       new SqlParameter("@Status", cart.Status)
             };
         }

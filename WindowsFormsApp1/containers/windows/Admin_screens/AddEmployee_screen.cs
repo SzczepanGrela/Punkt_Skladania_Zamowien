@@ -24,7 +24,7 @@ namespace WindowsFormsApp1.containers.windows.Admin_screens
             Warehouse
         }
 
-        string name { get; set; }
+        
         public AddEmployee_screen()
         {
             InitializeComponent();
@@ -66,7 +66,7 @@ namespace WindowsFormsApp1.containers.windows.Admin_screens
             {
                 MessageBox.Show(ex.Message);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 MessageBox.Show("An error occured, try again");
                 ClearAllBoxes();
@@ -134,5 +134,7 @@ namespace WindowsFormsApp1.containers.windows.Admin_screens
                 }
             }
         }
+
+       
     }
 }

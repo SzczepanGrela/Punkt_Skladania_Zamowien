@@ -46,7 +46,7 @@ namespace WindowsFormsApp1.containers.windows.Admin_screens
                 MessageBox.Show(ex.Message);
                 return;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 MessageBox.Show("An error occured, try again");
             }

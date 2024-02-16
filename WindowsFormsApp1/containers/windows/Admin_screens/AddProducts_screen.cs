@@ -44,7 +44,7 @@ namespace WindowsFormsApp1.containers.windows.Admin_screens
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error ocurrued, try again");
+                MessageBox.Show("An error ocurrued, try again",ex.Message);
                 ClearBoxes();
                
             }

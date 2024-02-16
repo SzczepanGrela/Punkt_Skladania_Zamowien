@@ -107,12 +107,6 @@
     <Compile Include="containers\usercontrols\controls\Quantity_panel.Designer.cs">
       <DependentUpon>Quantity_panel.cs</DependentUpon>
     </Compile>
-    <Compile Include="containers\usercontrols\controls\testControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="containers\usercontrols\controls\testControl.Designer.cs">
-      <DependentUpon>testControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="containers\usercontrols\controls\Testing_cart_item_slice.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -301,9 +295,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\Quantity_panel.resx">
       <DependentUpon>Quantity_panel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="containers\usercontrols\controls\testControl.resx">
-      <DependentUpon>testControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\usercontrols\controls\Testing_cart_item_slice.resx">
       <DependentUpon>Testing_cart_item_slice.cs</DependentUpon>
