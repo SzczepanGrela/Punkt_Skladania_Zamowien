@@ -97,10 +97,18 @@ namespace WindowsFormsApp1.controls.usercontrols
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            localCart.GetShoppingCart().ClearCart();  // 0 is the shopping cart
-            this.cartPanel.Controls.Clear();
-            OnPriceChanged(this, new EventArgs());
-            EmptyCartMessage();
+            Popup_window_ok popup = new Popup_window_ok("Are you sure you want to clear your cart?");
+
+            popup.OpenPopup();
+            if (popup.DialogResult == DialogResult.OK)
+            {
+                localCart.GetShoppingCart().ClearCart();  
+                this.cartPanel.Controls.Clear();
+                OnPriceChanged(this, new EventArgs());
+                EmptyCartMessage();
+            }
+
+            
             
 
         }
